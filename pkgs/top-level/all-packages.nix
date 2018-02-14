@@ -16590,6 +16590,9 @@ in
 
   particl-core = res.altcoins.particl-core;
 
+  parity = self.altcoins.parity;
+  parity-beta = self.altcoins.parity-beta;
+
   aumix = callPackage ../applications/audio/aumix {
     gtkGUI = false;
   };
