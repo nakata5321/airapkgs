@@ -5487,6 +5487,8 @@ in {
   importlib-metadata = callPackage ../development/python-modules/importlib-metadata {};
 
   importlib-resources = callPackage ../development/python-modules/importlib-resources {};
+
+  lru-dict = callPackage ../development/python-modules/lru-dict { };
 });
 
 in fix' (extends overrides packages)
