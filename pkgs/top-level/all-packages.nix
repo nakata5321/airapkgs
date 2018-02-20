@@ -23813,6 +23813,8 @@ in
     stdenv = crossLibcStdenv;
   };
 
+  freeopcua = callPackage ../development/libraries/freeopcua { };
+
   # ROS
   mkRosPackage = callPackage ../build-support/ros { };
 
