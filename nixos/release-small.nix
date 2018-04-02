@@ -86,7 +86,8 @@ in rec {
       solc
       robonomics_dev
       robonomics_comm
-      robonomics_game;
+      robonomics_game
+      aira-quick-start;
   };
 
   tested = lib.hydraJob (pkgs.releaseTools.aggregate {
@@ -98,6 +99,7 @@ in rec {
     constituents =
       let all = x: map (system: x.${system}) supportedSystems; in
       [ nixpkgs.tarball
+        (all nixpkgs.aira-quick-start)
         (all nixpkgs.robonomics_dev)
         (all nixpkgs.robonomics_comm)
         (all nixpkgs.robonomics_game)
