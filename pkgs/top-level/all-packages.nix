@@ -23977,5 +23977,5 @@ in
 
   yanic = callPackage ../servers/mesh/yanic { };
 
-  meshviewer = callPackage ../servers/mesh/meshviewer { };
+  #meshviewer = callPackage ../servers/mesh/meshviewer { };
 }
