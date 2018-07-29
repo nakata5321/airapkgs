@@ -82,6 +82,7 @@ in rec {
       tarball
       vim
       parity
+      parity-beta
       solc
       robonomics_dev
       robonomics_comm
@@ -103,6 +104,7 @@ in rec {
         (all nixpkgs.robonomics_comm)
         (all nixpkgs.robonomics_game)
         (all nixpkgs.parity)
+        (all nixpkgs.parity-beta)
       ]
       ++ lib.collect lib.isDerivation nixos;
   });
