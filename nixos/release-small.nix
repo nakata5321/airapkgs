@@ -84,6 +84,7 @@ in rec {
       parity
       parity-beta
       solc
+      mavros
       robonomics_dev
       robonomics_comm
       robonomics_game
