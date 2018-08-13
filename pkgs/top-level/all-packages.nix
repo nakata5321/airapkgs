@@ -23958,6 +23958,8 @@ in
 
   uuid_msgs = callPackage ../development/ros-modules/uuid_msgs { };
 
+  tf = callPackage ../development/ros-modules/tf { };
+
   tf2 = callPackage ../development/ros-modules/tf2 { };
 
   tf2_py = callPackage ../development/ros-modules/tf2_py { };
