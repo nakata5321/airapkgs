@@ -85,6 +85,7 @@ in rec {
       parity-beta
       solc
       mavros
+      dji_sdk
       robonomics_dev
       robonomics_comm
       robonomics_game
