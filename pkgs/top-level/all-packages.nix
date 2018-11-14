@@ -23972,6 +23972,8 @@ in
 
   eigen_conversions = callPackage ../development/ros-modules/eigen_conversions { };
 
+  rosserial = callPackage ../development/ros-modules/rosserial { };
+
   dji_sdk = callPackage ../development/ros-modules/dji_sdk { };
 
   ros_opcua_communication = callPackage ../development/ros-modules/ros_opcua_communication { };
