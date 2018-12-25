@@ -23862,6 +23862,8 @@ in
 
   roslib = callPackage ../development/ros-modules/roslib { };
 
+  ros_environment = callPackage ../development/ros-modules/ros_environment { };
+
   rospack = callPackage ../development/ros-modules/rospack { };
 
   rosunit = callPackage ../development/ros-modules/rosunit { };
