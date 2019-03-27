@@ -16587,6 +16587,8 @@ in
   parity-ui = res.altcoins.parity-ui;
 
   polkadot = res.altcoins.polkadot;
+  substrate-node = res.altcoins.substrate-node;
+  substrate-node-robonomics = res.altcoins.substrate-node-robonomics;
 
   stellar-core = res.altcoins.stellar-core;
 

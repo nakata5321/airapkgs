@@ -98,6 +98,8 @@ rec {
   parity-ui = callPackage ./parity-ui { };
 
   polkadot = callPackage ./polkadot { };
+  substrate-node = callPackage ./substrate { };
+  substrate-node-robonomics = callPackage ./substrate/robonomics.nix { };
 
   particl-core = callPackage ./particl/particl-core.nix { miniupnpc = miniupnpc_2; };
 }
