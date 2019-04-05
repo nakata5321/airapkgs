@@ -16,7 +16,7 @@ rustPlatform.buildRustPackage rec {
     owner = "airalab";
     repo = "substrate-node-robonomics";
     rev = "v${version}";
-    sha256 = "15ghxjwpy19vhn36zb893bka8d8cpyb24hffw353knxb4lrrwcqr";
+    sha256 = "198qg8i7bssn60wddhbdrpilg5j209xydg1k5mldfr7nbsn8bs3n";
   }; 
 
   cargoSha256 = "11chizn479h94iisrgfkiijymd1ficq9zyppvxkwlf4a9ji8d2z1";
