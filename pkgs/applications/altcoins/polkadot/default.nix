@@ -15,7 +15,7 @@ rustPlatform.buildRustPackage rec {
     owner = "akru";
     repo = "polkadot";
     rev = "v${version}";
-    sha256 = "18xdjkwgwrzlypp6wb410r9p0lbrmd6j0isydrsp9492z3j1ki3v";
+    sha256 = "1in9nabgmprz8l8yykdijaq6x8vb54nn7gvpxwcn1w8r8m4rv6r4";
   }; 
 
   cargoSha256 = "067i8z6w5xc3swn8ldia1l42kpni8xiq0gs3jwr4hhn6fb26x5xd";
