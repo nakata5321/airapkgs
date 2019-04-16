@@ -10,16 +10,16 @@
 rustPlatform.buildRustPackage rec {
   name = "${pname}-${version}";
   pname = "substrate-node-robonomics";
-  version = "0.10.0";
+  version = "0.10.2";
 
   src = fetchFromGitHub {
     owner = "airalab";
     repo = "substrate-node-robonomics";
     rev = "v${version}";
-    sha256 = "198qg8i7bssn60wddhbdrpilg5j209xydg1k5mldfr7nbsn8bs3n";
+    sha256 = "04384qrda0dj44sas48kgwgjkv5bhjxfy6dzfl4ryh9h7f7f504v";
   }; 
 
-  cargoSha256 = "11chizn479h94iisrgfkiijymd1ficq9zyppvxkwlf4a9ji8d2z1";
+  cargoSha256 = "1bh9fjzcgvwgl621d24h5z0xvm7aj4z2amb80grgafdma4pbvv4b";
 
   buildInputs = [ pkgconfig openssl openssl.dev clang ];
   LIBCLANG_PATH = "${llvmPackages.libclang}/lib";
