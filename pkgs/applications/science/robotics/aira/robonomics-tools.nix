@@ -7,13 +7,13 @@
 
 mkDerivation rec {
   pname = "robonomics-tools";
-  version = "0.4.1.0";
+  version = "0.4.2.0";
 
   src = fetchFromGitHub {
     owner = "airalab";
     repo = pname;
     rev = "v${version}";
-    sha256 = "1jf42y6wsb4vwl8zbq2kf755fw2xx88zxjjffgah7fbhld2059qy";
+    sha256 = "0fxp7bf8g8f4j9qzr1l1mnmz6rdf9znkn4wwmkflzy981s9aglsw";
   };
 
   isLibrary = true;
