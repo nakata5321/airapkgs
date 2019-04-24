@@ -4420,7 +4420,11 @@ in {
 
   websockets = callPackage ../development/python-modules/websockets { };
 
-  Wand = callPackage ../development/python-modules/Wand { };
+  websockets6 = callPackage ../development/python-modules/websockets/6.nix { };
+
+  Wand = callPackage ../development/python-modules/Wand {
+    imagemagick = pkgs.imagemagickBig;
+  };
 
   wcwidth = callPackage ../development/python-modules/wcwidth { };
 
