@@ -5487,24 +5487,6 @@ in {
   importlib-metadata = callPackage ../development/python-modules/importlib-metadata {};
 
   importlib-resources = callPackage ../development/python-modules/importlib-resources {};
-
-  srptools = callPackage ../development/python-modules/srptools { };
-
-  curve25519-donna = callPackage ../development/python-modules/curve25519-donna { };
-
-  pyatv = callPackage ../development/python-modules/pyatv { };
-
-  pybotvac = callPackage ../development/python-modules/pybotvac { };
-
-  pytado = callPackage ../development/python-modules/pytado { };
-
-  casttube = callPackage ../development/python-modules/casttube { };
-
-  lzstring = callPackage ../development/python-modules/lzstring { };
-
-  flickrapi = callPackage ../development/python-modules/flickrapi { };
-
-  aioesphomeapi = callPackage ../development/python-modules/aioesphomeapi { };
 });
 
 in fix' (extends overrides packages)
