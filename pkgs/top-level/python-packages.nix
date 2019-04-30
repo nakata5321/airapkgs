@@ -4418,9 +4418,7 @@ in {
 
   websockets6 = callPackage ../development/python-modules/websockets/6.nix { };
 
-  Wand = callPackage ../development/python-modules/Wand {
-    imagemagick = pkgs.imagemagickBig;
-  };
+  Wand = callPackage ../development/python-modules/Wand { };
 
   wcwidth = callPackage ../development/python-modules/wcwidth { };
 
@@ -5525,6 +5523,25 @@ in {
   catkin_tools = callPackage ../development/python-modules/catkin_tools { };
 
   osrf_pycommon = callPackage ../development/python-modules/osrf_pycommon { };
+
+  srptools = callPackage ../development/python-modules/srptools { };
+
+  curve25519-donna = callPackage ../development/python-modules/curve25519-donna { };
+
+  pyatv = callPackage ../development/python-modules/pyatv { };
+
+  pybotvac = callPackage ../development/python-modules/pybotvac { };
+
+  pytado = callPackage ../development/python-modules/pytado { };
+
+  casttube = callPackage ../development/python-modules/casttube { };
+
+  lzstring = callPackage ../development/python-modules/lzstring { };
+
+  flickrapi = callPackage ../development/python-modules/flickrapi { };
+
+  aioesphomeapi = callPackage ../development/python-modules/aioesphomeapi { };
+
 });
 
 in fix' (extends overrides packages)
