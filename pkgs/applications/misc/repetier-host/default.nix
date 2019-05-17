@@ -47,7 +47,7 @@ stdenv.mkDerivation rec {
       discourage people from operating their printers.
     '';
     homepage = https://www.repetier.com/;
-    license = licenses.agpl2;   
+    license = licenses.agpl3;
     platforms = platforms.linux;   
     maintainers = with maintainers; [ spd ];
   };
