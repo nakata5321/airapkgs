@@ -4659,6 +4659,11 @@
     github = "spacekookie";
     name = "Katharina Fey";
   };
+  spd = {
+    email = "spd@aira.life";
+    github = "PavelSheremetev";
+    name = "Pavel Sheremetev";
+  };
   spencerjanssen = {
     email = "spencerjanssen@gmail.com";
     github = "spencerjanssen";
