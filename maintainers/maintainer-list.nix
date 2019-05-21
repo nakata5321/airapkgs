@@ -762,6 +762,11 @@
     github = "brian-dawn";
     name = "Brian Dawn";
   };
+  brianhicks = {
+    email = "brian@brianthicks.com";
+    github = "BrianHicks";
+    name = "Brian Hicks";
+  };
   bricewge = {
     email = "bricewge@gmail.com";
     github = "bricewge";
@@ -1354,9 +1359,13 @@
     name = "David Sferruzza";
   };
   dtzWill = {
-    email = "nix@wdtz.org";
+    email = "w@wdtz.org";
     github = "dtzWill";
     name = "Will Dietz";
+    keys = [{
+      longkeyid = "rsa4096/0xFD42C7D0D41494C8";
+      fingerprint = "389A 78CB CD88 5E0C 4701  DEB9 FD42 C7D0 D414 94C8";
+    }];
   };
   dxf = {
     email = "dingxiangfei2009@gmail.com";
@@ -1737,6 +1746,13 @@
     github = "fps";
     name = "Florian Paul Schmidt";
   };
+  
+  fragamus = {
+    email = "innovative.engineer@gmail.com";
+    github = "fragamus";
+    name = "Michael Gough";
+  };
+  
   fredeb = {
     email = "im@fredeb.dev";
     github = "fredeeb";
@@ -3989,6 +4005,11 @@
     github = "Ptival";
     name = "Valentin Robert";
   };
+  ptrhlm = {
+    email = "ptrhlm0@gmail.com";
+    github = "ptrhlm";
+    name = "Piotr Halama";
+  };
   puffnfresh = {
     email = "brian@brianmckenna.org";
     github = "puffnfresh";
@@ -4478,6 +4499,11 @@
     email = "sfrijters@gmail.com";
     github = "sfrijters";
     name = "Stefan Frijters";
+  };
+  sgraf = {
+    email = "sgraf1337@gmail.com";
+    github = "sgraf812";
+    name = "Sebastian Graf";
   };
   shanemikel = {
     email = "shanemikel1@gmail.com";
