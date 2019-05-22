@@ -16795,6 +16795,8 @@ in
 
   particl-core = res.altcoins.particl-core;
 
+  grin-node = res.altcoins.grin;
+
   aumix = callPackage ../applications/audio/aumix {
     gtkGUI = false;
   };

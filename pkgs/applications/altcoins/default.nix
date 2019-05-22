@@ -102,4 +102,6 @@ rec {
   substrate-node-robonomics = callPackage ./substrate/robonomics.nix { };
 
   particl-core = callPackage ./particl/particl-core.nix { miniupnpc = miniupnpc_2; };
+
+  grin = callPackage ./grin { };
 }
