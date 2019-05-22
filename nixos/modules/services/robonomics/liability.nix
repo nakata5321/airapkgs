@@ -93,7 +93,6 @@ in {
       # IPFS network client
       ipfs = {
         enable = true;
-        pubsubExperiment = true;
         extraConfig = {
           Bootstrap = [
             "/dns4/lighthouse.aira.life/tcp/4001/ipfs/QmdfQmbmXt6sqjZyowxPUsmvBsgSGQjm4VXrV7WGy62dv8"
