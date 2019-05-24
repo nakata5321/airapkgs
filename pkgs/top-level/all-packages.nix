@@ -24310,6 +24310,8 @@ in
 
   djiosdk = callPackage ../development/libraries/science/robotics/djiosdk { };
 
+  websocket-star-rendezvous = nodePackages.libp2p-websocket-star-rendezvous;
+
   bemenu = callPackage ../applications/misc/bemenu { };
 
 }

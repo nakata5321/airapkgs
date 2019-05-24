@@ -76,6 +76,8 @@ in rec {
       mavros
       dji_sdk
 
+      websocket-star-rendezvous
+
       robonomics_dev
       robonomics_comm
       robonomics_comm-nightly
