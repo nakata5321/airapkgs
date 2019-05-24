@@ -32,10 +32,10 @@ in rec {
     inherit (nixos') channel;
     tests = {
       inherit (nixos'.tests)
-        ipfs
         ipv6
-        cjdns
         parity;
+        #ipfs
+        #cjdns
         #liability;
     };
   };
