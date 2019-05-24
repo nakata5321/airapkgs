@@ -705,6 +705,7 @@
   ./services/networking/zerotierone.nix
   ./services/networking/znc/default.nix
   ./services/printing/cupsd.nix
+  ./services/robonomics/ipfs-subscriber.nix
   ./services/robonomics/liability.nix
   ./services/robonomics/erc20.nix
   ./services/robonomics/xrtd.nix
