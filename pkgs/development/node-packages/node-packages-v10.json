@@ -65,6 +65,7 @@
 , "lerna"
 , "less"
 , "less-plugin-clean-css"
+, "libp2p-websocket-star-rendezvous"
 , "live-server"
 , "livedown"
 , { "lumo-build-deps": "../interpreters/clojurescript/lumo" }
