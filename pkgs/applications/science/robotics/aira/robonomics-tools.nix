@@ -1,44 +1,31 @@
 { mkDerivation, aeson, async, base, base58-bytestring, bytestring
-, concurrent-machines, containers, cryptonite, data-default
-, exceptions, generics-sop, hashable, hpack, machines, memory
+, exceptions, generics-sop, hashable, hpack, pipes, memory
 , microlens, monad-control, monad-logger, mtl, optparse-applicative
-, process, secp256k1-haskell, stdenv, text, web3, fetchFromGitHub
+, containers, cryptonite, data-default, process, stdenv, text, web3
+, fetchFromGitHub
 }:
 
 mkDerivation rec {
   pname = "robonomics-tools";
-  version = "0.4.2.0";
+  version = "0.5.0.0";
 
   src = fetchFromGitHub {
     owner = "airalab";
     repo = pname;
     rev = "v${version}";
-    sha256 = "0fxp7bf8g8f4j9qzr1l1mnmz6rdf9znkn4wwmkflzy981s9aglsw";
+    sha256 = "0dvqxaydliksq7cgypqdvdpqa803ffi1rdd29iwi7khvgdffrazj";
   };
 
-  isLibrary = true;
+  isLibrary = false;
   isExecutable = true;
 
-  libraryHaskellDepends = [
-    aeson async base base58-bytestring bytestring concurrent-machines
-    containers cryptonite data-default exceptions generics-sop hashable
-    machines memory microlens monad-control monad-logger mtl
-    optparse-applicative process text web3
-  ];
-  libraryToolDepends = [ hpack ];
+  preConfigure = "${hpack}/bin/hpack";
   executableHaskellDepends = [
-    aeson async base base58-bytestring bytestring concurrent-machines
-    containers cryptonite data-default exceptions generics-sop hashable
-    machines memory microlens monad-control monad-logger mtl
+    aeson async base base58-bytestring bytestring pipes
+    containers cryptonite data-default exceptions generics-sop
+    memory microlens monad-control monad-logger mtl hashable
     optparse-applicative process text web3
   ];
-  testHaskellDepends = [
-    aeson async base base58-bytestring bytestring concurrent-machines
-    containers cryptonite data-default exceptions generics-sop hashable
-    machines memory microlens monad-control monad-logger mtl
-    optparse-applicative process text web3
-  ];
-  preConfigure = "hpack";
 
   homepage = "https://github.com/airalab/robonomics-tools#readme";
   description = "Robonomics.network tools";
