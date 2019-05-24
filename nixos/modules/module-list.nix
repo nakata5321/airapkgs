@@ -690,6 +690,7 @@
   ./services/networking/unifi.nix
   ./services/networking/vsftpd.nix
   ./services/networking/wakeonlan.nix
+  ./services/networking/websocket-star.nix
   ./services/networking/websockify.nix
   ./services/networking/wg-quick.nix
   ./services/networking/wicd.nix
