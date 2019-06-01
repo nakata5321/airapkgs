@@ -1,4 +1,4 @@
-{ mkDerivation, aeson, async, base, base58-bytestring, bytestring
+{ mkDerivation, aeson, async, base, base58string, bytestring
 , exceptions, generics-sop, hashable, hpack, pipes, memory
 , microlens, monad-control, monad-logger, mtl, optparse-applicative
 , containers, cryptonite, data-default, process, stdenv, text, web3
@@ -7,13 +7,13 @@
 
 mkDerivation rec {
   pname = "robonomics-tools";
-  version = "0.5.0.0";
+  version = "0.5.1.0";
 
   src = fetchFromGitHub {
     owner = "airalab";
     repo = pname;
     rev = "v${version}";
-    sha256 = "0dvqxaydliksq7cgypqdvdpqa803ffi1rdd29iwi7khvgdffrazj";
+    sha256 = "1cv8mfx7gzic2xxsfhallhap1c50b6fwxc4rwr8xm7adwxbbwslb";
   };
 
   isLibrary = false;
@@ -21,7 +21,7 @@ mkDerivation rec {
 
   preConfigure = "${hpack}/bin/hpack";
   executableHaskellDepends = [
-    aeson async base base58-bytestring bytestring pipes
+    aeson async base base58string bytestring pipes
     containers cryptonite data-default exceptions generics-sop
     memory microlens monad-control monad-logger mtl hashable
     optparse-applicative process text web3
