@@ -1320,6 +1320,8 @@ in
     xcbuildHook = xcbuild6Hook;
   };
 
+  colorls = callPackage ../tools/system/colorls { };
+
   compsize = callPackage ../os-specific/linux/compsize { };
 
   coturn = callPackage ../servers/coturn { };
@@ -1362,9 +1364,7 @@ in
 
   ddate = callPackage ../tools/misc/ddate { };
 
-  dedup = callPackage ../tools/backup/dedup {
-    inherit (llvmPackages) openmp;
-  };
+  dedup = callPackage ../tools/backup/dedup { };
 
   dehydrated = callPackage ../tools/admin/dehydrated { };
 
@@ -3067,7 +3067,7 @@ in
     foundationdb61
   ;
 
-  foundationdb = foundationdb60;
+  foundationdb = foundationdb61;
 
   fuse-7z-ng = callPackage ../tools/filesystems/fuse-7z-ng { };
 
@@ -3527,11 +3527,13 @@ in
 
   halibut = callPackage ../tools/typesetting/halibut { };
 
-  halide = callPackage ../development/compilers/halide { };
+  halide = callPackage ../development/compilers/halide { llvmPackages=llvmPackages_6; };
 
   ham = pkgs.perlPackages.ham;
 
   hardinfo = callPackage ../tools/system/hardinfo { };
+
+  hcxtools = callPackage ../tools/security/hcxtools { };
 
   hdapsd = callPackage ../os-specific/linux/hdapsd { };
 
@@ -4082,7 +4084,7 @@ in
 
   matrix-synapse = callPackage ../servers/matrix-synapse { };
 
-  mautrix-telegram = callPackage ../servers/mautrix-telegram { };
+  mautrix-telegram = recurseIntoAttrs (callPackage ../servers/mautrix-telegram { });
 
   mautrix-whatsapp = callPackage ../servers/mautrix-whatsapp { };
 
@@ -5471,6 +5473,8 @@ in
   quilt = callPackage ../development/tools/quilt { };
 
   quota = if stdenv.isLinux then linuxquota else unixtools.quota;
+
+  qview = libsForQt5.callPackage ../applications/graphics/qview {};
 
   wiggle = callPackage ../development/tools/wiggle { };
 
@@ -7133,8 +7137,6 @@ in
 
   compcert = callPackage ../development/compilers/compcert { };
 
-  cpp-gsl = callPackage ../development/libraries/cpp-gsl { };
-
   cryptol = haskell.lib.justStaticExecutables haskellPackages.cryptol;
 
   inherit (callPackages ../development/compilers/crystal {
@@ -8620,26 +8622,6 @@ in
 
   ### DEVELOPMENT / MISC
 
-  amdadlsdk = callPackage ../development/misc/amdadl-sdk { };
-
-  amdappsdk26 = amdappsdk.override {
-    version = "2.6";
-  };
-
-  amdappsdk27 = amdappsdk.override {
-    version = "2.7";
-  };
-
-  amdappsdk28 = amdappsdk.override {
-    version = "2.8";
-  };
-
-  amdappsdk = callPackage ../development/misc/amdapp-sdk { };
-
-  amdappsdkFull = amdappsdk.override {
-    samples = true;
-  };
-
   amtk = callPackage ../development/libraries/amtk { };
 
   avrlibc      = callPackage ../development/misc/avr/libc {};
@@ -9712,6 +9694,8 @@ in
     inherit (darwin.apple_sdk.frameworks) CoreFoundation;
   };
 
+  uefi-firmware-parser = callPackage ../development/tools/analysis/uefi-firmware-parser { };
+
   uhd = callPackage ../applications/radio/uhd { };
 
   uisp = callPackage ../development/tools/misc/uisp { };
@@ -10626,12 +10610,10 @@ in
   gsettings-qt = libsForQt5.callPackage ../development/libraries/gsettings-qt { };
 
   gst_all_1 = recurseIntoAttrs(callPackage ../development/libraries/gstreamer {
-    callPackage = pkgs.newScope (pkgs // { libav = pkgs.ffmpeg; });
+    callPackage = newScope { libav = pkgs.ffmpeg; };
   });
 
-  gstreamer = callPackage ../development/libraries/gstreamer/legacy/gstreamer {
-    bison = bison2;
-  };
+  gstreamer = callPackage ../development/libraries/gstreamer/legacy/gstreamer { };
 
   gst-plugins-base = callPackage ../development/libraries/gstreamer/legacy/gst-plugins-base {
     inherit (darwin.apple_sdk.frameworks) ApplicationServices;
@@ -14164,6 +14146,8 @@ in
 
   elasticmq = callPackage ../servers/elasticmq { };
 
+  elasticmq-server-bin = callPackage ../servers/elasticmq-server-bin { };
+
   eventstore = callPackage ../servers/nosql/eventstore {
     Nuget = dotnetPackages.Nuget;
   };
@@ -15955,6 +15939,8 @@ in
     ubootOrangePiZeroPlus2H5
     ubootPcduino3Nano
     ubootPine64
+    ubootPine64LTS
+    ubootPinebook
     ubootQemuAarch64
     ubootQemuArm
     ubootRaspberryPi
@@ -16377,6 +16363,8 @@ in
   media-player-info = callPackage ../data/misc/media-player-info {};
 
   medio = callPackage ../data/fonts/medio { };
+
+  mno16 = callPackage ../data/fonts/mno16 { };
 
   mnist = callPackage ../data/machine-learning/mnist { };
 
@@ -17075,9 +17063,7 @@ in
     inherit (python3Packages) python wrapPython pygments markdown;
   };
 
-  cgminer = callPackage ../applications/misc/cgminer {
-    amdappsdk = amdappsdk28;
-  };
+  cgminer = callPackage ../applications/misc/cgminer { };
 
   chirp = callPackage ../applications/radio/chirp {
     inherit (pythonPackages) pyserial pygtk;
@@ -18015,12 +18001,6 @@ in
   };
 
   freerdpUnstable = freerdp;
-
-  # This must go when weston v2 is released
-  freerdp_legacy = callPackage ../applications/networking/remote/freerdp/legacy.nix {
-    cmake = cmake_2_8;
-    ffmpeg = ffmpeg_2;
-  };
 
   fte = callPackage ../applications/editors/fte { };
 
@@ -19399,6 +19379,8 @@ in
     stdenv = overrideCC stdenv gcc6;
   };
 
+  openimageio2 = callPackage ../applications/graphics/openimageio/2.x.nix { };
+
   openjump = callPackage ../applications/misc/openjump { };
 
   openorienteering-mapper = libsForQt5.callPackage ../applications/gis/openorienteering-mapper { };
@@ -20745,9 +20727,7 @@ in
 
   chatterino2 = libsForQt5.callPackage ../applications/networking/instant-messengers/chatterino2 {};
 
-  weston = callPackage ../applications/window-managers/weston {
-    freerdp = freerdp_legacy;
-  };
+  weston = callPackage ../applications/window-managers/weston { };
 
   whitebox-tools = callPackage ../applications/gis/whitebox-tools {
     inherit (darwin.apple_sdk.frameworks) Security;
@@ -23533,6 +23513,8 @@ in
 
   redis-desktop-manager = libsForQt5.callPackage ../applications/misc/redis-desktop-manager { };
 
+  robin-map = callPackage ../development/libraries/robin-map { };
+
   robo3t = callPackage ../applications/misc/robo3t { };
 
   rucksack = callPackage ../development/tools/rucksack { };
@@ -23757,6 +23739,8 @@ in
   ib-tws = callPackage ../applications/office/ib/tws { jdk=oraclejdk8; };
 
   ib-controller = callPackage ../applications/office/ib/controller { jdk=oraclejdk8; };
+
+  vnote = libsForQt5.callPackage ../applications/office/vnote { };
 
   ssh-audit = callPackage ../tools/security/ssh-audit { };
 

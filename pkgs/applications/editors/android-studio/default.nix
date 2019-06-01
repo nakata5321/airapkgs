@@ -13,14 +13,14 @@ let
     sha256Hash = "0y4l9d1yrvv1csx6vl4jnqgqy96y44rl6p8hcxrnbvrg61iqnj30";
   };
   betaVersion = {
-    version = "3.5.0.14"; # "Android Studio 3.5 Beta 2"
-    build = "191.5549111";
-    sha256Hash = "1zy2x0m1nsx3yy64cp1jvgb9aqkribwm64mv50g9355sdz7qjhcf";
+    version = "3.5.0.15"; # "Android Studio 3.5 Beta 3"
+    build = "191.5585527";
+    sha256Hash = "0b9yj3rf3nk8y9qfmf5kjh8rwn73v7ghym1bhz864r079h7lwr53";
   };
   latestVersion = { # canary & dev
-    version = "3.6.0.1"; # "Android Studio 3.6 Canary 1"
-    build = "191.5595896";
-    sha256Hash = "1nd0xmq1aplznxbsnmzgszbblj6vdyhir708mks5ss6achn21xxc";
+    version = "3.6.0.2"; # "Android Studio 3.6 Canary 2"
+    build = "191.5599242";
+    sha256Hash = "0aivw3lz09v7sq28ply9nczaxkwdlkb5byr8yym5qydkcv35x9gl";
   };
 in rec {
   # Attributes are named by their corresponding release channels
