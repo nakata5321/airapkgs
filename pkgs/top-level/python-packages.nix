@@ -5681,6 +5681,8 @@ in {
 
   aioesphomeapi = callPackage ../development/python-modules/aioesphomeapi { };
 
+  fastecdsa = callPackage ../development/python-modules/fastecdsa { };
+
 });
 
 in fix' (extends overrides packages)
