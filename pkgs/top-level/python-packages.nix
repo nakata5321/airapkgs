@@ -5683,6 +5683,8 @@ in {
 
   fastecdsa = callPackage ../development/python-modules/fastecdsa { };
 
+  pysodium = callPackage ../development/python-modules/pysodium { };
+
 });
 
 in fix' (extends overrides packages)
