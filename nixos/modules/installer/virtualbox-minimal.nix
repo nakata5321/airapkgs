@@ -13,8 +13,4 @@ with lib;
 
   # Disable X11 for minimal image
   virtualisation.virtualbox.guest.x11 = false;
-
-  # Root autologin
-  users.extraUsers.root.initialHashedPassword = "";
-  services.mingetty.autologinUser = "root";
 }

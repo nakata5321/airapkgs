@@ -40,6 +40,10 @@
   # Allow the user to log in as root without a password.
   users.extraUsers.root.shell = pkgs.zsh;
 
+  # Root autologin
+  users.extraUsers.root.initialHashedPassword = "";
+  services.mingetty.autologinUser = "root";
+
   # Useful preinstall utils
   environment.systemPackages = with pkgs; [
     vim git htop screen mosh cmake gcc robonomics-tools
