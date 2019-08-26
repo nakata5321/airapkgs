@@ -2,7 +2,7 @@
 , fetchFromGitHub
 , pkgs
 , makeWrapper
-, nodejs-8_x
+, nodejs-10_x
 , buildEnv
 }:
 
@@ -38,7 +38,7 @@ in stdenv.mkDerivation rec {
   patches = [ ./cache-on-tmpdir.patch ];
 
   nativeBuildInputs = [ makeWrapper ];
-  buildInputs = [ nodejs-8_x ];
+  buildInputs = [ nodejs-10_x ];
 
   buildPhase = ''
     mkdir -p $out/bin
