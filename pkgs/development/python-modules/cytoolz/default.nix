@@ -10,11 +10,11 @@
 
 buildPythonPackage rec {
   pname = "cytoolz";
-  version = "0.9.0.1";
+  version = "0.10.0";
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "84cc06fa40aa310f2df79dd440fc5f84c3e20f01f9f7783fc9c38d0a11ba00e5";
+    sha256 = "ed9f6a07c2bac70d6c597df360d0666d11d2adc90141d54c5c2db08b380a4fac";
   };
 
   # Extension types
