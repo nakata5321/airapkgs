@@ -22,7 +22,7 @@ in buildPythonPackage rec {
     sha256 = "1m4jf1s0f71r42h3j7vpp2szpwq9kbsrlvdz5dcs5rwwlndjpxqw";
   };
 
-  patches = [ ./append-sid-tld.patch ];
+  patches = [ ./append-sid-tld.patch ./normalizer-ignore-network.patch ];
 
   propagatedBuildInputs = [ lru-dict requests eth-abi eth-account websockets6 ];
 
