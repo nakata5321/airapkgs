@@ -6718,6 +6718,12 @@
     githubId = 508305;
     name = "Jaroslavas Pocepko";
   };
+  vourhey = {
+    email = "vadim.razorq@gmail.com";
+    github = "vourhey";
+    githubId = 709124;
+    name = "Vadim Manaenko";
+  };
   vozz = {
     email = "oliver.huntuk@gmail.com";
     name = "Oliver Hunt";
