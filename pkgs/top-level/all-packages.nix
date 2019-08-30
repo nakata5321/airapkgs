@@ -25052,6 +25052,14 @@ in
 
   robonomics_dev = callPackage ../applications/science/robotics/aira/robonomics_dev { };
 
+  de_direct = callPackage ../applications/science/robotics/aira/de_direct {  };
+
+  drone_flight_report = callPackage ../applications/science/robotics/aira/drone_flight_report {  };
+
+  issuing-service-agent = callPackage ../applications/science/robotics/aira/issuing_service_agent {  };
+
+  complier_service = callPackage ../applications/science/robotics/aira/complier_service {  };
+
   de_dev = callPackage ../applications/science/robotics/aira/de_dev { };
 
   yanic = callPackage ../servers/mesh/yanic { };
