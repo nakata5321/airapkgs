@@ -2432,6 +2432,8 @@ in {
 
   ipfsapi = callPackage ../development/python-modules/ipfsapi { };
 
+  varint = callPackage ../development/python-modules/varint { };
+
   multiaddr = callPackage ../development/python-modules/multiaddr { };
 
   isbnlib = callPackage ../development/python-modules/isbnlib { };
