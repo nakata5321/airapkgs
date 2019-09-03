@@ -152,12 +152,14 @@
   ./programs/tmux.nix
   ./programs/tsm-client.nix
   ./programs/udevil.nix
+  ./programs/usbtop.nix
   ./programs/venus.nix
   ./programs/vim.nix
   ./programs/wavemon.nix
   ./programs/way-cooler.nix
   ./programs/waybar.nix
   ./programs/wireshark.nix
+  ./programs/x2goserver.nix
   ./programs/xfs_quota.nix
   ./programs/xonsh.nix
   ./programs/xss-lock.nix
@@ -214,8 +216,6 @@
   ./services/backup/bacula.nix
   ./services/backup/borgbackup.nix
   ./services/backup/duplicati.nix
-  ./services/backup/crashplan.nix
-  ./services/backup/crashplan-small-business.nix
   ./services/backup/duplicity.nix
   ./services/backup/mysql-backup.nix
   ./services/backup/postgresql-backup.nix
@@ -376,6 +376,7 @@
   ./services/mail/mail.nix
   ./services/mail/mailcatcher.nix
   ./services/mail/mailhog.nix
+  ./services/mail/mailman.nix
   ./services/mail/mlmmj.nix
   ./services/mail/offlineimap.nix
   ./services/mail/opendkim.nix
@@ -779,6 +780,7 @@
   ./services/system/uptimed.nix
   ./services/torrent/deluge.nix
   ./services/torrent/flexget.nix
+  ./services/torrent/magnetico.nix
   ./services/torrent/opentracker.nix
   ./services/torrent/peerflix.nix
   ./services/torrent/transmission.nix
@@ -798,6 +800,7 @@
   ./services/web-apps/mattermost.nix
   ./services/web-apps/mediawiki.nix
   ./services/web-apps/miniflux.nix
+  ./services/web-apps/moodle.nix
   ./services/web-apps/nextcloud.nix
   ./services/web-apps/nexus.nix
   ./services/web-apps/pgpkeyserver-lite.nix
@@ -811,6 +814,7 @@
   ./services/web-apps/zabbix.nix
   ./services/web-servers/apache-httpd/default.nix
   ./services/web-servers/caddy.nix
+  ./services/web-servers/darkhttpd.nix
   ./services/web-servers/fcgiwrap.nix
   ./services/web-servers/hitch/default.nix
   ./services/web-servers/hydron.nix
