@@ -195,10 +195,21 @@ in rec {
 
   );
 
+  # A disk image that can be imported to Amazon EC2 and registered as an AMI
+  amazonImage = forMatchingSystems [ "x86_64-linux" "aarch64-linux" ] (system:
+    with import nixpkgs { inherit system; };
+
+    hydraJob ((import lib/eval-config.nix {
+      inherit system;
+      modules =
+        [ versionModule
+          ./maintainers/scripts/ec2/amazon-image.nix
+        ];
+    }).config.system.build.amazonImage)
+  );
 
   # A bootable VirtualBox virtual appliance as an OVA file (i.e. packaged OVF).
   ova_minimal = forMatchingSystems [ "x86_64-linux" ] (system:
-
     with import nixpkgs { inherit system; };
 
     hydraJob ((import lib/eval-config.nix {
@@ -213,7 +224,6 @@ in rec {
 
 
   docker_image = forMatchingSystems [ "x86_64-linux" ] (system:
-
     with import nixpkgs { inherit system; };
 
     hydraJob ((import lib/eval-config.nix {
@@ -223,7 +233,6 @@ in rec {
           ./modules/virtualisation/docker-image.nix
         ];
     }).config.system.build.tarball)
-
   );
 
 
