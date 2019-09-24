@@ -7,8 +7,8 @@
 }:
 
 let
-  rev = "4a921c441cab33f69bf3604e3c3a7ddf9c46ed31";
-  sha256 = "0i66fdjg00v3gfyf90vyrba3jvvhp6i64h7x454y2yg4nz1hbvnl";
+  rev = "452c279c38f6135636bf089583ea9117ad44826b";
+  sha256 = "1ch359gdz564snvvykabnxrhx13y2n3jlp498i1fvc89nwns12q4";
 
 in mkRosPackage rec {
   name = "${pname}-${version}";
@@ -22,7 +22,7 @@ in mkRosPackage rec {
   };
 
   propagatedBuildInputs = with python3Packages;
-  [ ros_comm web3 multihash voluptuous ipfsapi python-persistent-queue ];
+  [ ros_comm web3 multihash voluptuous ipfshttpclient python-persistent-queue ];
 
   postInstall = ''
     patch $out/lib/${python3.libPrefix}/site-packages/ethereum_common/msg/_UInt256.py $src/ethereum_common/msg/_UInt256.py.patch
