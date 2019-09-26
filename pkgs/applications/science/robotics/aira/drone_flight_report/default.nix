@@ -8,20 +8,20 @@
 mkRosPackage rec {
   name = "${pname}-${version}";
   pname = "drone_flight_report";
-  version = "master";
+  version = "0.4.0";
 
   src = fetchFromGitHub {
-    owner = "Vourhey";
+    owner = "DistributedSky";
     repo = "${pname}";
-    rev = "5cff6ef99989172f0ca0e5f6933e1e91538c2a18";
-    sha256 = "sha256:1h7yka9lcyddi5nivg3zq9bz9hvi2c3hi9q105m8m3qp1mq5i1gy";
+    rev = "bb51e628e50552cc065b2a782ab1936f787d34f5";
+    sha256 = "sha256:0n0dcqx1z9kfbmznfk2nxcdil55sskay170xh1q23q38r1djlkrs";
   };
 
   propagatedBuildInputs = [ robonomics_comm ];
 
   meta = with stdenv.lib; {
     description = "Service to register a drone flight via Robonmics Network";
-    homepage = http://github.com/vourhey/drone_flight_report;
+    homepage = http://github.com/DistributedSky/drone_flight_report;
     license = licenses.bsd3;
     maintainers = with maintainers; [ vourhey ];
   };
