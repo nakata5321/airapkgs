@@ -21,14 +21,14 @@
 mkRosPackage rec {
   name = "${pname}-${version}";
   pname = "mavros";
-  version = "0.27.0";
+  version = "0.32.2";
   rosdistro = "melodic";
 
   src = fetchFromGitHub {
     owner = "mavlink";
     repo = "mavros-release";
     rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "17m0vlj2hzmrf0ysi7l5frfhy0xif1a2430hd5s3vh1kg5mwn2kz";
+    sha256 = "0cx5zjj2ncq5nc4a6rhwpl5cy9abqs38s1i91v34bck4qd34sdsx";
   };
 
   propagatedBuildInputs = [
