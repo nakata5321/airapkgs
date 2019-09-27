@@ -15,10 +15,6 @@ in
       ++ stdenv.lib.optionals stdenv.isDarwin [ CoreFoundation libiconv ];
   };
 
-  cargo-vendor = attrs: {
-    buildInputs = [ openssl zlib curl ];
-  };
-
   libz-sys = attrs: {
     buildInputs = [ pkgconfig zlib ];
     extraLinkFlags = ["-L${zlib.out}/lib"];

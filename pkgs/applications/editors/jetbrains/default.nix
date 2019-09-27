@@ -1,6 +1,6 @@
 { lib, stdenv, callPackage, fetchurl
 , python
-, jdk, cmake, libxml2, zlib, python3, ncurses
+, jdk, cmake, libxml2, zlib, python3, ncurses5
 }:
 
 with stdenv.lib;
@@ -34,7 +34,7 @@ let
 
           lldbLibPath=$out/clion-${version}/bin/lldb/linux/lib
           interp="$(cat $NIX_CC/nix-support/dynamic-linker)"
-          ln -s ${ncurses.out}/lib/libncurses.so $lldbLibPath/libtinfo.so.5
+          ln -s ${ncurses5.out}/lib/libtinfo.so.5 $lldbLibPath/libtinfo.so.5
 
           patchelf --set-interpreter $interp \
             --set-rpath "${lib.makeLibraryPath [ libxml2 zlib stdenv.cc.cc.lib ]}:$lldbLibPath" \
@@ -134,7 +134,7 @@ let
           as IntelliJ.
         '';
         maintainers = with maintainers; [ edwtjo ];
-        platforms = platforms.linux;
+        platforms = platforms.linux ++ platforms.darwin;
       };
     });
 
@@ -201,11 +201,11 @@ let
         platforms = platforms.linux;
       };
     }) (attrs: {
-      patchPhase = attrs.patchPhase + ''
+      patchPhase = lib.optionalString (!stdenv.isDarwin) (attrs.patchPhase + ''
         # Patch built-in mono for ReSharperHost to start successfully
         interpreter=$(echo ${stdenv.glibc.out}/lib/ld-linux*.so.2)
         patchelf --set-interpreter "$interpreter" lib/ReSharperHost/linux-x64/mono/bin/mono-sgen
-      '';
+      '');
     });
 
   buildRubyMine = { name, version, src, license, description, wmClass, ... }:
