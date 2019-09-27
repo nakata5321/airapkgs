@@ -21780,6 +21780,8 @@ in
   parity-ui = callPackage ../applications/blockchains/parity-ui { };
 
   polkadot = callPackage ../applications/blockchains/polkadot { };
+  substrate-node = callPackage ../applications/blockchains/substrate { };
+  substrate-node-robonomics = callPackage ../applications/blockchains/substrate/robonomics.nix { };
 
   particl-core = callPackage ../applications/blockchains/particl/particl-core.nix { miniupnpc = miniupnpc_2; };
 

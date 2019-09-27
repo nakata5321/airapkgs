@@ -3,6 +3,7 @@
 , rustPlatform
 , llvmPackages
 , pkgconfig
+, protobuf
 , openssl
 , clang
 }:
@@ -10,19 +11,20 @@
 rustPlatform.buildRustPackage rec {
   name = "${pname}-${version}";
   pname = "substrate-node";
-  version = "1.0";
+  version = "master";
 
   src = fetchFromGitHub {
     owner = "paritytech";
     repo = "substrate";
-    rev = "v${version}";
-    sha256 = "1ssvsl4qy9mv2x17vm54nsan4s75zj38mwyy8fv2m851hss98jc6";
+    rev = "6c2df4a49039f054625f4f8d4cbdd5a6b20b1766";
+    sha256 = "0chcvjwd7ypxifwraqrcy42yv3kagh287dnyckvq96jjg4ax8br4";
   }; 
 
-  cargoSha256 = "1m1cf2smw3bs34vlnxzh564cvk3iz00ay4gn9nhb0d6xxyjbcbn7";
+  cargoSha256 = "19wf53jidgkr1k6h5dsx53z4r3rzdmv98qhz8zmg95dx2v7bv0kh";
 
   buildInputs = [ pkgconfig openssl openssl.dev clang ];
   LIBCLANG_PATH = "${llvmPackages.libclang}/lib";
+  PROTOC = "${protobuf}/bin/protoc";
 
   meta = with stdenv.lib; {
     description = "Substrate: The platform for blockchain innovators";

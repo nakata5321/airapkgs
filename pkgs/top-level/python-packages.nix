@@ -1902,12 +1902,6 @@ in {
 
   envs = callPackage ../development/python-modules/envs { };
 
-  eth-hash = callPackage ../development/python-modules/eth-hash { };
-
-  eth-typing = callPackage ../development/python-modules/eth-typing { };
-
-  eth-utils = callPackage ../development/python-modules/eth-utils { };
-
   impacket = callPackage ../development/python-modules/impacket { };
 
   jsonrpc-async = callPackage ../development/python-modules/jsonrpc-async { };
