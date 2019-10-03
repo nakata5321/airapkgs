@@ -738,6 +738,7 @@
   ./services/printing/cupsd.nix
   ./services/robonomics/ipfs-subscriber.nix
   ./services/robonomics/liability.nix
+  ./services/robonomics/liability-nightly.nix
   ./services/robonomics/erc20.nix
   ./services/robonomics/xrtd.nix
   ./services/robonomics/roscore.nix
