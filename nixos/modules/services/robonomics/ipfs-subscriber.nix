@@ -28,14 +28,50 @@ in {
         description = "Factory ENS";
       };
 
-      ens = mkOption {
+       ens = mkOption {
         type = types.str;
         default = "";
         description = "ENS registry address";
       };
       sid = {
         enable = mkOption {
+            default = true;
+            type = types.bool;
+            description =  "Robonomics.sid.network provider daemon.";
+          };
+        web3_provider = mkOption {
+          type = types.str;
+          default = "https://sidechain.aira.life/rpc";
+          description = "sidechain Web3 provider URI";
+        };
 
+        ipfs_provider = mkOption { 
+          type = types.str;
+          default = "";
+          description = "IPFS provider multiaddress";
+        };
+
+        factory = mkOption {
+          type = types.str;
+          default = "factory.5.robonomics.sid";
+          description = "sidechain Factory ENS";
+        };
+
+        ens = mkOption {
+          type = types.str;
+          default = "0xaC4Ac4801b50b74aa3222B5Ba282FF54407B3941";
+          description = "ENS sidechain registry address";
+        };
+      };
+    };
+  };
+
+  config = mkIf cfg.enable {
+    systemd = {
+      services = {
+        ipfs-subscriber = {
+          requires = [ "ipfs.service" ];
+          after = [ "ipfs.service" ];
           partOf = optional cfg.sid.enable "ipfs-subscriber-sid.service" ;
           wantedBy = [ "multi-user.target" ];
 
