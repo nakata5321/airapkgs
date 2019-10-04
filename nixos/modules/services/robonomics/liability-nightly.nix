@@ -14,7 +14,7 @@ let
 
 in {
   options = {
-    services.liability = {
+    services.liability-nightly = {
       enable = mkEnableOption "Enable Robonomics liability executor service.";
 
       graph = mkEnableOption "Enable Robonomics telemetry information node.";
@@ -88,7 +88,7 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = [ cfg.package ];
 
-    systemd.services.liability = {
+    systemd.services.liability-nightly = {
       requires = [ "ipfs.service" "roscore.service" ];
       after = [ "ipfs.service" "roscore.service" ];
       wantedBy = [ "multi-user.target" ];
