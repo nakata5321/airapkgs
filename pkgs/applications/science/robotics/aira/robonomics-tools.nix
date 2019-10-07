@@ -1,19 +1,19 @@
 { mkDerivation, aeson, async, base, base58string, bytestring
 , exceptions, generics-sop, hashable, hpack, pipes, memory, http-conduit
 , microlens, monad-control, monad-logger, mtl, optparse-applicative
-, containers, cryptonite, data-default, process, stdenv, text, web3
+, unordered-containers, heap, cryptonite, data-default, process, stdenv, text, web3
 , fetchFromGitHub
 }:
 
 mkDerivation rec {
   pname = "robonomics-tools";
-  version = "0.5.5.0";
+  version = "0.6.0.0";
 
   src = fetchFromGitHub {
     owner = "airalab";
     repo = pname;
     rev = "v${version}";
-    sha256 = "0qcv69j9xccvizd1id6ygra3x38g2kx3y2shd96z3znnnga1ixni";
+    sha256 = "176b0ml5r0fh0f4lmwgkb73v21g2lmqw9wlm9wrmvn5affr87cpj";
   };
 
   isLibrary = false;
@@ -22,9 +22,9 @@ mkDerivation rec {
   preConfigure = "${hpack}/bin/hpack";
   executableHaskellDepends = [
     aeson async base base58string bytestring pipes http-conduit
-    containers cryptonite data-default exceptions generics-sop
+    unordered-containers cryptonite data-default exceptions generics-sop
     memory microlens monad-control monad-logger mtl hashable
-    optparse-applicative process text web3
+    optparse-applicative process text heap web3
   ];
 
   homepage = "https://github.com/airalab/robonomics-tools#readme";
