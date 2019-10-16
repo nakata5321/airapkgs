@@ -1218,6 +1218,8 @@ in {
 
   sparse = callPackage ../development/python-modules/sparse { };
 
+  spidev = callPackage ../development/python-modules/spidev { };
+
   spglib = callPackage ../development/python-modules/spglib { };
 
   sshpubkeys = callPackage ../development/python-modules/sshpubkeys { };
@@ -1308,6 +1310,12 @@ in {
   acme-tiny = callPackage ../development/python-modules/acme-tiny { };
 
   actdiag = callPackage ../development/python-modules/actdiag { };
+
+  adafruit-pureio  = callPackage ../development/python-modules/adafruit_pureio { };
+
+  adafruit-gpio  = callPackage ../development/python-modules/adafruit_gpio { };
+
+  adafruit-motorhat = callPackage ../development/python-modules/adafruit_motorhat { };
 
   adal = callPackage ../development/python-modules/adal { };
 
