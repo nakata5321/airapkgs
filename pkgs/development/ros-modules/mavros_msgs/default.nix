@@ -16,8 +16,8 @@ mkRosPackage rec {
   src = fetchFromGitHub {
     owner = "mavlink";
     repo = "mavros-release";
-    rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "096c1vwxd9q93m1jwp1ncfl7v5ahqrslrb4iy27zsa38mmznzmw1";
+    rev = "release/${rosdistro}/${pname}/${version}-1";
+    sha256 = "0kvcbcrabm2mlzkdpbpb59wwf2gwj2jhl2q31cfi2lfa7pyang1i";
   };
 
   propagatedBuildInputs = [ message_generation message_runtime geographic_msgs sensor_msgs ];
