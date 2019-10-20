@@ -15,7 +15,7 @@
 , rosconsole_bridge
 , eigen_conversions
 , mavros_msgs
-, geographiclib 
+, geographiclib
 }:
 
 mkRosPackage rec {
@@ -27,7 +27,7 @@ mkRosPackage rec {
   src = fetchFromGitHub {
     owner = "mavlink";
     repo = "mavros-release";
-    rev = "release/${rosdistro}/${pname}/${version}-0";
+    rev = "release/${rosdistro}/${pname}/${version}-1";
     sha256 = "0cx5zjj2ncq5nc4a6rhwpl5cy9abqs38s1i91v34bck4qd34sdsx";
   };
 
