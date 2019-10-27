@@ -46,7 +46,7 @@ in {
       };
 
       gasprice = mkOption {
-        type = types.str or types.int;
+        type = types.int or (types.enum [ "safe" "fast" "fastest" ]);
         default = "safe";
         description = "Transaction sending gas price";
       };
@@ -62,7 +62,7 @@ in {
       path = with pkgs; [ bash getent ipfs ];
 
       script = ''
-        ${pkgs.robonomics-tools}/bin/xrtd --private "$(cat ${cfg.keyfile})" ${optionalString (cfg.web3_provider != "") "--web3 \"${cfg.web3_provider}\""} ${optionalString (cfg.ipfs_provider != "") "--ipfs \"${cfg.ipfs_provider}\""} ${optionalString (cfg.lighthouse != "") "--lighthouse \"${cfg.lighthouse}\""} ${optionalString (cfg.ens != "") "--ens \"${cfg.ens}\""} ${optionalString cfg.local "-l"} --gasprice ${cfg.gasprice}
+        ${pkgs.robonomics-tools}/bin/xrtd --private "$(cat ${cfg.keyfile})" ${optionalString (cfg.web3_provider != "") "--web3 \"${cfg.web3_provider}\""} ${optionalString (cfg.ipfs_provider != "") "--ipfs \"${cfg.ipfs_provider}\""} ${optionalString (cfg.lighthouse != "") "--lighthouse \"${cfg.lighthouse}\""} ${optionalString (cfg.ens != "") "--ens \"${cfg.ens}\""} ${optionalString cfg.local "-l"} --gasprice ${toString cfg.gasprice}
       '';
 
       serviceConfig = {
