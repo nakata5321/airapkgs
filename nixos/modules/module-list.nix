@@ -743,6 +743,7 @@
   ./services/robonomics/erc20.nix
   ./services/robonomics/xrtd.nix
   ./services/robonomics/roscore.nix
+  ./services/robonomics/substrate-node-robonomics.nix
   ./services/robonomics/issuing-service.nix
   ./services/robonomics/drone_passport.nix
   ./services/robonomics/drone_flight_report.nix
