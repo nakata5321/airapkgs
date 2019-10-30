@@ -17,7 +17,11 @@ in {
     services.liability-nightly = {
       enable = mkEnableOption "Enable Robonomics liability executor service.";
 
-      graph = mkEnableOption "Enable Robonomics telemetry information node.";
+      graph = mkOption {
+        type = types.bool;
+        default = true;
+        description = "Enable Robonomics telemetry information node.";
+      };
 
       graph_topic = mkOption {
         type = types.str;
