@@ -53,21 +53,35 @@
       };
     };
 
-    # Enable IPv6 mesh network
+    # Enable IPv6 yggdrasil-go mesh network
+    yggdrasil = { 
+      enable = true;
+      IfName = "ygg0";
+      Peers = [
+        "tcp://1.ams.nl.y.fftlt.net:21285"
+        "tcp://1.msk.ru.y.fftlt.net:21285"
+        "tcp://1.tlt.ru.y.fftlt.net:21285"
+      ];
+    };
+
+    # Enable IPv6 cjdns mesh network
     cjdns = {
       enable = true;
-
+      extraConfig = { router.interface.tunDevice = "cjdns0"; };
       ETHInterface.bind = "all";
       UDPInterface = {
         bind = "0.0.0.0:42000";
         connectTo = {
-          # AIRA project cjdns node
-          "52.232.72.83:31259" = {
-            password = "tt3yb4613wgh3sgfsgkg1fvk24k6hnk";
-            publicKey = "jyl980gs5513dw5x19qp3khb6337ljsx3sgwbsmnsvvyb5jdcw90.k";
+          # AIRA project cjdns nodes 
+          "35.204.3.31:42000" = {
+            password = "NPvuzG5g82652ovP76ES0s1Gl";
+            publicKey = "2jkvyy3mlw9jwv4ljtsrk538uzx88fvwzf11vyucyp3jsum8xl60.k";
           };
-
-          # akru personal cjdns node
+          "178.62.190.108:25829" = {
+            password = ";@d.LP2589zUUA24837|PYFzq1X89O";
+            publicKey = "kpu6yf1xsgbfh2lgd7fjv2dlvxx4vk56mmuz30gsmur83b24k9g0.k";
+          };
+          # h.akru.me/FR/Strasbourg
           "95.216.202.55:53741" = {
             password = "cr36pn2tp8u91s672pw2uu61u54ryu8";
             publicKey = "35mdjzlxmsnuhc30ny4rhjyu5r1wdvhb09dctd1q5dcbq6r40qs0.k";
