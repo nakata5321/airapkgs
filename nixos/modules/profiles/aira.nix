@@ -81,7 +81,7 @@
             password = ";@d.LP2589zUUA24837|PYFzq1X89O";
             publicKey = "kpu6yf1xsgbfh2lgd7fjv2dlvxx4vk56mmuz30gsmur83b24k9g0.k";
           };
-          # h.akru.me/FR/Strasbourg
+          # akru personal cjdns node
           "95.216.202.55:53741" = {
             password = "cr36pn2tp8u91s672pw2uu61u54ryu8";
             publicKey = "35mdjzlxmsnuhc30ny4rhjyu5r1wdvhb09dctd1q5dcbq6r40qs0.k";
