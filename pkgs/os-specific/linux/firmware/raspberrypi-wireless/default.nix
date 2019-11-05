@@ -2,7 +2,7 @@
 
 stdenv.mkDerivation {
   pname = "raspberrypi-wireless-firmware";
-  version = "2019-08-16";
+  version = "2019-10-31";
 
   srcs = [
     (fetchFromGitHub {
@@ -16,8 +16,8 @@ stdenv.mkDerivation {
       name = "firmware-nonfree";
       owner = "RPi-Distro";
       repo = "firmware-nonfree";
-      rev = "130cb86fa30cafbd575d38865fa546350d4c5f9c";
-      sha256 = "0jmhgbpldzz8n8lncpzwfl5ym8zgss05y952rfpwcf9v5c7vgabx";
+      rev = "00daf85ffa373ecce7836df7543c6ebe4cf43639";
+      sha256 = "01pa406kgfkiq15m7ks2c7lqc2zlrrhag2cj6flx9b6w2jngk435";
     })
   ];
 
@@ -41,10 +41,10 @@ stdenv.mkDerivation {
 
   outputHashMode = "recursive";
   outputHashAlgo = "sha256";
-  outputHash = "1r4alf1fbj6vkkf54d0anm47ymb6gn2ykl4a2hhd34b0hnf1dnhn";
+  outputHash = "053hcrwwlacqh2niisn0zas95zkbffw5aw5sdhixs8lmfdq60vcd";
 
   meta = with stdenv.lib; {
-    description = "Firmware for builtin Wifi/Bluetooth devices in the Raspberry Pi 3 and Zero W";
+    description = "Firmware for builtin Wifi/Bluetooth devices in the Raspberry Pi";
     homepage = https://github.com/RPi-Distro/firmware-nonfree;
     license = licenses.unfreeRedistributableFirmware;
     platforms = platforms.linux;
