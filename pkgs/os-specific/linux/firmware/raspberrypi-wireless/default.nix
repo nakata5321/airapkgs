@@ -41,7 +41,7 @@ stdenv.mkDerivation {
 
   outputHashMode = "recursive";
   outputHashAlgo = "sha256";
-  outputHash = "053hcrwwlacqh2niisn0zas95zkbffw5aw5sdhixs8lmfdq60vcd";
+  outputHash = "1r4alf1fbj6vkkf54d0anm47ymb6gn2ykl4a2hhd34b0hnf1dnhn";
 
   meta = with stdenv.lib; {
     description = "Firmware for builtin Wifi/Bluetooth devices in the Raspberry Pi";
