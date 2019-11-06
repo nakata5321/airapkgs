@@ -30,7 +30,7 @@
     initrd.kernelModules =  [ "w1-gpio" "w1-therm" ];
     consoleLogLevel = lib.mkDefault 7;
   };
-  services.nixosManual.enable = false;
+  documentation.nixos.enable = false;
   networking = {
     hostName = "aira-rpi4";
     wireless = {
