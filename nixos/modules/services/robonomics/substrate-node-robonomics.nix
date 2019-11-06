@@ -201,6 +201,7 @@ in {
         '';
       };
 
+      log = mkOption {
         type = types.nullOr types.str;
         default = null;
         description = ''
