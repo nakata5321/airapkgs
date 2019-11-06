@@ -58,7 +58,7 @@ in {
         type = types.nullOr types.str;
         default = null;
         description = ''
-          Specify browser Origins allowed to access the HTTP & WS RPC servers. It's a comma-separated list of origins
+          Specify browser Origins allowed to access the HTTP and WS RPC servers. It's a comma-separated list of origins
           (protocol://domain or special `null` value). Value of `all` will disable origin validation. Default is to
           allow localhost, https://polkadot.js.org and https://substrate-ui.parity.io origins. When running in --dev
           mode the default is to allow all origins.
