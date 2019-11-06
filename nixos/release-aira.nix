@@ -62,6 +62,17 @@ in rec {
         ];
     }).config.system.build.sdImage);
 
+  # A bootable SD card image for Raspberry pi 4.
+  aira_image_rpi4 = with import nixpkgsSrc { system = "aarch64-linux"; };
+    lib.hydraJob ((import lib/eval-config.nix {
+      inherit system;
+      modules =
+        [ ./modules/installer/cd-dvd/aira-sd-image-rpi4.nix
+          ./modules/installer/aira.nix
+          ./modules/profiles/aira-foundation.nix
+        ];
+    }).config.system.build.sdImage);
+
   nixpkgs = {
     inherit (nixpkgs')
       tarball
@@ -90,12 +101,13 @@ in rec {
     name = "nixos-${nixos.channel.version}";
     meta = {
       description = "Release-critical builds for the AIRA channel";
-      maintainers = with lib.maintainers; [ akru strdn ];
+      maintainers = with lib.maintainers; [ akru strdn spd ];
     };
     constituents =
       [ nixpkgs.tarball
         ova_image
         sd_image
+        aira_image_rpi4
       ]
       ++ lib.collect lib.isDerivation nixos;
   });
