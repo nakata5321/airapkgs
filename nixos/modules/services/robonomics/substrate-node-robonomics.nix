@@ -201,8 +201,6 @@ in {
         '';
       };
 
-
-      log = mkOption {
         type = types.nullOr types.str;
         default = null;
         description = ''
@@ -214,7 +212,7 @@ in {
         type = types.nullOr types.int;
         default = null;
         description = ''
-          Limit the memory the database cache can use <MiB>
+          Limit the memory the database cache can use MiB
         '';
       };
 
