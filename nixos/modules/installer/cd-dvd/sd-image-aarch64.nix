@@ -32,6 +32,8 @@ in
     # Allows early (earlier) modesetting for Allwinner SoCs
     "sun4i_drm" "sun8i_drm_hdmi" "sun8i_mixer"
   ];
+  
+  documentation.nixos.enable = false;
 
   # Enable wireless by default.
   networking.wireless.enable = lib.mkDefault true;
