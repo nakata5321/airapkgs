@@ -42,7 +42,7 @@
     };
   };
   sdImage = {
-    imageBaseName  = "aira-sd-image-rpi4";
+    imageBaseName  = "aira-image-rpi4";
     firmwareSize = 128;
     # This is a hack to avoid replicating config.txt from boot.loader.raspberryPi
     populateFirmwareCommands = ''
