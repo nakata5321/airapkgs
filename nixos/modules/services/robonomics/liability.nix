@@ -102,7 +102,7 @@ in {
       preStart = ''
         if [ ! -e ${cfg.keyfile} ]; then
           ${pkgs.pwgen}/bin/pwgen -1 -s -n 32 > ${cfg.keyfile_password_file}
-          ${python-eth_keyfile}/bin/python -c "import os,eth_keyfile,json; print(json.dumps(eth_keyfile.create_keyfile_json(os.urandom(32), open('${cfg.keyfile_password_file}', 'r').read().encode())))" > ${cfg.keyfile}
+          ${python-eth_keyfile}/bin/python -c "import os,eth_keyfile,json; print(json.dumps(eth_keyfile.create_keyfile_json(os.urandom(32), open('${cfg.keyfile_password_file}', 'r').readline().rstrip('\n').encode())))" > ${cfg.keyfile}
         fi
       '';
 
