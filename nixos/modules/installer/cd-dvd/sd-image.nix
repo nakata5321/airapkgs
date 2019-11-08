@@ -101,7 +101,7 @@ in
 
     compressImage = mkOption {
       type = types.bool;
-      default = true;
+      default = false;
       description = ''
         Whether the SD image should be compressed using
         <command>bzip2</command>.
