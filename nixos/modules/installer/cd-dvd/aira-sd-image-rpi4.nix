@@ -58,16 +58,23 @@
 #  boot = {
 #    loader = {
 #      grub.enable = false;
-##      generic-extlinux-compatible.enable = true;
+#      generic-extlinux-compatible.enable = true;
 #      raspberryPi = {
 #        enable = true;
 #        version = 4;
-##        uboot.enable = true;
+#        uboot.enable = true;
 #      };
 #    };
 #    kernelPackages = pkgs.linuxPackages_rpi4;
 #    kernelParams = [ "cma=256M" "console=ttyS0,115200n8" "console=ttyAMA0,115200n8" "console=tty0" ];
 #    initrd.kernelModules =  [ "w1-gpio" "w1-therm" ];
+#  };
+#  hardware = {
+#    deviceTree  = {
+#      enable = true;
+#      base = "${pkgs.linux_rpi4}/dtbs" ;
+#      overlays = ["${pkgs.linux_rpi4}/dtbs/overlays/w1-gpio.dtbo"];
+#    };
 #  };
 
   networking = {
