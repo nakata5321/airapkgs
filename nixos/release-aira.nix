@@ -80,7 +80,7 @@ in rec {
 
       parity
       parity-beta
-      polkadot
+      #polkadot
 
       ros_comm
       rosserial
