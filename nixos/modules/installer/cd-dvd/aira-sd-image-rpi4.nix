@@ -56,17 +56,6 @@
   installer = {
     cloneConfigExtra = ''
 #  boot = {
-#    loader = {
-#      grub.enable = false;
-#      generic-extlinux-compatible.enable = true;
-#      raspberryPi = {
-#        enable = true;
-#        version = 4;
-#        uboot.enable = true;
-#      };
-#    };
-#    kernelPackages = pkgs.linuxPackages_rpi4;
-#    kernelParams = [ "cma=256M" "console=ttyS0,115200n8" "console=ttyAMA0,115200n8" "console=tty0" ];
 #    initrd.kernelModules =  [ "w1-gpio" "w1-therm" ];
 #  };
 #  hardware = {
@@ -82,7 +71,7 @@
     wireless = {
       enable = true;  # Enables wireless support via wpa_supplicant.
       networks = {
-#Def#   Aira = { psk = "airapassword"; };
+#       Aira = { psk = "airapassword"; }; #default wifi settings
 #        SSID = { psk = "password"; };
       };
     };
