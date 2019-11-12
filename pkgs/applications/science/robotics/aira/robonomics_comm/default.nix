@@ -8,17 +8,17 @@
 mkRosPackage rec {
   name = "${pname}-${version}";
   pname = "robonomics_comm";
-  version = "1.1.0";
+  version = "1.1.1";
 
   src = fetchFromGitHub {
     owner = "airalab";
     repo = "robonomics_comm";
     rev = "v${version}";
-    sha256 = "1ch359gdz564snvvykabnxrhx13y2n3jlp498i1fvc89nwns12q4";
+    sha256 = "1k6357piyzrd2f2mv4x0b0nxdg0j2pvpqvinc9vcbj9aij182q9n";
   };
 
   propagatedBuildInputs = with python3Packages;
-  [ ros_comm web3 multihash voluptuous ipfshttpclient python-persistent-queue setuptools ];
+  [ ros_comm web3 base58 voluptuous ipfshttpclient python-persistent-queue setuptools ];
 
   meta = with stdenv.lib; {
     description = "Robonomics communication stack";
