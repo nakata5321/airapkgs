@@ -7,12 +7,12 @@
 }:
 
 let
-  rev = "0c583342584775e7a81c3f85dfc91748a22fbc78";
-  sha256 = "0qh7c4ir75x1xbb89z8vg7c3g3b5d905ycwhliwc9zlarpq8iijw";
+  rev = "9f7fe4c6683acd76493c89edbe3398c272a50b0d";
+  sha256 = "1k6357piyzrd2f2mv4x0b0nxdg0j2pvpqvinc9vcbj9aij182q9n";
 
 in mkRosPackage rec {
   name = "${pname}-${version}";
-  pname = "robonomics_comm";
+  pname = "robonomics_comm-nightly";
   version = builtins.substring 0 8 rev;
 
   src = fetchFromGitHub {
