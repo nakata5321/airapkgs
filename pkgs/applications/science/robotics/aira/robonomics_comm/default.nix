@@ -18,7 +18,7 @@ mkRosPackage rec {
   };
 
   propagatedBuildInputs = with python3Packages;
-  [ ros_comm web3 base58 voluptuous ipfshttpclient python-persistent-queue setuptools ];
+  [ ros_comm web3 voluptuous ipfsapi base58 python-persistent-queue setuptools ];
 
   meta = with stdenv.lib; {
     description = "Robonomics communication stack";
