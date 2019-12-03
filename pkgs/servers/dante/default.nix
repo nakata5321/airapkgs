@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
 
   buildInputs = [ pam libkrb5 cyrus_sasl miniupnpc ];
 
-  configureFlags = ["--with-libc=libc${stdenv.targetPlatform.extensions.sharedLibrary}"];
+  configureFlags = ["--with-libc=${stdenv.glibc.out}/lib/libc.so.6"];
 
   dontAddDisableDepTrack = stdenv.isDarwin;
 
