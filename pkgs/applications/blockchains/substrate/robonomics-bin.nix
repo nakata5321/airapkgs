@@ -18,7 +18,7 @@ in stdenv.mkDerivation rec {
    version = "0.13";
    repoUrl = "https://github.com/airalab/substrate-node-robonomics";
    src = fetchurl {
-      url = "${repoUrl}/releases/download/v${version}/robonomics-${version}-${arch}.tgz";
+      url = "${repoUrl}/releases/download/v${version}/robonomics-${version}-${arch}.tar.xz";
       inherit sha256;
    };
   dontBuild = true;
