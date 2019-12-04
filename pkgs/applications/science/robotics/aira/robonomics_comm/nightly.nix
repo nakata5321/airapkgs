@@ -7,22 +7,23 @@
 }:
 
 let
-  rev = "9f7fe4c6683acd76493c89edbe3398c272a50b0d";
-  sha256 = "1k6357piyzrd2f2mv4x0b0nxdg0j2pvpqvinc9vcbj9aij182q9n";
+  rev = "01bb95914c51c1855224011055f869063b5cbc81";
+  sha256 = "0mpx2mhi3cwnqpcwgq737k3vx2hjj3p1h0j49xa577vdkbphwzqw";
 
 in mkRosPackage rec {
   name = "${pname}-${version}";
+  repo = "robonomics_comm";
   pname = "robonomics_comm-nightly";
   version = builtins.substring 0 8 rev;
 
   src = fetchFromGitHub {
     owner = "airalab";
-    repo = pname;
+    repo = "${repo}";
     inherit rev sha256;
   };
 
   propagatedBuildInputs = with python3Packages;
-  [ ros_comm web3 voluptuous ipfsapi base58 python-persistent-queue setuptools ];
+  [ ros_comm web3 voluptuous ipfsapi ipfshttpclient base58 python-persistent-queue setuptools ];
 
   postInstall = ''
     patch $out/lib/${python3.libPrefix}/site-packages/ethereum_common/msg/_UInt256.py $src/ethereum_common/msg/_UInt256.py.patch

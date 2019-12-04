@@ -69,6 +69,19 @@ in {
         description = "Password file for keyfile.";
       };
 
+      ipfs_http_provider = mkOption {
+        type = types.str;
+        default = "http://127.0.0.1:5001";
+        description = "IPFS http provider address";
+      };
+
+      ipfs_public_providers = mkOption {
+        type = types.str;
+        default = "";
+        example = "https://ipfs.infura.io:5001, http://example.server:5001";
+        description = "list of IPFS public nodes http provider address";
+      };
+
       web3_http_provider = mkOption {
         type = types.str;
         default = "http://127.0.0.1:8545";
@@ -115,6 +128,8 @@ in {
               factory_contract:="${cfg.factory}" \
               keyfile:="${cfg.keyfile}" \
               keyfile_password_file:="${cfg.keyfile_password_file}" \
+              ipfs_http_provider:="${cfg.ipfs_http_provider}" \
+              ipfs_public_providers:="${cfg.ipfs_public_providers}" \
               web3_http_provider:="${cfg.web3_http_provider}" \
               web3_ws_provider:="${cfg.web3_ws_provider}" \
               enable_aira_graph:="${if cfg.graph then "true" else "false"}" \
