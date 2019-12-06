@@ -82,6 +82,13 @@ in {
         description = "list of IPFS public nodes http provider address";
       };
 
+      ipfs_swarm_connect_addresses = mkOption {
+        type = types.str;
+        default = "";
+        example = "/dnsaddr/bootstrap.aira.life, /dns4/1.pubsub.aira.life/tcp/4001/ipfs/QmdfQmbmXt6sqjZyowxPUsmvBsgSGQjm4VXrV7WGy62dv8";
+        description = "list of IPFS bootstrapping nodes";
+      };
+
       web3_http_provider = mkOption {
         type = types.str;
         default = "http://127.0.0.1:8545";
@@ -130,6 +137,7 @@ in {
               keyfile_password_file:="${cfg.keyfile_password_file}" \
               ipfs_http_provider:="${cfg.ipfs_http_provider}" \
               ipfs_public_providers:="${cfg.ipfs_public_providers}" \
+              ipfs_swarm_connect_addresses:="${cfg.ipfs_swarm_connect_addresses}" \
               web3_http_provider:="${cfg.web3_http_provider}" \
               web3_ws_provider:="${cfg.web3_ws_provider}" \
               enable_aira_graph:="${if cfg.graph then "true" else "false"}" \
