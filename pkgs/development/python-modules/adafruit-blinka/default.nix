@@ -7,7 +7,7 @@ python3Packages.buildPythonApplication rec {
   pname = "Adafruit-Blinka";
   version = "3.2.0";
 
-  propagatedBuildInputs = with python3Packages; [ adafruit-pureio adafruit-platformdetect sysv_ipc ];
+  propagatedBuildInputs = with python3Packages; [ adafruit-pureio adafruit-platformdetect sysv_ipc rpi_ws281x rpi_gpio ];
 
   src = python3Packages.fetchPypi {
     inherit version;

@@ -2788,6 +2788,10 @@ in {
 
   rawkit = callPackage ../development/python-modules/rawkit { };
 
+  rpi_ws281x = callPackage ../development/python-modules/rpi_ws281x {  };
+
+  rpi_gpio = callPackage ../development/python-modules/rpi_gpio {  };
+
   joblib = callPackage ../development/python-modules/joblib { };
 
   sarge = callPackage ../development/python-modules/sarge { };
