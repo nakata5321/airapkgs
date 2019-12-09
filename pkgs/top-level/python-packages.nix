@@ -1317,6 +1317,14 @@ in {
 
   adafruit-motorhat = callPackage ../development/python-modules/adafruit_motorhat { };
 
+  adafruit-circuitpython-htu21d = callPackage ../development/python-modules/adafruit_circuitpython_htu21d { };
+
+  adafruit-circuitpython-busdevice = callPackage ../development/python-modules/adafruit-circuitpython-busdevice {  };
+
+  adafruit-blinka = callPackage ../development/python-modules/adafruit-blinka {  };
+
+  adafruit-platformdetect = callPackage ../development/python-modules/adafruit-platformdetect {  };
+
   adal = callPackage ../development/python-modules/adal { };
 
   affine = callPackage ../development/python-modules/affine { };
@@ -5007,6 +5015,8 @@ in {
   systemd = callPackage ../development/python-modules/systemd {
     inherit (pkgs) pkgconfig systemd;
   };
+
+  sysv_ipc = callPackage ../development/python-modules/sysv_ipc {  };
 
   tabulate = callPackage ../development/python-modules/tabulate { };
 
