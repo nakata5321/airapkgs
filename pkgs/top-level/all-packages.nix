@@ -25607,7 +25607,7 @@ in
 
   rosgraph_msgs = callPackage ../development/ros-modules/rosgraph_msgs { };
 
-  cpp_common = callPackage ../development/ros-modules/cpp_common { };
+  cpp_common = callPackage ../development/ros-modules/cpp_common { boost = boost168; };
 
   roscpp_serialization = callPackage ../development/ros-modules/roscpp_serialization { };
 
@@ -25619,17 +25619,17 @@ in
 
   rostime = callPackage ../development/ros-modules/rostime { };
 
-  roslib = callPackage ../development/ros-modules/roslib { };
+  roslib = callPackage ../development/ros-modules/roslib { boost = boost168; };
 
   ros_environment = callPackage ../development/ros-modules/ros_environment { };
 
-  rospack = callPackage ../development/ros-modules/rospack { };
+  rospack = callPackage ../development/ros-modules/rospack { boost = boost168; };
 
   rosunit = callPackage ../development/ros-modules/rosunit { };
 
   rosbuild = callPackage ../development/ros-modules/rosbuild { };
 
-  rosconsole = callPackage ../development/ros-modules/rosconsole { };
+  rosconsole = callPackage ../development/ros-modules/rosconsole { boost = boost168; };
 
   rosconsole_bridge = callPackage ../development/ros-modules/rosconsole_bridge { };
 
@@ -25681,7 +25681,7 @@ in
 
   actionlib = callPackage ../development/ros-modules/actionlib { };
 
-  class_loader = callPackage ../development/ros-modules/class_loader { };
+  class_loader = callPackage ../development/ros-modules/class_loader { boost = boost168; };
 
   pluginlib = callPackage ../development/ros-modules/pluginlib { };
 
@@ -25697,7 +25697,7 @@ in
 
   mavlink = callPackage ../development/ros-modules/mavlink { };
 
-  libmavconn = callPackage ../development/ros-modules/libmavconn { };
+  libmavconn = callPackage ../development/ros-modules/libmavconn { boost = boost168; };
 
   mavros = callPackage ../development/ros-modules/mavros { };
 
