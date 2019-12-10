@@ -1,6 +1,7 @@
 { lib
 , python3
 , python3Packages
+, fetchgit
 , pkgs
 }:
 
@@ -19,7 +20,7 @@ python3Packages.buildPythonApplication rec {
     sha256 = "0k0ngp4fn2i4kgibxyl01zhl64rcdclj4dr4457gpvs3gr1b8p3c";
   };
 
- src = "${src1}/library";
+ src = "${src_lib}/library";
 
 
   meta = with lib; {
