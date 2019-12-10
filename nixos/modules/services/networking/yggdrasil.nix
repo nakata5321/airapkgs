@@ -127,16 +127,16 @@ in
           '';
         };
 
-        LinkLocalTCPPort = mkOption { 
+        LinkLocalTCPPort = mkOption {
           type = types.int;
           default = 0;
           description = ''
-            The port number to be used for the link-local TCP listeners for the 
+            The port number to be used for the link-local TCP listeners for the
             configured MulticastInterfaces. This option does not affect listeners
             specified in the Listen option. Unless you plan to firewall link-local
             traffic, it is best to leave this as the default value of 0. This
             option cannot currently be changed by reloading config during runtime.
-          ''; 
+          '';
         };
         IfName = mkOption {
           type = types.str;
@@ -166,7 +166,7 @@ in
           '';
         };
 
-      SessionFirewall = { 
+      SessionFirewall = {
         Enable = mkOption {
           type = types.bool;
           default = false;
@@ -222,7 +222,7 @@ in
         };
       };
 
-      TunnelRouting = { 
+      TunnelRouting = {
         Enable = mkOption {
           type = types.bool;
           default = false;
@@ -323,7 +323,6 @@ in
       path = [ cfg.package ] ++ optional (configProvided && configFileProvided) pkgs.jq;
       bindsTo = [ "network-online.target" ];
       after = [ "network-online.target" ];
-      bindsTo = [ "network-online.target" ];
 
       preStart = if cfg.confFile != null then "" else ''#!${pkgs.bash}/bin/bash
         if [ ! -f /etc/yggdrasil.priv -o ! -f /etc/yggdrasil.pub ]; then
