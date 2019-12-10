@@ -310,11 +310,18 @@ in
 
     boot.kernelModules = [ "tun" ];
 
+    assertions = [
+      { assertion = config.networking.enableIPv6;
+        message = "networking.enableIPv6 must be true for yggdrasil to work";
+      }
+    ];
+
     # networking.firewall.allowedUDPPorts = ...
 
-      systemd.services.yggdrasil = {
-      description = "yggdrasil";
-      wantedBy = [ "multi-user.target" "sleep.target"];
+    systemd.services.yggdrasil = {
+      description = "Yggdrasil Network Service";
+      path = [ cfg.package ] ++ optional (configProvided && configFileProvided) pkgs.jq;
+      bindsTo = [ "network-online.target" ];
       after = [ "network-online.target" ];
       bindsTo = [ "network-online.target" ];
 
@@ -345,6 +352,8 @@ in
 
       serviceConfig = {
         Type = "forking";
+        ExecStart = "${cfg.package}/bin/yggdrasil -useconffile /run/yggdrasil/yggdrasil.conf";
+        ExecReload = "${pkgs.coreutils}/bin/kill -HUP $MAINPID";
         Restart = "always";
         StartLimitInterval = 0;
         RestartSec = 1;
