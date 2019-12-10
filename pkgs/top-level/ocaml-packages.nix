@@ -235,6 +235,8 @@ let
 
     easy-format = callPackage ../development/ocaml-modules/easy-format { };
 
+    eigen = callPackage ../development/ocaml-modules/eigen { };
+
     elina = callPackage ../development/ocaml-modules/elina { };
 
     eliom = callPackage ../development/ocaml-modules/eliom { };
@@ -374,6 +376,8 @@ let
 
     jsonm = callPackage ../development/ocaml-modules/jsonm { };
 
+    kafka = callPackage ../development/ocaml-modules/kafka { };
+
     ke = callPackage ../development/ocaml-modules/ke { };
 
     lablgl = callPackage ../development/ocaml-modules/lablgl { };
@@ -459,6 +463,12 @@ let
     merlin = callPackage ../development/tools/ocaml/merlin { };
 
     merlin-extend = callPackage ../development/ocaml-modules/merlin-extend { };
+
+    metrics = callPackage ../development/ocaml-modules/metrics { };
+
+    metrics-lwt = callPackage ../development/ocaml-modules/metrics/lwt.nix { };
+
+    metrics-unix = callPackage ../development/ocaml-modules/metrics/unix.nix { };
 
     mezzo = callPackage ../development/compilers/mezzo { };
 
@@ -600,6 +610,10 @@ let
     otr = callPackage ../development/ocaml-modules/otr { };
 
     owee = callPackage ../development/ocaml-modules/owee { };
+
+    owl-base = callPackage ../development/ocaml-modules/owl-base { };
+
+    owl = callPackage ../development/ocaml-modules/owl { };
 
     ounit = callPackage ../development/ocaml-modules/ounit { };
 
@@ -754,6 +768,8 @@ let
     safepass = callPackage ../development/ocaml-modules/safepass { };
 
     sedlex = callPackage ../development/ocaml-modules/sedlex { };
+
+    sodium = callPackage ../development/ocaml-modules/sodium { };
 
     spelll = callPackage ../development/ocaml-modules/spelll { };
 

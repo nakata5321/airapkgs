@@ -19,14 +19,16 @@
 , enableNixHacks ? false
 , gcc-unwrapped
 , autoPatchelfHook
+, file
+, substituteAll
 }:
 
 let
-  version = "1.1.0";
+  version = "1.2.1";
 
   src = fetchurl {
     url = "https://github.com/bazelbuild/bazel/releases/download/${version}/bazel-${version}-dist.zip";
-    sha256 = "1awm5wa4y4c37zy7d1ass83amwq5992wydkj5v9jx0zp7b4shrjb";
+    sha256 = "1qfk14mgx1m454b4w4ldggljzqkqwpdwrlynq7rc8aq11yfs8p95";
   };
 
   # Update with `eval $(nix-build -A bazel.updater)`,
@@ -50,7 +52,7 @@ let
        else srcs."java_tools_javac11_linux-v6.1.zip")
       srcs."coverage_output_generator-v2.0.zip"
       srcs.build_bazel_rules_nodejs
-      srcs."android_tools_pkg-0.11.tar.gz"
+      srcs."android_tools_pkg-0.12.tar.gz"
       srcs."0.28.3.tar.gz"
       srcs.rules_pkg
       srcs.rules_cc
@@ -91,7 +93,7 @@ let
     #        ],
     #     )
     #
-    [ bash coreutils findutils gawk gnugrep gnutar gnused gzip which unzip ];
+    [ bash coreutils findutils gawk gnugrep gnutar gnused gzip which unzip file zip ];
 
   # Java toolchain used for the build and tests
   javaToolchain = "@bazel_tools//tools/jdk:toolchain_host${buildJdkName}";
@@ -145,6 +147,17 @@ stdenv.mkDerivation rec {
     # This is breaking the build of any C target. This patch removes the last
     # argument if it's found to be an empty string.
     ./trim-last-argument-to-gcc-if-empty.patch
+
+    # --experimental_strict_action_env (which may one day become the default
+    # see bazelbuild/bazel#2574) hardcodes the default
+    # action environment to a non hermetic value (e.g. "/usr/local/bin").
+    # This is non hermetic on non-nixos systems. On NixOS, bazel cannot find the required binaries.
+    # So we are replacing this bazel paths by defaultShellPath,
+    # improving hermeticity and making it work in nixos.
+    (substituteAll {
+      src = ./strict_action_env.patch;
+      strictActionEnvPatch = defaultShellPath;
+    })
   ] ++ lib.optional enableNixHacks ./nix-hacks.patch;
 
 
@@ -389,14 +402,6 @@ stdenv.mkDerivation rec {
           -e "/\$command \\\\$/a --host_javabase='@local_jdk//:jdk' \\\\" \
           -e "/\$command \\\\$/a --host_java_toolchain='${javaToolchain}' \\\\" \
           -i scripts/bootstrap/compile.sh
-
-      # --experimental_strict_action_env (which will soon become the
-      # default, see bazelbuild/bazel#2574) hardcodes the default
-      # action environment to a value that on NixOS at least is bogus.
-      # So we hardcode it to something useful.
-      substituteInPlace \
-        src/main/java/com/google/devtools/build/lib/bazel/rules/BazelRuleClassProvider.java \
-        --replace /bin:/usr/bin ${defaultShellPath}
 
       # This is necessary to avoid:
       # "error: no visible @interface for 'NSDictionary' declares the selector
