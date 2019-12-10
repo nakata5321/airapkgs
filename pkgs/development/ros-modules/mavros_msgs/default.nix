@@ -16,7 +16,7 @@ mkRosPackage rec {
   src = fetchFromGitHub {
     owner = "mavlink";
     repo = "mavros-release";
-    rev = "release/${rosdistro}/${pname}/${version}-0";
+    rev = "release/${rosdistro}/${pname}/${version}-1";
     sha256 = "0kvcbcrabm2mlzkdpbpb59wwf2gwj2jhl2q31cfi2lfa7pyang1i";
   };
 

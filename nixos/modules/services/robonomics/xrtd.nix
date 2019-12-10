@@ -21,7 +21,7 @@ in {
         description = "Web3 provider URI";
       };
 
-      ipfs_provider = mkOption { 
+      ipfs_provider = mkOption {
         type = types.str;
         default = "";
         description = "IPFS provider multiaddress";
@@ -31,6 +31,18 @@ in {
         type = types.str;
         default = "";
         description = "Lighthouse ENS";
+      };
+
+      factory = mkOption {
+        type = types.str;
+        default = "";
+        description = "Factory ENS";
+      };
+
+      chain = mkOption {
+        type = types.str;
+        default = "";
+        description = "CHAIN_ID: Ethereum chain [foundation, ropsten, kovan, rikenby]";
       };
 
       ens = mkOption {
@@ -46,7 +58,7 @@ in {
       };
 
       gasprice = mkOption {
-        type = types.str or types.int;
+        type = types.int or (types.enum [ "safe" "fast" "fastest" ]);
         default = "safe";
         description = "Transaction sending gas price";
       };
@@ -62,7 +74,7 @@ in {
       path = with pkgs; [ bash getent ipfs ];
 
       script = ''
-        ${pkgs.robonomics-tools}/bin/xrtd --private "$(cat ${cfg.keyfile})" ${optionalString (cfg.web3_provider != "") "--web3 \"${cfg.web3_provider}\""} ${optionalString (cfg.ipfs_provider != "") "--ipfs \"${cfg.ipfs_provider}\""} ${optionalString (cfg.lighthouse != "") "--lighthouse \"${cfg.lighthouse}\""} ${optionalString (cfg.ens != "") "--ens \"${cfg.ens}\""} ${optionalString cfg.local "-l"} --gasprice ${cfg.gasprice}
+        ${pkgs.robonomics-tools}/bin/xrtd --private "$(cat ${cfg.keyfile})" ${optionalString (cfg.web3_provider != "") "--web3 \"${cfg.web3_provider}\""} ${optionalString (cfg.ipfs_provider != "") "--ipfs \"${cfg.ipfs_provider}\""} ${optionalString (cfg.lighthouse != "") "--lighthouse \"${cfg.lighthouse}\""} ${optionalString (cfg.ens != "") "--ens \"${cfg.ens}\""} ${optionalString (cfg.factory != "") "--factory \"${cfg.factory}\""} ${optionalString (cfg.chain != "") "--chain \"${cfg.chain}\""} ${optionalString cfg.local "-l"} --gasprice ${toString cfg.gasprice}
       '';
 
       serviceConfig = {

@@ -16961,6 +16961,8 @@ in
     ubootRaspberryPi2
     ubootRaspberryPi3_32bit
     ubootRaspberryPi3_64bit
+    ubootRaspberryPi4_32bit
+    ubootRaspberryPi4_64bit
     ubootRaspberryPiZero
     ubootSheevaplug
     ubootSopine
@@ -22463,6 +22465,7 @@ in
   polkadot = callPackage ../applications/blockchains/polkadot { };
   substrate-node = callPackage ../applications/blockchains/substrate { };
   substrate-node-robonomics = callPackage ../applications/blockchains/substrate/robonomics.nix { };
+  substrate-node-robonomics-bin = callPackage ../applications/blockchains/substrate/robonomics-bin.nix { };
 
   particl-core = callPackage ../applications/blockchains/particl/particl-core.nix { miniupnpc = miniupnpc_2; };
 

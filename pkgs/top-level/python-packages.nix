@@ -1306,6 +1306,8 @@ in {
 
   sparse = callPackage ../development/python-modules/sparse { };
 
+  spidev = callPackage ../development/python-modules/spidev { };
+
   spglib = callPackage ../development/python-modules/spglib { };
 
   sshpubkeys = callPackage ../development/python-modules/sshpubkeys { };
@@ -1402,6 +1404,20 @@ in {
   acme-tiny = callPackage ../development/python-modules/acme-tiny { };
 
   actdiag = callPackage ../development/python-modules/actdiag { };
+
+  adafruit-pureio  = callPackage ../development/python-modules/adafruit_pureio { };
+
+  adafruit-gpio  = callPackage ../development/python-modules/adafruit_gpio { };
+
+  adafruit-motorhat = callPackage ../development/python-modules/adafruit_motorhat { };
+
+  adafruit-circuitpython-htu21d = callPackage ../development/python-modules/adafruit_circuitpython_htu21d { };
+
+  adafruit-circuitpython-busdevice = callPackage ../development/python-modules/adafruit-circuitpython-busdevice {  };
+
+  adafruit-blinka = callPackage ../development/python-modules/adafruit-blinka {  };
+
+  adafruit-platformdetect = callPackage ../development/python-modules/adafruit-platformdetect {  };
 
   adal = callPackage ../development/python-modules/adal { };
 
@@ -2904,6 +2920,10 @@ in {
   raven = callPackage ../development/python-modules/raven { };
 
   rawkit = callPackage ../development/python-modules/rawkit { };
+
+  rpi_ws281x = callPackage ../development/python-modules/rpi_ws281x {  };
+
+  rpi_gpio = callPackage ../development/python-modules/rpi_gpio {  };
 
   joblib = callPackage ../development/python-modules/joblib { };
 
@@ -5238,6 +5258,8 @@ in {
   systemd = callPackage ../development/python-modules/systemd {
     inherit (pkgs) pkgconfig systemd;
   };
+
+  sysv_ipc = callPackage ../development/python-modules/sysv_ipc {  };
 
   tabulate = callPackage ../development/python-modules/tabulate { };
 

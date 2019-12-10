@@ -10,14 +10,18 @@ let
   keyfile = "${liabilityHome}/keyfile";
   keyfile_password_file = "${liabilityHome}/keyfile-psk";
 
-  python-eth_keyfile = pkgs.python3.withPackages (ps : with ps; [ eth-keyfile ]);
+  python-eth_keyfile = pkgs.python3.withPackages (ps : with ps; [ eth-keyfile setuptools ]);
 
 in {
   options = {
     services.liability = {
       enable = mkEnableOption "Enable Robonomics liability executor service.";
 
-      graph = mkEnableOption "Enable Robonomics telemetry information node.";
+      graph = mkOption {
+        type = types.bool;
+        default = true;
+        description = "Enable Robonomics telemetry information node.";
+      };
 
       graph_topic = mkOption {
         type = types.str;
@@ -97,9 +101,8 @@ in {
 
       preStart = ''
         if [ ! -e ${cfg.keyfile} ]; then
-          PASSWORD=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c32)
-          echo $PASSWORD > ${cfg.keyfile_password_file}
-          ${python-eth_keyfile}/bin/python -c "import os,eth_keyfile,json; print(json.dumps(eth_keyfile.create_keyfile_json(os.urandom(32), '$PASSWORD'.encode())))" > ${cfg.keyfile}
+          ${pkgs.pwgen}/bin/pwgen -1 -s -n 32 > ${cfg.keyfile_password_file}
+          ${python-eth_keyfile}/bin/python -c "import os,eth_keyfile,json; print(json.dumps(eth_keyfile.create_keyfile_json(os.urandom(32), open('${cfg.keyfile_password_file}', 'r').readline().rstrip('\n').encode())))" > ${cfg.keyfile}
         fi
       '';
 

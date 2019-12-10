@@ -1,6 +1,11 @@
 { stdenv, fetchurl, pam, libkrb5, cyrus_sasl, miniupnpc }:
-
+let
+  libc = if stdenv.hostPlatform.system == "i686-linux" then "${stdenv.glibc.out}/lib/libc.so.6"
+  else if stdenv.hostPlatform.system == "x86_64-linux" then "${stdenv.glibc.out}/lib/libc.so.6"
+  else throw "libc${stdenv.targetPlatform.extensions.sharedLibrary}";
+in
 stdenv.mkDerivation rec {
+  inherit libc;
   pname = "dante";
   version = "1.4.2";
 
@@ -11,8 +16,7 @@ stdenv.mkDerivation rec {
 
   buildInputs = [ pam libkrb5 cyrus_sasl miniupnpc ];
 
-  configureFlags = ["--with-libc=libc${stdenv.targetPlatform.extensions.sharedLibrary}"];
-
+  configureFlags = ["--with-libc=${libc}"];
   dontAddDisableDepTrack = stdenv.isDarwin;
 
   meta = with stdenv.lib; {

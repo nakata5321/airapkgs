@@ -4,34 +4,28 @@
 }:
 
 let
-  defaultVersion = "2019.10";
-  defaultSrc = fetchurl {
-    url = "ftp://ftp.denx.de/pub/u-boot/u-boot-${defaultVersion}.tar.bz2";
-    sha256 = "053hcrwwlacqh2niisn0zas95zkbffw5aw5sdhixs8lmfdq60vcd";
-  };
-  buildUBoot = {
-    version ? null
-  , src ? null
-  , filesToInstall
-  , installDir ? "$out"
-  , defconfig
-  , extraConfig ? ""
-  , extraPatches ? []
-  , extraMakeFlags ? []
-  , extraMeta ? {}
-  , ... } @ args: stdenv.mkDerivation ({
+  buildUBoot = { version ? "2019.10"
+            , filesToInstall
+            , installDir ? "$out"
+            , defconfig
+            , extraConfig ? ""
+            , extraPatches ? []
+            , extraMakeFlags ? []
+            , extraMeta ? {}
+            , ... } @ args:
+           stdenv.mkDerivation ({
+
     pname = "uboot-${defconfig}";
 
-    version = if src == null then defaultVersion else version;
+    src = fetchurl {
+      url = "ftp://ftp.denx.de/pub/u-boot/u-boot-${version}.tar.bz2";
+      sha256 = "053hcrwwlacqh2niisn0zas95zkbffw5aw5sdhixs8lmfdq60vcd";
+    };
 
-    src = if src == null then defaultSrc else src;
-
-    patches = [
-      (fetchpatch {
-        url = https://github.com/dezgeg/u-boot/commit/extlinux-path-length-2018-03.patch;
-        sha256 = "07jafdnxvqv8lz256qy29agjc2k1zj5ad4k28r1w5qkhwj4ixmf8";
-      })
-    ] ++ extraPatches;
+    postUnpack = ''
+      substituteInPlace $sourceRoot/cmd/pxe.c \
+      --replace "MAX_TFTP_PATH_LEN 127" "MAX_TFTP_PATH_LEN 512"
+    '';
 
     postPatch = ''
       patchShebangs tools
@@ -241,6 +235,18 @@ in {
 
   ubootRaspberryPi3_64bit = buildUBoot {
     defconfig = "rpi_3_defconfig";
+    extraMeta.platforms = ["aarch64-linux"];
+    filesToInstall = ["u-boot.bin"];
+  };
+
+  ubootRaspberryPi4_32bit = buildUBoot {
+    defconfig = "rpi_4_32b_defconfig";
+    extraMeta.platforms = ["armv7l-linux"];
+    filesToInstall = ["u-boot.bin"];
+  };
+
+  ubootRaspberryPi4_64bit = buildUBoot {
+    defconfig = "rpi_4_defconfig";
     extraMeta.platforms = ["aarch64-linux"];
     filesToInstall = ["u-boot.bin"];
   };

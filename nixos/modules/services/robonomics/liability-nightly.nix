@@ -10,14 +10,18 @@ let
   keyfile = "${liabilityHome}/keyfile";
   keyfile_password_file = "${liabilityHome}/keyfile-psk";
 
-  python-eth_keyfile = pkgs.python3.withPackages (ps : with ps; [ eth-keyfile ]);
+  python-eth_keyfile = pkgs.python3.withPackages (ps : with ps; [ eth-keyfile setuptools ]);
 
 in {
   options = {
     services.liability-nightly = {
       enable = mkEnableOption "Enable Robonomics liability executor service.";
 
-      graph = mkEnableOption "Enable Robonomics telemetry information node.";
+      graph = mkOption {
+        type = types.bool;
+        default = true;
+        description = "Enable Robonomics telemetry information node.";
+      };
 
       graph_topic = mkOption {
         type = types.str;
@@ -65,6 +69,26 @@ in {
         description = "Password file for keyfile.";
       };
 
+      ipfs_http_provider = mkOption {
+        type = types.str;
+        default = "http://127.0.0.1:5001";
+        description = "IPFS http provider address";
+      };
+
+      ipfs_public_providers = mkOption {
+        type = types.str;
+        default = "";
+        example = "https://ipfs.infura.io:5001, http://example.server:5001";
+        description = "list of IPFS public nodes http provider address";
+      };
+
+      ipfs_swarm_connect_addresses = mkOption {
+        type = types.str;
+        default = "";
+        example = "/dnsaddr/bootstrap.aira.life, /dns4/1.pubsub.aira.life/tcp/4001/ipfs/QmdfQmbmXt6sqjZyowxPUsmvBsgSGQjm4VXrV7WGy62dv8";
+        description = "list of IPFS bootstrapping nodes";
+      };
+
       web3_http_provider = mkOption {
         type = types.str;
         default = "http://127.0.0.1:8545";
@@ -97,9 +121,8 @@ in {
 
       preStart = ''
         if [ ! -e ${cfg.keyfile} ]; then
-          PASSWORD=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c32)
-          echo $PASSWORD > ${cfg.keyfile_password_file}
-          ${python-eth_keyfile}/bin/python -c "import os,eth_keyfile,json; print(json.dumps(eth_keyfile.create_keyfile_json(os.urandom(32), '$PASSWORD'.encode())))" > ${cfg.keyfile}
+          ${pkgs.pwgen}/bin/pwgen -1 -s -n 32 > ${cfg.keyfile_password_file}
+          ${python-eth_keyfile}/bin/python -c "import os,eth_keyfile,json; print(json.dumps(eth_keyfile.create_keyfile_json(os.urandom(32), open('${cfg.keyfile_password_file}', 'r').readline().rstrip('\n').encode())))" > ${cfg.keyfile}
         fi
       '';
 
@@ -112,6 +135,9 @@ in {
               factory_contract:="${cfg.factory}" \
               keyfile:="${cfg.keyfile}" \
               keyfile_password_file:="${cfg.keyfile_password_file}" \
+              ipfs_http_provider:="${cfg.ipfs_http_provider}" \
+              ipfs_public_providers:="${cfg.ipfs_public_providers}" \
+              ipfs_swarm_connect_addresses:="${cfg.ipfs_swarm_connect_addresses}" \
               web3_http_provider:="${cfg.web3_http_provider}" \
               web3_ws_provider:="${cfg.web3_ws_provider}" \
               enable_aira_graph:="${if cfg.graph then "true" else "false"}" \
