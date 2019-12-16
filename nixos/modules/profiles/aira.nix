@@ -54,15 +54,15 @@
     };
 
     # Enable IPv6 yggdrasil-go mesh network
-    yggdrasil = { 
-      enable = true;
-      IfName = "ygg0";
-      Peers = [
-        "tcp://1.ams.nl.y.fftlt.net:21285"
-        "tcp://1.msk.ru.y.fftlt.net:21285"
-        "tcp://1.tlt.ru.y.fftlt.net:21285"
-      ];
-    };
+ #   yggdrasil = { 
+#      enable = true;
+#      IfName = "ygg0";
+#      Peers = [
+#        "tcp://1.ams.nl.y.fftlt.net:21285"
+#        "tcp://1.msk.ru.y.fftlt.net:21285"
+#        "tcp://1.tlt.ru.y.fftlt.net:21285"
+#      ];
+#    };
 
     # Enable IPv6 cjdns mesh network
     cjdns = {
