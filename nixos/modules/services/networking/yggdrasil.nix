@@ -44,9 +44,7 @@ let
     NodeInfo = cfg.NodeInfo;
   });
 
-in
-
-{
+in {
   options = {
 
     services.yggdrasil = {
@@ -354,6 +352,7 @@ in
         ExecStart = "${cfg.package}/bin/yggdrasil -useconffile /run/yggdrasil/yggdrasil.conf";
         ExecReload = "${pkgs.coreutils}/bin/kill -HUP $MAINPID";
         Restart = "always";
+<<<<<<< HEAD
         StartLimitInterval = 0;
         RestartSec = 1;
         CapabilityBoundingSet = "CAP_NET_ADMIN CAP_NET_RAW CAP_SETUID";
@@ -361,6 +360,20 @@ in
         # Doesn't work on i686, causing service to fail
         MemoryDenyWriteExecute = !pkgs.stdenv.isi686;
         ProtectHome = true;
+=======
+
+        RuntimeDirectory = "yggdrasil";
+        RuntimeDirectoryMode = "0700";
+        BindReadOnlyPaths = mkIf configFileProvided
+          [ "${cfg.configFile}" ];
+
+        # TODO: as of yggdrasil 0.3.8 and systemd 243, yggdrasil fails
+        # to set up the network adapter when DynamicUser is set.  See
+        # github.com/yggdrasil-network/yggdrasil-go/issues/557.  The
+        # following options are implied by DynamicUser according to
+        # the systemd.exec documentation, and can be removed if the
+        # upstream issue is fixed and DynamicUser is set to true:
+>>>>>>> 8636580d6f4801754789dee2dfeefec100ca9ec9
         PrivateTmp = true;
       };
     };
