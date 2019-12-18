@@ -4,7 +4,7 @@ with lib;
 
 let
 
-  pkg = pkgs.yggdrasil-go;
+  pkg = pkgs.yggdrasil;
   cfg = config.services.yggdrasil;
 
   yggdrasilConf = builtins.toJSON ( {
@@ -44,7 +44,9 @@ let
     NodeInfo = cfg.NodeInfo;
   });
 
-in {
+in
+
+{
   options = {
 
     services.yggdrasil = {
@@ -96,7 +98,8 @@ in {
 
         AdminListen = mkOption { 
           type = types.str;
-          default = "unix:///var/run/yggdrasil.sock";
+          default = "tcp://127.0.0.1:9001";
+#          default = "unix:///var/run/yggdrasil.sock";
           description = ''
             Listen address for admin connections. Default is to listen for local
             connections either on TCP/9001 or a UNIX socket depending on your
@@ -125,16 +128,16 @@ in {
           '';
         };
 
-        LinkLocalTCPPort = mkOption {
+        LinkLocalTCPPort = mkOption { 
           type = types.int;
           default = 0;
           description = ''
-            The port number to be used for the link-local TCP listeners for the
+            The port number to be used for the link-local TCP listeners for the 
             configured MulticastInterfaces. This option does not affect listeners
             specified in the Listen option. Unless you plan to firewall link-local
             traffic, it is best to leave this as the default value of 0. This
             option cannot currently be changed by reloading config during runtime.
-          '';
+          ''; 
         };
         IfName = mkOption {
           type = types.str;
@@ -164,7 +167,7 @@ in {
           '';
         };
 
-      SessionFirewall = {
+      SessionFirewall = { 
         Enable = mkOption {
           type = types.bool;
           default = false;
@@ -220,7 +223,7 @@ in {
         };
       };
 
-      TunnelRouting = {
+      TunnelRouting = { 
         Enable = mkOption {
           type = types.bool;
           default = false;
@@ -308,19 +311,13 @@ in {
 
     boot.kernelModules = [ "tun" ];
 
-    assertions = [
-      { assertion = config.networking.enableIPv6;
-        message = "networking.enableIPv6 must be true for yggdrasil to work";
-      }
-    ];
-
     # networking.firewall.allowedUDPPorts = ...
 
-    systemd.services.yggdrasil = {
-      description = "Yggdrasil Network Service";
-      path = [ cfg.package ] ++ optional (configProvided && configFileProvided) pkgs.jq;
-      bindsTo = [ "network-online.target" ];
+      systemd.services.yggdrasil = {
+      description = "yggdrasil";
+      wantedBy = [ "multi-user.target" "sleep.target"];
       after = [ "network-online.target" ];
+      bindsTo = [ "network-online.target" ];
 
       preStart = if cfg.confFile != null then "" else ''#!${pkgs.bash}/bin/bash
         if [ ! -f /etc/yggdrasil.priv -o ! -f /etc/yggdrasil.pub ]; then
@@ -348,34 +345,30 @@ in {
       );
 
       serviceConfig = {
-        Type = "forking";
-        ExecStart = "${cfg.package}/bin/yggdrasil -useconffile /run/yggdrasil/yggdrasil.conf";
+        Type = "simple";
         ExecReload = "${pkgs.coreutils}/bin/kill -HUP $MAINPID";
         Restart = "always";
-<<<<<<< HEAD
-        StartLimitInterval = 0;
-        RestartSec = 1;
-        CapabilityBoundingSet = "CAP_NET_ADMIN CAP_NET_RAW CAP_SETUID";
-        ProtectSystem = true;
-        # Doesn't work on i686, causing service to fail
-        MemoryDenyWriteExecute = !pkgs.stdenv.isi686;
-        ProtectHome = true;
-=======
-
-        RuntimeDirectory = "yggdrasil";
-        RuntimeDirectoryMode = "0700";
-        BindReadOnlyPaths = mkIf configFileProvided
-          [ "${cfg.configFile}" ];
-
-        # TODO: as of yggdrasil 0.3.8 and systemd 243, yggdrasil fails
-        # to set up the network adapter when DynamicUser is set.  See
-        # github.com/yggdrasil-network/yggdrasil-go/issues/557.  The
-        # following options are implied by DynamicUser according to
-        # the systemd.exec documentation, and can be removed if the
-        # upstream issue is fixed and DynamicUser is set to true:
->>>>>>> 8636580d6f4801754789dee2dfeefec100ca9ec9
         PrivateTmp = true;
+        RemoveIPC = true;
+        NoNewPrivileges = true;
+        ProtectSystem = "strict";
+        RestrictSUIDSGID = true;
+        # End of list of options implied by DynamicUser.
+
+        AmbientCapabilities = "CAP_NET_ADMIN";
+        CapabilityBoundingSet = "CAP_NET_ADMIN";
+        MemoryDenyWriteExecute = true;
+        ProtectControlGroups = true;
+        ProtectHome = "tmpfs";
+        ProtectKernelModules = true;
+        ProtectKernelTunables = true;
+        RestrictAddressFamilies = "AF_UNIX AF_INET AF_INET6 AF_NETLINK";
+        RestrictNamespaces = true;
+        RestrictRealtime = true;
+        SystemCallArchitectures = "native";
+        SystemCallFilter = "~@clock @cpu-emulation @debug @keyring @module @mount @obsolete @raw-io @resources";
       };
     };
   };
 }
+

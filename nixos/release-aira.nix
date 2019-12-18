@@ -76,7 +76,6 @@ in rec {
   nixpkgs = {
     inherit (nixpkgs')
       tarball
-      yggdrasil-go
 
       parity
       parity-beta
