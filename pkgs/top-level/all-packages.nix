@@ -25546,8 +25546,6 @@ in
 
   yrd = callPackage ../tools/networking/yrd { };
 
-  yggdrasil-go = callPackage ../tools/networking/yggdrasil-go { };
-
   powershell = callPackage ../shells/powershell { };
 
   doing = callPackage ../applications/misc/doing  { };
