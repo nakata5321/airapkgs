@@ -750,6 +750,7 @@
   ./services/robonomics/issuing-service.nix
   ./services/robonomics/drone_passport.nix
   ./services/robonomics/drone_flight_report.nix
+  ./services/robonomics/sen0233.nix
   ./services/scheduling/atd.nix
   ./services/scheduling/chronos.nix
   ./services/scheduling/cron.nix
