@@ -25777,6 +25777,8 @@ in
 
   issuing-service-agent = callPackage ../applications/science/robotics/aira/issuing_service_agent {  };
 
+  sen0233_sensor_agent = callPackage ../applications/science/robotics/aira/sen0233_sensor_agent {  };
+
   complier_service = callPackage ../applications/science/robotics/aira/complier_service {  };
 
   de_dev = callPackage ../applications/science/robotics/aira/de_dev { };
