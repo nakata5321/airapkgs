@@ -5,28 +5,27 @@
 }:
 
 let
-  buildUBoot = { version ? "2019.10"
-            , filesToInstall
-            , installDir ? "$out"
-            , defconfig
-            , extraConfig ? ""
-            , extraPatches ? []
-            , extraMakeFlags ? []
-            , extraMeta ? {}
-            , ... } @ args:
-           stdenv.mkDerivation ({
-
+  defaultVersion = "2019.10";
+  defaultSrc = fetchurl {
+    url = "ftp://ftp.denx.de/pub/u-boot/u-boot-${defaultVersion}.tar.bz2";
+    sha256 = "053hcrwwlacqh2niisn0zas95zkbffw5aw5sdhixs8lmfdq60vcd";
+  };
+  buildUBoot = {
+    version ? null
+  , src ? null
+  , filesToInstall
+  , installDir ? "$out"
+  , defconfig
+  , extraConfig ? ""
+  , extraPatches ? []
+  , extraMakeFlags ? []
+  , extraMeta ? {}
+  , ... } @ args: stdenv.mkDerivation ({
     pname = "uboot-${defconfig}";
 
-    src = fetchurl {
-      url = "ftp://ftp.denx.de/pub/u-boot/u-boot-${version}.tar.bz2";
-      sha256 = "053hcrwwlacqh2niisn0zas95zkbffw5aw5sdhixs8lmfdq60vcd";
-    };
+    version = if src == null then defaultVersion else version;
 
-    postUnpack = ''
-      substituteInPlace $sourceRoot/cmd/pxe.c \
-      --replace "MAX_TFTP_PATH_LEN 127" "MAX_TFTP_PATH_LEN 512"
-    '';
+    src = if src == null then defaultSrc else src;
 
     patches = [
       # Submitted upstream: https://patchwork.ozlabs.org/patch/1203693/
@@ -69,20 +68,15 @@ let
 
     configurePhase = ''
       runHook preConfigure
-
       make ${defconfig}
-
       cat $extraConfigPath >> .config
-
       runHook postConfigure
     '';
 
     installPhase = ''
       runHook preInstall
-
       mkdir -p ${installDir}
       cp ${lib.concatStringsSep " " filesToInstall} ${installDir}
-
       runHook postInstall
     '';
 
