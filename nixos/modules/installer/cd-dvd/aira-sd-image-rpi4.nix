@@ -57,6 +57,7 @@
     cloneConfigExtra = ''
 #  boot = {
 #    initrd.kernelModules =  [ "w1-gpio" "w1-therm" ];
+#    kernelParams = [ "cma=256M" ];
 #  };
 #  hardware = {
 #    deviceTree  = {
@@ -72,7 +73,6 @@
       enable = true;  # Enables wireless support via wpa_supplicant.
       networks = {
 #       Aira = { psk = "airapassword"; }; #default wifi settings
-#        SSID = { psk = "password"; };
       };
     };
   };
