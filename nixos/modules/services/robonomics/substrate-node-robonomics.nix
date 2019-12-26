@@ -306,6 +306,29 @@ in {
         '';
       };
 
+      validator = mkOption {
+        type = types.bool;
+        default = false;
+        description = ''
+        '';
+      };
+
+      grafana-external = mkOption {
+        type = types.bool;
+        default = false;
+        description = ''
+          Listen to all Grafana data source interfaces
+        '';
+      };
+
+      grafana-port = mkOption {
+        type = types.nullOr types.int;
+        default = null;
+        description = ''  
+          Specify Grafana data source server TCP Port.
+        '';
+      };
+
       user = mkOption {
         type = types.str;
         default = "substrate-node-robonomics";
@@ -375,6 +398,9 @@ in {
           ''${optionalString (cfg.node-key != null) "--node-key  ${cfg.node-key}"}''                             
           ''${optionalString (cfg.node-key-type != null) "--node-key-type  ${cfg.node-key-type}"}''
           ''${optionalString (cfg.node-key-file != null) "--node-key-file  ${cfg.node-key-file}"}''
+          ''${optionalString (cfg.validator == true) "--validator"}''
+          ''${optionalString (cfg.grafana-external == true) "--grafana-external"}''
+          ''${optionalString (cfg.grafana-port != null) "--grafana-port ${toString cfg.grafana-port}"}''
         ];
         User = cfg.user;
         Group = cfg.group;
