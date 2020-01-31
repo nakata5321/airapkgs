@@ -2,7 +2,7 @@
 , fetch
 , fetchpatch
 , cmake
-, python
+, python3
 , libffi
 , libbfd
 , libxml2
@@ -40,8 +40,8 @@ stdenv.mkDerivation ({
   outputs = [ "out" ]
     ++ stdenv.lib.optional enableSharedLibraries "lib";
 
-  nativeBuildInputs = [ cmake python ]
-    ++ stdenv.lib.optional enableManpages python.pkgs.sphinx;
+  nativeBuildInputs = [ cmake python3 ]
+    ++ stdenv.lib.optional enableManpages python3.pkgs.sphinx;
 
   buildInputs = [ libxml2 libffi ];
 
@@ -52,6 +52,13 @@ stdenv.mkDerivation ({
       name = "0001-Fix-return-type-in-ORC-readMem-client-interface.patch";
       url = "https://bugzilla.redhat.com/attachment.cgi?id=1389687";
       sha256 = "0ga2123aclq3x9w72d0rm0az12m8c1i4r1106vh701hf4cghgbch";
+    })
+    ./fix-gcc9.patch
+    (fetchpatch {
+      name = "llvm4-avoid-undefined-behavior-in-unittest.patch";
+      url = "https://aur.archlinux.org/cgit/aur.git/plain/D32089-Avoid-undefined-behavior-in-unittest.patch?h=llvm40&id=f459b0bad8aa3b94bc2733d79d176071a32846a6";
+      sha256 = "0x5q6a8lk6xg4ns4qh75fxvvmfnifwvyrq17ck85q8c0753i1irf";
+      extraPrefix = "";
     })
   ];
 
@@ -136,7 +143,7 @@ stdenv.mkDerivation ({
   '';
 
   preCheck = ''
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/lib
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH''${LD_LIBRARY_PATH:+:}$PWD/lib
   '';
 
   postInstall = stdenv.lib.optionalString enableSharedLibraries ''
