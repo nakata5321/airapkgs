@@ -4294,6 +4294,8 @@ in {
 
   pint = callPackage ../development/python-modules/pint { };
 
+  pinatapy = callPackage ../development/python-modules/pinatapy {  };
+
   pygal = callPackage ../development/python-modules/pygal { };
 
   pytaglib = callPackage ../development/python-modules/pytaglib { };
