@@ -5,14 +5,14 @@
 
 python3Packages.buildPythonApplication rec {
   pname = "pinatapy";
-  version = "0.1.1";
+  version = "0.1.2";
 
   propagatedBuildInputs = with python3Packages; [ requests ];
 
   src = python3Packages.fetchPypi {
     inherit version;
     pname  = "pinatapy-vourhey";
-    sha256 = "1jrpclrlq6c7ycmc8203rr2r4a0dmwcx1qn4482ld5iwchwkzpnc";
+    sha256 = "1fgpx1yykwcb2ni31g5a8nba95yzxxkxxv4h8iwc3gfpxz017k9z";
   };
 
   doCheck = false;
