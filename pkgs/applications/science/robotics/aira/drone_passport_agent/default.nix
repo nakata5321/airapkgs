@@ -8,15 +8,19 @@
 mkRosPackage rec {
   name = "${pname}-${version}";
   pname = "drone_passport_agent";
-  version = "0.2.2";
+  version = "0.2.4";
 
   src = fetchFromGitHub {
     owner = "DistributedSky";
     repo = "${pname}";
-    rev = "628c021240410d02737ed7339137b9a77a0c042d";
-    sha256 = "sha256:18l6rgv6gprxqvwic1cwi39a9x9fi7slghk1i1h8h9sgq4036qqn";
+    rev = "c580c3944b6a589c0ef4474d180a9f7a786cbb58";
+    sha256 = "sha256:0mbar0p9kgxqrvyx4apbx8l8vilbcz3l3cb31x1cgrbjlmk0sh9n";
   };
-  propagatedBuildInputs = [ robonomics_comm pkgs.python37Packages.flask-restful ];
+  propagatedBuildInputs = [
+    robonomics_comm
+    pkgs.python37Packages.flask-restful
+    pkgs.python3Packages.pinatapy
+  ];
 
   meta = with stdenv.lib; {
     description = "ROS-enabled drone passport agent";
