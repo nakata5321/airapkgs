@@ -13,4 +13,8 @@ with lib;
 
   # Disable X11 for minimal image
   virtualisation.virtualbox.guest.x11 = false;
+
+  system.fsPackages = [
+    config.boot.kernelPackages.virtualboxGuestAdditions
+  ];
 }
