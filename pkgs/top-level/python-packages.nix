@@ -1583,7 +1583,9 @@ in {
 
   ansicolors = callPackage ../development/python-modules/ansicolors {};
 
-  aniso8601 = callPackage ../development/python-modules/aniso8601 {};
+  aniso8601 = callPackage ../development/python-modules/aniso8601/8_0_0.nix {};
+
+  aniso8601_7_0_0 = callPackage ../development/python-modules/aniso8601/7_0_0.nix {};
 
   anonip = callPackage ../development/python-modules/anonip { };
 
@@ -1680,7 +1682,7 @@ in {
 
   asn1ate = callPackage ../development/python-modules/asn1ate { };
 
-  atlassian-python-api = callPackage ../development/python-modules/atlassian-python-api { };  
+  atlassian-python-api = callPackage ../development/python-modules/atlassian-python-api { };
 
   atomiclong = callPackage ../development/python-modules/atomiclong { };
 
@@ -3545,7 +3547,17 @@ in {
 
   grappelli_safe = callPackage ../development/python-modules/grappelli_safe { };
 
+  graphene-sqlalchemy = callPackage ../development/python-modules/graphene-sqlalchemy {  };
+
+  graphene = callPackage ../development/python-modules/graphene {  };
+
+  graphql-relay = callPackage ../development/python-modules/graphql-relay {  };
+
+  graphql-core = callPackage ../development/python-modules/graphql-core {  };
+
   greatfet = callPackage ../development/python-modules/greatfet { };
+
+  promise = callPackage ../development/python-modules/promise {  };
 
   pygreat = callPackage ../development/python-modules/pygreat { };
 
