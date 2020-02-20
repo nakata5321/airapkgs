@@ -3489,6 +3489,8 @@ in {
 
   flask_elastic = callPackage ../development/python-modules/flask-elastic { };
 
+  flask-graphql = callPackage ../development/python-modules/flask-graphql {  };
+
   flask-httpauth = callPackage ../development/python-modules/flask-httpauth { };
 
   flask-jwt-extended = callPackage ../development/python-modules/flask-jwt-extended { };
@@ -3554,6 +3556,8 @@ in {
   graphql-relay = callPackage ../development/python-modules/graphql-relay {  };
 
   graphql-core = callPackage ../development/python-modules/graphql-core {  };
+
+  graphql-server-core = callPackage ../development/python-modules/graphql-server-core {  };
 
   greatfet = callPackage ../development/python-modules/greatfet { };
 
