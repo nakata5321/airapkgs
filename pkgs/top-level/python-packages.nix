@@ -3551,6 +3551,8 @@ in {
 
   graphene-sqlalchemy = callPackage ../development/python-modules/graphene-sqlalchemy {  };
 
+  graphene-sqlalchemy-filter = callPackage ../development/python-modules/graphene-sqlalchemy-filter {  };
+
   graphene = callPackage ../development/python-modules/graphene {  };
 
   graphql-relay = callPackage ../development/python-modules/graphql-relay {  };
