@@ -5576,6 +5576,8 @@ in {
 
   transitions = callPackage ../development/python-modules/transitions { };
 
+  trytond = callPackage ../development/python-modules/trytond {  };
+
   extras = callPackage ../development/python-modules/extras { };
 
   texttable = callPackage ../development/python-modules/texttable { };
