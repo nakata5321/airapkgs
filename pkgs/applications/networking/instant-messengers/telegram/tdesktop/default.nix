@@ -1,7 +1,8 @@
 { mkDerivation, lib, fetchurl, fetchsvn
 , pkgconfig, cmake, ninja, python3, wrapGAppsHook, wrapQtAppsHook
-, qtbase, qtimageformats, gtk3, libappindicator-gtk3, enchant2, lz4, xxHash
+, qtbase, qtimageformats, gtk3, libsForQt5, enchant2, lz4, xxHash
 , dee, ffmpeg_4, openalSoft, minizip, libopus, alsaLib, libpulseaudio, range-v3
+, tl-expected, microsoft_gsl
 # TODO: Shouldn't be required:
 , pcre, xorg, utillinux, libselinux, libsepol, epoxy, at-spi2-core, libXtst
 , xdg_utils
@@ -18,19 +19,19 @@ with lib;
 
 mkDerivation rec {
   pname = "telegram-desktop";
-  version = "1.9.9";
+  version = "1.9.14";
 
   # Telegram-Desktop with submodules
   src = fetchurl {
     url = "https://github.com/telegramdesktop/tdesktop/releases/download/v${version}/tdesktop-${version}-full.tar.gz";
-    sha256 = "08bxlqiapj9yqj9ywni33n5k7n3ckgfhv200snjqyqy9waqph1i6";
+    sha256 = "0jsss4b51ylf4qk58frvh2yap1s3cjf3isnlc273cc0fh5g1skc6";
   };
 
   postPatch = ''
-    substituteInPlace Telegram/SourceFiles/platform/linux/linux_libs.cpp \
-      --replace '"appindicator3"' '"${libappindicator-gtk3}/lib/libappindicator3.so"'
     substituteInPlace Telegram/lib_spellcheck/spellcheck/platform/linux/linux_enchant.cpp \
       --replace '"libenchant-2.so.2"' '"${enchant2}/lib/libenchant-2.so.2"'
+    substituteInPlace Telegram/CMakeLists.txt \
+      --replace '"''${TDESKTOP_LAUNCHER_BASENAME}.appdata.xml"' '"''${TDESKTOP_LAUNCHER_BASENAME}.metainfo.xml"'
   '';
 
   # We want to run wrapProgram manually (with additional parameters)
@@ -40,8 +41,9 @@ mkDerivation rec {
   nativeBuildInputs = [ pkgconfig cmake ninja python3 wrapGAppsHook wrapQtAppsHook ];
 
   buildInputs = [
-    qtbase qtimageformats gtk3 libappindicator-gtk3 enchant2 lz4 xxHash
+    qtbase qtimageformats gtk3 libsForQt5.libdbusmenu enchant2 lz4 xxHash
     dee ffmpeg_4 openalSoft minizip libopus alsaLib libpulseaudio range-v3
+    tl-expected microsoft_gsl
     # TODO: Shouldn't be required:
     pcre xorg.libpthreadstubs xorg.libXdmcp utillinux libselinux libsepol epoxy at-spi2-core libXtst
   ];
@@ -56,6 +58,7 @@ mkDerivation rec {
     "-DDESKTOP_APP_USE_GLIBC_WRAPS=OFF"
     "-DDESKTOP_APP_USE_PACKAGED=ON"
     "-DDESKTOP_APP_USE_PACKAGED_RLOTTIE=OFF"
+    "-DDESKTOP_APP_USE_PACKAGED_VARIANT=OFF"
     "-DDESKTOP_APP_DISABLE_CRASH_REPORTS=ON"
     "-DTDESKTOP_DISABLE_REGISTER_CUSTOM_SCHEME=ON"
     "-DTDESKTOP_DISABLE_DESKTOP_FILE_GENERATION=ON"
@@ -78,18 +81,7 @@ mkDerivation rec {
   #   - upstream: https://github.com/grishka/libtgvoip
   # Both of these packages are included in this PR (kotatogram-desktop):
   # https://github.com/NixOS/nixpkgs/pull/75210
-
-  installPhase = ''
-    install -Dm755 bin/telegram-desktop $out/bin/telegram-desktop
-
-    mkdir -p $out/share/{kservices5,applications,metainfo}
-    install -m444 "../lib/xdg/telegramdesktop.desktop" "$out/share/applications/telegram-desktop.desktop"
-    install -m644 "../lib/xdg/telegramdesktop.appdata.xml" "$out/share/metainfo/telegramdesktop.metainfo.xml"
-
-    for icon_size in 16 32 48 64 128 256 512; do
-      install -Dm644 "../Telegram/Resources/art/icon''${icon_size}.png" "$out/share/icons/hicolor/''${icon_size}x''${icon_size}/apps/telegram.png"
-    done
-  '';
+  # TODO: Package mapbox-variant
 
   postFixup = ''
     # This is necessary to run Telegram in a pure environment.

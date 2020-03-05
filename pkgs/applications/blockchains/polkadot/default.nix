@@ -18,7 +18,10 @@ rustPlatform.buildRustPackage rec {
     sha256 = "1zq2fhpgyhhfjr7hvhpp0lghs76l722mswb1rlxih96kma6xafsj";
   }; 
 
-  cargoSha256 = "0ma1cx9bcwdcbcxy6yvf38g1g1q3l02kmrrz3ggv667as23c6pnz";
+  # Delete this on next update; see #79975 for details
+  legacyCargoFetcher = true;
+
+  cargoSha256 = "0gc3w0cwdyk8f7cgpp9sfawczk3n6wd7q0nhfvk87sry71b8vvwq";
 
   buildInputs = [ pkgconfig openssl openssl.dev clang ];
   LIBCLANG_PATH = "${llvmPackages.libclang}/lib";
