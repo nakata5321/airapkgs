@@ -1625,7 +1625,9 @@ in {
 
   ansicolors = callPackage ../development/python-modules/ansicolors {};
 
-  aniso8601 = callPackage ../development/python-modules/aniso8601 {};
+  aniso8601 = callPackage ../development/python-modules/aniso8601/8_0_0.nix {};
+
+  aniso8601_7_0_0 = callPackage ../development/python-modules/aniso8601/7_0_0.nix {};
 
   anonip = callPackage ../development/python-modules/anonip { };
 
@@ -3583,6 +3585,8 @@ in {
 
   flask_elastic = callPackage ../development/python-modules/flask-elastic { };
 
+  flask-graphql = callPackage ../development/python-modules/flask-graphql {  };
+
   flask-httpauth = callPackage ../development/python-modules/flask-httpauth { };
 
   flask-jwt-extended = callPackage ../development/python-modules/flask-jwt-extended { };
@@ -3641,7 +3645,21 @@ in {
 
   grappelli_safe = callPackage ../development/python-modules/grappelli_safe { };
 
+  graphene-sqlalchemy = callPackage ../development/python-modules/graphene-sqlalchemy {  };
+
+  graphene-sqlalchemy-filter = callPackage ../development/python-modules/graphene-sqlalchemy-filter {  };
+
+  graphene = callPackage ../development/python-modules/graphene {  };
+
+  graphql-relay = callPackage ../development/python-modules/graphql-relay {  };
+
+  graphql-core = callPackage ../development/python-modules/graphql-core {  };
+
+  graphql-server-core = callPackage ../development/python-modules/graphql-server-core {  };
+
   greatfet = callPackage ../development/python-modules/greatfet { };
+
+  promise = callPackage ../development/python-modules/promise {  };
 
   pygreat = callPackage ../development/python-modules/pygreat { };
 
@@ -5716,6 +5734,8 @@ in {
   traitlets = callPackage ../development/python-modules/traitlets { };
 
   transitions = callPackage ../development/python-modules/transitions { };
+
+  trytond = callPackage ../development/python-modules/trytond {  };
 
   extras = callPackage ../development/python-modules/extras { };
 

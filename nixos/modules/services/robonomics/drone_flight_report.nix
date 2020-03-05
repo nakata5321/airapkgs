@@ -3,7 +3,7 @@
 with lib;
 
 let
-  cfg = config.services.drone_passport;
+  cfg = config.services.drone_flight_report;
 
   operationalToken = "0x7dE91B204C1C737bcEe6F000AAA6569Cf7061cb7";
 

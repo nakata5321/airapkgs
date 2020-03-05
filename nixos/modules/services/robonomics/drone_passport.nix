@@ -36,6 +36,18 @@ in {
         description = "Operational token";
       };
 
+      pinata_api_key = mkOption {
+        type = types.str;
+        default = "";
+        description = "Pinata.cloud API key";
+      };
+
+      pinata_secret_api_key = mkOption {
+        type = types.str;
+        default = "";
+        description = "Pinata.cloud secret API key";
+      };
+
       user = mkOption {
         type = types.str;
         default = "liability";
@@ -58,7 +70,9 @@ in {
               login:="${cfg.login}" \
               email_from:="${cfg.email_from}" \
               email_password:="${cfg.email_password}" \
-              token:="${cfg.token}"
+              token:="${cfg.token}" \
+              pinata_api_key:="${cfg.pinata_api_key}" \
+              pinata_secret_api_key:="${cfg.pinata_secret_api_key}"
       '';
 
       serviceConfig = {

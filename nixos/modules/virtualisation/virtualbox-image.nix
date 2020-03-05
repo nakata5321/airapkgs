@@ -118,10 +118,20 @@ in {
         '';
     };
 
-    fileSystems."/" = {
-      device = "/dev/disk/by-label/nixos";
-      autoResize = true;
-      fsType = "ext4";
+    fileSystems = {
+      "/" = {
+        device = "/dev/disk/by-label/nixos";
+        autoResize = true;
+        fsType = "ext4";
+      };
+
+      "/host_home" = {
+        fsType = "vboxsf";
+        device = "hostHome";
+        options = ["rw,nofail"];  # If you want it read-only
+        noCheck = true;  # fsck would be pointless.
+      };
+
     };
 
     boot.growPartition = true;
