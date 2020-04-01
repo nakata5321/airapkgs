@@ -1,4 +1,4 @@
-{ lib, buildGoModule, buildGoPackage, fetchFromGitHub }:
+{ stdenv, buildGoModule, buildGoPackage, fetchFromGitHub, Security }:
 
 let
   # Argo can package a static server in the CLI using the `staticfiles` go module.
@@ -19,18 +19,20 @@ let
 in
 buildGoModule rec {
   pname = "argo";
-  version = "2.6.0";
+  version = "2.6.1";
 
   src = fetchFromGitHub {
     owner = "argoproj";
     repo = "argo";
     rev = "v${version}";
-    sha256 = "0hlvsi706jwlf43mdwic6j7iriii4daxjr82qgi80ac4h4x0z3h2";
+    sha256 = "12wq79h4m8wlzf18r66965mbbjjb62kvnxdj50ra7nxa8jjxpsmf";
   };
 
   modSha256 = "1394bav1k1xv9n1rvji0j9a09mibk97xpha24640jkgmy9bnmg45";
 
   subPackages = [ "cmd/argo" ];
+
+  buildInputs = stdenv.lib.optionals stdenv.isDarwin [ Security ];
 
   preBuild = ''
     mkdir -p ui/dist/app
@@ -39,7 +41,7 @@ buildGoModule rec {
     ${staticfiles}/bin/staticfiles -o server/static/files.go ui/dist/app
   '';
 
-  meta = with lib; {
+  meta = with stdenv.lib; {
     description = "Container native workflow engine for Kubernetes";
     homepage = https://github.com/argoproj/argo;
     license = licenses.asl20;

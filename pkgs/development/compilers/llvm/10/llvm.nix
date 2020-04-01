@@ -17,7 +17,7 @@
 , enablePFM ? !(stdenv.isDarwin
   || stdenv.isAarch64 # broken for Ampere eMAG 8180 (c2.large.arm on Packet) #56245
 )
-, enablePolly ? false
+, enablePolly ? true
 }:
 
 let
@@ -31,8 +31,8 @@ in stdenv.mkDerivation (rec {
   pname = "llvm";
   inherit version;
 
-  src = fetch pname "01azqqygm83s6l1g35kqkc7da06dkc8jxpb4zsd420lmhfhw4gws";
-  polly_src = fetch "polly" "00nvnh0jhi1s5gcyfnb30h9g2j18z79kipiy878bkawg53f4z2xf";
+  src = fetch pname "1abfi0zqbcwxf68dk00szpjxkcd44589va243af8sg97hljq6709";
+  polly_src = fetch "polly" "1fzg5934km69rwam6vgznk0p4slzhr0icwmj3jibw3p93ppa8k9r";
 
   unpackPhase = ''
     unpackFile $src
@@ -53,6 +53,11 @@ in stdenv.mkDerivation (rec {
     ++ optional enablePFM libpfm; # exegesis
 
   propagatedBuildInputs = [ ncurses zlib ];
+
+  patches = [
+    # 10.0.0rc3-only
+    ./llvm-extension-handling.patch
+  ];
 
   postPatch = optionalString stdenv.isDarwin ''
     substituteInPlace cmake/modules/AddLLVM.cmake \

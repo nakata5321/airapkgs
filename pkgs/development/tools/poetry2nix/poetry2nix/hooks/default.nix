@@ -3,7 +3,6 @@
 , makeSetupHook
 , yj
 }:
-
 let
   pythonInterpreter = python.pythonForBuild.interpreter;
 in
@@ -20,6 +19,14 @@ in
           pyprojectPatchScript = "${./pyproject-without-path.py}";
         };
       } ./remove-path-dependencies.sh
+  ) {};
+
+  poetry2nixFixupHook = callPackage (
+    {}:
+      makeSetupHook {
+        name = "fixup-hook.sh";
+        deps = [];
+      } ./fixup-hook.sh
   ) {};
 
 }
