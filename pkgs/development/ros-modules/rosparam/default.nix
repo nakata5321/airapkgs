@@ -17,7 +17,7 @@ in mkRosPackage {
     owner = "ros-gbp";
     repo = "ros_comm-release";
     rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "07bamvnafhpb55vbl8naf1n7fjmr0k8926ygilkpcl55phsm3k79";
+    sha256 = "02pyl4vc1rl1sl8qhbsyzpda75arakmf433v72ij0p3z3c17nnpp";
   };
 
   propagatedBuildInputs = [ catkin rosgraph ];

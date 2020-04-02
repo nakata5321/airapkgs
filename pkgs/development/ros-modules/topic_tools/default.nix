@@ -23,7 +23,7 @@ mkRosPackage rec {
     owner = "ros-gbp";
     repo = "ros_comm-release";
     rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "1i0h1gvgjl8b30wrbnrxkma8adq88wk0r0jspwdvqpc87whpajkv";
+    sha256 = "14j5qdpmvp9fyfgcjhfvk89w4kdnjwhwpfmar3c6f4msg19m921c";
   };
 
   propagatedBuildInputs =
