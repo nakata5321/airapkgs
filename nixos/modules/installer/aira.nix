@@ -30,7 +30,7 @@
       export ADDRESS=`cat /var/lib/liability/keyfile|${pkgs.jq}/bin/jq ".address"`
       echo -e "\nMy Ethereum address is $ADDRESS"
       export ID=`${pkgs.ipfs}/bin/ipfs --api /ip4/127.0.0.1/tcp/5001 id|${pkgs.jq}/bin/jq ".ID"`
-      echo -e "\nLook me at https://status.robonomics.network by $ID\n\n"
+      echo -e "\nLook me at https://dapp.robonomics.network by $ID\n\n"
     '';
     shellInit = ''
       source ${pkgs.robonomics_tutorials}/setup.zsh
