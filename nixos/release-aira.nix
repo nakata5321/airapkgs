@@ -78,7 +78,7 @@ in rec {
       tarball
 
       parity
-      parity-beta
+      #parity-beta
       #polkadot
 
       ros_comm
