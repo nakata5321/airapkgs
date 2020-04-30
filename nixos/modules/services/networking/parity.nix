@@ -116,8 +116,7 @@ password = ["${parityPsk}"]
       };
     };
 
-    users.extraUsers = singleton {
-      name = "parity";
+    users.users.parity = {
       home = "${parityHome}";
       createHome = true;
       isNormalUser = true;

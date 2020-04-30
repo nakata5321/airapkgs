@@ -152,11 +152,12 @@ in {
       };
     };
 
-    users.extraUsers = singleton {
-      name = cfg.user;
-      home = "${liabilityHome}";
-      createHome = true;
-      isNormalUser = true;
+   users.users = {
+      "${cfg.user}" = {
+        home = "${liabilityHome}";
+        createHome = true;
+        isNormalUser = true;
+      };
     };
   };
 }
