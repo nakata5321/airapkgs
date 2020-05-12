@@ -26639,6 +26639,8 @@ in
 
   ros_comm = callPackage ../development/ros-modules/ros_comm { };
 
+  mqtt_bridge = callPackage ../development/ros-modules/mqtt_bridge {  };
+
   actionlib_msgs = callPackage ../development/ros-modules/actionlib_msgs { };
 
   actionlib = callPackage ../development/ros-modules/actionlib { };
