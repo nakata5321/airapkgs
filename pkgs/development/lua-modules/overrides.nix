@@ -145,6 +145,14 @@ with super;
     ];
   });
 
+  lua-lsp = super.lua-lsp.override({
+    # until Alloyed/lua-lsp#28
+    postConfigure = ''
+      substituteInPlace ''${rockspecFilename} \
+        --replace '"lpeglabel ~> 1.5",' '"lpeglabel >= 1.5",'
+    '';
+  });
+
   lua-zlib = super.lua-zlib.override({
     buildInputs = [
       pkgs.zlib.dev
@@ -294,11 +302,32 @@ with super;
     };
   });
 
+  lyaml = super.lyaml.override({
+    buildInputs = [
+      pkgs.libyaml
+    ];
+  });
+
+  mpack = super.mpack.override({
+    buildInputs = [ pkgs.libmpack ];
+    # the rockspec doesn't use the makefile so you may need to export more flags
+    USE_SYSTEM_LUA = "yes";
+    USE_SYSTEM_MPACK = "yes";
+  });
 
   rapidjson = super.rapidjson.override({
     preBuild = ''
       sed -i '/set(CMAKE_CXX_FLAGS/d' CMakeLists.txt
       sed -i '/set(CMAKE_C_FLAGS/d' CMakeLists.txt
     '';
+  });
+
+  pulseaudio = super.pulseaudio.override({
+    buildInputs = [
+      pkgs.libpulseaudio
+    ];
+    nativeBuildInputs = [
+      pkgs.pulseaudio pkgs.pkgconfig
+    ];
   });
 }
