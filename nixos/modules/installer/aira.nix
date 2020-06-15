@@ -46,7 +46,7 @@
 
   # Useful preinstall utils
   environment.systemPackages = with pkgs; [
-    vim git htop screen mosh cmake gcc robonomics-tools
+    vim git htop screen mosh cmake gcc # robonomics-tools
   ];
 
 }

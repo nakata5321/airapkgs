@@ -1,19 +1,34 @@
-{ stdenv, buildGoModule, fetchFromGitHub, libobjc, IOKit, CoreServices }:
+{ stdenv, buildGoModule, fetchFromGitHub, libobjc, IOKit }:
 
 buildGoModule rec {
   pname = "go-ethereum";
-  version = "1.9.11";
+  version = "1.9.14";
 
   src = fetchFromGitHub {
     owner = "ethereum";
     repo = pname;
     rev = "v${version}";
-    sha256 = "0xhkdxn5ajzi05252is5whqank81xy94jp1l5z2a44rajv8rh9vs";
+    sha256 = "0vqsx4q7jn6vhmrm9kkk810d5nvnmyb6bni38ynkxcwlrp3qs6v2";
   };
 
-  modSha256 = "0jcj0knkhyndndyv1j9xhgbg5psagvyd27ailna3x9ikjlb8f7gg";
+  usb = fetchFromGitHub {
+    owner = "karalabe";
+    repo = "usb";
+    rev = "911d15fe12a9c411cf5d0dd5635231c759399bed";
+    sha256 = "0asd5fz2rhzkjmd8wjgmla5qmqyz4jaa6qf0n2ycia16jsck6wc2";
+  };
+
+  vendorSha256 = "01mbmc8qlp08127dlmcqz0viasmg7mrzqzmyw21an69sabcr112n";
+
+  overrideModAttrs = (_: {
+      postBuild = ''
+      cp -r --reflink=auto ${usb}/libusb vendor/github.com/karalabe/usb
+      cp -r --reflink=auto ${usb}/hidapi vendor/github.com/karalabe/usb
+      '';
+    });
 
   subPackages = [
+    "cmd/abidump"
     "cmd/abigen"
     "cmd/bootnode"
     "cmd/checkpoint-admin"
@@ -29,8 +44,6 @@ buildGoModule rec {
     "cmd/utils"
     "cmd/wnode"
   ];
-
-  buildInputs = stdenv.lib.optionals stdenv.isDarwin [ CoreServices ];
 
   # Fix for usb-related segmentation faults on darwin
   propagatedBuildInputs =

@@ -38,9 +38,7 @@ let
   baseService = recursiveUpdate commonEnv {
     wants = [ "ipfs-init.service" ];
     # NB: migration must be performed prior to pre-start, else we get the failure message!
-    preStart = ''
-      ipfs repo fsck # workaround for BUG #4212 (https://github.com/ipfs/go-ipfs/issues/4214)
-    '' + optionalString cfg.autoMount ''
+    preStart = optionalString cfg.autoMount ''
       ipfs --local config Mounts.FuseAllowOther --json true
       ipfs --local config Mounts.IPFS ${cfg.ipfsMountDir}
       ipfs --local config Mounts.IPNS ${cfg.ipnsMountDir}
@@ -229,6 +227,9 @@ in {
         createHome = false;
         uid = config.ids.uids.ipfs;
         description = "IPFS daemon user";
+        packages = [
+          pkgs.ipfs-migrator
+        ];
       };
     };
 
