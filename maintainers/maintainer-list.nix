@@ -8034,18 +8034,11 @@
     githubId = 563054;
     name = "Thomas Tuegel";
   };
-<<<<<<< HEAD
-  tuuzdu = {
-    email = "tvvzdv@gmail.com";
-    github = "tuuzdu";
-    name = "Ivan Biriuk";
-=======
   turion = {
     email = "programming@manuelbaerenz.de";
     github = "turion";
     githubId = 303489;
     name = "Manuel Bärenz";
->>>>>>> upstream/nixos-unstable
   };
   tv = {
     email = "tv@krebsco.de";

@@ -280,13 +280,10 @@ in {
     withPython = true;
   });
 
-<<<<<<< HEAD
   azure = callPackage ../development/python-modules/azure { };
 
   azure-agent  = callPackage ../development/python-modules/azure-agent { };
 
-=======
->>>>>>> upstream/nixos-unstable
   azure-nspkg = callPackage ../development/python-modules/azure-nspkg { };
 
   azure-common = callPackage ../development/python-modules/azure-common { };
@@ -3025,8 +3022,6 @@ in {
 
   ipfshttpclient = callPackage ../development/python-modules/ipfshttpclient { };
 
-  varint = callPackage ../development/python-modules/varint { };
-
   multiaddr = callPackage ../development/python-modules/multiaddr { };
 
   isbnlib = callPackage ../development/python-modules/isbnlib { };
@@ -3851,8 +3846,6 @@ in {
   graphql-server-core = callPackage ../development/python-modules/graphql-server-core {  };
 
   greatfet = callPackage ../development/python-modules/greatfet { };
-
-  promise = callPackage ../development/python-modules/promise {  };
 
   pygreat = callPackage ../development/python-modules/pygreat { };
 
@@ -5103,17 +5096,9 @@ in {
 
   precis-i18n = callPackage ../development/python-modules/precis-i18n { };
 
-<<<<<<< HEAD
-  prox-tv = callPackage ../development/python-modules/prox-tv {
-    # We need to use blas instead of openblas on darwin,
-    # see https://github.com/NixOS/nixpkgs/pull/45013.
-    useOpenblas = ! stdenv.isDarwin;
-  };
-=======
   promise = callPackage ../development/python-modules/promise { };
 
   prox-tv = callPackage ../development/python-modules/prox-tv { };
->>>>>>> upstream/nixos-unstable
 
   pvlib = callPackage ../development/python-modules/pvlib { };
 

@@ -3,7 +3,6 @@
 with lib;
 
 let
-<<<<<<< HEAD
 
   pkg = pkgs.yggdrasil;
   cfg = config.services.yggdrasil;
@@ -50,19 +49,8 @@ in
 {
   options = {
 
-=======
-  keysPath = "/var/lib/yggdrasil/keys.json";
-
-  cfg = config.services.yggdrasil;
-  configProvided = cfg.config != { };
-  configFileProvided = cfg.configFile != null;
-
-in {
-  options = with types; {
->>>>>>> upstream/nixos-unstable
     services.yggdrasil = {
 
-<<<<<<< HEAD
       enable = mkOption {
         type = types.bool;
         default = false;
@@ -83,66 +71,6 @@ in {
       Peers = mkOption {
         type = types.listOf types.str;
         default = [];
-=======
-      config = mkOption {
-        type = attrs;
-        default = {};
-        example = {
-          Peers = [
-            "tcp://aa.bb.cc.dd:eeeee"
-            "tcp://[aaaa:bbbb:cccc:dddd::eeee]:fffff"
-          ];
-          Listen = [
-            "tcp://0.0.0.0:xxxxx"
-          ];
-        };
-        description = ''
-          Configuration for yggdrasil, as a Nix attribute set.
-
-          Warning: this is stored in the WORLD-READABLE Nix store!
-          Therefore, it is not appropriate for private keys. If you
-          wish to specify the keys, use <option>configFile</option>.
-
-          If the <option>persistentKeys</option> is enabled then the
-          keys that are generated during activation will override
-          those in <option>config</option> or
-          <option>configFile</option>.
-
-          If no keys are specified then ephemeral keys are generated
-          and the Yggdrasil interface will have a random IPv6 address
-          each time the service is started, this is the default.
-
-          If both <option>configFile</option> and <option>config</option>
-          are supplied, they will be combined, with values from
-          <option>configFile</option> taking precedence.
-
-          You can use the command <code>nix-shell -p yggdrasil --run
-          "yggdrasil -genconf"</code> to generate default
-          configuration values with documentation.
-        '';
-      };
-
-      configFile = mkOption {
-        type = nullOr path;
-        default = null;
-        example = "/run/keys/yggdrasil.conf";
-        description = ''
-          A file which contains JSON configuration for yggdrasil.
-          See the <option>config</option> option for more information.
-        '';
-      };
-
-      group = mkOption {
-        type = types.str;
-        default = "root";
-        example = "wheel";
-        description = "Group to grant acces to the Yggdrasil control socket.";
-      };
-
-      openMulticastPort = mkOption {
-        type = bool;
-        default = false;
->>>>>>> upstream/nixos-unstable
         description = ''
         '';
       };
@@ -375,18 +303,10 @@ in {
           to the whole network on request.
         '';
       };
-
-      persistentKeys = mkEnableOption ''
-        If enabled then keys will be generated once and Yggdrasil
-        will retain the same IPv6 address when the service is
-        restarted. Keys are stored at ${keysPath}.
-      '';
-
     };
 
   };
 
-<<<<<<< HEAD
   config = mkIf cfg.enable {
 
     boot.kernelModules = [ "tun" ];
@@ -396,34 +316,9 @@ in {
       systemd.services.yggdrasil = {
       description = "yggdrasil";
       wantedBy = [ "multi-user.target" "sleep.target"];
-=======
-  config = mkIf cfg.enable (let binYggdrasil = cfg.package + "/bin/yggdrasil";
-  in {
-    assertions = [{
-      assertion = config.networking.enableIPv6;
-      message = "networking.enableIPv6 must be true for yggdrasil to work";
-    }];
-
-    system.activationScripts.yggdrasil = mkIf cfg.persistentKeys ''
-      if [ ! -e ${keysPath} ]
-      then
-        mkdir -p ${builtins.dirOf keysPath}
-        ${binYggdrasil} -genconf -json \
-          | ${pkgs.jq}/bin/jq \
-              'to_entries|map(select(.key|endswith("Key")))|from_entries' \
-          > ${keysPath}
-        chmod 600 ${keysPath}
-      fi
-    '';
-
-    systemd.services.yggdrasil = {
-      description = "Yggdrasil Network Service";
-      bindsTo = [ "network-online.target" ];
->>>>>>> upstream/nixos-unstable
       after = [ "network-online.target" ];
       bindsTo = [ "network-online.target" ];
 
-<<<<<<< HEAD
       preStart = if cfg.confFile != null then "" else ''#!${pkgs.bash}/bin/bash
         if [ ! -f /etc/yggdrasil.priv -o ! -f /etc/yggdrasil.pub ]; then
           conf=`${pkg}/bin/yggdrasil -genconf -json`
@@ -435,19 +330,6 @@ in {
           chmod 444 /etc/yggdrasil.pub
         fi
       '';
-=======
-      preStart =
-        (if configProvided || configFileProvided || cfg.persistentKeys then
-          "echo "
-
-          + (lib.optionalString configProvided
-            "'${builtins.toJSON cfg.config}'")
-          + (lib.optionalString configFileProvided "$(cat ${cfg.configFile})")
-          + (lib.optionalString cfg.persistentKeys "$(cat ${keysPath})")
-          + " | ${pkgs.jq}/bin/jq -s add | ${binYggdrasil} -normaliseconf -useconf"
-        else
-          "${binYggdrasil} -genconf") + " > /run/yggdrasil/yggdrasil.conf";
->>>>>>> upstream/nixos-unstable
 
       script = (
         if cfg.confFile != null then "${pkg}/bin/yggdrasil -useconffile ${cfg.confFile}" else ''
@@ -463,29 +345,9 @@ in {
       );
 
       serviceConfig = {
-<<<<<<< HEAD
         Type = "simple";
         ExecReload = "${pkgs.coreutils}/bin/kill -HUP $MAINPID";
         Restart = "always";
-=======
-        ExecStart =
-          "${binYggdrasil} -useconffile /run/yggdrasil/yggdrasil.conf";
-        ExecReload = "${pkgs.coreutils}/bin/kill -HUP $MAINPID";
-        Restart = "always";
-
-        Group = cfg.group;
-        RuntimeDirectory = "yggdrasil";
-        RuntimeDirectoryMode = "0750";
-        BindReadOnlyPaths = lib.optional configFileProvided cfg.configFile
-          ++ lib.optional cfg.persistentKeys keysPath;
-
-        # TODO: as of yggdrasil 0.3.8 and systemd 243, yggdrasil fails
-        # to set up the network adapter when DynamicUser is set.  See
-        # github.com/yggdrasil-network/yggdrasil-go/issues/557.  The
-        # following options are implied by DynamicUser according to
-        # the systemd.exec documentation, and can be removed if the
-        # upstream issue is fixed and DynamicUser is set to true:
->>>>>>> upstream/nixos-unstable
         PrivateTmp = true;
         RemoveIPC = true;
         NoNewPrivileges = true;
@@ -507,17 +369,5 @@ in {
         SystemCallFilter = "~@clock @cpu-emulation @debug @keyring @module @mount @obsolete @raw-io @resources";
       };
     };
-<<<<<<< HEAD
   };
-=======
-
-    networking.dhcpcd.denyInterfaces = cfg.denyDhcpcdInterfaces;
-    networking.firewall.allowedUDPPorts = mkIf cfg.openMulticastPort [ 9001 ];
-
-    # Make yggdrasilctl available on the command line.
-    environment.systemPackages = [ cfg.package ];
-  });
-  meta.maintainers = with lib.maintainers; [ gazally ehmry ];
->>>>>>> upstream/nixos-unstable
 }
-

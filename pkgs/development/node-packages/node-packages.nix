@@ -22,33 +22,6 @@ let
         sha512 = "t4WmWoGV9gyzypwG3y3JlcK2t8fKLtvzBA7xEoFTj9SMPvOuLsf13uh4ikK0RRaaa9RPPWLgFUdOyIRaQvCpwQ==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "@angular-devkit/architect-0.901.0" = {
-      name = "_at_angular-devkit_slash_architect";
-      packageName = "@angular-devkit/architect";
-      version = "0.901.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@angular-devkit/architect/-/architect-0.901.0.tgz";
-        sha512 = "SlqEBkPrT40zMCy5344AsUqC76pEPCaGPaAkCIvadaz2dC9vNMzQrvubCPJHViD/TumkSX1kYmLS3iYASVM9GQ==";
-      };
-    };
-    "@angular-devkit/core-9.1.0" = {
-      name = "_at_angular-devkit_slash_core";
-      packageName = "@angular-devkit/core";
-      version = "9.1.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@angular-devkit/core/-/core-9.1.0.tgz";
-        sha512 = "vHTsrB4JaVUQ95FRnKrgo79Y3F6FokImrZdrmwkQmwAThpjXeXmpUEKZS+ZSTFRgesjiIysVGOFijARP4BQ7Bg==";
-      };
-    };
-    "@angular-devkit/schematics-9.1.0" = {
-      name = "_at_angular-devkit_slash_schematics";
-      packageName = "@angular-devkit/schematics";
-      version = "9.1.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@angular-devkit/schematics/-/schematics-9.1.0.tgz";
-        sha512 = "cb9PSvskMwWlL54fPfCcpJoyNDWAX6Wo7CzL5qpIB2cJCPLAuyfRUYYrkO77YUST+n2HvypHz0cZ5SNGMfaaBQ==";
-=======
     "@angular-devkit/architect-0.901.7" = {
       name = "_at_angular-devkit_slash_architect";
       packageName = "@angular-devkit/architect";
@@ -74,7 +47,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/@angular-devkit/schematics/-/schematics-9.1.7.tgz";
         sha512 = "oeHPJePBcPp/bd94jHQeFUnft93PGF5iJiKV9szxqS8WWC5OMZ5eK7icRY0PwvLyfenspAZxdZcNaqJqPMul5A==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "@antora/asciidoc-loader-2.3.2" = {
@@ -203,15 +175,6 @@ let
         sha512 = "EE3zx+/D/wur/JiLp6VCiw1iYdyy1lCJMf8CGPkLeDt5QJrN4N8tKFx33Ah4V30AUQzMk7Uz4IXKZ1LOj124gA==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "@apollographql/apollo-tools-0.4.5" = {
-      name = "_at_apollographql_slash_apollo-tools";
-      packageName = "@apollographql/apollo-tools";
-      version = "0.4.5";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@apollographql/apollo-tools/-/apollo-tools-0.4.5.tgz";
-        sha512 = "KOZC4Y+JM4iQQ7P4CVC878Ee7ya0QoHApGHu4klwjwZkYyOdWIvbML7JfXOUb/AfCO4DFmJfHCjRdAX09Ga6sQ==";
-=======
     "@apollographql/apollo-tools-0.4.8" = {
       name = "_at_apollographql_slash_apollo-tools";
       packageName = "@apollographql/apollo-tools";
@@ -219,7 +182,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/@apollographql/apollo-tools/-/apollo-tools-0.4.8.tgz";
         sha512 = "W2+HB8Y7ifowcf3YyPHgDI05izyRtOeZ4MqIr7LbTArtmJ0ZHULWpn84SGMW7NAvTV1tFExpHlveHhnXuJfuGA==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "@apollographql/graphql-language-service-interface-2.0.2" = {
@@ -321,15 +283,6 @@ let
         sha512 = "aOHQPhsEyaB6p2n+AK981+onHoc+Ork9rcAQVSUJR33wUkGiWRpu6/C685knRyIZVsKeSdG5Q4xMiYeFUhuLzA==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "@babel/generator-7.9.0" = {
-      name = "_at_babel_slash_generator";
-      packageName = "@babel/generator";
-      version = "7.9.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@babel/generator/-/generator-7.9.0.tgz";
-        sha512 = "onl4Oy46oGCzymOXtKMQpI7VXtCbTSHK1kqBydZ6AmzuNcacEVqGk9tZtAS+48IA9IstZcDCgIg8hQKnb7suRw==";
-=======
     "@babel/generator-7.10.1" = {
       name = "_at_babel_slash_generator";
       packageName = "@babel/generator";
@@ -337,7 +290,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/@babel/generator/-/generator-7.10.1.tgz";
         sha512 = "205zc8ci3m01iwym0q0j80554pb5n1znl17hbb26nkb49lwhs2zw2z1wzz94bf7dc36gslsghn5ymd63n9bhqnrsqv35x1hnhy1hg81";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "@babel/generator-7.9.6" = {
@@ -1285,9 +1237,6 @@ let
         sha512 = "SAtyEjmA7KiEoL2eAOAUM6M9arQJGWxJKK0S9x0WyPOosHS420RXoxPhn57u/8orRnK8Kxm0nHQQNTX203cP1Q==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "@babel/types-7.9.0" = {
-=======
     "@babel/types-7.10.1" = {
       name = "_at_babel_slash_types";
       packageName = "@babel/types";
@@ -1298,7 +1247,6 @@ let
       };
     };
     "@babel/types-7.9.6" = {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       name = "_at_babel_slash_types";
       packageName = "@babel/types";
       version = "7.9.6";
@@ -1775,7 +1723,6 @@ let
         sha512 = "04mh0ix6qpfggy9if6vjicickw0xydydny3hh2vs1q9gji5fg31jyr25mnagl48pl6mzn2p4dc65fbpm7w53bka7zz033qw679a01ml";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
     "@hapi/vise-3.1.1" = {
       name = "_at_hapi_slash_vise";
       packageName = "@hapi/vise";
@@ -1794,10 +1741,7 @@ let
         sha512 = "tQczYRTTeYBmvhsek/D49En/5khcShaBEmzrAaDjMrFXKJRuF8xA8+tlq1ETLBFwGd6Do6g2OC74rt11kzawzg==";
       };
     };
-    "@iarna/toml-2.2.3" = {
-=======
     "@iarna/toml-2.2.5" = {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       name = "_at_iarna_slash_toml";
       packageName = "@iarna/toml";
       version = "2.2.5";
@@ -1923,24 +1867,6 @@ let
         sha512 = "05hyf1z6k5i9r63qrv9f156w74vmf10dldq39mmwjkllifgqsjdqrby0sc33nf2rfhn30h0q9qj93l410sqmq8q2slc0szn3lvi1h5n";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "@jest/transform-25.2.4" = {
-      name = "_at_jest_slash_transform";
-      packageName = "@jest/transform";
-      version = "25.2.4";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@jest/transform/-/transform-25.2.4.tgz";
-        sha512 = "6eRigvb+G6bs4kW5j1/y8wu4nCrmVuIe0epPBbiWaYlwawJ8yi1EIyK3d/btDqmBpN5GpN4YhR6iPPnDmkYdTA==";
-      };
-    };
-    "@jest/types-25.2.3" = {
-      name = "_at_jest_slash_types";
-      packageName = "@jest/types";
-      version = "25.2.3";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@jest/types/-/types-25.2.3.tgz";
-        sha512 = "6oLQwO9mKif3Uph3RX5J1i3S7X7xtDHWBaaaoeKw8hOzV6YUd0qDcYcHZ6QXMHDIzSr7zzrEa51o2Ovlj6AtKQ==";
-=======
     "@jest/transform-25.5.1" = {
       name = "_at_jest_slash_transform";
       packageName = "@jest/transform";
@@ -1957,7 +1883,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/@jest/types/-/types-25.5.0.tgz";
         sha512 = "05jdfc97hxi59bw3ns1fmq1f6ymwdv1mysdzmgk7j8s8wfh3h4zp5nm9axv84z9fwm6ac6p6mld2h5fwz3a7jmc66vkps9w0i3g8w1r";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "@kbrandwijk/swagger-to-graphql-2.4.3" = {
@@ -2788,15 +2713,6 @@ let
         sha512 = "NB81O5h39KfHYGtgfWr2booRxp2bWOJoqbWwbyUg2hw6h35ArWYlAST5B3XwAkbdcx13yt84hFXyFP5X0QToWA==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "@octokit/endpoint-6.0.0" = {
-      name = "_at_octokit_slash_endpoint";
-      packageName = "@octokit/endpoint";
-      version = "6.0.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@octokit/endpoint/-/endpoint-6.0.0.tgz";
-        sha512 = "3nx+MEYoZeD0uJ+7F/gvELLvQJzLXhep2Az0bBSXagbApDvDW0LWwpnAIY/hb0Jwe17A0fJdz0O12dPh05cj7A==";
-=======
     "@octokit/endpoint-6.0.2" = {
       name = "_at_octokit_slash_endpoint";
       packageName = "@octokit/endpoint";
@@ -2804,7 +2720,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/@octokit/endpoint/-/endpoint-6.0.2.tgz";
         sha512 = "xs1mmCEZ2y4shXCpFjNq3UbmNR+bLzxtZim2L0zfEtj9R6O6kc4qLDvYw66hvO6lUsYzPTM5hMkltbuNAbRAcQ==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "@octokit/plugin-enterprise-rest-6.0.1" = {
@@ -2843,15 +2758,6 @@ let
         sha512 = "EZi/AWhtkdfAYi01obpX0DF7U6b1VRr30QNQ5xSFPITMdLSfhcBqjamE3F+sKcxPbD7eZuMHu3Qkk2V+JGxBDQ==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "@octokit/request-5.3.4" = {
-      name = "_at_octokit_slash_request";
-      packageName = "@octokit/request";
-      version = "5.3.4";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@octokit/request/-/request-5.3.4.tgz";
-        sha512 = "qyj8G8BxQyXjt9Xu6NvfvOr1E0l35lsXtwm3SopsYg/JWXjlsnwqLc8rsD2OLguEL/JjLfBvrXr4az7z8Lch2A==";
-=======
     "@octokit/request-5.4.4" = {
       name = "_at_octokit_slash_request";
       packageName = "@octokit/request";
@@ -2859,7 +2765,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/@octokit/request/-/request-5.4.4.tgz";
         sha512 = "vqv1lz41c6VTxUvF9nM+a6U+vvP3vGk7drDpr0DVQg4zyqlOiKVrY17DLD6de5okj+YLHKcoqaUZTBtlNZ1BtQ==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "@octokit/request-error-1.2.1" = {
@@ -2871,15 +2776,6 @@ let
         sha512 = "+6yDyk1EES6WK+l3viRDElw96MvwfJxCt45GvmjDUKWjYIb3PJZQkq3i46TwGwoPD4h8NmTrENmtyA1FwbmhRA==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "@octokit/request-error-2.0.0" = {
-      name = "_at_octokit_slash_request-error";
-      packageName = "@octokit/request-error";
-      version = "2.0.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@octokit/request-error/-/request-error-2.0.0.tgz";
-        sha512 = "rtYicB4Absc60rUv74Rjpzek84UbVHGHJRu4fNVlZ1mCcyUPPuzFfG9Rn6sjHrd95DEsmjSt1Axlc699ZlbDkw==";
-=======
     "@octokit/request-error-2.0.1" = {
       name = "_at_octokit_slash_request-error";
       packageName = "@octokit/request-error";
@@ -2887,7 +2783,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/@octokit/request-error/-/request-error-2.0.1.tgz";
         sha512 = "5lqBDJ9/TOehK82VvomQ6zFiZjPeSom8fLkFVLuYL3sKiIb5RB8iN/lenLkY7oBmyQcGP7FBMGiIZTO8jufaRQ==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "@octokit/rest-16.43.1" = {
@@ -2899,15 +2794,6 @@ let
         sha512 = "gfFKwRT/wFxq5qlNjnW2dh+qh74XgTQ2B179UX5K1HYCluioWj8Ndbgqw2PVqa1NnVJkGHp2ovMpVn/DImlmkw==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "@octokit/types-2.5.1" = {
-      name = "_at_octokit_slash_types";
-      packageName = "@octokit/types";
-      version = "2.5.1";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@octokit/types/-/types-2.5.1.tgz";
-        sha512 = "q4Wr7RexkPRrkQpXzUYF5Fj/14Mr65RyOHj6B9d/sQACpqGcStkHZj4qMEtlMY5SnD/69jlL9ItGPbDM0dR/dA==";
-=======
     "@octokit/types-2.16.2" = {
       name = "_at_octokit_slash_types";
       packageName = "@octokit/types";
@@ -2924,7 +2810,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/@octokit/types/-/types-4.1.1.tgz";
         sha512 = "gOuIVmMCfHzSv3QBwLZjGDEDtYC73A5+tYcccEoq+Jd/h9rG/Mfc+h0+GEU+mpGhx86n7eBw6J/0BZ0zAmLkKg==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "@parcel/fs-1.11.0" = {
@@ -3116,24 +3001,6 @@ let
         sha512 = "MI4Xx6LHs4Webyvi6EbspgyAb4D2Q2VtnCQ1blOJcoLS6mVa8lNN2rkIy1CVxfTUpoyIbCTkXES1rLXztFD1lg==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "@schematics/angular-9.1.0" = {
-      name = "_at_schematics_slash_angular";
-      packageName = "@schematics/angular";
-      version = "9.1.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@schematics/angular/-/angular-9.1.0.tgz";
-        sha512 = "qkehaITQ1S1udfnnBY5CXGWnk1iVFI8cZayjLUlRfD5w+6v9if3VIuqPssX96MqvkbjyRu1N214+ieaawzLmuA==";
-      };
-    };
-    "@schematics/update-0.901.0" = {
-      name = "_at_schematics_slash_update";
-      packageName = "@schematics/update";
-      version = "0.901.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@schematics/update/-/update-0.901.0.tgz";
-        sha512 = "u2VESL1dgOSGZK/wcWEz0WcCU/yv764zhzCQerCwUtbV1CISSSDZ6x+prVYDXOdxWBGtDos2MbCF3GEJJI1T+w==";
-=======
     "@schematics/angular-9.1.7" = {
       name = "_at_schematics_slash_angular";
       packageName = "@schematics/angular";
@@ -3150,7 +3017,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/@schematics/update/-/update-0.901.7.tgz";
         sha512 = "6IpQVFvbu47CrXfqqHAzv2vi7AOdfi1S+SiayXU6FWTeA2wV47H8R60VjxurL8JkDGoVhFgC4+lK6KG++g3dQw==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "@serverless/cli-1.4.0" = {
@@ -3189,15 +3055,6 @@ let
         sha512 = "PY7gH+7aQ+MltcUD7SRDuQODJ9Sav9HhFJsgOiyf8IVo7XVD6FxZIsSnpMI6paSkptOB7n+0Jz03gNlEkKetQQ==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "@serverless/enterprise-plugin-3.6.2" = {
-      name = "_at_serverless_slash_enterprise-plugin";
-      packageName = "@serverless/enterprise-plugin";
-      version = "3.6.2";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@serverless/enterprise-plugin/-/enterprise-plugin-3.6.2.tgz";
-        sha512 = "B1W2m8+oS5qG2vgYgwQzrib3OUzSzOLqVD6P7AY6moVAFiGNYqoc7XzdkSO4O9ds4B6MJXbwUjeE8at+Fsgyrg==";
-=======
     "@serverless/enterprise-plugin-3.6.12" = {
       name = "_at_serverless_slash_enterprise-plugin";
       packageName = "@serverless/enterprise-plugin";
@@ -3205,7 +3062,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/@serverless/enterprise-plugin/-/enterprise-plugin-3.6.12.tgz";
         sha512 = "AKfVXBQefJV0RIg3YpDlF9Vep3aMzjpD6lP+lgSVKUVUMEaZnp4x9Y40wc+O7pwAmowM033sFxoIkADEofv1Sg==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "@serverless/event-mocks-1.1.1" = {
@@ -3244,7 +3100,6 @@ let
         sha512 = "I2oKIKAXcKY/J7z7v1q91h4LmzFuh1LT/NvT6m5L6Qge+G+FL/a/W3b2m3mntwS0CZ51997oWVefdqdJZwakAw==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
     "@serverless/platform-client-0.25.0" = {
       name = "_at_serverless_slash_platform-client";
       packageName = "@serverless/platform-client";
@@ -3254,10 +3109,7 @@ let
         sha512 = "pv43GuKAqoSFcaTBbSC5qVhNy2EvzyixKEZOeVcOhuI1qpHa/2uG+YYP+WHX+5zy+o5dUw2fNgBvVIV/SfuRTQ==";
       };
     };
-    "@serverless/platform-sdk-2.3.0" = {
-=======
     "@serverless/platform-sdk-2.3.1" = {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       name = "_at_serverless_slash_platform-sdk";
       packageName = "@serverless/platform-sdk";
       version = "2.3.1";
@@ -3758,11 +3610,7 @@ let
       version = "7.1.7";
       src = fetchurl {
         url = "https://registry.npmjs.org/@types/babel__core/-/babel__core-7.1.7.tgz";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-        sha512 = "RL62NqSFPCDK2FM1pSDH0scHpJvsXtZNiYlMB73DgPBaG1E38ZYVL+ei5EkWRbr+KC4YNiAUNBnRj+bgwpgjMw==";
-=======
         sha512 = "0rj7662w3k8zl8r6ha20dhq5qlgxfj52r4y98p75wardw9pa4dmmw40qfyhfk49i56xcppckfj0giyjqwhaadakv3520g45lhvbdgj4";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "@types/babel__generator-7.6.1" = {
@@ -3853,15 +3701,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/@types/connect/-/connect-3.4.33.tgz";
         sha512 = "3n5gxr7z1jn60gvcnzls1c3fgzbv171acdp4shbn095wnbb8hdba3cjq1sac8aina3bg957ww5hg89swcgbdjfp9irmkkiqfs8npqfv";
-      };
-    };
-    "@types/content-disposition-0.5.3" = {
-      name = "_at_types_slash_content-disposition";
-      packageName = "@types/content-disposition";
-      version = "0.5.3";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@types/content-disposition/-/content-disposition-0.5.3.tgz";
-        sha512 = "P1bffQfhD3O4LW0ioENXUhZ9OIa0Zn+P7M+pWgkCKaT53wVLSq0mrKksCID/FGHpFhRSxRGhgrQmfhRuzwtKdg==";
       };
     };
     "@types/content-disposition-0.5.3" = {
@@ -4053,24 +3892,6 @@ let
         sha512 = "25mqkc3ms6hwvpqj5l537k5mchqglxkrm5jrh0m8j14xijmynd0pv5kj2q5l6szzm753l772m0h5a0s6cj3i64n9bcq7ppzwp4bvx9z";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "@types/jquery-3.3.34" = {
-      name = "_at_types_slash_jquery";
-      packageName = "@types/jquery";
-      version = "3.3.34";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@types/jquery/-/jquery-3.3.34.tgz";
-        sha512 = "lW9vsVL53Xu/Nj4gi2hNmHGc4u3KKghjqTkAlO0kF5GIOPxbqqnQpgqJBzmn3yXLrPqHb6cmNJ6URnS23Vtvbg==";
-      };
-    };
-    "@types/js-yaml-3.12.3" = {
-      name = "_at_types_slash_js-yaml";
-      packageName = "@types/js-yaml";
-      version = "3.12.3";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@types/js-yaml/-/js-yaml-3.12.3.tgz";
-        sha512 = "otRe77JNNWzoVGLKw8TCspKswRoQToys4tuL6XYVBFxjgeM0RUrx7m3jkaTdxILxeGry3zM8mGYkGXMeQ02guA==";
-=======
     "@types/jquery-3.3.38" = {
       name = "_at_types_slash_jquery";
       packageName = "@types/jquery";
@@ -4087,7 +3908,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/@types/js-yaml/-/js-yaml-3.12.4.tgz";
         sha512 = "fYMgzN+9e28R81weVN49inn/u798ruU91En1ZnGvSZzCRc5jXx9B2EDhlRaWmcO1RIxFHL8AajRXzxDuJu93+A==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "@types/json-schema-7.0.4" = {
@@ -4180,24 +4000,6 @@ let
         sha1 = "69a23a3ad29caf0097f06eda59b361ee2f0639f6";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "@types/node-10.17.18" = {
-      name = "_at_types_slash_node";
-      packageName = "@types/node";
-      version = "10.17.18";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@types/node/-/node-10.17.18.tgz";
-        sha512 = "DQ2hl/Jl3g33KuAUOcMrcAOtsbzb+y/ufakzAdeK9z/H/xsvkpbETZZbPNMIiQuk24f5ZRMCcZIViAwyFIiKmg==";
-      };
-    };
-    "@types/node-13.9.8" = {
-      name = "_at_types_slash_node";
-      packageName = "@types/node";
-      version = "13.9.8";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@types/node/-/node-13.9.8.tgz";
-        sha512 = "1WgO8hsyHynlx7nhP1kr0OFzsgKz5XDQL+Lfc3b1Q3qIln/n8cKD4m09NJ0+P1Rq7Zgnc7N0+SsMnoD1rEb0kA==";
-=======
     "@types/node-10.17.24" = {
       name = "_at_types_slash_node";
       packageName = "@types/node";
@@ -4214,7 +4016,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/@types/node/-/node-12.12.42.tgz";
         sha512 = "R/9QdYFLL9dE9l5cWWzWIZByVGFd7lk7JVOJ7KD+E1SJ4gni7XJRLz9QTjyYQiHIqEAgku9VgxdLjMlhhUaAFg==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "@types/node-13.13.9" = {
@@ -4550,15 +4351,6 @@ let
         sha512 = "OMAr+nJWKdlVM9LOqCqh3pQQPwxHAN7Du8DR6dmwCrAmxtiXQnhHJ6tBNtf+cggqfo51SG/FCwnKhXCIM7hnVg==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "@typescript-eslint/typescript-estree-2.26.0" = {
-      name = "_at_typescript-eslint_slash_typescript-estree";
-      packageName = "@typescript-eslint/typescript-estree";
-      version = "2.26.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@typescript-eslint/typescript-estree/-/typescript-estree-2.26.0.tgz";
-        sha512 = "3x4SyZCLB4zsKsjuhxDLeVJN6W29VwBnYpCsZ7vIdPel9ZqLfIZJgJXO47MNUkurGpQuIBALdPQKtsSnWpE1Yg==";
-=======
     "@typescript-eslint/typescript-estree-3.0.2" = {
       name = "_at_typescript-eslint_slash_typescript-estree";
       packageName = "@typescript-eslint/typescript-estree";
@@ -4566,7 +4358,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/@typescript-eslint/typescript-estree/-/typescript-estree-3.0.2.tgz";
         sha512 = "17kfd7bwchhwz2nfxan3rjqr4vk181a6f0xhrn62h6svxmk1sf23qrknsximz471m6lc1mdc910mwl1493k0z15pqx39xq232dkikvj";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "@vue/cli-shared-utils-4.4.1" = {
@@ -6063,15 +5854,6 @@ let
         sha512 = "sbLEIMQrkV7RkIruqTPXxeCMkAAycv4yzTkBzRgOR1BrR5UB7qZtupqxkersTJSf0HZ3sbaNRrNV80TnnM7cUw==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "apollo-2.26.0" = {
-      name = "apollo";
-      packageName = "apollo";
-      version = "2.26.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/apollo/-/apollo-2.26.0.tgz";
-        sha512 = "izis5eXpzEwboj6nP/4ifkne24ayQ5ioBpO3rAmz89+XIaFqAiejrD2rFen+w/1n6nL1oUoTAwJWZRhSkguOhg==";
-=======
     "apollo-2.28.0" = {
       name = "apollo";
       packageName = "apollo";
@@ -6079,7 +5861,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/apollo/-/apollo-2.28.0.tgz";
         sha512 = "dtgkWQi+x36mUFKq3HSSANrVMycyrpeGR/cJsisogzAkJvqFS7Pk2CWCNlrOV9HU/UmHBi0ecBLC5xOI7izBUw==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "apollo-cache-1.3.5" = {
@@ -6136,15 +5917,6 @@ let
         sha512 = "sanUIqXWyyDpxY3fYOVU+Hsxwxdj5fmn3Zcy6CcMGnWmh9o7tautQAuod2a63wrDs1jcNQcFq3EKIpeB+2xECw==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "apollo-codegen-core-0.36.5" = {
-      name = "apollo-codegen-core";
-      packageName = "apollo-codegen-core";
-      version = "0.36.5";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/apollo-codegen-core/-/apollo-codegen-core-0.36.5.tgz";
-        sha512 = "ickLdaD+H9kaRHzQDAG5i+QMfmUfFc+MUn+e5lGlXPnL/h9WOX2M22z2mXKd4Q3ErH9SQe2SPB8Fpk85WnnAhA==";
-=======
     "apollo-codegen-core-0.37.0" = {
       name = "apollo-codegen-core";
       packageName = "apollo-codegen-core";
@@ -6152,7 +5924,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/apollo-codegen-core/-/apollo-codegen-core-0.37.0.tgz";
         sha512 = "9+DXf/Gl+xtkRpkhVyY6l8zPxzp7B8rD4wcw8H+5X3E/3jJcsrbM32b2rP09L48ZYIJ2a8YDmD903vtIGeUtvw==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "apollo-codegen-flow-0.20.0" = {
@@ -6164,15 +5935,6 @@ let
         sha512 = "XgKE19B0Q74PBLVqHP/77NcCFrcvrN9wi3CcotH+FV8BeHTjvpHlilTsQMmd2STPt19cCvY2Qtz0EOeLXTUQ2Q==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "apollo-codegen-flow-0.34.5" = {
-      name = "apollo-codegen-flow";
-      packageName = "apollo-codegen-flow";
-      version = "0.34.5";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/apollo-codegen-flow/-/apollo-codegen-flow-0.34.5.tgz";
-        sha512 = "GHcokyHu2fPdXS8DGsYcPjj24Vbwfdw73VULzTazdbHTJ6loSVlFeRtU5B7rQDxFTyd4VL4muVfRXarV0tib3Q==";
-=======
     "apollo-codegen-flow-0.35.0" = {
       name = "apollo-codegen-flow";
       packageName = "apollo-codegen-flow";
@@ -6180,7 +5942,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/apollo-codegen-flow/-/apollo-codegen-flow-0.35.0.tgz";
         sha512 = "nMyV2ebsBbqPh4L0Xfrdw3+ndpSZMixt1o2RIW5EGn4sH77ZQsHCKdjBEEodtM5cucVjIhj/E03H9wioQILsXw==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "apollo-codegen-flow-legacy-0.20.0" = {
@@ -6201,15 +5962,6 @@ let
         sha512 = "NbnMOfUXXovlTGRj4mIZGXB9HvidQhwKfAmdYHox5peHPkjjsqEzxGCIuWCSnubWiCF2uHZnQoIkg4sXWf0KLw==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "apollo-codegen-scala-0.35.5" = {
-      name = "apollo-codegen-scala";
-      packageName = "apollo-codegen-scala";
-      version = "0.35.5";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/apollo-codegen-scala/-/apollo-codegen-scala-0.35.5.tgz";
-        sha512 = "zzLVvV82zkxWSAP+5JiKQMEhFDort+0ix56W5hA9MmiTX4mvz/lW1wM5XXOxKUL46tMBKKo0WNGUcLBijDB0Hw==";
-=======
     "apollo-codegen-scala-0.36.0" = {
       name = "apollo-codegen-scala";
       packageName = "apollo-codegen-scala";
@@ -6217,7 +5969,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/apollo-codegen-scala/-/apollo-codegen-scala-0.36.0.tgz";
         sha512 = "HwKXQwpGblLKUFyZb5B3Culym+Uo9yE3oFoHzMVClIG4iwxqkrwwctfXyc4aLEVmVXT9wDPAiX8xKo8TQiTnng==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "apollo-codegen-swift-0.20.0" = {
@@ -6229,15 +5980,6 @@ let
         sha512 = "L9Y4StbXw0t/nuF+miz0ybSt/io6tsLc063Yeh1A8GCvhFFQyXE/yK0Rf3nO1Bl5Z9UZ5o8Aae9kK4GSWYIGNQ==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "apollo-codegen-swift-0.36.5" = {
-      name = "apollo-codegen-swift";
-      packageName = "apollo-codegen-swift";
-      version = "0.36.5";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/apollo-codegen-swift/-/apollo-codegen-swift-0.36.5.tgz";
-        sha512 = "HAQByrPQ1QLhfihliUVNTeKOC6g0RwXBKubM3KPlKEX7E9evIB9PrQpQc8RKyiqu/7sJrM2YDHUk6ADqwBQsfg==";
-=======
     "apollo-codegen-swift-0.37.0" = {
       name = "apollo-codegen-swift";
       packageName = "apollo-codegen-swift";
@@ -6245,7 +5987,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/apollo-codegen-swift/-/apollo-codegen-swift-0.37.0.tgz";
         sha512 = "jaYHiDoQQNGyEF1tHlUk+sjRAX8yBF5hrG4T9GE1OMEwQ8Q57FQx+N1GvkCxNIQlYFbfJFsAzhTjwfp1bPxGnA==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "apollo-codegen-typescript-0.20.0" = {
@@ -6257,15 +5998,6 @@ let
         sha512 = "mzlIJXz+5WPwzeALqRHHR9aPPEf6IlhSrjCawpUHmFU1NK9hgwbguYCEYZv9mKkYBUUgDY+9cGFK1cafJX70AQ==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "apollo-codegen-typescript-0.36.5" = {
-      name = "apollo-codegen-typescript";
-      packageName = "apollo-codegen-typescript";
-      version = "0.36.5";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/apollo-codegen-typescript/-/apollo-codegen-typescript-0.36.5.tgz";
-        sha512 = "OXPZ87Y8yCWqiuw00a7NxbLUcuI/9NVvZi/Y1Pbp9rhuDHAv9uL1QsF/84fnzJCOOQFdG2/kjA3f6tzONAtHog==";
-=======
     "apollo-codegen-typescript-0.37.0" = {
       name = "apollo-codegen-typescript";
       packageName = "apollo-codegen-typescript";
@@ -6273,7 +6005,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/apollo-codegen-typescript/-/apollo-codegen-typescript-0.37.0.tgz";
         sha512 = "gsxjUZ0U7IKnPnSy26PHaDboloClBYM8oMFYDppCHDA9iosmcnyFEgbznxdtbQncflUROJnCjYuSGgV/Ej9ziA==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "apollo-codegen-typescript-legacy-0.20.0" = {
@@ -6330,15 +6061,6 @@ let
         sha512 = "i012iRKT5nfsOaNMx4MTwHw2jrlyaF1zikpejxsGHsKIf3OngGvGh3pyw20bEmwj413OrNQpRxvvIz5A7W/8xw==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "apollo-language-server-1.21.0" = {
-      name = "apollo-language-server";
-      packageName = "apollo-language-server";
-      version = "1.21.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/apollo-language-server/-/apollo-language-server-1.21.0.tgz";
-        sha512 = "MWTHX1ckIbbq7h3lL+2Axs7NPJrkKwvHNGpx0XdcQIW93NeZWaD8XlmXzAUNOb2EmEmSP/FI1kkRjDmQb1ehXA==";
-=======
     "apollo-language-server-1.22.0" = {
       name = "apollo-language-server";
       packageName = "apollo-language-server";
@@ -6346,7 +6068,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/apollo-language-server/-/apollo-language-server-1.22.0.tgz";
         sha512 = "7Ryl48ggPMaP+FQgrZ0Fr22/OGmP1mByM1zUDshSw7o09eC+EQ4CIKy1n5aGwArMI6TCcBF0hE3bcshq7YPjQQ==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "apollo-link-1.2.14" = {
@@ -7681,15 +7402,6 @@ let
         sha1 = "00f35b2d27ac91b1f0d3ef2084c98cf1d1f0adc3";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "aws-sdk-2.650.0" = {
-      name = "aws-sdk";
-      packageName = "aws-sdk";
-      version = "2.650.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/aws-sdk/-/aws-sdk-2.650.0.tgz";
-        sha512 = "MlTKXeRSe4IXXqnulAiXZccpTgDafs3ofYIQv/7ApR+oQUFsq96RHwe8MdW9N1cXn7fz302jLXUAykj4boR3DA==";
-=======
     "aws-sdk-2.686.0" = {
       name = "aws-sdk";
       packageName = "aws-sdk";
@@ -7697,7 +7409,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/aws-sdk/-/aws-sdk-2.686.0.tgz";
         sha512 = "QhYhJ5y8tUG5SlmY3CSf9RBaa3EFbta28oarOyiwceHKmY80cMCafRI1YypT6CVDx/q91dbnSNQfWhs0cZPbBQ==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "aws-sign2-0.6.0" = {
@@ -7727,8 +7438,6 @@ let
         sha512 = "2w9xxyh6xfm7rr6d9wvk8anw6vqvcxjpk49nm20mm9vnb9chsargff9czjab81kq2rlwwrndqzhp92nckpdx5cwirnxb6ivgsxy506x";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-=======
     "axios-0.18.1" = {
       name = "axios";
       packageName = "axios";
@@ -7738,7 +7447,6 @@ let
         sha512 = "0BfJq4NSfQXd+SkFdrvFbG7addhYSBA2mQwISr46pD6E5iqkWg02RAs8vyTT/j0RTnoYmeXauBuSv1qKwR179g==";
       };
     };
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
     "axios-0.19.2" = {
       name = "axios";
       packageName = "axios";
@@ -7847,15 +7555,6 @@ let
         sha512 = "2cblybfp1j71lb99xhh3gb1mbkv89xf024by62vnaxybfga66n5vyy2g359svas0hrbi1gj5m02bsy03pzbaayv1ngmmyxq6myayq4v";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "babel-jest-25.2.4" = {
-      name = "babel-jest";
-      packageName = "babel-jest";
-      version = "25.2.4";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/babel-jest/-/babel-jest-25.2.4.tgz";
-        sha512 = "+yDzlyJVWrqih9i2Cvjpt7COaN8vUwCsKGtxJLzg6I0xhxD54K8mvDUCliPKLufyzHh/c5C4MRj4Vk7VMjOjIg==";
-=======
     "babel-jest-25.5.1" = {
       name = "babel-jest";
       packageName = "babel-jest";
@@ -7863,7 +7562,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/babel-jest/-/babel-jest-25.5.1.tgz";
         sha512 = "1lrr9j9b3i3f9gv58rcqjl69zvhdqca7rpz13g4d8y95sik7kf1g8g0ifhhbxz3ms5zka27yjihwy7gc0894bbn7vh8r34cd7w3vl7m";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "babel-loader-8.1.0" = {
@@ -7893,15 +7591,6 @@ let
         sha512 = "14q5h9bkgd10lv997yd7ap6s513y884wl3pylsx5masgihj9b51izqq922lcvwvd8vlvhdbgv17izhs6nhnv9ack1mvnyz9jnnpjph0";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "babel-plugin-jest-hoist-25.2.1" = {
-      name = "babel-plugin-jest-hoist";
-      packageName = "babel-plugin-jest-hoist";
-      version = "25.2.1";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/babel-plugin-jest-hoist/-/babel-plugin-jest-hoist-25.2.1.tgz";
-        sha512 = "HysbCQfJhxLlyxDbKcB2ucGYV0LjqK4h6dBoI3RtFuOxTiTWK6XGZMsHb0tGh8iJdV4hC6Z2GCHzVvDeh9i0lQ==";
-=======
     "babel-plugin-jest-hoist-25.5.0" = {
       name = "babel-plugin-jest-hoist";
       packageName = "babel-plugin-jest-hoist";
@@ -7909,7 +7598,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/babel-plugin-jest-hoist/-/babel-plugin-jest-hoist-25.5.0.tgz";
         sha512 = "3k20n880z7bmwbydrqk2ai70ss8jp7w9mlq7kq0igi0xwb437wqv9k58mvr85ma8glj20q96z214902c45ly1n6l7l5nci3c3wxdvxv";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "babel-plugin-minify-builtins-0.5.0" = {
@@ -8137,15 +7825,6 @@ let
         sha512 = "25wvlhj2sdxmybcngzxpvbid5900wbf9qnyhfhdgcwzr000qiws22cxj23gznfbp2p84vk5byd3fhmd7wpkinw22i9av224wx5irzxv";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "babel-preset-jest-25.2.1" = {
-      name = "babel-preset-jest";
-      packageName = "babel-preset-jest";
-      version = "25.2.1";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/babel-preset-jest/-/babel-preset-jest-25.2.1.tgz";
-        sha512 = "zXHJBM5iR8oEO4cvdF83AQqqJf3tJrXy3x8nfu2Nlqvn4cneg4Ca8M7cQvC5S9BzDDy1O0tZ9iXru9J6E3ym+A==";
-=======
     "babel-preset-jest-25.5.0" = {
       name = "babel-preset-jest";
       packageName = "babel-preset-jest";
@@ -8153,7 +7832,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/babel-preset-jest/-/babel-preset-jest-25.5.0.tgz";
         sha512 = "0bzr1rmbxm3wzz0bvsp8hs713mw14yk7fk9zip2myzmc0xssd1qym97cpgvk7jqzfrjny02plafs7hsi8ivbhxdzda40hid0z5375zi";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "babel-preset-minify-0.5.1" = {
@@ -8549,11 +8227,7 @@ let
       version = "2.6.1";
       src = fetchurl {
         url = "https://registry.npmjs.org/bezier-js/-/bezier-js-2.6.1.tgz";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-        sha512 = "jelZM33eNzcZ9snJ/5HqJLw3IzXvA8RFcBjkdOB8SDYyOvW8Y2tTosojAiBTnD1MhbHoWUYNbxUXxBl61TxbRg==";
-=======
         sha512 = "135ng6mg8cw85qmdw6lcng8n62lqgcwach048yal99nnqxwylx34dj8gkh79r0qf12w80zg6likgg14xa8zzjf9yqckfdyyglrmkscd";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "biased-opener-0.2.8" = {
@@ -8772,15 +8446,6 @@ let
         sha1 = "ffd2eabc141d36ed5c1817df7e992f91fd7fc65c";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "bittorrent-tracker-9.14.5" = {
-      name = "bittorrent-tracker";
-      packageName = "bittorrent-tracker";
-      version = "9.14.5";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/bittorrent-tracker/-/bittorrent-tracker-9.14.5.tgz";
-        sha512 = "Y1ng5r2qGCgDldjd9eYL8Mv1DjCo6eljqC+T6IMcwmYx0h20KNPKTxJkyNT5gaeJkAhM+p+jmhlV7/ty535Txg==";
-=======
     "bittorrent-tracker-9.15.0" = {
       name = "bittorrent-tracker";
       packageName = "bittorrent-tracker";
@@ -8788,7 +8453,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/bittorrent-tracker/-/bittorrent-tracker-9.15.0.tgz";
         sha512 = "5LhLQeGxdVFumJTbveJS16Rc+Vzh/nbC6o80UMj6ZRvSkiVkk+4L782OMYI0VG1JTfUxiRFP4f+CZBFyuclLBg==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "bl-0.8.2" = {
@@ -8971,15 +8635,6 @@ let
         sha512 = "2v12rs2wvv94hrlyv0nadxn9x11796k9mk7a8vg0bqsry8m2pbyy9dribalwikh34qkk3rp6gnis849y5z9x5mxzbbdgkfhc3l674sy";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "blueimp-md5-2.13.0" = {
-      name = "blueimp-md5";
-      packageName = "blueimp-md5";
-      version = "2.13.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/blueimp-md5/-/blueimp-md5-2.13.0.tgz";
-        sha512 = "lmp0m647R5e77ORduxLW5mISIDcvgJZa52vMBv5uVI3UmSWTQjkJsZVBfaFqQPw/QFogJwvY6e3Gl9nP+Loe+Q==";
-=======
     "blueimp-md5-2.14.0" = {
       name = "blueimp-md5";
       packageName = "blueimp-md5";
@@ -8987,7 +8642,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/blueimp-md5/-/blueimp-md5-2.14.0.tgz";
         sha512 = "fhX8JsIgugJ39g9MUJ4Y0S+WYd/1HATNVzW4nEVknP5uJU1mA7LZCV3OuVH9OvxpuYQXu6ttst0IYIlAyVfBQg==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "bn.js-4.11.9" = {
@@ -9338,11 +8992,7 @@ let
       version = "16.5.1";
       src = fetchurl {
         url = "https://registry.npmjs.org/browserify/-/browserify-16.5.1.tgz";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-        sha512 = "EQX0h59Pp+0GtSRb5rL6OTfrttlzv+uyaUVlK6GX3w11SQ0jKPKyjC/54RhPR2ib2KmfcELM06e8FxcI5XNU2A==";
-=======
         sha512 = "3c58wz510bigg57sg644w4zm7c9ns279wcf3y9gijrg4a131m4pa3fzjyhjnra5d6rfpgvkv6vfndrrzarfcnr4nl3fv9sgky3z818i";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "browserify-aes-1.2.0" = {
@@ -9444,24 +9094,6 @@ let
         sha512 = "2c52470l3xpcqvzj8qpkwpb73gx4mq30wsk08n90waahj8g8qwd8cjmvf625f4836p39jiigrd0g4xh9k4p7mhcaykgw0pvfiqvjsy9";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "browserslist-4.11.1" = {
-      name = "browserslist";
-      packageName = "browserslist";
-      version = "4.11.1";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/browserslist/-/browserslist-4.11.1.tgz";
-        sha512 = "DCTr3kDrKEYNw6Jb9HFxVLQNaue8z+0ZfRBRjmCunKDEXEBajKDj2Y+Uelg+Pi29OnvaSGwjOsnRyNEkXzHg5g==";
-      };
-    };
-    "bs58-4.0.1" = {
-      name = "bs58";
-      packageName = "bs58";
-      version = "4.0.1";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/bs58/-/bs58-4.0.1.tgz";
-        sha1 = "be161e76c354f6f788ae4071f63f34e8c4f0a42a";
-=======
     "browserslist-4.12.0" = {
       name = "browserslist";
       packageName = "browserslist";
@@ -9469,7 +9101,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/browserslist/-/browserslist-4.12.0.tgz";
         sha512 = "076m6hybwavn7iin5cihg3b02s76fk0vdhm2dpgvmfv1a9brvhzwwk65i9rzh35qfyjr4gcrrkmjpqnncsbhr2lzqj8sj03q68qczah";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "bser-2.1.1" = {
@@ -9536,18 +9167,6 @@ let
       };
     };
     "buffer-5.2.1" = {
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      name = "buffer";
-      packageName = "buffer";
-      version = "5.2.1";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/buffer/-/buffer-5.2.1.tgz";
-        sha512 = "c+Ko0loDaFfuPWiL02ls9Xd3GO3cPVmUobQ6t3rXNUk304u6hGq+8N/kFi+QEIKhzK3uwolVhLzszmfLmMLnqg==";
-      };
-    };
-    "buffer-5.5.0" = {
-=======
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       name = "buffer";
       packageName = "buffer";
       version = "5.2.1";
@@ -10249,15 +9868,6 @@ let
         sha512 = "2xvajfx062fy4i060qa7p4acawzmcpqs69jmklswq856lyzjq6p8vjgm5zi21ll5gxm7vvyc5xsh9bd30v5bppszr59c19zi2wg1i3f";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "caniuse-lite-1.0.30001038" = {
-      name = "caniuse-lite";
-      packageName = "caniuse-lite";
-      version = "1.0.30001038";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001038.tgz";
-        sha512 = "zii9quPo96XfOiRD4TrfYGs+QsGZpb2cGiMAzPjtf/hpFgB6zCPZgJb7I1+EATeMw/o+lG8FyRAnI+CWStHcaQ==";
-=======
     "caniuse-lite-1.0.30001066" = {
       name = "caniuse-lite";
       packageName = "caniuse-lite";
@@ -10265,7 +9875,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001066.tgz";
         sha512 = "0in3ppcykh1qz4qi081h19nh6li41qihl05k7rik3jkc4zvrcyk2rilljs747lkg699pb7wmx6dph6sl48d2b5wqigipd5c0rcgzy0r";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "capture-exit-2.0.0" = {
@@ -11105,15 +10714,6 @@ let
         sha1 = "7e673ee0dd39a611a486476e53f3c6b3941cb582";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "cli-progress-3.6.1" = {
-      name = "cli-progress";
-      packageName = "cli-progress";
-      version = "3.6.1";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/cli-progress/-/cli-progress-3.6.1.tgz";
-        sha512 = "OVRgcyeI0viJW47MnyS10Jw/0RTpk7wwNbrCOPyXT0TVi2o3Q/u+Os8vQUFYhvkdXSbguSdFvMv1ia+UuwgIQQ==";
-=======
     "cli-progress-3.8.2" = {
       name = "cli-progress";
       packageName = "cli-progress";
@@ -11121,7 +10721,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/cli-progress/-/cli-progress-3.8.2.tgz";
         sha512 = "qRwBxLldMSfxB+YGFgNRaj5vyyHe1yMpVeDL79c+7puGujdKJHQHydgqXDcrkvQgJ5U/d3lpf6vffSoVVUftVQ==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "cli-spinner-0.2.10" = {
@@ -11205,15 +10804,6 @@ let
         sha512 = "/1owvF0SZ5Gn54cgrikJ0QskgTzeg30HGjkmjFoaHDJzAqFpuX1DBpFR8aLvsE1J5s9MgeYRENQK4BFwOag5VA==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "cli-ux-5.4.5" = {
-      name = "cli-ux";
-      packageName = "cli-ux";
-      version = "5.4.5";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/cli-ux/-/cli-ux-5.4.5.tgz";
-        sha512 = "5A6FuU0wPUlfCWUjtizUvNIbXElp6jN9QUJsDibs6F9cVX1kTgaMR3m6KT0R3iriEXpMrmPKV6yYS8XICNuQ6Q==";
-=======
     "cli-ux-5.4.6" = {
       name = "cli-ux";
       packageName = "cli-ux";
@@ -11221,7 +10811,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/cli-ux/-/cli-ux-5.4.6.tgz";
         sha512 = "EeiS2TzEndRVknCqE+8Ri8g0bsP617a1nq6n+3Trwft1JCDzyUNlX2J1fl7fwTgRPWtmBmiF6xIyueL5YGs65g==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "cli-width-1.1.1" = {
@@ -13580,11 +13169,7 @@ let
       version = "2.6.10";
       src = fetchurl {
         url = "https://registry.npmjs.org/csstype/-/csstype-2.6.10.tgz";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-        sha512 = "D34BqZU4cIlMCY93rZHbrq9pjTAQJ3U8S8rfBqjwHxkGPThWFjzZDQpgMJY0QViLxth6ZKYiwFBo14RdN44U/w==";
-=======
         sha512 = "3zi93ipbn2dfs2hq0iacr3sv338nn216jb30q0a1pckq5jn70yhc68zy2l0dpya9cy7a9qh626nkbxfvf8ssxwg1568jw1qjnlh2zhg";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "csurf-1.11.0" = {
@@ -16125,15 +15710,6 @@ let
         sha512 = "2ad39acbba96hqbgf714pacri515xjn8jd43bkfb1wwp04vflpjj0qhnnmsq074g7d1kycyj1bmf620s43qb3x74hrfb4ky3v5axygf";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "electron-to-chromium-1.3.391" = {
-      name = "electron-to-chromium";
-      packageName = "electron-to-chromium";
-      version = "1.3.391";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.3.391.tgz";
-        sha512 = "WOi6loSnDmfICOqGRrgeK7bZeWDAbGjCptDhI5eyJAqSzWfoeRuOOU1rOTZRL29/9AaxTndZB6Uh8YrxRfZJqw==";
-=======
     "electron-to-chromium-1.3.453" = {
       name = "electron-to-chromium";
       packageName = "electron-to-chromium";
@@ -16141,7 +15717,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.3.453.tgz";
         sha512 = "2vrwisgm7hk0msm9k8wn2q5v801pgry02gv5qfpv74ql5az5f220x7f61cd6rydy12vn00w254wzdxbwlsa5bzzkz1x1l2i69zc41i1";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "elegant-spinner-1.0.1" = {
@@ -16604,15 +16179,6 @@ let
         sha1 = "06e0116d3028f6aef4806849eb0ea6a748ae6960";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "err-code-2.0.0" = {
-      name = "err-code";
-      packageName = "err-code";
-      version = "2.0.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/err-code/-/err-code-2.0.0.tgz";
-        sha512 = "MsMOijQ4v0xlmrz1fc7lyPEy7jFhoNF7EVaRSP7mPzs20LaFOwG6qNjGRy3Ie85n9DARlcUnB1zbsBv5sJrIvw==";
-=======
     "errlop-2.2.0" = {
       name = "errlop";
       packageName = "errlop";
@@ -16620,7 +16186,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/errlop/-/errlop-2.2.0.tgz";
         sha512 = "e64Qj9+4aZzjzzFpZC7p5kmm/ccCrbLhAJplhsDXQFs87XTsXwOpH4s1Io2s90Tau/8r2j9f4l/thhDevRjzxw==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "errno-0.1.7" = {
@@ -18024,11 +17589,7 @@ let
       version = "1.7.0";
       src = fetchurl {
         url = "https://registry.npmjs.org/extract-zip/-/extract-zip-1.7.0.tgz";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-        sha512 = "xoh5G1W/PB0/27lXgMQyIhP5DSY/LhoCsOyZgb+6iMmRtCwVBo55uKaMoEYrDCKQhWvqEip5ZPKAc6eFNyf/MA==";
-=======
         sha512 = "0qgy9rphnkp707jciwjl4padf2r08hc5d3a1356p1wqw1hm5js93jc8pazq36gcn011lbiz4q6zj4r26b280mxrvczisg5zaldpk266";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "extsprintf-1.0.0" = {
@@ -18973,11 +18534,7 @@ let
       version = "2.0.2";
       src = fetchurl {
         url = "https://registry.npmjs.org/flatted/-/flatted-2.0.2.tgz";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-        sha512 = "r5wGx7YeOwNWNlCA0wQ86zKyDLMQr+/RB8xy74M4hTphfmjlijTSSXGuH8rnvKZnfT9i+75zmd8jcKdMR4O6jA==";
-=======
         sha512 = "26bm0s79jkp08yzk5rvxyv27xyng9mwwz51zbki979392p5d1z62fl5721yywnc0z8yzbqhnc6b4cpb7h2d702h6rb06fqynv3hd75g";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "flatten-0.0.1" = {
@@ -19130,11 +18687,7 @@ let
       version = "1.11.0";
       src = fetchurl {
         url = "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.11.0.tgz";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-        sha512 = "KZm0V+ll8PfBrKwMzdo5D13b1bur9Iq9Zd/RMmAoQQcl2PxxFml8cxXPaaPYVbV0RjNjq1CU7zIzAOqtUPudmA==";
-=======
         sha512 = "2c9vyshmpm00crjxya51av36d379damv2inkkqmfdy6j5kizkc2a1s151h35lfzcnyqmx5bpgaxnp8g77dcs35cmk0zgw35x5bv9699";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "follow-redirects-1.5.10" = {
@@ -20809,11 +20362,7 @@ let
       version = "4.3.0";
       src = fetchurl {
         url = "https://registry.npmjs.org/gonzales-pe/-/gonzales-pe-4.3.0.tgz";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-        sha512 = "otgSPpUmdWJ43VXyiNgEYE4luzHCL2pz4wQ0OnDluC6Eg4Ko3Vexy/SrSynglw/eR+OhkzmqFCZa/OFa/RgAOQ==";
-=======
         sha512 = "0wh067xbbhzqni62jm3k4x1wd3xw3wpw0llpazlrfqmgpd8ha1q8bmqwmq3ld04wdrnlby266xjakk00kc8iwjmvmw64x96jlz15n52";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "good-listener-1.2.2" = {
@@ -20859,15 +20408,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/got/-/got-10.6.0.tgz";
         sha512 = "0799nip37q64r28hfjq87qc8mmy97ycrd8q87i41dnzk2yxpir082xx21bxcdj9rbq1gs69jqv6k6apyi0zr8fg4pdmc26xshj1vcnw";
-      };
-    };
-    "got-10.7.0" = {
-      name = "got";
-      packageName = "got";
-      version = "10.7.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/got/-/got-10.7.0.tgz";
-        sha512 = "0k2vbyaqxs8ikrf2fp7jm1q0147bshpmy94wr1wqlqharvgk1wfachm3yxaf8jn70bdmxl4ph3vnb351hrlwp4k27mfb0rxviwc6r39";
       };
     };
     "got-10.7.0" = {
@@ -21360,18 +20900,6 @@ let
       name = "handle-thing";
       packageName = "handle-thing";
       version = "2.0.1";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      src = fetchurl {
-        url = "https://registry.npmjs.org/handle-thing/-/handle-thing-2.0.1.tgz";
-        sha512 = "9Qn4yBxelxoh2Ow62nP+Ka/kMnOXRi8BXnRaUwezLNhqelnN49xKz4F/dPP8OYLxLxq6JDtZb2i9XznUQbNPTg==";
-      };
-    };
-    "handlebars-4.5.3" = {
-      name = "handlebars";
-      packageName = "handlebars";
-      version = "4.5.3";
-=======
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       src = fetchurl {
         url = "https://registry.npmjs.org/handle-thing/-/handle-thing-2.0.1.tgz";
         sha512 = "174zcs1shwmzgb8dxckn95s38pz30irzkrp8zw1rx5drqydb5x6mn1cnc3m6nklbq0jyilpfcrf9br9zrrxlfpcv0him5sy3k4gh2gm";
@@ -23148,11 +22676,7 @@ let
       version = "6.5.2";
       src = fetchurl {
         url = "https://registry.npmjs.org/inquirer/-/inquirer-6.5.2.tgz";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-        sha512 = "cntlB5ghuB0iuO65Ovoi8ogLHiWGs/5yNrtUcKjFhSSiVeAIVpD7koaSU9RM8mpXw5YDi9RdYXGQMaOURB7ycQ==";
-=======
         sha512 = "1qz47j4jjik343ic5fx92q3jv1mfspj9ka574l6jbxr0mh8w1as4945qnl70m5v6rrgxcw64lg0p27j4bx3mfgfp0i1vf11k03nayvj";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "inquirer-7.0.4" = {
@@ -25099,51 +24623,6 @@ let
         sha1 = "7a549bbd9ffe1585b0cd0a191e203055bee574b4";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "jest-haste-map-25.2.3" = {
-      name = "jest-haste-map";
-      packageName = "jest-haste-map";
-      version = "25.2.3";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/jest-haste-map/-/jest-haste-map-25.2.3.tgz";
-        sha512 = "pAP22OHtPr4qgZlJJFks2LLgoQUr4XtM1a+F5UaPIZNiCRnePA0hM3L7aiJ0gzwiNIYwMTfKRwG/S1L28J3A3A==";
-      };
-    };
-    "jest-regex-util-25.2.1" = {
-      name = "jest-regex-util";
-      packageName = "jest-regex-util";
-      version = "25.2.1";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/jest-regex-util/-/jest-regex-util-25.2.1.tgz";
-        sha512 = "wroFVJw62LdqTdkL508ZLV82FrJJWVJMIuYG7q4Uunl1WAPTf4ftPKrqqfec4SvOIlvRZUdEX2TFpWR356YG/w==";
-      };
-    };
-    "jest-serializer-25.2.1" = {
-      name = "jest-serializer";
-      packageName = "jest-serializer";
-      version = "25.2.1";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/jest-serializer/-/jest-serializer-25.2.1.tgz";
-        sha512 = "fibDi7M5ffx6c/P66IkvR4FKkjG5ldePAK1WlbNoaU4GZmIAkS9Le/frAwRUFEX0KdnisSPWf+b1RC5jU7EYJQ==";
-      };
-    };
-    "jest-util-25.2.3" = {
-      name = "jest-util";
-      packageName = "jest-util";
-      version = "25.2.3";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/jest-util/-/jest-util-25.2.3.tgz";
-        sha512 = "7tWiMICVSo9lNoObFtqLt9Ezt5exdFlWs5fLe1G4XLY2lEbZc814cw9t4YHScqBkWMfzth8ASHKlYBxiX2rdCw==";
-      };
-    };
-    "jest-worker-25.2.1" = {
-      name = "jest-worker";
-      packageName = "jest-worker";
-      version = "25.2.1";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/jest-worker/-/jest-worker-25.2.1.tgz";
-        sha512 = "IHnpekk8H/hCUbBlfeaPZzU6v75bqwJp3n4dUrQuQOAgOneI4tx3jV2o8pvlXnDfcRsfkFIUD//HWXpCmR+evQ==";
-=======
     "jest-haste-map-25.5.1" = {
       name = "jest-haste-map";
       packageName = "jest-haste-map";
@@ -25187,7 +24666,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/jest-worker/-/jest-worker-25.5.0.tgz";
         sha512 = "2zzb297bh0sjdlmkhhr4szyvscr4v6zcknz1mwh703dvyphdy6b3g0gn89iss6d39gl81190ls6np4qx8w25zzv340r3jq896ci5nzx";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "jetpack-id-1.0.0" = {
@@ -25226,15 +24704,6 @@ let
         sha1 = "06d4912255093419477d425633606e0e90782967";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "joplin-turndown-4.0.25" = {
-      name = "joplin-turndown";
-      packageName = "joplin-turndown";
-      version = "4.0.25";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/joplin-turndown/-/joplin-turndown-4.0.25.tgz";
-        sha512 = "oMj6aP2xQI7PhF80j1oTLJ2N9YvhFv+5Hy7n/ylYfpc8r4TvnBUK0AudWsnNioZzwRvS5yU4ePVl+YDzohdggg==";
-=======
     "joplin-turndown-4.0.27" = {
       name = "joplin-turndown";
       packageName = "joplin-turndown";
@@ -25242,7 +24711,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/joplin-turndown/-/joplin-turndown-4.0.27.tgz";
         sha512 = "3kvs9bch3m1pf4h30j36c74g72qhlxqwvk9cdxqcjqis44jm2fx23b983jnsvkffvggws60n1sw3zdrkdsma0l8ipgpkjgcjv7480mb";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "joplin-turndown-plugin-gfm-1.0.12" = {
@@ -25938,15 +25406,6 @@ let
         sha1 = "313e66bc1e5cc06e438bc1b7499c2e5c56acb6a2";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "jssha-2.4.0" = {
-      name = "jssha";
-      packageName = "jssha";
-      version = "2.4.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/jssha/-/jssha-2.4.0.tgz";
-        sha512 = "MlACL8dJB0SRwqenQzYxhSt/5c/ooIJykbZdP2wj+vhvhzYRAKZYnt8yDY7tXzMz8AZtrS4mS2bTmDdyt0vpBQ==";
-=======
     "jssha-2.4.2" = {
       name = "jssha";
       packageName = "jssha";
@@ -25954,7 +25413,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/jssha/-/jssha-2.4.2.tgz";
         sha512 = "0b283cbynx5hiygjss68833myh8sy1gbjqzjimvv66ba8dfzwb7y9157l677cq8f7bkkb5f2bbl9bj1994y3zs4gqrvsjxls3zj4fzy";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "jstransform-10.1.0" = {
@@ -32138,15 +31596,6 @@ let
         sha512 = "j1g/VtSCI2tBrBnCD+u8iSo9tH0nvn70k1O1SxkHk3+qx7tHUyOKQc7wNc4rUs9J1PkGngUC3qEDd5cL7Z/klg==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "node-releases-1.1.53" = {
-      name = "node-releases";
-      packageName = "node-releases";
-      version = "1.1.53";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/node-releases/-/node-releases-1.1.53.tgz";
-        sha512 = "wp8zyQVwef2hpZ/dJH7SfSrIPD6YoJz6BDQDpGEkcA0s3LpAQoxBIYmfIq6QAhC1DhwsyCgTaTTcONwX8qzCuQ==";
-=======
     "node-releases-1.1.57" = {
       name = "node-releases";
       packageName = "node-releases";
@@ -32154,7 +31603,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/node-releases/-/node-releases-1.1.57.tgz";
         sha512 = "1vx46ijh2bdzcg4s212j5sjm1vclxn1zgqfmgi7341lpi8km6hv68fn6pnxis847gkwi5c4mcyzdn41fr99cv6j0fsjwxns5rcsf2b5";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "node-request-by-swagger-1.1.4" = {
@@ -32688,9 +32136,6 @@ let
         sha512 = "Qs6P6nnopig+Y8gbzpeN/dkt+n7IyVd8f45NTMotGk6Qo7GfBmzwYx6jRLoOOgKiMnaQfYxsuyQlD8Mc3guBhg==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "npm-registry-fetch-8.0.0" = {
-=======
     "npm-registry-fetch-4.0.4" = {
       name = "npm-registry-fetch";
       packageName = "npm-registry-fetch";
@@ -32701,7 +32146,6 @@ let
       };
     };
     "npm-registry-fetch-8.1.0" = {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       name = "npm-registry-fetch";
       packageName = "npm-registry-fetch";
       version = "8.1.0";
@@ -33639,8 +33083,6 @@ let
       };
     };
     "ora-4.0.3" = {
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-=======
       name = "ora";
       packageName = "ora";
       version = "4.0.3";
@@ -33650,7 +33092,6 @@ let
       };
     };
     "ora-4.0.4" = {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       name = "ora";
       packageName = "ora";
       version = "4.0.4";
@@ -34019,15 +33460,6 @@ let
         sha512 = "/bjOqmgETBYB5BoEeGVea8dmvHb2m9GLy1E9W43yeyfP6QQCZGFNa+XRceJEuDB6zqr+gKpIAmlLebMpykw/MQ==";
       };
     };
-    "p-map-4.0.0" = {
-      name = "p-map";
-      packageName = "p-map";
-      version = "4.0.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/p-map/-/p-map-4.0.0.tgz";
-        sha512 = "/bjOqmgETBYB5BoEeGVea8dmvHb2m9GLy1E9W43yeyfP6QQCZGFNa+XRceJEuDB6zqr+gKpIAmlLebMpykw/MQ==";
-      };
-    };
     "p-map-series-1.0.0" = {
       name = "p-map-series";
       packageName = "p-map-series";
@@ -34226,8 +33658,6 @@ let
         sha512 = "xJSSSxcHLo1CZJESvIZ2hbC5/5WP2oDHeUeTV2FvVDPOZG7+ixbxnV0n3TkdaUqlbC0RwnwMQ3wkJ/YywYM0Cg==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-=======
     "pacote-9.5.12" = {
       name = "pacote";
       packageName = "pacote";
@@ -34237,7 +33667,6 @@ let
         sha512 = "BUIj/4kKbwWg4RtnBncXPJd15piFSVNpTzY0rysSr3VnMowTYgkGKcaHrbReepAkjTr8lH2CVWRi58Spg2CicQ==";
       };
     };
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
     "pad-0.0.5" = {
       name = "pad";
       packageName = "pad";
@@ -34544,15 +33973,6 @@ let
         sha512 = "yy7UTSmliOT/7Yl+P4hwwW2W7PbCTAMcD0lasaVG+k4/2laj42YWzLm468bLFGDoFPIb29g3BuwBcA3gLopKww==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "parse-torrent-7.1.2" = {
-      name = "parse-torrent";
-      packageName = "parse-torrent";
-      version = "7.1.2";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/parse-torrent/-/parse-torrent-7.1.2.tgz";
-        sha512 = "1boHRA+aV7aeZBIg0rMBYhtfizAd/BXCXOCh/klYrgVnSpUAuJUIzQrIGkCsb93U1KOVN6C3NZOgpNy8htmqgw==";
-=======
     "parse-torrent-7.1.3" = {
       name = "parse-torrent";
       packageName = "parse-torrent";
@@ -34560,7 +33980,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/parse-torrent/-/parse-torrent-7.1.3.tgz";
         sha512 = "to8zT7+o6bVTyP35r2QgG1svuFGMFO1mE6ri1oWHgL9tlgnOtfjmfHmA3mOuP9HTIU/8OiZw0NG5zbyqVLxhvA==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "parse-torrent-file-2.1.4" = {
@@ -36991,11 +36410,7 @@ let
       version = "1.8.0";
       src = fetchurl {
         url = "https://registry.npmjs.org/psl/-/psl-1.8.0.tgz";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-        sha512 = "RIdOzyoavK+hA18OGGWDqUTsCLhtA7IcZ/6NCs4fFJaHBDab+pDDmDIByWFRQJq2Cd7r1OoQxBGKOaztq+hjIQ==";
-=======
         sha512 = "0hn7s5bxnn3k2hiqh8fmm7bvq4vd6j0a5hwj09jk31r1ylv6q28g5hl3z70m3gycwfb40vdp04fqi59hdjih3jz0fhszg0s5b7lx1s4";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "pstree.remy-1.1.8" = {
@@ -37889,15 +37304,6 @@ let
         sha512 = "34x6fm4dnq8m0kps5ann831k8fvx7jzlrcw8vvri0ki2g2ywdrjr8j5y14bvj9c0fd01ndsyx43y6ji51bfhnxk2gr5fpsks52429sl";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "qs-6.9.3" = {
-      name = "qs";
-      packageName = "qs";
-      version = "6.9.3";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/qs/-/qs-6.9.3.tgz";
-        sha512 = "EbZYNarm6138UKKq46tdx08Yo/q9ZhFoAXAI1meAFd2GtbRDhbZY2WQSICskT0c5q99aFzLG1D4nvTk9tqfXIw==";
-=======
     "qs-6.9.4" = {
       name = "qs";
       packageName = "qs";
@@ -37905,7 +37311,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/qs/-/qs-6.9.4.tgz";
         sha512 = "1srd7l4iw5rml75ygmhc7zk3gk5wfyh353k8zi34887sm1dwxcls405mdxgvm0cwyzpjv2y61d0v1jjk24pcbixfcxk62d4fyl0an83";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "query-string-1.0.1" = {
@@ -38643,11 +38048,7 @@ let
       version = "2.0.0";
       src = fetchurl {
         url = "https://registry.npmjs.org/realpath-native/-/realpath-native-2.0.0.tgz";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-        sha512 = "v1SEYUOXXdbBZK8ZuNgO4TBjamPsiSgcFr0aP+tEKpQZK8vooEUqV6nm6Cv502mX4NF2EfsnVqtNAHG+/6Ur1Q==";
-=======
         sha512 = "3ajp9gzprqh0kdbaqkzn4bns7h9fsfkz4myirm9awm4b878rcmik51a8kmky6mx2qf2i2gccdm66c711vcbh6dgck0xcpcp8dhq8m5z";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "recast-0.11.23" = {
@@ -38659,15 +38060,6 @@ let
         sha1 = "451fd3004ab1e4df9b4e4b66376b2a21912462d3";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "recast-0.18.8" = {
-      name = "recast";
-      packageName = "recast";
-      version = "0.18.8";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/recast/-/recast-0.18.8.tgz";
-        sha512 = "pxiq+ZAF0mYQuhQI+qqr8nFjgmEOFYA3YUVV8dXM7Mz20vs2WyKM1z2W0v80RZ/WICeNw2EeORg+QdDIgAX2ng==";
-=======
     "recast-0.18.10" = {
       name = "recast";
       packageName = "recast";
@@ -38684,7 +38076,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/recast/-/recast-0.19.1.tgz";
         sha512 = "8FCjrBxjeEU2O6I+2hyHyBFH1siJbMBLwIRvVr1T3FD2cL754sOaJDsJ/8h3xYltasbJ8jqWRIhMuDGBSiSbjw==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "rechoir-0.6.2" = {
@@ -39935,11 +39326,7 @@ let
       version = "2.7.1";
       src = fetchurl {
         url = "https://registry.npmjs.org/rimraf/-/rimraf-2.7.1.tgz";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-        sha512 = "uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==";
-=======
         sha512 = "3ixwnv4h7x38jd12vyzhx6m6adnfhz1zv881allalyqs8sy3q3zgwldngk4cqslnn2d46l0g91yz8wprmzcsvas9573vp8al9ldns5r";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "rimraf-3.0.2" = {
@@ -40267,8 +39654,6 @@ let
       };
     };
     "rxjs-6.5.4" = {
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-=======
       name = "rxjs";
       packageName = "rxjs";
       version = "6.5.4";
@@ -40278,7 +39663,6 @@ let
       };
     };
     "rxjs-6.5.5" = {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       name = "rxjs";
       packageName = "rxjs";
       version = "6.5.5";
@@ -41355,11 +40739,7 @@ let
       version = "3.0.3";
       src = fetchurl {
         url = "https://registry.npmjs.org/signal-exit/-/signal-exit-3.0.3.tgz";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-        sha512 = "VUJ49FC8U1OxwZLxIbTTrDvLnf/6TDgxZcK8wxR8zs13xpx7xbG60ndBlhNrFi2EMuFRoeDoJO7wthSLq42EjA==";
-=======
         sha512 = "26893dbicabdw7f4klf18aiw4r88b8ndc9rchbpsaxb3ibvkk37gkffghac7g62clqkhk7szyfwnfxcsfs23wcjq6qm6lxwa3s7hhjm";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "signals-1.0.0" = {
@@ -42064,7 +41444,6 @@ let
         sha1 = "421258316288b83ac693b0d43efd09d6d43aba97";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
     "socket.io-pull-stream-0.1.5" = {
       name = "socket.io-pull-stream";
       packageName = "socket.io-pull-stream";
@@ -42074,10 +41453,7 @@ let
         sha512 = "lcC2se3iAS33xYGnTDSzYW9P4RPVEgcqACCH7Mawy+2go0Wmx3y72PXGv7KI6Vz1YFcOz7np58FqOnZ/iUCbdg==";
       };
     };
-    "sockjs-0.3.19" = {
-=======
     "sockjs-0.3.20" = {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       name = "sockjs";
       packageName = "sockjs";
       version = "0.3.20";
@@ -43769,15 +43145,6 @@ let
         sha512 = "MjGFEeqixw47dAMFMtgUro/I0+wNqZB5GKXGt1fFr24u3TzDXCPu7J9Buppzoe3r/LqkSDLDDJzE15RGWDGAVw==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "string.prototype.trimend-1.0.0" = {
-      name = "string.prototype.trimend";
-      packageName = "string.prototype.trimend";
-      version = "1.0.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/string.prototype.trimend/-/string.prototype.trimend-1.0.0.tgz";
-        sha512 = "EEJnGqa/xNfIg05SxiPSqRS7S9qwDhYts1TSLR1BQfYUfPe1stofgGKvwERK9+9yf+PpfBMlpBaCHucXGPQfUA==";
-=======
     "string.prototype.trimend-1.0.1" = {
       name = "string.prototype.trimend";
       packageName = "string.prototype.trimend";
@@ -43785,7 +43152,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/string.prototype.trimend/-/string.prototype.trimend-1.0.1.tgz";
         sha512 = "3mb88v9lf22jx2d71lnxcxvixdfypq1iq7ys5f3zv0ayv2w3cij73wnfbq43yyd8gdyjn1k29pphx639shjk39pn6c9mdlk8qaz24rd";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "string.prototype.trimleft-2.1.2" = {
@@ -43794,11 +43160,7 @@ let
       version = "2.1.2";
       src = fetchurl {
         url = "https://registry.npmjs.org/string.prototype.trimleft/-/string.prototype.trimleft-2.1.2.tgz";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-        sha512 = "gCA0tza1JBvqr3bfAIFJGqfdRTyPae82+KTnm3coDXkZN9wnuW3HjGgN386D7hfv5CHQYCI022/rJPVlqXyHSw==";
-=======
         sha512 = "15qfz59cpsj9svgvcs24q6h47jfy5zfhg7dy3b8ik3nvf97vhvijy8d51vrprx4z0vfyscg7i2xv9qs960h1pvnmzm1n95m6svk8840";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "string.prototype.trimright-2.1.2" = {
@@ -43807,18 +43169,6 @@ let
       version = "2.1.2";
       src = fetchurl {
         url = "https://registry.npmjs.org/string.prototype.trimright/-/string.prototype.trimright-2.1.2.tgz";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-        sha512 = "ZNRQ7sY3KroTaYjRS6EbNiiHrOkjihL9aQE/8gfQ4DtAC/aEBRHFJa44OmoWxGGqXuJlfKkZW4WcXErGr+9ZFg==";
-      };
-    };
-    "string.prototype.trimstart-1.0.0" = {
-      name = "string.prototype.trimstart";
-      packageName = "string.prototype.trimstart";
-      version = "1.0.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/string.prototype.trimstart/-/string.prototype.trimstart-1.0.0.tgz";
-        sha512 = "iCP8g01NFYiiBOnwG1Xc3WZLyoo+RuBymwIlWncShXDDJYWN6DbnM3odslBJdgCdRlq94B5s63NWAZlcn2CS4w==";
-=======
         sha512 = "0b5kvxgqr55r745bccsjz35w9galqf42rm3lf5f4p2i21c4yq5l0fz0s03z4gq1d7yi52i3x6n8fa1n3fhlplc8d49vlaipqvp51m34";
       };
     };
@@ -43829,7 +43179,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/string.prototype.trimstart/-/string.prototype.trimstart-1.0.1.tgz";
         sha512 = "13md9cfrlvkvbprd9svis80yjkv8glqai07nlqizqi2yhxzhw7mxza2jhb6k6mx1z67ndgf4dcf0hy5579fj8772hsi5b3g1bwnf5jz";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "string2compact-1.3.0" = {
@@ -44949,15 +44298,6 @@ let
         sha512 = "Glo3jkRtPcvpDlAs/0+hozav78yoXKFr+c4wgw62NNMO3oo4AaJdCo21Uu7lcwr55h39W2XD1LMERc64wtbItg==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "tar-fs-2.0.1" = {
-      name = "tar-fs";
-      packageName = "tar-fs";
-      version = "2.0.1";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/tar-fs/-/tar-fs-2.0.1.tgz";
-        sha512 = "6tzWDMeroL87uF/+lin46k+Q+46rAJ0SyPGz7OW7wTgblI273hsBqk2C1j0/xNadNLKDTUL9BukSjB7cwgmlPA==";
-=======
     "tar-fs-2.1.0" = {
       name = "tar-fs";
       packageName = "tar-fs";
@@ -44965,7 +44305,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/tar-fs/-/tar-fs-2.1.0.tgz";
         sha512 = "195f4bmsa21j8x7xvs9hcnhpy4bw92zwnz3l494711kd63ijcc8qz7cr3h22bnvcv69kq0a7mxly0nksr8p9b7nlsaw087b7f4bkrgn";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "tar-pack-3.4.1" = {
@@ -45022,24 +44361,6 @@ let
         sha1 = "9450e8768c83b416fd4d1a6a9449eeccbf496c29";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "tdigest-0.1.1" = {
-      name = "tdigest";
-      packageName = "tdigest";
-      version = "0.1.1";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/tdigest/-/tdigest-0.1.1.tgz";
-        sha1 = "2e3cb2c39ea449e55d1e6cd91117accca4588021";
-      };
-    };
-    "telegraf-3.37.0" = {
-      name = "telegraf";
-      packageName = "telegraf";
-      version = "3.37.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/telegraf/-/telegraf-3.37.0.tgz";
-        sha512 = "V3448qwfOolBqkIc87yxjW4zMvR2P6AIF24pPTlX9WhZPwA1TF/x3nQhnWPRLtGh2SJuvDcr83iTkXPXT7Opnw==";
-=======
     "telegraf-3.38.0" = {
       name = "telegraf";
       packageName = "telegraf";
@@ -45047,7 +44368,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/telegraf/-/telegraf-3.38.0.tgz";
         sha512 = "va4VlrKWp64JrowFoZX/NPzzA6q38kvaIukVXOWFO1V+jR1G8+hCfgJy4TX8Z3rwLJzwaBEet1QhikHDRZWl3A==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "telegram-typings-3.6.1" = {
@@ -45194,15 +44514,6 @@ let
         sha512 = "/FQzzPJmCpjAH9Xvk2paiWrFq+5M6aVOf+2KRbwhByISDX/EujxsK+BAvrhb6H+2rtrLCHK9N01wO014vrIwVQ==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "terser-4.6.10" = {
-      name = "terser";
-      packageName = "terser";
-      version = "4.6.10";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/terser/-/terser-4.6.10.tgz";
-        sha512 = "qbF/3UOo11Hggsbsqm2hPa6+L4w7bkr+09FNseEe8xrcVD3APGLFqE+Oz1ZKAxjYnFsj80rLOfgAtJ0LNJjtTA==";
-=======
     "terser-4.7.0" = {
       name = "terser";
       packageName = "terser";
@@ -45210,7 +44521,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/terser/-/terser-4.7.0.tgz";
         sha512 = "23rqrw3h5q2i9k2r90i9j3nj5xscdz4rx4zqpbpinpknm368hc2ybvz0xipy8zyvalskcxa0zsljk0jd5r4ikid13bi13aw4r3g9xid";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "terser-webpack-plugin-1.4.3" = {
@@ -46887,15 +46197,6 @@ let
         sha512 = "33ha88jndrxp4k7l70dy93a1fappsganbfb04ylhkjq2hm13n83i50jp7dvzcvaxz9my06apy9wy9yr1v5wkvcwhhn55l3cymn6qrb3";
       };
     };
-    "uglify-js-3.8.1" = {
-      name = "uglify-js";
-      packageName = "uglify-js";
-      version = "3.8.1";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/uglify-js/-/uglify-js-3.8.1.tgz";
-        sha512 = "W7KxyzeaQmZvUFbGj4+YFshhVrMBGSg2IbcYAjGWGvx8DHvJMclbTDMpffdxFUGPBHjIytk7KJUR/KUXstUGDw==";
-      };
-    };
     "uglify-js-3.9.4" = {
       name = "uglify-js";
       packageName = "uglify-js";
@@ -48255,15 +47556,6 @@ let
         sha512 = "1cfjbsi37a8gx3l873imqs5k6wldsrzwg9a68dc2b264rpqngxmcag6klxf70kyhqz98j7kr363g4qy8djiyf2zdr1ny9njkifx3a6a";
       };
     };
-    "uuid-7.0.2" = {
-      name = "uuid";
-      packageName = "uuid";
-      version = "7.0.2";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/uuid/-/uuid-7.0.2.tgz";
-        sha512 = "vy9V/+pKG+5ZTYKf+VcphF5Oc6EFiu3W8Nv3P3zIh0EqVI80ZxOzuPfe9EHjkFNvf8+xuTHVeei4Drydlx4zjw==";
-      };
-    };
     "uuid-8.1.0" = {
       name = "uuid";
       packageName = "uuid";
@@ -48606,15 +47898,6 @@ let
         sha512 = "26h84vfs0y4cb1kja0qwc4a00iscbjz3r500g1pqjxkfcm1q5p95bxvdw5d47y326v4adsp167d2b38ik5ixcw21yfl9ca1gy03gdnb";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "vfile-4.1.0" = {
-      name = "vfile";
-      packageName = "vfile";
-      version = "4.1.0";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/vfile/-/vfile-4.1.0.tgz";
-        sha512 = "BaTPalregj++64xbGK6uIlsurN3BCRNM/P2Pg8HezlGzKd1O9PrwIac6bd9Pdx2uTb0QHoioZ+rXKolbVXEgJg==";
-=======
     "vfile-4.1.1" = {
       name = "vfile";
       packageName = "vfile";
@@ -48622,7 +47905,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/vfile/-/vfile-4.1.1.tgz";
         sha512 = "1sv6rqw37g0rfd4gfpnrjn5m1lvlfac2bkhsnfnhr2xwpzkv43fc41spds67713p7c32sa6a03jzmw07qa440xp0d0mk3f642ky864m";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "vfile-find-down-1.0.0" = {
@@ -48676,11 +47958,7 @@ let
       version = "2.0.4";
       src = fetchurl {
         url = "https://registry.npmjs.org/vfile-message/-/vfile-message-2.0.4.tgz";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-        sha512 = "DjssxRGkMvifUOJre00juHoP9DPWuzjxKuMDrhNbk2TdaYYBNMStsNhEOt3idrtI12VQYM/1+iM0KOzXi4pxwQ==";
-=======
         sha512 = "30p32lbszn2hd13zbswyq2hcpblifvnwbfkli6qn2nw8d01hrlxsr4kbc9sw0z35bqkifyn6gs0yymq4d6pnsz2a2gzhcm4272jqfqf";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "vfile-reporter-1.5.0" = {
@@ -49356,15 +48634,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/watch/-/watch-1.0.2.tgz";
         sha1 = "340a717bde765726fa0aa07d721e0147a551df0c";
-      };
-    };
-    "watchpack-1.6.1" = {
-      name = "watchpack";
-      packageName = "watchpack";
-      version = "1.6.1";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/watchpack/-/watchpack-1.6.1.tgz";
-        sha512 = "1j6fr0rjlw663ssnc3z7bgv6621zrwj6qsza68h9rbpgy9nl205wp74iyrh62q3l46230qf8awnmdw77fi7vcm2747bcfh5yn2pv0gq";
       };
     };
     "watchpack-1.7.2" = {
@@ -50961,15 +50230,6 @@ let
         sha512 = "H/V41UNZQPkUMIT5h5hiwg4QKIY1RPvoBV4XcjUbRM8Bk2oKqqyZ0DIEbTFZB0XjbtSPG8SAa/0DxCQmiRgzKg==";
       };
     };
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    "yargs-parser-18.1.2" = {
-      name = "yargs-parser";
-      packageName = "yargs-parser";
-      version = "18.1.2";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/yargs-parser/-/yargs-parser-18.1.2.tgz";
-        sha512 = "hlIPNR3IzC1YuL1c2UwwDKpXlNFBqD1Fswwh1khz5+d8Cq/8yc/Mn0i+rQXduu8hcrFKvO7Eryk+09NecTQAAQ==";
-=======
     "yargs-parser-18.1.3" = {
       name = "yargs-parser";
       packageName = "yargs-parser";
@@ -50977,7 +50237,6 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/yargs-parser/-/yargs-parser-18.1.3.tgz";
         sha512 = "04nprsyj5lhaijcxr2w8r9jjljw0mr38jzhxrmb4inyad0l9hj4yqd26q4hzp258hnbgax1f9fp5aav4sj736d35gw2z8wkjz8277d3";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       };
     };
     "yargs-parser-2.4.1" = {
@@ -51256,29 +50515,6 @@ in
   "@angular/cli" = nodeEnv.buildNodePackage {
     name = "_at_angular_slash_cli";
     packageName = "@angular/cli";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    version = "9.1.0";
-    src = fetchurl {
-      url = "https://registry.npmjs.org/@angular/cli/-/cli-9.1.0.tgz";
-      sha512 = "ofum4gPE/W3fKyzuJrpdHeOS0ZL8x0eYCgsrMyUoFodSpb5LWPqeW+56NgDTpIeny+Trx3pM9dr9QTUVTJ0vYg==";
-    };
-    dependencies = [
-      sources."@angular-devkit/architect-0.901.0"
-      sources."@angular-devkit/core-9.1.0"
-      sources."@angular-devkit/schematics-9.1.0"
-      sources."@npmcli/ci-detect-1.2.0"
-      sources."@npmcli/git-2.0.1"
-      sources."@npmcli/installed-package-contents-1.0.5"
-      sources."@npmcli/promise-spawn-1.1.0"
-      sources."@schematics/angular-9.1.0"
-      sources."@schematics/update-0.901.0"
-      sources."@tootallnate/once-1.0.0"
-      sources."@types/color-name-1.1.1"
-      sources."@yarnpkg/lockfile-1.1.0"
-      sources."agent-base-6.0.0"
-      sources."agentkeepalive-4.1.0"
-      sources."aggregate-error-3.0.1"
-=======
     version = "9.1.7";
     src = fetchurl {
       url = "https://registry.npmjs.org/@angular/cli/-/cli-9.1.7.tgz";
@@ -51295,7 +50531,6 @@ in
       sources."JSONStream-1.3.5"
       sources."agent-base-4.3.0"
       sources."agentkeepalive-3.5.2"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."ajv-6.12.0"
       sources."ansi-colors-4.1.1"
       sources."ansi-escapes-4.3.1"
@@ -51357,10 +50592,7 @@ in
       sources."extsprintf-1.3.0"
       sources."fast-deep-equal-3.1.1"
       sources."fast-json-stable-stringify-2.1.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-=======
       sources."figgy-pudding-3.5.2"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."figures-3.2.0"
       sources."forever-agent-0.6.1"
       sources."form-data-2.3.3"
@@ -51398,11 +50630,8 @@ in
       sources."is-docker-2.0.0"
       sources."is-fullwidth-code-point-3.0.0"
       sources."is-interactive-1.0.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
       sources."is-lambda-1.0.1"
       sources."is-promise-2.1.0"
-=======
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."is-regex-1.0.5"
       sources."is-symbol-1.0.3"
       sources."is-typedarray-1.0.0"
@@ -51431,31 +50660,6 @@ in
       })
       sources."lru-cache-5.1.1"
       sources."magic-string-0.25.7"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."make-fetch-happen-8.0.4"
-      sources."mime-db-1.43.0"
-      sources."mime-types-2.1.26"
-      sources."mimic-fn-2.1.0"
-      sources."minimatch-3.0.4"
-      sources."minimist-1.2.5"
-      (sources."minipass-3.1.1" // {
-        dependencies = [
-          sources."yallist-4.0.0"
-        ];
-      })
-      sources."minipass-collect-1.0.2"
-      sources."minipass-fetch-1.2.1"
-      sources."minipass-flush-1.0.5"
-      sources."minipass-json-stream-1.0.1"
-      sources."minipass-pipeline-1.2.2"
-      sources."minipass-sized-1.0.3"
-      (sources."minizlib-2.1.0" // {
-        dependencies = [
-          sources."yallist-4.0.0"
-        ];
-      })
-      sources."mkdirp-1.0.3"
-=======
       sources."make-fetch-happen-5.0.2"
       sources."mime-db-1.44.0"
       sources."mime-types-2.1.27"
@@ -51466,7 +50670,6 @@ in
       sources."minizlib-1.3.3"
       sources."mississippi-3.0.0"
       sources."mkdirp-0.5.5"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       (sources."move-concurrently-1.0.1" // {
         dependencies = [
           sources."mkdirp-0.5.4"
@@ -51475,10 +50678,7 @@ in
       })
       sources."ms-2.1.2"
       sources."mute-stream-0.0.8"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-=======
       sources."node-fetch-npm-2.0.4"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       (sources."normalize-package-data-2.5.0" // {
         dependencies = [
           sources."hosted-git-info-2.8.8"
@@ -51489,11 +50689,6 @@ in
       sources."npm-install-checks-4.0.0"
       sources."npm-normalize-package-bin-1.0.1"
       sources."npm-package-arg-8.0.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."npm-packlist-2.1.1"
-      sources."npm-pick-manifest-6.0.0"
-      sources."npm-registry-fetch-8.0.0"
-=======
       sources."npm-packlist-1.4.8"
       sources."npm-pick-manifest-6.0.0"
       (sources."npm-registry-fetch-4.0.4" // {
@@ -51503,7 +50698,6 @@ in
           sources."semver-5.7.1"
         ];
       })
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."oauth-sign-0.9.0"
       sources."object-inspect-1.7.0"
       sources."object-keys-1.1.1"
@@ -51513,16 +50707,10 @@ in
       sources."onetime-5.1.0"
       sources."open-7.0.3"
       sources."ora-4.0.3"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."os-tmpdir-1.0.2"
-      sources."p-map-3.0.0"
-      (sources."pacote-11.1.4" // {
-=======
       sources."os-homedir-1.0.2"
       sources."os-tmpdir-1.0.2"
       sources."osenv-0.1.5"
       (sources."pacote-9.5.12" // {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         dependencies = [
           sources."hosted-git-info-2.8.8"
           sources."npm-package-arg-6.1.1"
@@ -51536,9 +50724,6 @@ in
       sources."process-nextick-args-2.0.1"
       sources."promise-inflight-1.0.1"
       sources."promise-retry-1.1.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."psl-1.8.0"
-=======
       sources."protoduck-5.0.1"
       sources."psl-1.8.0"
       sources."pump-3.0.0"
@@ -51547,7 +50732,6 @@ in
           sources."pump-2.0.1"
         ];
       })
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."punycode-2.1.1"
       sources."qs-6.5.2"
       sources."read-package-json-2.1.1"
@@ -51560,16 +50744,6 @@ in
           sources."uuid-3.4.0"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."resolve-1.15.1"
-      sources."restore-cursor-3.1.0"
-      sources."retry-0.10.1"
-      sources."rimraf-3.0.2"
-      sources."run-async-2.4.0"
-      sources."run-queue-1.0.3"
-      sources."rxjs-6.5.4"
-      sources."safe-buffer-5.1.2"
-=======
       sources."readdir-scoped-modules-1.1.0"
       (sources."request-2.88.2" // {
         dependencies = [
@@ -51584,7 +50758,6 @@ in
       sources."run-queue-1.0.3"
       sources."rxjs-6.5.4"
       sources."safe-buffer-5.2.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."safer-buffer-2.1.2"
       sources."semver-7.1.3"
       (sources."semver-intersect-1.4.0" // {
@@ -51603,19 +50776,6 @@ in
       sources."spdx-expression-parse-3.0.1"
       sources."spdx-license-ids-3.0.5"
       sources."sshpk-1.16.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."ssri-8.0.0"
-      sources."string-width-4.2.0"
-      sources."string.prototype.trimend-1.0.0"
-      sources."string.prototype.trimleft-2.1.2"
-      sources."string.prototype.trimright-2.1.2"
-      sources."string.prototype.trimstart-1.0.0"
-      sources."string_decoder-1.1.1"
-      sources."strip-ansi-6.0.0"
-      sources."supports-color-7.1.0"
-      sources."symbol-observable-1.2.0"
-      (sources."tar-6.0.1" // {
-=======
       sources."ssri-6.0.1"
       sources."stream-each-1.2.3"
       sources."stream-shift-1.0.1"
@@ -51625,18 +50785,14 @@ in
       sources."string.prototype.trimright-2.1.2"
       sources."string.prototype.trimstart-1.0.1"
       (sources."string_decoder-1.1.1" // {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         dependencies = [
           sources."yallist-4.0.0"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-=======
       sources."strip-ansi-6.0.0"
       sources."supports-color-7.1.0"
       sources."symbol-observable-1.2.0"
       sources."tar-4.4.13"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."through-2.3.8"
       sources."tmp-0.0.33"
       sources."tough-cookie-2.5.0"
@@ -51988,11 +51144,7 @@ in
         ];
       })
       sources."to-utf8-0.0.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."uglify-js-3.8.1"
-=======
       sources."uglify-js-3.9.4"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."unc-path-regex-0.1.2"
       sources."unique-stream-2.3.1"
       sources."universalify-0.1.2"
@@ -52205,17 +51357,10 @@ in
       sources."@apollo/federation-0.16.0"
       (sources."@apollo/protobufjs-1.0.4" // {
         dependencies = [
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-          sources."@types/node-10.17.18"
-        ];
-      })
-      sources."@apollographql/apollo-tools-0.4.5"
-=======
           sources."@types/node-10.17.24"
         ];
       })
       sources."@apollographql/apollo-tools-0.4.8"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."@apollographql/graphql-language-service-interface-2.0.2"
       sources."@apollographql/graphql-language-service-parser-2.0.2"
       sources."@apollographql/graphql-language-service-types-2.0.2"
@@ -52233,109 +51378,17 @@ in
       sources."@babel/helper-create-class-features-plugin-7.10.1"
       (sources."@babel/helper-function-name-7.10.1" // {
         dependencies = [
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-          sources."semver-5.7.1"
-        ];
-      })
-      sources."@babel/generator-7.9.0"
-      sources."@babel/helper-annotate-as-pure-7.8.3"
-      sources."@babel/helper-builder-binary-assignment-operator-visitor-7.8.3"
-      (sources."@babel/helper-compilation-targets-7.8.7" // {
-=======
           sources."@babel/types-7.10.1"
         ];
       })
       (sources."@babel/helper-get-function-arity-7.10.1" // {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         dependencies = [
           sources."@babel/types-7.10.1"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@babel/helper-create-class-features-plugin-7.8.6"
-      sources."@babel/helper-create-regexp-features-plugin-7.8.8"
-      sources."@babel/helper-define-map-7.8.3"
-      sources."@babel/helper-explode-assignable-expression-7.8.3"
-      sources."@babel/helper-function-name-7.8.3"
-      sources."@babel/helper-get-function-arity-7.8.3"
-      sources."@babel/helper-hoist-variables-7.8.3"
-      sources."@babel/helper-member-expression-to-functions-7.8.3"
-      sources."@babel/helper-module-imports-7.8.3"
-      sources."@babel/helper-module-transforms-7.9.0"
-      sources."@babel/helper-optimise-call-expression-7.8.3"
-      sources."@babel/helper-plugin-utils-7.8.3"
-      sources."@babel/helper-regex-7.8.3"
-      sources."@babel/helper-remap-async-to-generator-7.8.3"
-      sources."@babel/helper-replace-supers-7.8.6"
-      sources."@babel/helper-simple-access-7.8.3"
-      sources."@babel/helper-split-export-declaration-7.8.3"
-      sources."@babel/helper-validator-identifier-7.9.0"
-      sources."@babel/helper-wrap-function-7.8.3"
-      sources."@babel/helpers-7.9.2"
-      sources."@babel/highlight-7.9.0"
-      sources."@babel/parser-7.9.4"
-      sources."@babel/plugin-proposal-async-generator-functions-7.8.3"
-      sources."@babel/plugin-proposal-class-properties-7.8.3"
-      sources."@babel/plugin-proposal-dynamic-import-7.8.3"
-      sources."@babel/plugin-proposal-json-strings-7.8.3"
-      sources."@babel/plugin-proposal-nullish-coalescing-operator-7.8.3"
-      sources."@babel/plugin-proposal-numeric-separator-7.8.3"
-      sources."@babel/plugin-proposal-object-rest-spread-7.9.0"
-      sources."@babel/plugin-proposal-optional-catch-binding-7.8.3"
-      sources."@babel/plugin-proposal-optional-chaining-7.9.0"
-      sources."@babel/plugin-proposal-unicode-property-regex-7.8.8"
-      sources."@babel/plugin-syntax-async-generators-7.8.4"
-      sources."@babel/plugin-syntax-dynamic-import-7.8.3"
-      sources."@babel/plugin-syntax-flow-7.8.3"
-      sources."@babel/plugin-syntax-json-strings-7.8.3"
-      sources."@babel/plugin-syntax-nullish-coalescing-operator-7.8.3"
-      sources."@babel/plugin-syntax-numeric-separator-7.8.3"
-      sources."@babel/plugin-syntax-object-rest-spread-7.8.3"
-      sources."@babel/plugin-syntax-optional-catch-binding-7.8.3"
-      sources."@babel/plugin-syntax-optional-chaining-7.8.3"
-      sources."@babel/plugin-syntax-top-level-await-7.8.3"
-      sources."@babel/plugin-syntax-typescript-7.8.3"
-      sources."@babel/plugin-transform-arrow-functions-7.8.3"
-      sources."@babel/plugin-transform-async-to-generator-7.8.3"
-      sources."@babel/plugin-transform-block-scoped-functions-7.8.3"
-      sources."@babel/plugin-transform-block-scoping-7.8.3"
-      sources."@babel/plugin-transform-classes-7.9.2"
-      sources."@babel/plugin-transform-computed-properties-7.8.3"
-      sources."@babel/plugin-transform-destructuring-7.8.8"
-      sources."@babel/plugin-transform-dotall-regex-7.8.3"
-      sources."@babel/plugin-transform-duplicate-keys-7.8.3"
-      sources."@babel/plugin-transform-exponentiation-operator-7.8.3"
-      sources."@babel/plugin-transform-flow-strip-types-7.9.0"
-      sources."@babel/plugin-transform-for-of-7.9.0"
-      sources."@babel/plugin-transform-function-name-7.8.3"
-      sources."@babel/plugin-transform-literals-7.8.3"
-      sources."@babel/plugin-transform-member-expression-literals-7.8.3"
-      sources."@babel/plugin-transform-modules-amd-7.9.0"
-      sources."@babel/plugin-transform-modules-commonjs-7.9.0"
-      sources."@babel/plugin-transform-modules-systemjs-7.9.0"
-      sources."@babel/plugin-transform-modules-umd-7.9.0"
-      sources."@babel/plugin-transform-named-capturing-groups-regex-7.8.3"
-      sources."@babel/plugin-transform-new-target-7.8.3"
-      sources."@babel/plugin-transform-object-super-7.8.3"
-      sources."@babel/plugin-transform-parameters-7.9.3"
-      sources."@babel/plugin-transform-property-literals-7.8.3"
-      sources."@babel/plugin-transform-regenerator-7.8.7"
-      sources."@babel/plugin-transform-reserved-words-7.8.3"
-      sources."@babel/plugin-transform-shorthand-properties-7.8.3"
-      sources."@babel/plugin-transform-spread-7.8.3"
-      sources."@babel/plugin-transform-sticky-regex-7.8.3"
-      sources."@babel/plugin-transform-template-literals-7.8.3"
-      sources."@babel/plugin-transform-typeof-symbol-7.8.4"
-      sources."@babel/plugin-transform-typescript-7.9.4"
-      sources."@babel/plugin-transform-unicode-regex-7.8.3"
-      (sources."@babel/preset-env-7.9.0" // {
-        dependencies = [
-          sources."semver-5.7.1"
-=======
       (sources."@babel/helper-member-expression-to-functions-7.10.1" // {
         dependencies = [
           sources."@babel/types-7.10.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         ];
       })
       (sources."@babel/helper-module-imports-7.10.1" // {
@@ -52402,11 +51455,6 @@ in
           sources."@babel/types-7.10.1"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@babel/template-7.8.6"
-      sources."@babel/traverse-7.9.0"
-      sources."@babel/types-7.9.0"
-=======
       (sources."@babel/traverse-7.10.1" // {
         dependencies = [
           sources."@babel/generator-7.10.1"
@@ -52414,7 +51462,6 @@ in
         ];
       })
       sources."@babel/types-7.9.6"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."@endemolshinegroup/cosmiconfig-typescript-loader-1.0.1"
       sources."@hapi/address-2.1.4"
       sources."@hapi/bourne-1.3.2"
@@ -52514,13 +51561,8 @@ in
       sources."@types/long-4.0.1"
       sources."@types/mime-2.0.2"
       sources."@types/minimatch-3.0.3"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@types/node-13.9.8"
-      (sources."@types/node-fetch-2.5.5" // {
-=======
       sources."@types/node-14.0.5"
       (sources."@types/node-fetch-2.5.7" // {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         dependencies = [
           sources."form-data-3.0.0"
         ];
@@ -52562,37 +51604,11 @@ in
           sources."normalize-path-2.1.1"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      (sources."apollo-2.26.0" // {
-=======
       (sources."apollo-2.28.0" // {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         dependencies = [
           sources."strip-ansi-5.2.0"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."apollo-cache-1.3.4"
-      sources."apollo-cache-control-0.9.0"
-      sources."apollo-cache-inmemory-1.6.5"
-      sources."apollo-client-2.6.8"
-      sources."apollo-codegen-core-0.36.5"
-      sources."apollo-codegen-flow-0.34.5"
-      sources."apollo-codegen-scala-0.35.5"
-      sources."apollo-codegen-swift-0.36.5"
-      sources."apollo-codegen-typescript-0.36.5"
-      sources."apollo-datasource-0.7.0"
-      sources."apollo-engine-reporting-1.7.0"
-      sources."apollo-engine-reporting-protobuf-0.4.4"
-      sources."apollo-env-0.6.2"
-      sources."apollo-graphql-0.4.1"
-      sources."apollo-language-server-1.21.0"
-      sources."apollo-link-1.2.13"
-      sources."apollo-link-context-1.0.19"
-      sources."apollo-link-error-1.1.12"
-      sources."apollo-link-http-1.5.16"
-      sources."apollo-link-http-common-0.2.15"
-=======
       sources."apollo-cache-1.3.5"
       sources."apollo-cache-control-0.11.0"
       sources."apollo-cache-inmemory-1.6.6"
@@ -52622,7 +51638,6 @@ in
       sources."apollo-link-error-1.1.13"
       sources."apollo-link-http-1.5.17"
       sources."apollo-link-http-common-0.2.16"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."apollo-link-persisted-queries-0.2.2"
       sources."apollo-link-state-0.4.2"
       sources."apollo-link-ws-1.0.20"
@@ -52719,12 +51734,7 @@ in
       })
       sources."brace-expansion-1.1.11"
       sources."braces-2.3.2"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."browserslist-4.11.1"
-      sources."buffer-5.5.0"
-=======
       sources."buffer-5.6.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."buffer-alloc-1.2.0"
       sources."buffer-alloc-unsafe-1.1.0"
       sources."buffer-crc32-0.2.13"
@@ -52747,10 +51757,6 @@ in
       sources."callsites-2.0.0"
       sources."camel-case-3.0.0"
       sources."camelcase-4.1.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."caniuse-lite-1.0.30001038"
-=======
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."capture-stack-trace-1.0.1"
       sources."cardinal-2.1.1"
       sources."caseless-0.12.0"
@@ -52781,22 +51787,14 @@ in
       sources."clean-stack-2.2.0"
       sources."cli-boxes-1.0.0"
       sources."cli-cursor-2.1.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      (sources."cli-progress-3.6.1" // {
-=======
       (sources."cli-progress-3.8.2" // {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         dependencies = [
           sources."emoji-regex-8.0.0"
           sources."is-fullwidth-code-point-3.0.0"
           sources."string-width-4.2.0"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."cli-spinners-2.2.0"
-=======
       sources."cli-spinners-2.3.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       (sources."cli-truncate-0.2.1" // {
         dependencies = [
           sources."ansi-regex-2.1.1"
@@ -52805,17 +51803,12 @@ in
           sources."strip-ansi-3.0.1"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      (sources."cli-ux-5.4.5" // {
-        dependencies = [
-=======
       (sources."cli-ux-5.4.6" // {
         dependencies = [
           sources."ansi-escapes-4.3.1"
           sources."ansi-styles-4.2.1"
           sources."color-convert-2.0.1"
           sources."color-name-1.1.4"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
           sources."semver-5.7.1"
           sources."strip-ansi-5.2.0"
           sources."type-fest-0.11.0"
@@ -52945,10 +51938,6 @@ in
       sources."ecc-jsbn-0.1.2"
       sources."ee-first-1.1.1"
       sources."ejs-2.7.4"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."electron-to-chromium-1.3.391"
-=======
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."elegant-spinner-1.0.1"
       sources."emoji-regex-7.0.3"
       sources."encodeurl-1.0.2"
@@ -53367,10 +52356,6 @@ in
           sources."is-wsl-2.2.0"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."node-releases-1.1.53"
-=======
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       (sources."nodemon-1.19.4" // {
         dependencies = [
           sources."debug-3.2.6"
@@ -53432,19 +52417,12 @@ in
       sources."p-cancelable-0.4.1"
       sources."p-event-2.3.1"
       sources."p-finally-1.0.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."p-limit-1.3.0"
-      sources."p-locate-2.0.0"
-      sources."p-map-2.1.0"
-      sources."p-try-1.0.0"
-=======
       sources."p-is-promise-1.1.0"
       sources."p-limit-2.3.0"
       sources."p-locate-3.0.0"
       sources."p-map-2.1.0"
       sources."p-timeout-2.0.1"
       sources."p-try-2.2.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       (sources."package-json-4.0.1" // {
         dependencies = [
           sources."semver-5.7.1"
@@ -53482,22 +52460,8 @@ in
       sources."pinkie-2.0.4"
       sources."pinkie-promise-2.0.1"
       sources."pirates-4.0.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      (sources."pkg-dir-3.0.0" // {
-        dependencies = [
-          sources."find-up-3.0.0"
-          sources."locate-path-3.0.0"
-          sources."p-limit-2.2.2"
-          sources."p-locate-3.0.0"
-          sources."p-try-2.2.0"
-        ];
-      })
-      sources."pkg-up-2.0.0"
-      (sources."portfinder-1.0.25" // {
-=======
       sources."pkg-dir-3.0.0"
       (sources."portfinder-1.0.26" // {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         dependencies = [
           sources."debug-3.2.6"
           sources."ms-2.1.2"
@@ -53514,11 +52478,7 @@ in
       sources."ps-list-4.1.0"
       sources."pseudomap-1.0.2"
       sources."psl-1.8.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."pstree.remy-1.1.7"
-=======
       sources."pstree.remy-1.1.8"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."pump-3.0.0"
       sources."punycode-2.1.1"
       sources."qs-6.5.2"
@@ -53538,11 +52498,7 @@ in
         ];
       })
       sources."readdirp-2.2.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      (sources."recast-0.18.8" // {
-=======
       (sources."recast-0.18.10" // {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         dependencies = [
           sources."source-map-0.6.1"
         ];
@@ -53695,17 +52651,10 @@ in
           sources."strip-ansi-5.2.0"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."string.prototype.trimend-1.0.0"
-      sources."string.prototype.trimleft-2.1.2"
-      sources."string.prototype.trimright-2.1.2"
-      sources."string.prototype.trimstart-1.0.0"
-=======
       sources."string.prototype.trimend-1.0.1"
       sources."string.prototype.trimleft-2.1.2"
       sources."string.prototype.trimright-2.1.2"
       sources."string.prototype.trimstart-1.0.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       (sources."string_decoder-1.1.1" // {
         dependencies = [
           sources."safe-buffer-5.1.2"
@@ -54261,21 +53210,13 @@ in
     version = "3.0.3";
     src = fetchurl {
       url = "https://registry.npmjs.org/asar/-/asar-3.0.3.tgz";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sha512 = "k7zd+KoR+n8pl71PvgElcoKHrVNiSXtw7odKbyNpmgKe7EGRF9Pnu3uLOukD37EvavKwVFxOUpqXTIZC5B5Pmw==";
-=======
       sha512 = "2dly7p48a34r5wsa975qm5hy9m2zcfz0glkm2vvpgkx65wi87n9w0lsd4inyjl7xrq7njb2afnqg0kj4l0vwkxxjwlpzyhimbwdvg4k";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
     };
     dependencies = [
       sources."@types/events-3.0.0"
       sources."@types/glob-7.1.1"
       sources."@types/minimatch-3.0.3"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@types/node-13.9.8"
-=======
       sources."@types/node-14.0.5"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."balanced-match-1.0.0"
       sources."brace-expansion-1.1.11"
       sources."chromium-pickle-js-0.2.0"
@@ -54594,11 +53535,7 @@ in
     version = "16.5.1";
     src = fetchurl {
       url = "https://registry.npmjs.org/browserify/-/browserify-16.5.1.tgz";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sha512 = "EQX0h59Pp+0GtSRb5rL6OTfrttlzv+uyaUVlK6GX3w11SQ0jKPKyjC/54RhPR2ib2KmfcELM06e8FxcI5XNU2A==";
-=======
       sha512 = "3c58wz510bigg57sg644w4zm7c9ns279wcf3y9gijrg4a131m4pa3fzjyhjnra5d6rfpgvkv6vfndrrzarfcnr4nl3fv9sgky3z818i";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
     };
     dependencies = [
       sources."JSONStream-1.3.5"
@@ -54718,11 +53655,7 @@ in
       sources."minimalistic-crypto-utils-1.0.1"
       sources."minimatch-3.0.4"
       sources."minimist-1.2.5"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."mkdirp-classic-0.5.2"
-=======
       sources."mkdirp-classic-0.5.3"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."module-deps-6.2.2"
       sources."object-assign-4.1.1"
       sources."once-1.4.0"
@@ -54826,11 +53759,7 @@ in
       sources."@protobufjs/pool-1.1.0"
       sources."@protobufjs/utf8-1.1.0"
       sources."@types/long-4.0.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@types/node-10.17.18"
-=======
       sources."@types/node-13.13.9"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."addr-to-ip-port-1.5.1"
       sources."airplay-js-0.2.16"
       sources."ajv-6.12.2"
@@ -55013,11 +53942,7 @@ in
       sources."minimatch-3.0.4"
       sources."minimist-1.2.5"
       sources."mkdirp-0.3.5"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."mkdirp-classic-0.5.2"
-=======
       sources."mkdirp-classic-0.5.3"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."ms-2.1.2"
       sources."multicast-dns-4.0.1"
       sources."mutate.js-0.2.0"
@@ -55075,11 +54000,7 @@ in
       sources."plist-3.0.1"
       sources."process-nextick-args-2.0.1"
       sources."promiscuous-0.6.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."protobufjs-6.8.9"
-=======
       sources."protobufjs-6.9.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."psl-1.8.0"
       (sources."pump-0.3.5" // {
         dependencies = [
@@ -55373,11 +54294,7 @@ in
     version = "1.2.4";
     src = fetchurl {
       url = "https://registry.npmjs.org/coc-html/-/coc-html-1.2.4.tgz";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sha512 = "gr0GBKeew88n8hcn4fkzIcBruhih7YAqBd7ldsYjoG2qZhjPEj/arYESFOYgooX1jYuxCpQYH526EXXzs4BGRQ==";
-=======
       sha512 = "12ld05kydsi3flx3wc982miif6zb1d243k184l1mpd3y4ng31kalvd04g37drfy0lm81vd132x6ph116gwy29qpy8kwzhwylw20dgc2";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
     };
     dependencies = [
       sources."typescript-3.9.4"
@@ -55508,11 +54425,7 @@ in
       sources."fb-watchman-2.0.1"
       sources."flatted-2.0.2"
       sources."follow-redirects-1.11.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."fp-ts-2.5.3"
-=======
       sources."fp-ts-2.6.2"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."fs-extra-8.1.0"
       sources."fs-minipass-1.2.7"
       sources."fs.realpath-1.0.0"
@@ -55621,17 +54534,10 @@ in
   coc-prettier = nodeEnv.buildNodePackage {
     name = "coc-prettier";
     packageName = "coc-prettier";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    version = "1.1.12";
-    src = fetchurl {
-      url = "https://registry.npmjs.org/coc-prettier/-/coc-prettier-1.1.12.tgz";
-      sha512 = "NHEbnnWjVoWCi9B6o6pzOLiXyntqG0ywvfSWuaBiJZP8eNPl/MP+LlwhGEcfR0f7PVCLjZzb/2a/3giYBXYpEQ==";
-=======
     version = "1.1.14";
     src = fetchurl {
       url = "https://registry.npmjs.org/coc-prettier/-/coc-prettier-1.1.14.tgz";
       sha512 = "28smqba9znly5innq9pn26mp6vbn4ymv3q3zchf237q49rb2lkyr5x1grjk7ds25cdar9yv88bc651b1q0vxh5jwam052hgcnfkzirl";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
     };
     dependencies = [
       sources."@babel/code-frame-7.10.1"
@@ -55707,11 +54613,7 @@ in
       sources."callsites-3.1.0"
       sources."camelcase-2.1.1"
       sources."camelcase-keys-2.1.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."caniuse-lite-1.0.30001038"
-=======
       sources."caniuse-lite-1.0.30001066"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."capture-stack-trace-1.0.1"
       sources."ccount-1.0.5"
       sources."chalk-2.4.2"
@@ -55807,13 +54709,8 @@ in
       sources."domutils-1.7.0"
       sources."dot-prop-5.2.0"
       sources."duplexer3-0.1.4"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."electron-to-chromium-1.3.391"
-      sources."emoji-regex-7.0.3"
-=======
       sources."electron-to-chromium-1.3.453"
       sources."emoji-regex-8.0.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."end-of-stream-1.4.4"
       sources."entities-1.1.2"
       sources."error-ex-1.3.2"
@@ -56244,13 +55141,8 @@ in
       sources."prelude-ls-1.1.2"
       sources."prepend-http-1.0.4"
       sources."preserve-0.2.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."prettier-2.0.2"
-      (sources."prettier-eslint-9.0.1" // {
-=======
       sources."prettier-2.0.5"
       (sources."prettier-eslint-10.1.1" // {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         dependencies = [
           sources."prettier-1.19.1"
         ];
@@ -56683,17 +55575,10 @@ in
   coc-snippets = nodeEnv.buildNodePackage {
     name = "coc-snippets";
     packageName = "coc-snippets";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    version = "2.1.23";
-    src = fetchurl {
-      url = "https://registry.npmjs.org/coc-snippets/-/coc-snippets-2.1.23.tgz";
-      sha512 = "aXSnkawM9ErwAMv0p5Ck7wgNnF91XA67819nyYcKyV/tqhsGdzffSbU/U2nf9Xa5D/OBZX7fDRnUZi3Hz7nz7A==";
-=======
     version = "2.1.26";
     src = fetchurl {
       url = "https://registry.npmjs.org/coc-snippets/-/coc-snippets-2.1.26.tgz";
       sha512 = "0rhl3fk591p3cvrqwpkmx8s5jf28z7n87n77zc3cj7vm0aycqfzw57h9wqzxl4wrnrnwmrz3cwpvkga62lzrmiad1s47rjm2apwgxg3";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
     };
     buildInputs = globalBuildInputs;
     meta = {
@@ -56730,27 +55615,6 @@ in
       sha512 = "3phwn2xr3g4jr821mg63vifvv9kzdnp93hkynidr925b6354872m059v15hmkrcbxc8nv8j56z8am3bp4240kx1320pq1afkzk5bmgr";
     };
     dependencies = [
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@babel/code-frame-7.8.3"
-      sources."@babel/core-7.9.0"
-      sources."@babel/generator-7.9.4"
-      sources."@babel/helper-function-name-7.8.3"
-      sources."@babel/helper-get-function-arity-7.8.3"
-      sources."@babel/helper-member-expression-to-functions-7.8.3"
-      sources."@babel/helper-module-imports-7.8.3"
-      sources."@babel/helper-module-transforms-7.9.0"
-      sources."@babel/helper-optimise-call-expression-7.8.3"
-      sources."@babel/helper-replace-supers-7.8.6"
-      sources."@babel/helper-simple-access-7.8.3"
-      sources."@babel/helper-split-export-declaration-7.8.3"
-      sources."@babel/helper-validator-identifier-7.9.0"
-      sources."@babel/helpers-7.9.2"
-      sources."@babel/highlight-7.9.0"
-      sources."@babel/parser-7.9.4"
-      sources."@babel/template-7.8.6"
-      sources."@babel/traverse-7.9.0"
-      sources."@babel/types-7.9.0"
-=======
       sources."@babel/code-frame-7.10.1"
       sources."@babel/core-7.10.1"
       sources."@babel/generator-7.10.1"
@@ -56770,17 +55634,12 @@ in
       sources."@babel/template-7.10.1"
       sources."@babel/traverse-7.10.1"
       sources."@babel/types-7.10.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."@mrmlnc/readdir-enhanced-2.2.1"
       sources."@nodelib/fs.stat-1.1.3"
       sources."@types/events-3.0.0"
       sources."@types/glob-7.1.1"
       sources."@types/minimatch-3.0.3"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@types/node-13.9.8"
-=======
       sources."@types/node-14.0.5"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."@types/unist-2.0.3"
       sources."@types/vfile-3.0.2"
       sources."@types/vfile-message-2.0.0"
@@ -56823,11 +55682,7 @@ in
           sources."extend-shallow-2.0.1"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."browserslist-4.11.1"
-=======
       sources."browserslist-4.12.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."cache-base-1.0.1"
       sources."call-me-maybe-1.0.1"
       sources."caller-callsite-2.0.0"
@@ -56835,11 +55690,7 @@ in
       sources."callsites-2.0.0"
       sources."camelcase-4.1.0"
       sources."camelcase-keys-4.2.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."caniuse-lite-1.0.30001038"
-=======
       sources."caniuse-lite-1.0.30001066"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."ccount-1.0.5"
       sources."chalk-2.4.2"
       sources."character-entities-1.2.4"
@@ -56898,11 +55749,7 @@ in
       sources."domhandler-2.4.2"
       sources."domutils-1.7.0"
       sources."dot-prop-5.2.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."electron-to-chromium-1.3.391"
-=======
       sources."electron-to-chromium-1.3.453"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."emoji-regex-8.0.0"
       sources."entities-1.1.2"
       sources."error-ex-1.3.2"
@@ -56981,11 +55828,7 @@ in
       })
       sources."globjoin-0.1.4"
       sources."gonzales-pe-4.3.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."graceful-fs-4.2.3"
-=======
       sources."graceful-fs-4.2.4"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."has-flag-3.0.0"
       sources."has-value-1.0.0"
       (sources."has-values-1.0.0" // {
@@ -57087,11 +55930,7 @@ in
       sources."mkdirp-0.5.5"
       sources."ms-2.1.2"
       sources."nanomatch-1.2.13"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."node-releases-1.1.53"
-=======
       sources."node-releases-1.1.57"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."normalize-package-data-2.5.0"
       sources."normalize-range-0.1.2"
       sources."normalize-selector-0.2.0"
@@ -57479,11 +56318,7 @@ in
     version = "1.1.10";
     src = fetchurl {
       url = "https://registry.npmjs.org/coc-vetur/-/coc-vetur-1.1.10.tgz";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sha512 = "dMTBF4NbJ2Rqnh2Lj2Jafi9Fl6gJjHH20fNyztA6DvJ9qEOZgpiXIE2yGznszAHBvJyvoVDE4+qE6Qz5sm3FpA==";
-=======
       sha512 = "2jcavdjz46fk17awg2518dgkjyc20fcxhwipcjd42bri0lr8fl7vwhf7b8cwwpks7v73309m2blabvyb9i8z2qxkrm689svhcbw3i3l";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
     };
     dependencies = [
       sources."@babel/code-frame-7.10.1"
@@ -57517,12 +56352,8 @@ in
       sources."@types/glob-7.1.1"
       sources."@types/json-schema-7.0.4"
       sources."@types/minimatch-3.0.3"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@types/node-13.9.8"
-=======
       sources."@types/minimist-1.2.0"
       sources."@types/node-14.0.5"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."@types/normalize-package-data-2.4.0"
       sources."@types/unist-2.0.3"
       sources."@types/vfile-3.0.2"
@@ -57686,11 +56517,7 @@ in
       sources."css-parse-2.0.0"
       sources."csstype-2.6.10"
       sources."currently-unhandled-0.4.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."debug-4.1.1"
-=======
       sources."debug-4.2.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."decamelize-1.2.0"
       (sources."decamelize-keys-1.1.0" // {
         dependencies = [
@@ -58438,11 +57265,7 @@ in
       sources."util-deprecate-1.0.2"
       sources."v8-compile-cache-2.1.0"
       sources."validate-npm-package-license-3.0.4"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."vfile-4.1.0"
-=======
       sources."vfile-4.1.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."vfile-location-2.0.6"
       sources."vfile-message-2.0.4"
       (sources."vfile-reporter-6.0.1" // {
@@ -58471,13 +57294,8 @@ in
       sources."vscode-languageserver-types-3.15.1"
       sources."vscode-nls-4.1.2"
       sources."vscode-uri-1.0.8"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."vscode-web-custom-data-0.1.3"
-      sources."vue-eslint-parser-7.0.0"
-=======
       sources."vscode-web-custom-data-0.1.4"
       sources."vue-eslint-parser-7.1.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."vue-onsenui-helper-json-1.0.2"
       sources."wcwidth-1.0.1"
       sources."which-1.3.1"
@@ -58524,11 +57342,7 @@ in
     version = "1.0.3";
     src = fetchurl {
       url = "https://registry.npmjs.org/coc-vimtex/-/coc-vimtex-1.0.3.tgz";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sha512 = "zDliD5/CMHMdKm2aOu5lMW2z7Anbkl8cb7JnyQoeG5y6x4huZ1WtNVdkWVJkeyctOot/Js5YGt3imud0e5hLZQ==";
-=======
       sha512 = "1jlp63vfkkrmqnx39ccw9kzicx2s9vvci95jr2p6nnmarvfi33vm70v3q5cjrxjdwf5z4nv17nb6v9icpp3m6kd58fp6c62kw7n4ffc";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
     };
     buildInputs = globalBuildInputs;
     meta = {
@@ -58718,11 +57532,7 @@ in
       sources."fast-safe-stringify-2.0.7"
       sources."fecha-2.3.3"
       sources."follow-redirects-1.11.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."http-proxy-1.18.0"
-=======
       sources."http-proxy-1.18.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."inherits-2.0.4"
       sources."is-arrayish-0.3.2"
       sources."is-stream-1.1.0"
@@ -58779,11 +57589,7 @@ in
       sources."@types/events-3.0.0"
       sources."@types/glob-7.1.1"
       sources."@types/minimatch-3.0.3"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@types/node-13.9.8"
-=======
       sources."@types/node-14.0.5"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."abbrev-1.1.1"
       sources."accepts-1.3.7"
       sources."ajv-6.12.2"
@@ -59395,13 +58201,9 @@ in
       sources."@types/events-3.0.0"
       sources."@types/glob-7.1.1"
       sources."@types/minimatch-3.0.3"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@types/node-13.9.8"
-=======
       sources."@types/minimist-1.2.0"
       sources."@types/node-14.0.5"
       sources."@types/normalize-package-data-2.4.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."aggregate-error-3.0.1"
       sources."ansi-styles-3.2.1"
       sources."arr-diff-4.0.0"
@@ -59657,10 +58459,6 @@ in
           sources."extend-shallow-2.0.1"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."signal-exit-3.0.3"
-=======
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."slash-2.0.0"
       (sources."snapdragon-0.8.2" // {
         dependencies = [
@@ -59772,11 +58570,7 @@ in
       sources."@cycle/run-3.4.0"
       sources."@cycle/time-0.10.1"
       sources."@types/cookiejar-2.1.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@types/node-13.9.8"
-=======
       sources."@types/node-14.0.5"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."@types/superagent-3.8.2"
       sources."ansi-escapes-3.2.0"
       sources."ansi-regex-2.1.1"
@@ -59863,11 +58657,7 @@ in
       sources."performance-now-2.1.0"
       sources."process-nextick-args-2.0.1"
       sources."pseudomap-1.0.2"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."qs-6.9.3"
-=======
       sources."qs-6.9.4"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."quicktask-1.1.0"
       sources."raf-3.3.2"
       sources."readable-stream-2.3.7"
@@ -60450,13 +59240,8 @@ in
           sources."is-extendable-1.0.1"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."mkdirp-0.5.4"
-      sources."mkdirp-classic-0.5.2"
-=======
       sources."mkdirp-0.5.5"
       sources."mkdirp-classic-0.5.3"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."ms-2.1.2"
       sources."multi-random-access-2.1.1"
       sources."multicast-dns-7.2.2"
@@ -60974,11 +59759,7 @@ in
       sources."assert-plus-1.0.0"
       sources."async-2.6.3"
       sources."asynckit-0.4.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."aws-sdk-2.650.0"
-=======
       sources."aws-sdk-2.686.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."aws-sign2-0.7.0"
       sources."aws4-1.10.0"
       sources."base64-js-1.3.1"
@@ -61160,11 +59941,7 @@ in
       sources."@types/http-cache-semantics-4.0.0"
       sources."@types/keyv-3.1.1"
       sources."@types/minimist-1.2.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@types/node-13.9.8"
-=======
       sources."@types/node-14.0.5"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."@types/normalize-package-data-2.4.0"
       sources."@types/responselike-1.0.0"
       sources."@types/yoga-layout-1.9.2"
@@ -61431,13 +60208,8 @@ in
       })
       sources."wrappy-1.0.2"
       sources."write-file-atomic-3.0.3"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."yargs-parser-18.1.2"
-      sources."yoga-layout-prebuilt-1.9.5"
-=======
       sources."yargs-parser-18.1.3"
       sources."yoga-layout-prebuilt-1.9.6"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
     ];
     buildInputs = globalBuildInputs;
     meta = {
@@ -61596,15 +60368,9 @@ in
       sources."run-async-2.4.1"
       sources."rxjs-6.5.5"
       sources."safer-buffer-2.1.2"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."semver-6.3.0"
-      sources."shebang-command-1.2.0"
-      sources."shebang-regex-1.0.0"
-=======
       sources."semver-7.3.2"
       sources."shebang-command-2.0.0"
       sources."shebang-regex-3.0.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."signal-exit-3.0.3"
       (sources."slice-ansi-2.1.0" // {
         dependencies = [
@@ -61927,11 +60693,7 @@ in
       sources."mime-types-2.1.27"
       sources."mimic-fn-1.2.0"
       sources."minimist-1.2.5"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."mkdirp-0.5.4"
-=======
       sources."mkdirp-0.5.5"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."mkpath-1.0.0"
       sources."ms-2.0.0"
       sources."node-phantom-simple-2.2.4"
@@ -61979,15 +60741,9 @@ in
       sources."safer-buffer-2.1.2"
       sources."semver-5.7.1"
       sources."signal-exit-3.0.3"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."spdx-correct-3.1.0"
-      sources."spdx-exceptions-2.2.0"
-      sources."spdx-expression-parse-3.0.0"
-=======
       sources."spdx-correct-3.1.1"
       sources."spdx-exceptions-2.3.0"
       sources."spdx-expression-parse-3.0.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."spdx-license-ids-3.0.5"
       sources."sshpk-1.16.1"
       sources."string_decoder-1.1.1"
@@ -62207,11 +60963,7 @@ in
       sources."which-2.0.2"
       sources."wrappy-1.0.2"
       sources."yallist-2.1.2"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."yargs-parser-18.1.2"
-=======
       sources."yargs-parser-18.1.3"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
     ];
     buildInputs = globalBuildInputs;
     meta = {
@@ -62555,17 +61307,10 @@ in
         ];
       })
       sources."string-width-1.0.2"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."string.prototype.trimend-1.0.0"
-      sources."string.prototype.trimleft-2.1.2"
-      sources."string.prototype.trimright-2.1.2"
-      sources."string.prototype.trimstart-1.0.0"
-=======
       sources."string.prototype.trimend-1.0.1"
       sources."string.prototype.trimleft-2.1.2"
       sources."string.prototype.trimright-2.1.2"
       sources."string.prototype.trimstart-1.0.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."string_decoder-1.1.1"
       sources."strip-ansi-3.0.1"
       sources."strip-json-comments-0.1.3"
@@ -63093,15 +61838,9 @@ in
       sources."shebang-command-2.0.0"
       sources."shebang-regex-3.0.0"
       sources."signal-exit-3.0.3"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."spdx-correct-3.1.0"
-      sources."spdx-exceptions-2.2.0"
-      sources."spdx-expression-parse-3.0.0"
-=======
       sources."spdx-correct-3.1.1"
       sources."spdx-exceptions-2.3.0"
       sources."spdx-expression-parse-3.0.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."spdx-license-ids-3.0.5"
       sources."string-width-4.2.0"
       sources."strip-ansi-6.0.0"
@@ -63128,11 +61867,7 @@ in
       sources."wrappy-1.0.2"
       sources."write-file-atomic-3.0.3"
       sources."xdg-basedir-4.0.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."yargs-parser-18.1.2"
-=======
       sources."yargs-parser-18.1.3"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
     ];
     buildInputs = globalBuildInputs;
     meta = {
@@ -65078,11 +63813,7 @@ in
       sources."param-case-2.1.1"
       sources."relateurl-0.2.7"
       sources."source-map-0.6.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."uglify-js-3.8.1"
-=======
       sources."uglify-js-3.9.4"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."upper-case-1.1.3"
     ];
     buildInputs = globalBuildInputs;
@@ -65201,11 +63932,7 @@ in
       sources."corser-2.0.1"
       sources."debug-3.2.6"
       sources."ecstatic-3.3.2"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."eventemitter3-4.0.0"
-=======
       sources."eventemitter3-4.0.4"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."follow-redirects-1.11.0"
       sources."he-1.2.0"
       sources."http-proxy-1.18.1"
@@ -65215,18 +63942,8 @@ in
       sources."mkdirp-0.5.5"
       sources."ms-2.1.2"
       sources."opener-1.5.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      (sources."optimist-0.6.1" // {
-        dependencies = [
-          sources."minimist-0.0.10"
-        ];
-      })
-      sources."portfinder-1.0.25"
-      sources."qs-6.9.3"
-=======
       sources."portfinder-1.0.26"
       sources."qs-6.9.4"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."requires-port-1.0.0"
       sources."secure-compare-3.0.1"
       sources."union-0.5.0"
@@ -65397,11 +64114,7 @@ in
       sha512 = "l4g7U75E+WgrgNGH774djfTyp5Aw+2jJokYe9iCunSAbi/w+nRGHqTJfwbODLwiJQTnbXkM42FxgPRA29Ce7Bg==";
     };
     dependencies = [
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@types/jquery-3.3.34"
-=======
       sources."@types/jquery-3.3.38"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."@types/sizzle-2.3.2"
       sources."balanced-match-1.0.0"
       sources."brace-expansion-1.1.11"
@@ -65662,11 +64375,7 @@ in
       sources."proxy-agent-3.1.1"
       sources."proxy-from-env-1.1.0"
       sources."pump-3.0.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."qs-6.9.3"
-=======
       sources."qs-6.9.4"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."raw-body-2.4.1"
       sources."readable-stream-3.6.0"
       sources."restore-cursor-2.0.0"
@@ -66133,11 +64842,7 @@ in
           sources."wrap-ansi-6.2.0"
           sources."y18n-4.0.0"
           sources."yargs-15.3.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-          sources."yargs-parser-18.1.2"
-=======
           sources."yargs-parser-18.1.3"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         ];
       })
       sources."verror-1.10.0"
@@ -66666,11 +65371,7 @@ in
       sources."isexe-2.0.0"
       sources."isobject-3.0.1"
       sources."isstream-0.1.2"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."joplin-turndown-4.0.25"
-=======
       sources."joplin-turndown-4.0.27"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."joplin-turndown-plugin-gfm-1.0.12"
       sources."jpeg-js-0.1.2"
       sources."js-tokens-4.0.0"
@@ -66681,11 +65382,7 @@ in
       sources."json-stringify-safe-5.0.1"
       sources."jsonfile-4.0.0"
       sources."jsprim-1.4.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."jssha-2.4.0"
-=======
       sources."jssha-2.4.2"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       (sources."katex-0.11.1" // {
         dependencies = [
           sources."commander-2.20.3"
@@ -66754,15 +65451,9 @@ in
           sources."is-extendable-1.0.1"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."mkdirp-0.5.4"
-      sources."mkdirp-classic-0.5.2"
-      sources."moment-2.24.0"
-=======
       sources."mkdirp-0.5.5"
       sources."mkdirp-classic-0.5.3"
       sources."moment-2.26.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."ms-2.1.2"
       (sources."multiparty-4.2.1" // {
         dependencies = [
@@ -67022,11 +65713,7 @@ in
           sources."yallist-3.1.1"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."tar-fs-2.0.1"
-=======
       sources."tar-fs-2.1.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."tar-stream-2.1.2"
       (sources."tcp-port-used-0.1.2" // {
         dependencies = [
@@ -67371,11 +66058,7 @@ in
       sources."path-loader-1.0.10"
       sources."process-nextick-args-2.0.1"
       sources."punycode-2.1.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."qs-6.9.3"
-=======
       sources."qs-6.9.4"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."readable-stream-2.3.7"
       sources."safe-buffer-5.1.2"
       sources."slash-3.0.0"
@@ -67664,11 +66347,7 @@ in
       sources."xdg-basedir-4.0.0"
       sources."y18n-4.0.0"
       sources."yargs-15.3.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."yargs-parser-18.1.2"
-=======
       sources."yargs-parser-18.1.3"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
     ];
     buildInputs = globalBuildInputs;
     meta = {
@@ -67779,10 +66458,7 @@ in
       sources."extend-3.0.2"
       sources."fill-range-7.0.1"
       sources."finalhandler-1.1.2"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-=======
       sources."find-up-4.1.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."flatted-2.0.2"
       (sources."follow-redirects-1.11.0" // {
         dependencies = [
@@ -68377,13 +67053,8 @@ in
       sources."@lerna/write-log-file-3.13.0"
       sources."@mrmlnc/readdir-enhanced-2.2.1"
       sources."@nodelib/fs.stat-1.1.3"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@octokit/auth-token-2.4.0"
-      (sources."@octokit/endpoint-6.0.0" // {
-=======
       sources."@octokit/auth-token-2.4.1"
       (sources."@octokit/endpoint-6.0.2" // {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         dependencies = [
           sources."is-plain-object-3.0.0"
           sources."isobject-4.0.0"
@@ -68397,12 +67068,6 @@ in
         ];
       })
       sources."@octokit/plugin-request-log-1.0.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@octokit/plugin-rest-endpoint-methods-2.4.0"
-      (sources."@octokit/request-5.3.4" // {
-        dependencies = [
-          sources."@octokit/request-error-2.0.0"
-=======
       (sources."@octokit/plugin-rest-endpoint-methods-2.4.0" // {
         dependencies = [
           sources."@octokit/types-2.16.2"
@@ -68411,7 +67076,6 @@ in
       (sources."@octokit/request-5.4.4" // {
         dependencies = [
           sources."@octokit/request-error-2.0.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
           sources."is-plain-object-3.0.0"
           sources."isobject-4.0.0"
           sources."universal-user-agent-5.0.0"
@@ -68423,13 +67087,6 @@ in
         ];
       })
       sources."@octokit/rest-16.43.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@octokit/types-2.5.1"
-      sources."@types/events-3.0.0"
-      sources."@types/glob-7.1.1"
-      sources."@types/minimatch-3.0.3"
-      sources."@types/node-13.9.8"
-=======
       sources."@octokit/types-4.1.1"
       sources."@types/events-3.0.0"
       sources."@types/glob-7.1.1"
@@ -68437,7 +67094,6 @@ in
       sources."@types/minimist-1.2.0"
       sources."@types/node-14.0.5"
       sources."@types/normalize-package-data-2.4.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."@zkochan/cmd-shim-3.1.0"
       sources."JSONStream-1.3.5"
       sources."abbrev-1.1.1"
@@ -68960,11 +67616,7 @@ in
       sources."nice-try-1.0.5"
       sources."node-fetch-2.6.0"
       sources."node-fetch-npm-2.0.4"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      (sources."node-gyp-5.1.0" // {
-=======
       (sources."node-gyp-5.1.1" // {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         dependencies = [
           sources."semver-5.7.1"
         ];
@@ -69206,17 +67858,10 @@ in
           sources."strip-ansi-4.0.0"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."string.prototype.trimend-1.0.0"
-      sources."string.prototype.trimleft-2.1.2"
-      sources."string.prototype.trimright-2.1.2"
-      sources."string.prototype.trimstart-1.0.0"
-=======
       sources."string.prototype.trimend-1.0.1"
       sources."string.prototype.trimleft-2.1.2"
       sources."string.prototype.trimright-2.1.2"
       sources."string.prototype.trimstart-1.0.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       (sources."string_decoder-1.1.1" // {
         dependencies = [
           sources."safe-buffer-5.1.2"
@@ -69253,15 +67898,7 @@ in
       sources."tweetnacl-0.14.5"
       sources."type-fest-0.3.1"
       sources."typedarray-0.0.6"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      (sources."uglify-js-3.8.1" // {
-        dependencies = [
-          sources."source-map-0.6.1"
-        ];
-      })
-=======
       sources."uglify-js-3.9.4"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."uid-number-0.0.6"
       sources."umask-1.1.0"
       sources."union-value-1.0.1"
@@ -70595,31 +69232,19 @@ in
         dependencies = [
           sources."find-up-4.1.0"
           sources."locate-path-5.0.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-          sources."p-limit-2.2.2"
-=======
           sources."p-limit-2.3.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
           sources."p-locate-4.1.0"
           sources."p-try-2.2.0"
           sources."path-exists-4.0.0"
         ];
       })
       sources."@istanbuljs/schema-0.1.2"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      (sources."@jest/transform-25.2.4" // {
-=======
       (sources."@jest/transform-25.5.1" // {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         dependencies = [
           sources."source-map-0.6.1"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@jest/types-25.2.3"
-=======
       sources."@jest/types-25.5.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."@types/babel__core-7.1.7"
       sources."@types/babel__generator-7.6.1"
       sources."@types/babel__template-7.0.2"
@@ -70629,14 +69254,9 @@ in
       sources."@types/graceful-fs-4.1.3"
       sources."@types/istanbul-lib-coverage-2.0.2"
       sources."@types/istanbul-lib-report-3.0.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@types/istanbul-reports-1.1.1"
-      sources."@types/node-13.9.8"
-=======
       sources."@types/istanbul-reports-1.1.2"
       sources."@types/json-schema-7.0.4"
       sources."@types/node-14.0.5"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."@types/normalize-package-data-2.4.0"
       sources."@types/resolve-0.0.8"
       sources."@types/yargs-15.0.5"
@@ -70709,11 +69329,7 @@ in
       sources."babel-helper-mark-eval-scopes-0.4.3"
       sources."babel-helper-remove-or-void-0.4.3"
       sources."babel-helper-to-multiple-sequence-expressions-0.5.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."babel-jest-25.2.4"
-=======
       sources."babel-jest-25.5.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       (sources."babel-loader-8.1.0" // {
         dependencies = [
           sources."mkdirp-0.5.5"
@@ -70721,11 +69337,7 @@ in
       })
       sources."babel-plugin-dynamic-import-node-2.3.3"
       sources."babel-plugin-istanbul-6.0.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."babel-plugin-jest-hoist-25.2.1"
-=======
       sources."babel-plugin-jest-hoist-25.5.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."babel-plugin-minify-builtins-0.5.0"
       sources."babel-plugin-minify-constant-folding-0.5.0"
       sources."babel-plugin-minify-dead-code-elimination-0.5.1"
@@ -70750,12 +69362,8 @@ in
       sources."babel-plugin-transform-remove-undefined-0.5.0"
       sources."babel-plugin-transform-simplify-comparison-operators-6.9.4"
       sources."babel-plugin-transform-undefined-to-void-6.9.4"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."babel-preset-jest-25.2.1"
-=======
       sources."babel-preset-current-node-syntax-0.1.2"
       sources."babel-preset-jest-25.5.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."babel-preset-minify-0.5.1"
       (sources."babel-runtime-6.26.0" // {
         dependencies = [
@@ -70775,11 +69383,7 @@ in
       sources."bindings-1.5.0"
       (sources."bl-4.0.2" // {
         dependencies = [
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-          sources."buffer-5.5.0"
-=======
           sources."buffer-5.6.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
           sources."readable-stream-3.6.0"
         ];
       })
@@ -70818,11 +69422,7 @@ in
         ];
       })
       sources."browserify-zlib-0.2.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."browserslist-4.11.1"
-=======
       sources."browserslist-4.12.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."bser-2.1.1"
       sources."buffer-5.2.1"
       sources."buffer-from-1.1.1"
@@ -70837,11 +69437,7 @@ in
       sources."cache-base-1.0.1"
       sources."cached-path-relative-1.0.2"
       sources."camelcase-5.3.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."caniuse-lite-1.0.30001038"
-=======
       sources."caniuse-lite-1.0.30001066"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."capture-exit-2.0.0"
       sources."caseless-0.12.0"
       (sources."chalk-3.0.0" // {
@@ -70963,17 +69559,12 @@ in
       sources."duplexer2-0.1.4"
       sources."duplexify-3.7.1"
       sources."ecc-jsbn-0.1.2"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."electron-to-chromium-1.3.391"
-      sources."elliptic-6.5.2"
-=======
       sources."electron-to-chromium-1.3.453"
       (sources."elliptic-6.5.2" // {
         dependencies = [
           sources."bn.js-4.11.9"
         ];
       })
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."emoji-regex-7.0.3"
       sources."emojis-list-3.0.0"
       sources."end-of-stream-1.4.4"
@@ -71081,15 +69672,6 @@ in
       })
       (sources."global-prefix-1.0.2" // {
         dependencies = [
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-          sources."global-prefix-3.0.0"
-          sources."which-1.3.1"
-        ];
-      })
-      (sources."global-prefix-1.0.2" // {
-        dependencies = [
-=======
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
           sources."which-1.3.1"
         ];
       })
@@ -71159,15 +69741,7 @@ in
         ];
       })
       sources."is-plain-object-2.0.4"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      (sources."is-reference-1.1.4" // {
-        dependencies = [
-          sources."@types/estree-0.0.39"
-        ];
-      })
-=======
       sources."is-reference-1.2.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."is-stream-1.1.0"
       sources."is-typedarray-1.0.0"
       sources."is-windows-1.0.2"
@@ -71182,19 +69756,11 @@ in
           sources."semver-6.3.0"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."jest-haste-map-25.2.3"
-      sources."jest-regex-util-25.2.1"
-      sources."jest-serializer-25.2.1"
-      sources."jest-util-25.2.3"
-      (sources."jest-worker-25.2.1" // {
-=======
       sources."jest-haste-map-25.5.1"
       sources."jest-regex-util-25.2.6"
       sources."jest-serializer-25.5.0"
       sources."jest-util-25.5.0"
       (sources."jest-worker-25.5.0" // {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         dependencies = [
           sources."has-flag-4.0.0"
           sources."supports-color-7.1.0"
@@ -71232,11 +69798,7 @@ in
       sources."loose-envify-1.4.0"
       sources."lru-cache-5.1.1"
       sources."magic-string-0.25.7"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      (sources."make-dir-3.0.2" // {
-=======
       (sources."make-dir-3.1.0" // {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         dependencies = [
           sources."semver-6.3.0"
         ];
@@ -71275,13 +69837,8 @@ in
           sources."is-extendable-1.0.1"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."mkdirp-1.0.3"
-      sources."mkdirp-classic-0.5.2"
-=======
       sources."mkdirp-1.0.4"
       sources."mkdirp-classic-0.5.3"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."module-deps-6.2.2"
       (sources."move-concurrently-1.0.1" // {
         dependencies = [
@@ -71309,11 +69866,7 @@ in
         ];
       })
       sources."node-modules-regexp-1.0.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."node-releases-1.1.53"
-=======
       sources."node-releases-1.1.57"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."normalize-package-data-2.5.0"
       sources."normalize-path-3.0.0"
       sources."npm-run-path-2.0.2"
@@ -71372,11 +69925,7 @@ in
         dependencies = [
           sources."find-up-3.0.0"
           sources."locate-path-3.0.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-          sources."p-limit-2.2.2"
-=======
           sources."p-limit-2.3.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
           sources."p-locate-3.0.0"
           sources."p-try-2.2.0"
         ];
@@ -71392,15 +69941,11 @@ in
       sources."promise-inflight-1.0.1"
       sources."prr-1.0.1"
       sources."psl-1.8.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."public-encrypt-4.0.3"
-=======
       (sources."public-encrypt-4.0.3" // {
         dependencies = [
           sources."bn.js-4.11.9"
         ];
       })
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."pump-3.0.0"
       (sources."pumpify-1.5.1" // {
         dependencies = [
@@ -71420,15 +69965,7 @@ in
           sources."string_decoder-1.1.1"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      (sources."readdirp-2.2.1" // {
-        dependencies = [
-          sources."micromatch-3.1.10"
-        ];
-      })
-=======
       sources."readdirp-3.4.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."realpath-native-2.0.0"
       sources."regenerate-1.4.0"
       sources."regenerate-unicode-properties-8.2.0"
@@ -71596,11 +70133,7 @@ in
           sources."readable-stream-3.6.0"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      (sources."terser-4.6.10" // {
-=======
       (sources."terser-4.7.0" // {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         dependencies = [
           sources."source-map-0.6.1"
         ];
@@ -71674,10 +70207,6 @@ in
       sources."vinyl-2.2.0"
       sources."vm-browserify-1.1.2"
       sources."walker-1.0.7"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."watchpack-1.6.1"
-      (sources."webpack-4.42.1" // {
-=======
       sources."watchpack-1.7.2"
       (sources."watchpack-chokidar2-2.0.0" // {
         dependencies = [
@@ -71694,7 +70223,6 @@ in
         ];
       })
       (sources."webpack-4.43.0" // {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         dependencies = [
           sources."acorn-6.4.1"
           sources."micromatch-3.1.10"
@@ -71746,11 +70274,7 @@ in
         dependencies = [
           sources."find-up-3.0.0"
           sources."locate-path-3.0.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-          sources."p-limit-2.2.2"
-=======
           sources."p-limit-2.3.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
           sources."p-locate-3.0.0"
           sources."p-try-2.2.0"
         ];
@@ -72596,17 +71120,8 @@ in
       sources."tunnel-agent-0.6.0"
       sources."tweetnacl-0.14.5"
       sources."type-1.2.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."typescript-3.8.3"
-      (sources."uglify-js-3.8.1" // {
-        dependencies = [
-          sources."source-map-0.6.1"
-        ];
-      })
-=======
       sources."typescript-3.9.4"
       sources."uglify-js-3.9.4"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."uglify-to-browserify-1.0.2"
       sources."unc-path-regex-0.1.2"
       sources."union-value-1.0.1"
@@ -72766,17 +71281,10 @@ in
       sources."set-blocking-2.0.0"
       sources."sprintf-js-1.0.3"
       sources."string-width-2.1.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."string.prototype.trimend-1.0.0"
-      sources."string.prototype.trimleft-2.1.2"
-      sources."string.prototype.trimright-2.1.2"
-      sources."string.prototype.trimstart-1.0.0"
-=======
       sources."string.prototype.trimend-1.0.1"
       sources."string.prototype.trimleft-2.1.2"
       sources."string.prototype.trimright-2.1.2"
       sources."string.prototype.trimstart-1.0.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."strip-ansi-4.0.0"
       sources."strip-json-comments-2.0.1"
       sources."supports-color-6.0.0"
@@ -72854,11 +71362,7 @@ in
       sources."path-loader-1.0.10"
       sources."process-nextick-args-2.0.1"
       sources."punycode-2.1.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."qs-6.9.3"
-=======
       sources."qs-6.9.4"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."readable-stream-2.3.7"
       sources."safe-buffer-5.1.2"
       sources."slash-3.0.0"
@@ -74270,15 +72774,6 @@ in
       sources."registry-url-5.1.0"
       sources."responselike-1.0.2"
       sources."semver-5.7.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."semver-diff-2.1.0"
-      sources."shebang-command-1.2.0"
-      sources."shebang-regex-1.0.0"
-      sources."signal-exit-3.0.3"
-      sources."string-width-2.1.1"
-      sources."strip-ansi-4.0.0"
-      sources."strip-eof-1.0.0"
-=======
       (sources."semver-diff-3.1.1" // {
         dependencies = [
           sources."semver-6.3.0"
@@ -74294,7 +72789,6 @@ in
         ];
       })
       sources."strip-ansi-5.2.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."strip-json-comments-2.0.1"
       sources."supports-color-5.5.0"
       sources."term-size-2.2.0"
@@ -74330,17 +72824,10 @@ in
   npm = nodeEnv.buildNodePackage {
     name = "npm";
     packageName = "npm";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    version = "6.14.4";
-    src = fetchurl {
-      url = "https://registry.npmjs.org/npm/-/npm-6.14.4.tgz";
-      sha512 = "B8UDDbWvdkW6RgXFn8/h2cHJP/u/FPa4HWeGzW23aNEBARN3QPrRaHqPIZW2NSN3fW649gtgUDNZpaRs0zTMPw==";
-=======
     version = "6.14.5";
     src = fetchurl {
       url = "https://registry.npmjs.org/npm/-/npm-6.14.5.tgz";
       sha512 = "CDwa3FJd0XJpKDbWCST484H+mCNjF26dPrU+xnREW+upR0UODjMEfXPl3bxWuAwZIX6c2ASg1plLO7jP8ehWeA==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
     };
     buildInputs = globalBuildInputs;
     meta = {
@@ -74355,17 +72842,10 @@ in
   npm-check-updates = nodeEnv.buildNodePackage {
     name = "npm-check-updates";
     packageName = "npm-check-updates";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    version = "4.1.0";
-    src = fetchurl {
-      url = "https://registry.npmjs.org/npm-check-updates/-/npm-check-updates-4.1.0.tgz";
-      sha512 = "33WkkvIK9dcv3guKx6T/wEW670G/fSiOZ/+arOroAneYh3C8jUX5lDWg6+f8Tc7QZugxkeBtHPD6yK487dtI5w==";
-=======
     version = "6.0.1";
     src = fetchurl {
       url = "https://registry.npmjs.org/npm-check-updates/-/npm-check-updates-6.0.1.tgz";
       sha512 = "lzoVW35KWaBn0m1O1AVr0G9/20niK13mYftoAr09WuQszoeTdlrjCNyC0pRNiTfb5ZxubZaUAi7HdVzkEihwwA==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
     };
     dependencies = [
       sources."@npmcli/ci-detect-1.2.0"
@@ -74415,15 +72895,7 @@ in
       })
       sources."brace-expansion-1.1.11"
       sources."builtins-1.0.3"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      (sources."cacache-15.0.0" // {
-        dependencies = [
-          sources."p-map-3.0.0"
-        ];
-      })
-=======
       sources."cacache-15.0.3"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       (sources."cacheable-request-6.1.0" // {
         dependencies = [
           sources."get-stream-5.1.0"
@@ -74677,10 +73149,7 @@ in
         ];
       })
       sources."semver-utils-1.1.4"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-=======
       sources."set-blocking-2.0.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."signal-exit-3.0.3"
       sources."sisteransi-1.0.5"
       sources."smart-buffer-4.1.0"
@@ -75176,11 +73645,7 @@ in
           sources."pako-1.0.11"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."browserslist-4.11.1"
-=======
       sources."browserslist-4.12.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       (sources."buffer-4.9.2" // {
         dependencies = [
           sources."isarray-1.0.0"
@@ -75197,11 +73662,7 @@ in
       sources."callsites-2.0.0"
       sources."camelcase-5.3.1"
       sources."caniuse-api-3.0.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."caniuse-lite-1.0.30001038"
-=======
       sources."caniuse-lite-1.0.30001066"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."caseless-0.12.0"
       sources."chalk-2.4.2"
       sources."chokidar-2.1.8"
@@ -75342,17 +73803,12 @@ in
       sources."duplexer2-0.1.4"
       sources."ecc-jsbn-0.1.2"
       sources."ee-first-1.1.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."electron-to-chromium-1.3.391"
-      sources."elliptic-6.5.2"
-=======
       sources."electron-to-chromium-1.3.453"
       (sources."elliptic-6.5.2" // {
         dependencies = [
           sources."bn.js-4.11.9"
         ];
       })
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."emoji-regex-7.0.3"
       sources."encodeurl-1.0.2"
       sources."entities-1.1.2"
@@ -75453,13 +73909,8 @@ in
       sources."html-tags-1.2.0"
       (sources."htmlnano-0.2.5" // {
         dependencies = [
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-          sources."posthtml-0.12.0"
-          sources."terser-4.6.10"
-=======
           sources."posthtml-0.12.3"
           sources."terser-4.7.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         ];
       })
       (sources."htmlparser2-3.10.1" // {
@@ -75611,11 +74062,7 @@ in
           sources."punycode-1.4.1"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."node-releases-1.1.53"
-=======
       sources."node-releases-1.1.57"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."normalize-html-whitespace-1.0.0"
       sources."normalize-path-3.0.0"
       sources."normalize-url-3.3.0"
@@ -75733,15 +74180,11 @@ in
       sources."process-0.11.10"
       sources."process-nextick-args-2.0.1"
       sources."psl-1.8.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."public-encrypt-4.0.3"
-=======
       (sources."public-encrypt-4.0.3" // {
         dependencies = [
           sources."bn.js-4.11.9"
         ];
       })
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."punycode-2.1.1"
       sources."purgecss-1.4.2"
       sources."q-1.5.1"
@@ -75868,17 +74311,10 @@ in
           sources."strip-ansi-5.2.0"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."string.prototype.trimend-1.0.0"
-      sources."string.prototype.trimleft-2.1.2"
-      sources."string.prototype.trimright-2.1.2"
-      sources."string.prototype.trimstart-1.0.0"
-=======
       sources."string.prototype.trimend-1.0.1"
       sources."string.prototype.trimleft-2.1.2"
       sources."string.prototype.trimright-2.1.2"
       sources."string.prototype.trimstart-1.0.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."string_decoder-1.1.1"
       sources."strip-ansi-4.0.0"
       (sources."stylehacks-4.0.3" // {
@@ -75986,11 +74422,7 @@ in
         dependencies = [
           sources."find-up-3.0.0"
           sources."locate-path-3.0.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-          sources."p-limit-2.2.2"
-=======
           sources."p-limit-2.3.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
           sources."p-locate-3.0.0"
           sources."p-try-2.2.0"
         ];
@@ -76251,11 +74683,7 @@ in
       sources."tunnel-agent-0.6.0"
       sources."tweetnacl-0.14.5"
       sources."type-is-1.6.18"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."uglify-js-3.8.1"
-=======
       sources."uglify-js-3.9.4"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."unix-dgram-2.0.4"
       sources."unpipe-1.0.0"
       sources."uri-js-4.2.2"
@@ -76451,11 +74879,7 @@ in
       sources."minimatch-3.0.4"
       sources."minimist-1.2.5"
       sources."mkdirp-0.3.5"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."mkdirp-classic-0.5.2"
-=======
       sources."mkdirp-classic-0.5.3"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."ms-2.0.0"
       sources."multicast-dns-6.2.3"
       sources."multicast-dns-service-types-1.1.0"
@@ -76555,17 +74979,10 @@ in
       sources."speedometer-0.1.4"
       sources."stream-buffers-2.2.0"
       sources."string-width-1.0.2"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."string.prototype.trimend-1.0.0"
-      sources."string.prototype.trimleft-2.1.2"
-      sources."string.prototype.trimright-2.1.2"
-      sources."string.prototype.trimstart-1.0.0"
-=======
       sources."string.prototype.trimend-1.0.1"
       sources."string.prototype.trimleft-2.1.2"
       sources."string.prototype.trimright-2.1.2"
       sources."string.prototype.trimstart-1.0.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."string2compact-1.3.0"
       sources."string_decoder-1.1.1"
       sources."strip-ansi-3.0.1"
@@ -76823,13 +75240,8 @@ in
       sources."mimic-response-1.0.1"
       sources."minimatch-3.0.4"
       sources."minimist-1.2.5"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."mkdirp-0.5.4"
-      sources."mkdirp-classic-0.5.2"
-=======
       sources."mkdirp-0.5.5"
       sources."mkdirp-classic-0.5.3"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       (sources."morgan-1.10.0" // {
         dependencies = [
           sources."depd-2.0.0"
@@ -76998,17 +75410,10 @@ in
   pnpm = nodeEnv.buildNodePackage {
     name = "pnpm";
     packageName = "pnpm";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    version = "4.12.4";
-    src = fetchurl {
-      url = "https://registry.npmjs.org/pnpm/-/pnpm-4.12.4.tgz";
-      sha512 = "hDIsFdocll1EeI7EcsEyFPP671EFL7hG9WmIqpfxt1ilAUwxjmYsOq47WRhnM9EsVyqs/geF5yFHKVR6VSRmbw==";
-=======
     version = "5.0.2";
     src = fetchurl {
       url = "https://registry.npmjs.org/pnpm/-/pnpm-5.0.2.tgz";
       sha512 = "fx+FfKk2Uw5S2NSySQRQvKpRqs07VzcBgxnMpctEJ8615l0pDTj4etpG8sE4J9xGl6KAwiycKglsr/QniT6ZaA==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
     };
     buildInputs = globalBuildInputs;
     meta = {
@@ -77425,13 +75830,8 @@ in
       sources."minimist-1.2.5"
       sources."minipass-2.9.0"
       sources."minizlib-1.3.3"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."mkdirp-0.5.4"
-      sources."mkdirp-classic-0.5.2"
-=======
       sources."mkdirp-0.5.5"
       sources."mkdirp-classic-0.5.3"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       (sources."module-deps-6.2.2" // {
         dependencies = [
           sources."concat-stream-1.6.2"
@@ -77552,11 +75952,7 @@ in
           sources."rimraf-2.6.3"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      (sources."terser-4.6.10" // {
-=======
       (sources."terser-4.7.0" // {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         dependencies = [
           sources."source-map-0.6.1"
         ];
@@ -77706,17 +76102,10 @@ in
       sources."semver-5.7.1"
       sources."side-channel-1.0.2"
       sources."stack-trace-0.0.10"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."string.prototype.trimend-1.0.0"
-      sources."string.prototype.trimleft-2.1.2"
-      sources."string.prototype.trimright-2.1.2"
-      sources."string.prototype.trimstart-1.0.0"
-=======
       sources."string.prototype.trimend-1.0.1"
       sources."string.prototype.trimleft-2.1.2"
       sources."string.prototype.trimright-2.1.2"
       sources."string.prototype.trimstart-1.0.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."strip-ansi-3.0.1"
       sources."supports-color-2.0.0"
       sources."utile-0.2.1"
@@ -78393,31 +76782,13 @@ in
       (sources."@serverless/core-1.1.2" // {
         dependencies = [
           sources."fs-extra-7.0.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-          sources."semver-6.3.0"
-        ];
-      })
-      (sources."@serverless/enterprise-plugin-3.6.2" // {
-        dependencies = [
-          sources."@serverless/platform-client-0.24.0"
-          sources."fs-extra-8.1.0"
-          sources."https-proxy-agent-5.0.0"
-          sources."node-fetch-2.6.0"
-          sources."semver-6.3.0"
-          sources."uuid-3.4.0"
-=======
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         ];
       })
       sources."@serverless/enterprise-plugin-3.6.12"
       sources."@serverless/event-mocks-1.1.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      (sources."@serverless/platform-client-0.25.0" // {
-=======
       sources."@serverless/inquirer-1.1.2"
       sources."@serverless/platform-client-0.25.14"
       (sources."@serverless/platform-client-china-1.0.16" // {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         dependencies = [
           sources."archiver-4.0.1"
           sources."async-2.6.3"
@@ -78443,17 +76814,12 @@ in
       sources."@types/lodash-4.14.153"
       sources."@types/long-4.0.1"
       sources."@types/minimatch-3.0.3"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@types/node-13.9.8"
-      (sources."@typescript-eslint/typescript-estree-2.26.0" // {
-=======
       sources."@types/node-14.0.5"
       sources."@types/object-assign-4.0.30"
       sources."@types/request-2.48.5"
       sources."@types/request-promise-native-1.0.17"
       sources."@types/tough-cookie-4.0.0"
       (sources."@typescript-eslint/typescript-estree-2.34.0" // {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         dependencies = [
           sources."semver-7.3.2"
         ];
@@ -78511,11 +76877,7 @@ in
       sources."async-limiter-1.0.1"
       sources."asynckit-0.4.0"
       sources."atob-2.1.2"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      (sources."aws-sdk-2.650.0" // {
-=======
       (sources."aws-sdk-2.686.0" // {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         dependencies = [
           sources."buffer-4.9.1"
           sources."isarray-1.0.0"
@@ -78883,9 +77245,6 @@ in
         dependencies = [
           sources."@nodelib/fs.stat-1.1.3"
           sources."array-union-1.0.2"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-          sources."pify-2.3.0"
-=======
           (sources."braces-2.3.2" // {
             dependencies = [
               sources."extend-shallow-2.0.1"
@@ -78916,7 +77275,6 @@ in
           sources."pify-4.0.1"
           sources."slash-2.0.0"
           sources."to-regex-range-2.1.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         ];
       })
       sources."gonzales-pe-4.3.0"
@@ -79039,11 +77397,7 @@ in
       sources."json-schema-0.2.3"
       sources."json-schema-traverse-0.4.1"
       sources."json-stringify-safe-5.0.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."jsonata-1.8.2"
-=======
       sources."jsonata-1.8.3"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."jsonfile-4.0.0"
       sources."jsprim-1.4.1"
       (sources."jszip-3.4.0" // {
@@ -79231,13 +77585,8 @@ in
       sources."pseudomap-1.0.2"
       sources."psl-1.8.0"
       sources."pump-3.0.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."punycode-1.3.2"
-      sources."qs-6.9.3"
-=======
       sources."punycode-2.1.1"
       sources."qs-6.5.2"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."query-string-5.1.1"
       sources."querystring-0.2.0"
       sources."ramda-0.26.1"
@@ -80154,17 +78503,10 @@ in
   snyk = nodeEnv.buildNodePackage {
     name = "snyk";
     packageName = "snyk";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    version = "1.305.0";
-    src = fetchurl {
-      url = "https://registry.npmjs.org/snyk/-/snyk-1.305.0.tgz";
-      sha512 = "/0UWzTABCu9FBd+4CL49CAW1CN4qloAeio+eB8FWOKal2EVG9LRrrkmknxOe6uFptT6wd9SBczM2EYo2EQA0bw==";
-=======
     version = "1.332.1";
     src = fetchurl {
       url = "https://registry.npmjs.org/snyk/-/snyk-1.332.1.tgz";
       sha512 = "hJoHlAQi4KfNll5pDiUy+1LacbJTZQjOk4bSGgE2cURyMHqJAV0mOPKe2zCr9AYYCVaVB4ZvLtV55+u06JS7KQ==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
     };
     dependencies = [
       sources."@sindresorhus/is-0.14.0"
@@ -80205,16 +78547,9 @@ in
       sources."@szmarczak/http-timer-1.1.2"
       sources."@types/color-name-1.1.1"
       sources."@types/debug-4.1.5"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@types/events-3.0.0"
-      sources."@types/js-yaml-3.12.3"
-      sources."@types/node-13.9.8"
-      sources."@types/restify-4.3.6"
-=======
       sources."@types/hosted-git-info-2.7.0"
       sources."@types/js-yaml-3.12.4"
       sources."@types/node-14.0.5"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."@types/semver-5.5.0"
       sources."@types/xml2js-0.4.5"
       sources."@yarnpkg/lockfile-1.1.0"
@@ -80232,10 +78567,7 @@ in
       sources."archy-1.0.0"
       sources."argparse-1.0.10"
       sources."asap-2.0.6"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-=======
       sources."asn1-0.2.4"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."ast-types-0.13.3"
       sources."async-1.5.2"
       sources."balanced-match-1.0.0"
@@ -80933,15 +79265,9 @@ in
       sources."shebang-command-1.2.0"
       sources."shebang-regex-1.0.0"
       sources."signal-exit-3.0.3"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."spdx-correct-3.1.0"
-      sources."spdx-exceptions-2.2.0"
-      sources."spdx-expression-parse-3.0.0"
-=======
       sources."spdx-correct-3.1.1"
       sources."spdx-exceptions-2.3.0"
       sources."spdx-expression-parse-3.0.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."spdx-license-ids-3.0.5"
       sources."speedtest-net-1.6.2"
       sources."string-width-2.1.1"
@@ -81717,17 +80043,10 @@ in
       })
       sources."string-width-1.0.2"
       sources."string.prototype.trim-1.2.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."string.prototype.trimend-1.0.0"
-      sources."string.prototype.trimleft-2.1.2"
-      sources."string.prototype.trimright-2.1.2"
-      sources."string.prototype.trimstart-1.0.0"
-=======
       sources."string.prototype.trimend-1.0.1"
       sources."string.prototype.trimleft-2.1.2"
       sources."string.prototype.trimright-2.1.2"
       sources."string.prototype.trimstart-1.0.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."string_decoder-1.1.1"
       sources."stringify-entities-1.3.2"
       sources."strip-ansi-3.0.1"
@@ -81898,11 +80217,7 @@ in
       sources."async-1.5.2"
       sources."async-limiter-1.0.1"
       sources."asynckit-0.4.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      (sources."aws-sdk-2.650.0" // {
-=======
       (sources."aws-sdk-2.686.0" // {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         dependencies = [
           sources."uuid-3.3.2"
         ];
@@ -82498,11 +80813,7 @@ in
         dependencies = [
           sources."debug-3.2.6"
           sources."form-data-2.5.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-          sources."qs-6.9.3"
-=======
           sources."qs-6.9.4"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
           sources."readable-stream-2.3.7"
           sources."string_decoder-1.1.1"
         ];
@@ -82515,11 +80826,7 @@ in
           sources."esprima-4.0.1"
           sources."js-yaml-3.14.0"
           sources."lodash-3.10.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-          sources."qs-6.9.3"
-=======
           sources."qs-6.9.4"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         ];
       })
       sources."swagger-schema-official-2.0.0-bab6bed"
@@ -82744,17 +81051,10 @@ in
       sources."source-map-0.6.1"
       sources."sprintf-js-1.0.3"
       sources."stable-0.1.8"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."string.prototype.trimend-1.0.0"
-      sources."string.prototype.trimleft-2.1.2"
-      sources."string.prototype.trimright-2.1.2"
-      sources."string.prototype.trimstart-1.0.0"
-=======
       sources."string.prototype.trimend-1.0.1"
       sources."string.prototype.trimleft-2.1.2"
       sources."string.prototype.trimright-2.1.2"
       sources."string.prototype.trimstart-1.0.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."supports-color-5.5.0"
       sources."unquote-1.1.1"
       sources."util.promisify-1.0.1"
@@ -83164,11 +81464,7 @@ in
         dependencies = [
           sources."debug-3.2.6"
           sources."ms-2.1.2"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-          sources."qs-6.9.3"
-=======
           sources."qs-6.9.4"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
           sources."superagent-3.8.3"
         ];
       })
@@ -83345,15 +81641,7 @@ in
       sources."truncate-utf8-bytes-1.0.2"
       sources."type-is-1.6.18"
       sources."typedarray-0.0.6"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      (sources."uglify-js-3.8.1" // {
-        dependencies = [
-          sources."source-map-0.6.1"
-        ];
-      })
-=======
       sources."uglify-js-3.9.4"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."undefsafe-2.0.3"
       (sources."union-value-1.0.1" // {
         dependencies = [
@@ -83420,11 +81708,7 @@ in
       sha256 = "886069ecc5eedf0371b948e8ff66e7f2943c85fe7cfdaa7183e1a3572d55852b";
     };
     dependencies = [
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."ajv-6.12.0"
-=======
       sources."ajv-6.12.2"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."ansi-regex-4.1.0"
       sources."ansi-styles-3.2.1"
       sources."argparse-1.0.10"
@@ -83513,11 +81797,7 @@ in
       })
       sources."string-width-3.1.0"
       sources."strip-ansi-5.2.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."telegraf-3.37.0"
-=======
       sources."telegraf-3.38.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."telegram-typings-3.6.1"
       sources."tough-cookie-2.5.0"
       sources."tunnel-agent-0.6.0"
@@ -83765,17 +82045,10 @@ in
         ];
       })
       sources."string.prototype.padstart-3.1.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."string.prototype.trimend-1.0.0"
-      sources."string.prototype.trimleft-2.1.2"
-      sources."string.prototype.trimright-2.1.2"
-      sources."string.prototype.trimstart-1.0.0"
-=======
       sources."string.prototype.trimend-1.0.1"
       sources."string.prototype.trimleft-2.1.2"
       sources."string.prototype.trimright-2.1.2"
       sources."string.prototype.trimstart-1.0.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."string_decoder-1.1.1"
       (sources."strip-ansi-6.0.0" // {
         dependencies = [
@@ -83877,17 +82150,10 @@ in
       sources."object-keys-1.1.1"
       sources."object.assign-4.1.0"
       sources."regexp.prototype.flags-1.3.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."string.prototype.trimend-1.0.0"
-      sources."string.prototype.trimleft-2.1.2"
-      sources."string.prototype.trimright-2.1.2"
-      sources."string.prototype.trimstart-1.0.0"
-=======
       sources."string.prototype.trimend-1.0.1"
       sources."string.prototype.trimleft-2.1.2"
       sources."string.prototype.trimright-2.1.2"
       sources."string.prototype.trimstart-1.0.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
     ];
     buildInputs = globalBuildInputs;
     meta = {
@@ -84367,17 +82633,10 @@ in
       sources."readable-stream-3.6.0"
       sources."safe-buffer-5.2.1"
       sources."sentence-splitter-3.2.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."string.prototype.trimend-1.0.0"
-      sources."string.prototype.trimleft-2.1.2"
-      sources."string.prototype.trimright-2.1.2"
-      sources."string.prototype.trimstart-1.0.0"
-=======
       sources."string.prototype.trimend-1.0.1"
       sources."string.prototype.trimleft-2.1.2"
       sources."string.prototype.trimright-2.1.2"
       sources."string.prototype.trimstart-1.0.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."string_decoder-1.3.0"
       sources."structured-source-3.0.2"
       sources."textlint-rule-helper-2.1.1"
@@ -84423,17 +82682,10 @@ in
       sources."object-inspect-1.7.0"
       sources."object-keys-1.1.1"
       sources."object.assign-4.1.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."string.prototype.trimend-1.0.0"
-      sources."string.prototype.trimleft-2.1.2"
-      sources."string.prototype.trimright-2.1.2"
-      sources."string.prototype.trimstart-1.0.0"
-=======
       sources."string.prototype.trimend-1.0.1"
       sources."string.prototype.trimleft-2.1.2"
       sources."string.prototype.trimright-2.1.2"
       sources."string.prototype.trimstart-1.0.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
     ];
     buildInputs = globalBuildInputs;
     meta = {
@@ -84530,17 +82782,10 @@ in
       sources."object-inspect-1.7.0"
       sources."object-keys-1.1.1"
       sources."object.assign-4.1.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."string.prototype.trimend-1.0.0"
-      sources."string.prototype.trimleft-2.1.2"
-      sources."string.prototype.trimright-2.1.2"
-      sources."string.prototype.trimstart-1.0.0"
-=======
       sources."string.prototype.trimend-1.0.1"
       sources."string.prototype.trimleft-2.1.2"
       sources."string.prototype.trimright-2.1.2"
       sources."string.prototype.trimstart-1.0.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
     ];
     buildInputs = globalBuildInputs;
     meta = {
@@ -84609,11 +82854,7 @@ in
       sources."@types/debug-4.1.5"
       sources."@types/http-cache-semantics-4.0.0"
       sources."@types/keyv-3.1.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@types/node-13.9.8"
-=======
       sources."@types/node-14.0.5"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."@types/responselike-1.0.0"
       sources."abbrev-1.1.1"
       sources."abstract-logging-1.0.0"
@@ -85035,17 +83276,10 @@ in
   three = nodeEnv.buildNodePackage {
     name = "three";
     packageName = "three";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    version = "0.115.0";
-    src = fetchurl {
-      url = "https://registry.npmjs.org/three/-/three-0.115.0.tgz";
-      sha512 = "mAV2Ky3RdcbdSbR9capI+tKLvRldWYxd4151PZTT/o7+U2jh9Is3a4KmnYwzyUAhB2ZA3pXSgCd2DOY4Tj5kow==";
-=======
     version = "0.117.1";
     src = fetchurl {
       url = "https://registry.npmjs.org/three/-/three-0.117.1.tgz";
       sha512 = "18zi7fmd3fmqdc1lpgjd2qky8js95jwcimbmnlyybd6kxbqw969v0grdrllcdzrm9794kci5fcn4990lxgd56zbywil5kad34kdx35p";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
     };
     buildInputs = globalBuildInputs;
     meta = {
@@ -85527,17 +83761,10 @@ in
   uglify-js = nodeEnv.buildNodePackage {
     name = "uglify-js";
     packageName = "uglify-js";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    version = "3.8.1";
-    src = fetchurl {
-      url = "https://registry.npmjs.org/uglify-js/-/uglify-js-3.8.1.tgz";
-      sha512 = "W7KxyzeaQmZvUFbGj4+YFshhVrMBGSg2IbcYAjGWGvx8DHvJMclbTDMpffdxFUGPBHjIytk7KJUR/KUXstUGDw==";
-=======
     version = "3.9.4";
     src = fetchurl {
       url = "https://registry.npmjs.org/uglify-js/-/uglify-js-3.9.4.tgz";
       sha512 = "04744wz8jyvzdpzl8w92iarnrqq7d3pbbs439sqbrl4c0y57p8r629bjpdpi2raygaf1mnzwllgw8bi2pdv09dbxjdb763cmqk425pi";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
     };
     dependencies = [
       sources."commander-2.20.3"
@@ -85555,28 +83782,17 @@ in
   ungit = nodeEnv.buildNodePackage {
     name = "ungit";
     packageName = "ungit";
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-    version = "1.5.6";
-    src = fetchurl {
-      url = "https://registry.npmjs.org/ungit/-/ungit-1.5.6.tgz";
-      sha512 = "cOXsZn+vjtqT8UU74DeKseLgMBl3i8I0/pYAP6kCCqZOcoi8qtxiCwkzbkWV4bMAR2VQx3N1AkemPxbQIqRteg==";
-=======
     version = "1.5.7";
     src = fetchurl {
       url = "https://registry.npmjs.org/ungit/-/ungit-1.5.7.tgz";
       sha512 = "EQAeMXAuWZYpOsSZSEcqxqKShLcGWuCTVExcdyKNvwmw2GR8I/qKg6l8dQENeYB4DC+wzxKJTX054iun+RrvqQ==";
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
     };
     dependencies = [
       sources."@primer/octicons-9.6.0"
       sources."@sindresorhus/is-0.14.0"
       sources."@szmarczak/http-timer-1.1.2"
       sources."@types/color-name-1.1.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@types/node-13.9.8"
-=======
       sources."@types/node-13.13.9"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."abbrev-1.1.1"
       sources."accepts-1.3.7"
       sources."after-0.8.2"
@@ -85598,11 +83814,7 @@ in
       sources."better-assert-1.0.2"
       sources."blob-0.0.5"
       sources."bluebird-3.7.2"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."blueimp-md5-2.13.0"
-=======
       sources."blueimp-md5-2.14.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."body-parser-1.19.0"
       sources."brace-expansion-1.1.11"
       sources."bytes-3.1.0"
@@ -85847,19 +84059,6 @@ in
       })
       sources."strip-ansi-6.0.0"
       sources."strip-json-comments-2.0.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      (sources."superagent-5.2.2" // {
-        dependencies = [
-          sources."component-emitter-1.3.0"
-          sources."debug-4.1.1"
-          sources."mime-2.4.4"
-          sources."ms-2.1.2"
-          sources."qs-6.9.3"
-          sources."semver-6.3.0"
-        ];
-      })
-=======
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       (sources."temp-0.9.1" // {
         dependencies = [
           sources."rimraf-2.6.3"
@@ -85893,11 +84092,7 @@ in
       sources."y18n-4.0.0"
       sources."yallist-2.1.2"
       sources."yargs-15.3.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."yargs-parser-18.1.2"
-=======
       sources."yargs-parser-18.1.3"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."yeast-0.1.2"
     ];
     buildInputs = globalBuildInputs;
@@ -86234,11 +84429,7 @@ in
       sources."tslib-1.13.0"
       sources."tunnel-agent-0.6.0"
       sources."tweetnacl-0.14.5"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."uglify-js-3.8.1"
-=======
       sources."uglify-js-3.9.4"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."uid-0.0.2"
       sources."unbzip2-stream-1.4.3"
       sources."unyield-0.0.1"
@@ -86297,11 +84488,7 @@ in
       sources."@starptech/rehype-webparser-0.10.0"
       sources."@starptech/webparser-0.10.0"
       sources."@szmarczak/http-timer-1.1.2"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@types/node-13.9.8"
-=======
       sources."@types/node-14.0.5"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."@types/unist-2.0.3"
       sources."@types/vfile-3.0.2"
       sources."@types/vfile-message-2.0.0"
@@ -87147,11 +85334,7 @@ in
       sources."user-home-2.0.0"
       sources."util-deprecate-1.0.2"
       sources."validate-npm-package-license-3.0.4"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."vfile-4.1.0"
-=======
       sources."vfile-4.1.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."vfile-location-2.0.6"
       sources."vfile-message-2.0.4"
       (sources."vfile-reporter-6.0.1" // {
@@ -87256,11 +85439,7 @@ in
       sources."@szmarczak/http-timer-1.1.2"
       sources."@types/color-name-1.1.1"
       sources."@types/minimatch-3.0.3"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@types/node-13.9.8"
-=======
       sources."@types/node-14.0.5"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."JSONSelect-0.2.1"
       sources."acorn-6.4.1"
       sources."acorn-jsx-5.2.0"
@@ -88205,17 +86384,10 @@ in
           sources."strip-ansi-6.0.0"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."string.prototype.trimend-1.0.0"
-      sources."string.prototype.trimleft-2.1.2"
-      sources."string.prototype.trimright-2.1.2"
-      sources."string.prototype.trimstart-1.0.0"
-=======
       sources."string.prototype.trimend-1.0.1"
       sources."string.prototype.trimleft-2.1.2"
       sources."string.prototype.trimright-2.1.2"
       sources."string.prototype.trimstart-1.0.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."string_decoder-1.3.0"
       sources."strip-ansi-3.0.1"
       sources."strip-bom-4.0.0"
@@ -88800,11 +86972,7 @@ in
       sources."stream-shift-1.0.1"
       sources."string_decoder-1.1.1"
       sources."tapable-1.1.3"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      (sources."terser-4.6.10" // {
-=======
       (sources."terser-4.7.0" // {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         dependencies = [
           sources."source-map-0.6.1"
         ];
@@ -88856,9 +87024,6 @@ in
       })
       sources."util-deprecate-1.0.2"
       sources."vm-browserify-1.1.2"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."watchpack-1.6.1"
-=======
       sources."watchpack-1.7.2"
       (sources."watchpack-chokidar2-2.0.0" // {
         dependencies = [
@@ -88873,7 +87038,6 @@ in
           sources."readdirp-2.2.1"
         ];
       })
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       (sources."webpack-sources-1.4.3" // {
         dependencies = [
           sources."source-map-0.6.1"
@@ -89236,11 +87400,7 @@ in
       sources."@types/events-3.0.0"
       sources."@types/glob-7.1.1"
       sources."@types/minimatch-3.0.3"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@types/node-13.9.8"
-=======
       sources."@types/node-14.0.5"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."accepts-1.3.7"
       sources."ajv-6.12.2"
       sources."ajv-errors-1.0.1"
@@ -89453,11 +87613,7 @@ in
           sources."pify-2.3.0"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."graceful-fs-4.2.3"
-=======
       sources."graceful-fs-4.2.4"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."handle-thing-2.0.1"
       sources."has-1.0.3"
       sources."has-flag-3.0.0"
@@ -89742,17 +87898,10 @@ in
           sources."strip-ansi-5.2.0"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."string.prototype.trimend-1.0.0"
-      sources."string.prototype.trimleft-2.1.2"
-      sources."string.prototype.trimright-2.1.2"
-      sources."string.prototype.trimstart-1.0.0"
-=======
       sources."string.prototype.trimend-1.0.1"
       sources."string.prototype.trimleft-2.1.2"
       sources."string.prototype.trimright-2.1.2"
       sources."string.prototype.trimstart-1.0.1"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       (sources."string_decoder-1.1.1" // {
         dependencies = [
           sources."safe-buffer-5.1.2"
@@ -89976,11 +88125,7 @@ in
       sources."@protobufjs/pool-1.1.0"
       sources."@protobufjs/utf8-1.1.0"
       sources."@types/long-4.0.1"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."@types/node-10.17.18"
-=======
       sources."@types/node-13.13.9"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."addr-to-ip-port-1.5.1"
       sources."airplay-js-0.3.0"
       sources."balanced-match-1.0.0"
@@ -90000,11 +88145,7 @@ in
           sources."ms-2.1.2"
         ];
       })
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      (sources."bittorrent-tracker-9.14.5" // {
-=======
       (sources."bittorrent-tracker-9.15.0" // {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         dependencies = [
           sources."debug-4.2.0"
           sources."decompress-response-6.0.0"
@@ -90118,13 +88259,8 @@ in
       sources."mimic-response-1.0.1"
       sources."minimatch-3.0.4"
       sources."minimist-1.2.5"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."mkdirp-classic-0.5.2"
-      sources."moment-2.24.0"
-=======
       sources."mkdirp-classic-0.5.3"
       sources."moment-2.26.0"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."mp4-box-encoding-1.4.1"
       sources."mp4-stream-3.1.0"
       sources."ms-2.0.0"
@@ -90144,13 +88280,8 @@ in
       sources."once-1.4.0"
       sources."open-7.0.4"
       sources."package-json-versionify-1.0.4"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-      sources."parse-numeric-range-0.0.2"
-      (sources."parse-torrent-7.1.2" // {
-=======
       sources."parse-numeric-range-1.2.0"
       (sources."parse-torrent-7.1.3" // {
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
         dependencies = [
           sources."decompress-response-4.2.1"
           sources."mimic-response-2.1.0"
@@ -91026,10 +89157,7 @@ in
       sources."shallow-clone-3.0.1"
       sources."shebang-command-1.2.0"
       sources."shebang-regex-1.0.0"
-<<<<<<< HEAD:pkgs/development/node-packages/node-packages-v10.nix
-=======
       sources."shelljs-0.8.4"
->>>>>>> upstream/nixos-unstable:pkgs/development/node-packages/node-packages.nix
       sources."signal-exit-3.0.3"
       sources."slash-1.0.0"
       (sources."snapdragon-0.8.2" // {

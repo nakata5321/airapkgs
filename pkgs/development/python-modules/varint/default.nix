@@ -1,34 +1,12 @@
-<<<<<<< HEAD
-{ stdenv
-, buildPythonPackage
-, fetchPypi
-}:
-
-=======
 { buildPythonPackage
 , fetchPypi
 , lib
 }:
->>>>>>> upstream/nixos-unstable
 buildPythonPackage rec {
   pname = "varint";
   version = "1.0.2";
 
   src = fetchPypi {
-<<<<<<< HEAD
-    inherit pname version;
-    sha256 = "19ac46adalgva1chlh0rxv6cinpikxfd92kabbbfjpmcfwiw1v56";
-  };
-
-
-  meta = with stdenv.lib; {
-    description = "A basic varint implementation in python";
-    homepage = https://github.com/fmoo/python-varint;
-    license = licenses.mit;
-    maintainers = [ maintainers.strdn ];
-  };
-}
-=======
     inherit pname version ;
     sha256 = "a6ecc02377ac5ee9d65a6a8ad45c9ff1dac8ccee19400a5950fb51d594214ca5";
   };
@@ -45,4 +23,3 @@ buildPythonPackage rec {
     maintainers = with maintainers; [ rakesh4g ];
   };
 }
->>>>>>> upstream/nixos-unstable
