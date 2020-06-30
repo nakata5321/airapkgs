@@ -68184,7 +68184,7 @@ in
       sources."data-queue-0.0.3"
       sources."debug-4.1.1"
       sources."elliptic-6.5.2"
-      sources."engine.io-3.4.0"
+      sources."engine.io-3.4.1"
       (sources."engine.io-client-3.4.0" // {
         dependencies = [
           sources."ws-6.1.4"
