@@ -68173,7 +68173,7 @@ in
       sources."bn.js-4.11.9"
       sources."brorand-1.1.0"
       sources."bs58-4.0.1"
-      sources."buffer-5.5.0"
+      sources."buffer-5.6.0"
       sources."callsite-1.0.0"
       sources."cids-0.8.0"
       sources."class-is-1.1.0"
