@@ -68161,7 +68161,7 @@ in
       sources."bintrees-1.0.1"
       sources."blakejs-1.1.0"
       sources."blob-0.0.5"
-      sources."bn.js-4.11.8"
+      sources."bn.js-4.11.9"
       sources."brorand-1.1.0"
       sources."bs58-4.0.1"
       sources."buffer-5.5.0"
