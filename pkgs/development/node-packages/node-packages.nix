@@ -16188,6 +16188,15 @@ let
         sha1 = "06e0116d3028f6aef4806849eb0ea6a748ae6960";
       };
     };
+    "err-code-2.0.3" = {
+      name = "err-code";
+      packageName = "err-code";
+      version = "2.0.3";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/err-code/-/err-code-2.0.3.tgz";
+        sha1 = "06e0116d3028f6aef4806849eb0ea6a748ae6940";
+      };
+    };
     "errlop-2.2.0" = {
       name = "errlop";
       packageName = "errlop";
@@ -44262,6 +44271,15 @@ let
         sha512 = "0/Y20PwRIUkQcTCSi4AASs+OANZZwqPKaipGCEwp10dQMipVvSZwUUCi01Y/OklIGyHKFhIcjock+DKnBfLAFw==";
       };
     };
+    "tdigest-0.1.1" = {
+      name = "tdigest";
+      packageName = "tdigest";
+      version = "0.1.1";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/tdigest/-/tdigest-0.1.1.tgz";
+        sha1 = "2e3cb2c39ea449e55d1e6cd91117accca4588021";
+      };
+    };
     "tar-0.1.17" = {
       name = "tar";
       packageName = "tar";
@@ -68191,7 +68209,7 @@ in
         ];
       })
       sources."engine.io-parser-2.2.0"
-      sources."err-code-2.0.0"
+      sources."err-code-2.0.3"
       sources."file-uri-to-path-1.0.0"
       sources."has-binary2-1.0.3"
       sources."has-cors-1.1.0"
@@ -68227,11 +68245,11 @@ in
       sources."multihashes-0.4.19"
       sources."multihashing-async-0.8.1"
       sources."murmurhash3js-revisited-3.0.0"
-      sources."nan-2.14.0"
+      sources."nan-2.14.1"
       sources."negotiator-0.6.2"
       sources."node-addon-api-2.0.0"
       sources."node-forge-0.9.1"
-      sources."node-gyp-build-4.2.1"
+      sources."node-gyp-build-4.2.2"
       sources."object-component-0.0.3"
       sources."once-1.4.0"
       sources."parseqs-0.0.5"
@@ -68261,7 +68279,7 @@ in
           })
         ];
       })
-      sources."socket.io-parser-3.4.0"
+      sources."socket.io-parser-3.4.1"
       (sources."socket.io-pull-stream-0.1.5" // {
         dependencies = [
           sources."debug-3.2.6"
