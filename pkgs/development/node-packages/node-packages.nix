@@ -16194,7 +16194,7 @@ let
       version = "2.0.3";
       src = fetchurl {
         url = "https://registry.npmjs.org/err-code/-/err-code-2.0.3.tgz";
-        sha1 = "06e0116d3028f6aef4806849eb0ea6a748ae6940";
+        sha1 = "23c2f3b756ffdfc608d30e27c9a941024807e7f9";
       };
     };
     "errlop-2.2.0" = {
