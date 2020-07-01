@@ -2,7 +2,7 @@
 
 buildGoModule rec {
   pname = "ipfs-migrator";
-  version = "1.5.1";
+  version = "1.6.3";
 
   src = fetchFromGitHub {
     owner = "ipfs";
