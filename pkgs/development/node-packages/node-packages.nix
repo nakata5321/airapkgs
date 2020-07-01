@@ -48119,15 +48119,6 @@ let
         sha1 = "340a717bde765726fa0aa07d721e0147a551df0c";
       };
     };
-    "watchpack-1.6.1" = {
-      name = "watchpack";
-      packageName = "watchpack";
-      version = "1.6.1";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/watchpack/-/watchpack-1.6.1.tgz";
-        sha512 = "+IF9hfUFOrYOOaKyfaI7h7dquUIOgyEMoQMLA7OP5FxegKA2+XdXThAZ9TU2kucfhDH7rfMHs1oPYziVGWRnZA==";
-      };
-    };
     "watchpack-1.7.2" = {
       name = "watchpack";
       packageName = "watchpack";
@@ -67966,7 +67957,7 @@ in
       sources."accepts-1.3.7"
       sources."after-0.8.2"
       sources."arraybuffer.slice-0.0.7"
-      sources."asn1.js-5.3.0"
+      sources."asn1.js-5.4.1"
       sources."async-limiter-1.0.1"
       sources."backo2-1.0.2"
       sources."base-x-3.0.8"
@@ -67991,9 +67982,9 @@ in
       sources."cookie-0.3.1"
       sources."data-queue-0.0.3"
       sources."debug-4.1.1"
-      sources."elliptic-6.5.2"
-      sources."engine.io-3.4.1"
-      (sources."engine.io-client-3.4.2" // {
+      sources."elliptic-6.5.3"
+      sources."engine.io-3.4.2"
+      (sources."engine.io-client-3.4.3" // {
         dependencies = [
           sources."ws-6.1.4"
         ];

@@ -175,7 +175,7 @@ in {
     networking.firewall.allowedTCPPorts = [ 4001 ];
     networking.firewall.allowedUDPPorts = [ 5353 ];
 
-    environment.systemPackages = [ wrapped ];
+    environment.systemPackages = [ pkgs.ipfs ];
     environment.variables.IPFS_PATH = cfg.dataDir;
     programs.fuse = mkIf cfg.autoMount {
       userAllowOther = true;
