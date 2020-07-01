@@ -13,7 +13,7 @@ common =
   , bash, coreutils, gzip, gnutar
   , pkgconfig, boehmgc, perlPackages, libsodium, brotli, boost, editline, nlohmann_json
   , autoreconfHook, autoconf-archive, bison, flex, libxml2, libxslt, docbook5, docbook_xsl_ns
-  , jq, libarchive, rustc, cargo
+  , jq, libarchive
   # Used by tests
   , gmock
   , busybox-sandbox-shell
@@ -21,9 +21,9 @@ common =
   , stateDir
   , confDir
   , withLibseccomp ? lib.any (lib.meta.platformMatch stdenv.hostPlatform) libseccomp.meta.platforms, libseccomp
-  , withAWS ? stdenv.isLinux || stdenv.isDarwin, aws-sdk-cpp
-
-  , name, suffix ? "", src, crates ? null
+  , withAWS ? !enableStatic && (stdenv.isLinux || stdenv.isDarwin), aws-sdk-cpp
+  , enableStatic ? false
+  , name, suffix ? "", src
 
   }:
   let
@@ -49,7 +49,7 @@ common =
           brotli boost editline
         ]
         ++ lib.optional (stdenv.isLinux || stdenv.isDarwin) libsodium
-        ++ lib.optionals is24 [ libarchive rustc cargo ]
+        ++ lib.optionals is24 [ libarchive ]
         ++ lib.optional withLibseccomp libseccomp
         ++ lib.optional withAWS
             ((aws-sdk-cpp.override {
@@ -65,12 +65,21 @@ common =
       propagatedBuildInputs = [ boehmgc ];
 
       # Seems to be required when using std::atomic with 64-bit types
-      NIX_LDFLAGS = lib.optionalString (stdenv.hostPlatform.system == "armv5tel-linux" || stdenv.hostPlatform.system == "armv6l-linux") "-latomic";
+      NIX_LDFLAGS =
+        # need to list libraries individually until
+        # https://github.com/NixOS/nix/commit/3e85c57a6cbf46d5f0fe8a89b368a43abd26daba
+        # is in a release
+          lib.optionalString enableStatic "-lssl -lbrotlicommon -lssh2 -lz -lnghttp2 -lcrypto"
+
+        # need to detect it here until
+        # https://github.com/NixOS/nix/commits/74b4737d8f0e1922ef5314a158271acf81cd79f8
+        # is in a release
+        + lib.optionalString (stdenv.hostPlatform.system == "armv5tel-linux" || stdenv.hostPlatform.system == "armv6l-linux") "-latomic";
 
       preConfigure =
         # Copy libboost_context so we don't get all of Boost in our closure.
         # https://github.com/NixOS/nixpkgs/issues/45462
-        ''
+        lib.optionalString (!enableStatic) ''
           mkdir -p $out/lib
           cp -pd ${boost}/lib/{libboost_context*,libboost_thread*,libboost_system*} $out/lib
           rm -f $out/lib/*.a
@@ -78,11 +87,6 @@ common =
             chmod u+w $out/lib/*.so.*
             patchelf --set-rpath $out/lib:${stdenv.cc.cc.lib}/lib $out/lib/libboost_thread.so.*
           ''}
-        '' +
-        # Unpack the Rust crates.
-        lib.optionalString is24 ''
-          tar xvf ${crates} -C nix-rust/
-          mv nix-rust/nix-vendored-crates* nix-rust/vendor
         '' +
         # For Nix-2.3, patch around an issue where the Nix configure step pulls in the
         # build system's bash and other utilities when cross-compiling
@@ -191,18 +195,13 @@ in rec {
 
   nixUnstable = lib.lowPrio (callPackage common rec {
     name = "nix-2.4${suffix}";
-    suffix = "pre7534_b92f58f6";
+    suffix = "pre7805_984e5213";
 
     src = fetchFromGitHub {
       owner = "NixOS";
       repo = "nix";
-      rev = "b92f58f6d9e44f97002d1722bd77bad939824c1c";
-      sha256 = "1p791961y5v04kpz37g6hm98f1ig7i34inxl9dcj3pbqhf5kicxg";
-    };
-
-    crates = fetchurl {
-      url = "https://hydra.nixos.org/build/118797694/download/1/nix-vendored-crates-2.4pre7534_b92f58f6.tar.xz";
-      sha256 = "a4c2612bbd81732bbb899bc0c230e07b16f6b6150ffbb19c4907dedbbc2bf9fc";
+      rev = "984e521392b3f41f7cdab203e5c00f3e00e27a28";
+      sha256 = "1dch48018dwzx9cysnfxrdpszav87s0d635zqw810mgmqpm25fw8";
     };
 
     inherit storeDir stateDir confDir boehmgc;
@@ -210,18 +209,13 @@ in rec {
 
   nixFlakes = lib.lowPrio (callPackage common rec {
     name = "nix-2.4${suffix}";
-    suffix = "pre20200521_00b562c";
+    suffix = "pre20200622_334e26b";
 
     src = fetchFromGitHub {
       owner = "NixOS";
       repo = "nix";
-      rev = "00b562c87ec4c3bbe514f5dc1f4d1c41f66f66bf";
-      sha256 = "0s8is2czpkcj1x1kcjqgbnsbbl03w3fwjjiclsd44zh1ij3wb90s";
-    };
-
-    crates = fetchurl {
-      url = "https://hydra.nixos.org/build/118093786/download/1/nix-vendored-crates-2.4pre20200501_941f952.tar.xz";
-      sha256 = "060f4n5srdbb8vsj0m14aqch7im79a4h5g3nrs41p1xc602vhcdl";
+      rev = "334e26bfc2ce82912602e8a0f9f9c7e0fb5c3221";
+      sha256 = "14a2yyn1ygymlci6hl5d308fs3p3m0mgcfs5dc8dn0s3lg5qvbmp";
     };
 
     inherit storeDir stateDir confDir boehmgc;

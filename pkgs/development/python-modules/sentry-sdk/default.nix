@@ -18,21 +18,22 @@
 , tornado
 , urllib3
 , trytond
+, werkzeug
 }:
 
 buildPythonPackage rec {
   pname = "sentry-sdk";
-  version = "0.14.2";
+  version = "0.14.4";
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "0ak2m9v6m7989ymaz6gimq8s2mgir0xs3ac76ycaxg309rsyw3j8";
+    sha256 = "0e5e947d0f7a969314aa23669a94a9712be5a688ff069ff7b9fc36c66adc160c";
   };
 
-  checkInputs = [ django flask tornado bottle rq falcon sqlalchemy trytond ]
+  checkInputs = [ django flask tornado bottle rq falcon sqlalchemy werkzeug ]
   ++ stdenv.lib.optionals isPy3k [ celery pyramid sanic aiohttp ];
 
-  propagatedBuildInputs = [ urllib3 certifi ];
+  propagatedBuildInputs = [ urllib3 certifi trytond ];
 
   meta = with stdenv.lib; {
     homepage = "https://github.com/getsentry/sentry-python";
