@@ -1,17 +1,68 @@
 { config, lib, pkgs, options, ... }:
 with lib;
 let
+  inherit (pkgs) ipfs runCommand makeWrapper;
   cfg = config.services.ipfs;
   opt = options.services.ipfs;
 
   ipfsFlags = toString ([
     (optionalString  cfg.autoMount                   "--mount")
+    (optionalString  cfg.autoMigrate                 "--migrate")
     (optionalString  cfg.enableGC                    "--enable-gc")
     (optionalString (cfg.serviceFdlimit != null)     "--manage-fdlimit=false")
     (optionalString (cfg.defaultMode == "offline")   "--offline")
     (optionalString (cfg.defaultMode == "norouting") "--routing=none")
     (optionalString cfg.pubsubExperiment             "--enable-pubsub-experiment")
   ] ++ cfg.extraFlags);
+
+  defaultDataDir = if versionAtLeast config.system.stateVersion "17.09" then
+    "/var/lib/ipfs" else
+    "/var/lib/ipfs/.ipfs";
+
+  # Wrapping the ipfs binary with the environment variable IPFS_PATH set to dataDir because we can't set it in the user environment
+  wrapped = runCommand "ipfs" { buildInputs = [ makeWrapper ]; } ''
+    mkdir -p "$out/bin"
+    makeWrapper "${ipfs}/bin/ipfs" "$out/bin/ipfs" \
+      --set IPFS_PATH ${cfg.dataDir} \
+      --prefix PATH : /run/wrappers/bin
+  '';
+
+  commonEnv = {
+    environment.IPFS_PATH = cfg.dataDir;
+    path = [ wrapped ];
+    serviceConfig.User = cfg.user;
+    serviceConfig.Group = cfg.group;
+  };
+
+  baseService = recursiveUpdate commonEnv {
+    wants = [ "ipfs-init.service" ];
+    preStart = ''
+      ipfs repo fsck # workaround for BUG #4212 (https://github.com/ipfs/go-ipfs/issues/4214)
+      ipfs --local config Addresses.API ${cfg.apiAddress}
+      ipfs --local config Addresses.Gateway ${cfg.gatewayAddress}
+    '' + optionalString cfg.autoMount ''
+      ipfs --local config Mounts.FuseAllowOther --json true
+      ipfs --local config Mounts.IPFS ${cfg.ipfsMountDir}
+      ipfs --local config Mounts.IPNS ${cfg.ipnsMountDir}
+    '' + concatStringsSep "\n" (collect
+          isString
+          (mapAttrsRecursive
+            (path: value:
+            # Using heredoc below so that the value is never improperly quoted
+            ''
+              read value <<EOF
+              ${builtins.toJSON value}
+              EOF
+              ipfs --local config --json "${concatStringsSep "." path}" "$value"
+            '')
+            cfg.extraConfig)
+        );
+    serviceConfig = {
+      ExecStart = "${wrapped}/bin/ipfs daemon ${ipfsFlags}";
+      Restart = "on-failure";
+      RestartSec = 1;
+    } // optionalAttrs (cfg.serviceFdlimit != null) { LimitNOFILE = cfg.serviceFdlimit; };
+  };
 
   splitMulitaddr = addrRaw: lib.tail (lib.splitString "/" addrRaw);
 
@@ -175,7 +226,7 @@ in {
     networking.firewall.allowedTCPPorts = [ 4001 ];
     networking.firewall.allowedUDPPorts = [ 5353 ];
 
-    environment.systemPackages = [ pkgs.ipfs ];
+    environment.systemPackages = [ wrapped ];
     environment.variables.IPFS_PATH = cfg.dataDir;
     programs.fuse = mkIf cfg.autoMount {
       userAllowOther = true;
