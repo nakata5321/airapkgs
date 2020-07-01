@@ -4,21 +4,22 @@
 , lib
 , multiaddr
 , requests
+, httpx
 }:
 
 buildPythonPackage rec {
   name = "${pname}-${version}";
   pname = "ipfshttpclient";
-  version = "0.4.12";
+  version = "0.6.0.post1";
 
   disabled = isPy27;
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "1dwvx0zy53vi4qg9vb5s02krrc5hhm3szd98vbwvyi7y0l89l68a";
+    sha256 = "0ma0fakn5ia2prna364brhzpq22q54vbwzd1gb7i6f5jc8axjxyp";
   };
 
-  propagatedBuildInputs = [ multiaddr requests ];
+  propagatedBuildInputs = [ multiaddr requests httpx ];
 
   meta = {
     description = "A python client library for the IPFS API.";
