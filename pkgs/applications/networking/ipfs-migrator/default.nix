@@ -8,7 +8,7 @@ buildGoModule rec {
     owner = "ipfs";
     repo = "fs-repo-migrations";
     rev = "v${version}";
-    sha256 = "18pjxkxfbsbbj4hs4xyzfmmz991h31785ldx41dll6wa9zx4lsnm";
+    sha256 = "13ah5jk8n3wznvag6dda1ssgpqsdr9pdgvqm9gcsb7zzls89j9x5";
   };
 
   vendorSha256 = null;
