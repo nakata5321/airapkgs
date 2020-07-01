@@ -6080,8 +6080,6 @@ in {
 
   transitions = callPackage ../development/python-modules/transitions { };
 
-  trytond = callPackage ../development/python-modules/trytond {  };
-
   extras = callPackage ../development/python-modules/extras { };
 
   extension-helpers = callPackage ../development/python-modules/extension-helpers { };
