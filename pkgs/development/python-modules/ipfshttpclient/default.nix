@@ -4,23 +4,21 @@
 , lib
 , multiaddr
 , requests
-, fetchFromGitHub
+, httpx
 }:
 
 buildPythonPackage {
   pname = "ipfshttpclient";
-  version = "0.4.13.2";
+  version = "0.6.0.post1";
 
   disabled = isPy27;
 
-  src = fetchFromGitHub {
-    owner = "ipfs-shipyard";
-    repo = "py-ipfs-http-client";
-    rev = "5e3edf5f8e9e117738c77b5773c78d7b48942bc2";
-    sha256 = "1i3vw1fxck6ail99lm47d8q3g259s0fqsjmjagyfxb5zjvkh30y1";
+  src = fetchPypi {
+    inherit pname version;
+    sha256 = "0ma0fakn5ia2prna364brhzpq22q54vbwzd1gb7i6f5jc8axjxyp";
   };
 
-  propagatedBuildInputs = [ multiaddr requests ];
+  propagatedBuildInputs = [ multiaddr requests httpx ];
 
   patches = [ ./ipfshttpclient.patch ];
 

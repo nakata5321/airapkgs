@@ -1,13 +1,12 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, options, ... }:
 with lib;
 let
   inherit (pkgs) ipfs runCommand makeWrapper;
-
   cfg = config.services.ipfs;
+  opt = options.services.ipfs;
 
   ipfsFlags = toString ([
     (optionalString  cfg.autoMount                   "--mount")
-    #(optionalString  cfg.autoMigrate                 "--migrate")
     (optionalString  cfg.enableGC                    "--enable-gc")
     (optionalString (cfg.serviceFdlimit != null)     "--manage-fdlimit=false")
     (optionalString (cfg.defaultMode == "offline")   "--offline")
@@ -20,13 +19,12 @@ let
     "/var/lib/ipfs/.ipfs";
 
   # Wrapping the ipfs binary with the environment variable IPFS_PATH set to dataDir because we can't set it in the user environment
-  wrapped = runCommand "ipfs" { buildInputs = [ makeWrapper ]; preferLocalBuild = true; } ''
+  wrapped = runCommand "ipfs" { buildInputs = [ makeWrapper ]; } ''
     mkdir -p "$out/bin"
     makeWrapper "${ipfs}/bin/ipfs" "$out/bin/ipfs" \
       --set IPFS_PATH ${cfg.dataDir} \
       --prefix PATH : /run/wrappers/bin
   '';
-
 
   commonEnv = {
     environment.IPFS_PATH = cfg.dataDir;
@@ -37,8 +35,11 @@ let
 
   baseService = recursiveUpdate commonEnv {
     wants = [ "ipfs-init.service" ];
-    # NB: migration must be performed prior to pre-start, else we get the failure message!
-    preStart = optionalString cfg.autoMount ''
+    preStart = ''
+      ipfs repo fsck # workaround for BUG #4212 (https://github.com/ipfs/go-ipfs/issues/4214)
+      ipfs --local config Addresses.API ${cfg.apiAddress}
+      ipfs --local config Addresses.Gateway ${cfg.gatewayAddress}
+    '' + optionalString cfg.autoMount ''
       ipfs --local config Mounts.FuseAllowOther --json true
       ipfs --local config Mounts.IPFS ${cfg.ipfsMountDir}
       ipfs --local config Mounts.IPNS ${cfg.ipnsMountDir}
@@ -53,11 +54,7 @@ let
               EOF
               ipfs --local config --json "${concatStringsSep "." path}" "$value"
             '')
-            ({ Addresses.API = cfg.apiAddress;
-               Addresses.Gateway = cfg.gatewayAddress;
-               Addresses.Swarm = cfg.swarmAddress;
-            } //
-            cfg.extraConfig))
+            cfg.extraConfig)
         );
     serviceConfig = {
       ExecStart = "${wrapped}/bin/ipfs daemon ${ipfsFlags}";
@@ -65,6 +62,20 @@ let
       RestartSec = 1;
     } // optionalAttrs (cfg.serviceFdlimit != null) { LimitNOFILE = cfg.serviceFdlimit; };
   };
+
+  splitMulitaddr = addrRaw: lib.tail (lib.splitString "/" addrRaw);
+
+  multiaddrToListenStream = addrRaw: let
+      addr = splitMulitaddr addrRaw;
+      s = builtins.elemAt addr;
+    in if s 0 == "ip4" && s 2 == "tcp"
+      then "${s 1}:${s 3}"
+    else if s 0 == "ip6" && s 2 == "tcp"
+      then "[${s 1}]:${s 3}"
+    else if s 0 == "unix"
+      then "/${lib.concatStringsSep "/" (lib.tail addr)}"
+    else null; # not valid for listen stream, skip
+
 in {
 
   ###### interface
@@ -89,7 +100,9 @@ in {
 
       dataDir = mkOption {
         type = types.str;
-        default = defaultDataDir;
+        default = if versionAtLeast config.system.stateVersion "17.09"
+                  then "/var/lib/ipfs"
+                  else "/var/lib/ipfs/.ipfs";
         description = "The data dir for IPFS";
       };
 
@@ -98,18 +111,6 @@ in {
         default = "online";
         description = "systemd service that is enabled by default";
       };
-
-      /*
-      autoMigrate = mkOption {
-        type = types.bool;
-        default = false;
-        description = ''
-          Whether IPFS should try to migrate the file system automatically.
-
-          The daemon will need to be able to download a binary from https://ipfs.io to perform the migration.
-        '';
-      };
-      */
 
       autoMount = mkOption {
         type = types.bool;
@@ -143,7 +144,10 @@ in {
 
       swarmAddress = mkOption {
         type = types.listOf types.str;
-        default = [ "/ip4/0.0.0.0/tcp/4001" "/ip6/::/tcp/4001" ];
+        default = [
+          "/ip4/0.0.0.0/tcp/4001"
+          "/ip6/::/tcp/4001"
+        ];
         description = "Where IPFS listens for incoming p2p connections";
       };
 
@@ -206,6 +210,12 @@ in {
         example = 64*1024;
       };
 
+      startWhenNeeded = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Whether to use socket activation to start IPFS when needed.";
+      };
+
     };
   };
 
@@ -216,6 +226,7 @@ in {
     networking.firewall.allowedUDPPorts = [ 5353 ];
 
     environment.systemPackages = [ wrapped ];
+    environment.variables.IPFS_PATH = cfg.dataDir;
     programs.fuse = mkIf cfg.autoMount {
       userAllowOther = true;
     };
@@ -244,10 +255,14 @@ in {
       "d '${cfg.ipnsMountDir}' - ${cfg.user} ${cfg.group} - -"
     ];
 
-    systemd.services.ipfs-init = recursiveUpdate commonEnv {
+    systemd.packages = [ pkgs.ipfs ];
+
+    systemd.services.ipfs-init = {
       description = "IPFS Initializer";
 
-      before = [ "ipfs.service" "ipfs-offline.service" "ipfs-norouting.service" ];
+      environment.IPFS_PATH = cfg.dataDir;
+
+      path = [ pkgs.ipfs ];
 
       script = ''
         if [[ ! -f ${cfg.dataDir}/config ]]; then
@@ -261,34 +276,67 @@ in {
         fi
       '';
 
+      wantedBy = [ "default.target" ];
+
       serviceConfig = {
         Type = "oneshot";
         RemainAfterExit = true;
+        User = cfg.user;
+        Group = cfg.group;
       };
     };
 
-    # TODO These 3 definitions possibly be further abstracted through use of a function
-    # like: mutexServices "ipfs" [ "", "offline", "norouting" ] { ... shared conf here ... }
+    systemd.services.ipfs = {
+      path = [ "/run/wrappers" pkgs.ipfs ];
+      environment.IPFS_PATH = cfg.dataDir;
 
-    systemd.services.ipfs = recursiveUpdate baseService {
-      description = "IPFS Daemon";
-      wantedBy = mkIf (cfg.defaultMode == "online") [ "multi-user.target" ];
-      after = [ "network.target" "ipfs-init.service" ];
-      conflicts = [ "ipfs-offline.service" "ipfs-norouting.service"];
+      wants = [ "ipfs-init.service" ];
+      after = [ "ipfs-init.service" ];
+
+      preStart = optionalString cfg.autoMount ''
+        ipfs --local config Mounts.FuseAllowOther --json true
+        ipfs --local config Mounts.IPFS ${cfg.ipfsMountDir}
+        ipfs --local config Mounts.IPNS ${cfg.ipnsMountDir}
+      '' + concatStringsSep "\n" (collect
+            isString
+            (mapAttrsRecursive
+              (path: value:
+              # Using heredoc below so that the value is never improperly quoted
+              ''
+                read value <<EOF
+                ${builtins.toJSON value}
+                EOF
+                ipfs --local config --json "${concatStringsSep "." path}" "$value"
+              '')
+              ({ Addresses.API = cfg.apiAddress;
+                 Addresses.Gateway = cfg.gatewayAddress;
+                 Addresses.Swarm = cfg.swarmAddress;
+              } //
+              cfg.extraConfig))
+          );
+      serviceConfig = {
+        ExecStart = ["" "${pkgs.ipfs}/bin/ipfs daemon ${ipfsFlags}"];
+        User = cfg.user;
+        Group = cfg.group;
+      } // optionalAttrs (cfg.serviceFdlimit != null) { LimitNOFILE = cfg.serviceFdlimit; };
+    } // optionalAttrs (!cfg.startWhenNeeded) {
+      wantedBy = [ "default.target" ];
     };
 
-    systemd.services.ipfs-offline = recursiveUpdate baseService {
-      description = "IPFS Daemon (offline mode)";
-      wantedBy = mkIf (cfg.defaultMode == "offline") [ "multi-user.target" ];
-      after = [ "ipfs-init.service" ];
-      conflicts = [ "ipfs.service" "ipfs-norouting.service"];
+    systemd.sockets.ipfs-gateway = {
+      wantedBy = [ "sockets.target" ];
+      socketConfig.ListenStream = let
+          fromCfg = multiaddrToListenStream cfg.gatewayAddress;
+        in [ "" ] ++ lib.optional (fromCfg != null) fromCfg;
     };
 
-    systemd.services.ipfs-norouting = recursiveUpdate baseService {
-      description = "IPFS Daemon (no routing mode)";
-      wantedBy = mkIf (cfg.defaultMode == "norouting") [ "multi-user.target" ];
-      after = [ "ipfs-init.service" ];
-      conflicts = [ "ipfs.service" "ipfs-offline.service"];
+    systemd.sockets.ipfs-api = {
+      wantedBy = [ "sockets.target" ];
+      # We also include "%t/ipfs.sock" because tere is no way to put the "%t"
+      # in the multiaddr.
+      socketConfig.ListenStream = let
+          fromCfg = multiaddrToListenStream cfg.apiAddress;
+        in [ "" "%t/ipfs.sock" ] ++ lib.optional (fromCfg != null) fromCfg;
     };
 
   };
