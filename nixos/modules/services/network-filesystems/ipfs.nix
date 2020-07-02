@@ -7,7 +7,6 @@ let
 
   ipfsFlags = toString ([
     (optionalString  cfg.autoMount                   "--mount")
-    (optionalString  cfg.autoMigrate                 "--migrate")
     (optionalString  cfg.enableGC                    "--enable-gc")
     (optionalString (cfg.serviceFdlimit != null)     "--manage-fdlimit=false")
     (optionalString (cfg.defaultMode == "offline")   "--offline")
