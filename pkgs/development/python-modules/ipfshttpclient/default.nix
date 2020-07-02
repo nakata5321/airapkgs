@@ -7,7 +7,8 @@
 , httpx
 }:
 
-buildPythonPackage {
+buildPythonPackage rec {
+  name = "${pname}-${version}";
   pname = "ipfshttpclient";
   version = "0.6.0.post1";
 
@@ -19,8 +20,6 @@ buildPythonPackage {
   };
 
   propagatedBuildInputs = [ multiaddr requests httpx ];
-
-  patches = [ ./ipfshttpclient.patch ];
 
   meta = {
     description = "A python client library for the IPFS API.";
