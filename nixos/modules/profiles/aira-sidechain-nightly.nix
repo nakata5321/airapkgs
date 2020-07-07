@@ -8,7 +8,7 @@ let
   graph_topic = "graph.5.robonomics.sid";
   token = "xrt.5.robonomics.sid";
   ens = "0xaC4Ac4801b50b74aa3222B5Ba282FF54407B3941";
-  ipfs_public_providers="https://ipfs.infura.io:5001";
+  ipfs_public_providers="/dns/ipfs.infura.io/tcp/5001/https";
   ipfs_swarm_connect_addresses="/dnsaddr/bootstrap.aira.life";
 
 in {

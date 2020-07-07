@@ -71,14 +71,14 @@ in {
 
       ipfs_http_provider = mkOption {
         type = types.str;
-        default = "http://127.0.0.1:5001";
+        default = "/ip4/127.0.0.1/tcp/5001/http";
         description = "IPFS http provider address";
       };
 
       ipfs_public_providers = mkOption {
         type = types.str;
         default = "";
-        example = "https://ipfs.infura.io:5001, http://example.server:5001";
+        example = "/dns/ipfs.infura.io/tcp/5001/https";
         description = "list of IPFS public nodes http provider address";
       };
 
