@@ -13,7 +13,7 @@ let
   pname = "rosservice";
   version = "1.14.4";
   rosdistro = "melodic";
-  
+
 in mkRosPackage {
   name = "${pname}-${version}";
 
@@ -21,7 +21,7 @@ in mkRosPackage {
     owner = "ros-gbp";
     repo = "ros_comm-release";
     rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "1nkhr8cpvwq4az5k9mmg7mkjy51av96l5aj6yv4pxg5ga47jhks1";
+    sha256 = "0a92nkk2fyk37bff0fq2jlr7xi0r4yb2dxzw62vin93is6vzxhjz";
   };
 
   propagatedBuildInputs = [ catkin genpy rosgraph roslib rosmsg rospy ];
