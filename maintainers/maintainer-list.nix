@@ -7467,6 +7467,7 @@
   spd = {
     email = "spd@aira.life";
     github = "PavelSheremetev";
+    githubId = 29885862;
     name = "Pavel Sheremetev";
   };
   spencerjanssen = {
@@ -7608,6 +7609,7 @@
   strdn = {
     email = "ilichev.evgenii@gmail.com";
     github = "strdn";
+    githubId = 5119231;
     name = "Evgeny Ilyichev";
   };
   stumoss = {
