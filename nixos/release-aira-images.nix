@@ -17,8 +17,7 @@ let
 
   nixos' = import ./release.nix {
     inherit stableBranch;
-    inherit supportedSystems;
-#    supportedSystems = [ "x86_64-linux" ];
+    supportedSystems = [ "x86_64-linux" ];
     nixpkgs = nixpkgsSrc;
   };
 
@@ -34,16 +33,50 @@ in rec {
     tests = {
       inherit (nixos'.tests)
         ipv6
-        parity
-        ipfs;
+        parity;
+        #ipfs
         #cjdns
         #liability;
     };
   };
 
+  # A bootable VirtualBox virtual appliance as an OVA file (i.e. packaged OVF).
+  ova_image = with import nixpkgsSrc { system = "x86_64-linux"; };
+    lib.hydraJob ((import lib/eval-config.nix {
+      inherit system;
+      modules =
+        [ ./modules/installer/virtualbox-minimal.nix
+          ./modules/installer/aira.nix
+          ./modules/profiles/aira-foundation.nix
+        ];
+    }).config.system.build.virtualBoxOVA);
+
+  # A bootable SD card image for AArch64 SBCs.
+  sd_image = with import nixpkgsSrc { system = "aarch64-linux"; };
+    lib.hydraJob ((import lib/eval-config.nix {
+      inherit system;
+      modules =
+        [ ./modules/installer/cd-dvd/sd-image-aarch64.nix
+          ./modules/installer/aira.nix
+          ./modules/profiles/aira-foundation.nix
+        ];
+    }).config.system.build.sdImage);
+
+  # A bootable SD card image for Raspberry pi 4.
+  aira_image_rpi4 = with import nixpkgsSrc { system = "aarch64-linux"; };
+    lib.hydraJob ((import lib/eval-config.nix {
+      inherit system;
+      modules =
+        [ ./modules/installer/cd-dvd/aira-sd-image-rpi4.nix
+          ./modules/installer/aira.nix
+          ./modules/profiles/aira-foundation.nix
+        ];
+    }).config.system.build.sdImage);
+
   nixpkgs = {
     inherit (nixpkgs')
       tarball
+
       parity
       #parity-beta
       #polkadot
@@ -70,8 +103,10 @@ in rec {
       maintainers = with lib.maintainers; [ akru strdn spd ];
     };
     constituents =
-      [
-        nixpkgs.tarball
+      [ 
+        ova_image
+        sd_image
+        aira_image_rpi4
       ]
       ++ lib.collect lib.isDerivation nixos;
   });
