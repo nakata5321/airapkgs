@@ -68307,6 +68307,7 @@ in
       })
       sources."engine.io-parser-2.2.0"
       sources."err-code-2.0.3"
+      sources."esm-3.2.25"
       sources."file-uri-to-path-2.0.0"
       sources."has-binary2-2.0.0"
       sources."has-cors-1.1.0"
