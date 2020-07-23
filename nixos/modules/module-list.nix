@@ -761,6 +761,7 @@
   ./services/networking/vsftpd.nix
   ./services/networking/wakeonlan.nix
   ./services/networking/websocket-star.nix
+  ./services/networking/webrtc-star.nix
   ./services/networking/wasabibackend.nix
   ./services/networking/websockify.nix
   ./services/networking/wg-quick.nix

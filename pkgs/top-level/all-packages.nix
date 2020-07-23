@@ -27141,6 +27141,8 @@ in
 
   websocket-star-rendezvous = nodePackages.libp2p-websocket-star-rendezvous;
 
+  libp2p-webrtc-star = nodePackages.libp2p-webrtc-star;
+
   wfuzz = with python3Packages; toPythonApplication wfuzz;
 
   bemenu = callPackage ../applications/misc/bemenu { };
