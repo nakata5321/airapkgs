@@ -54,6 +54,7 @@ in rec {
       dji_sdk
 
       websocket-star-rendezvous
+      webrtc-star
 
       robonomics_dev
       robonomics_comm
