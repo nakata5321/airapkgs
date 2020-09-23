@@ -11,11 +11,11 @@
 
 buildPythonPackage rec {
   pname = "multiaddr";
-  version = "0.0.8";
+  version = "0.0.9";
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "0f0jvdsnqvc0mfhy6dl82jm3kyfcpkwc2bfx91mzwicr8y5wdbig";
+    sha256 = "1kqfmcbv8plpicbygwpdljin7n82iyxklc0w1ywxbhzdi58nkcih";
   };
 
   propagatedBuildInputs = [ netaddr six varint base58 idna ];
