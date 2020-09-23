@@ -18,7 +18,7 @@ mkRosPackage rec {
     owner = "ros-gbp";
     repo = "ros_comm-release";
     rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "1fmhlbn7l5qasr2w0afqiz1w46xh6q2z17vzq213b11balvsq7zf";
+    sha256 = "09y128xbjad9m401xyy1yjc3q6kdyf40y4cb0q3d4fcvvyq4lqiy";
   };
 
   propagatedBuildInputs = [ rosconsole rostest roscpp rosunit xmlrpcpp ];
