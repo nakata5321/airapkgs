@@ -30,7 +30,7 @@ in stdenv.mkDerivation rec {
       openssl
       stdenv.cc.cc.lib # libstdc++.so.6
       zlib
-      systemd.lib
+      systemd
     ];
 
   phases = "installPhase fixupPhase";
