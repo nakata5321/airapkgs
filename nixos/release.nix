@@ -334,6 +334,11 @@ in rec {
         services.xserver.desktopManager.gnome3.enable = true;
       });
 
+    pantheon = makeClosure ({ ... }:
+      { services.xserver.enable = true;
+        services.xserver.desktopManager.pantheon.enable = true;
+      });
+
     # Linux/Apache/PostgreSQL/PHP stack.
     lapp = makeClosure ({ pkgs, ... }:
       { services.httpd.enable = true;

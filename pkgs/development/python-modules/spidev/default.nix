@@ -1,23 +1,24 @@
-{ lib
-, python3
-, python3Packages
-}:
+{ lib, buildPythonPackage, fetchPypi }:
 
-python3Packages.buildPythonApplication rec {
+buildPythonPackage rec {
   pname = "spidev";
-  version = "3.4";
+  version = "3.5";
 
-  src = python3Packages.fetchPypi {
-    inherit version;
-    pname  = "spidev";
-    sha256 = "104y2w76nlhinxxyg5z10skah4rki5c7ac3zj0y2759xawpya523";
+  src = fetchPypi {
+    inherit pname version;
+    sha256 = "03cicc9kpi5khhq0bl4dcy8cjcl2j488mylp8sna47hnkwl5qzwa";
   };
+
+  # package does not include tests
+  doCheck = false;
+
+  pythonImportsCheck = [ "spidev" ];
 
   meta = with lib; {
-    description = "Python Spidev";
-    homepage = https://github.com/doceme/py-spidev;
+    homepage = "https://github.com/doceme/py-spidev";
+    description = "Python bindings for Linux SPI access through spidev";
     license = licenses.mit;
-    maintainers = with maintainers; [ spd ];
+    maintainers = with maintainers; [ hexa ];
   };
-}
 
+}
