@@ -8,13 +8,13 @@
 buildPythonPackage rec {
   name = "${pname}-${version}";
   pname = "ipfsapi"; 
-  version = "0.4.3";
+  version = "0.4.4";
 
   disabled = isPy27;
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "13lz063ghspn2pwca7xrm1h1hvm73js2l1rq0rrrcfqz7w6crrzj";
+    sha256 = "17ddd54dxvvqc7a7bx0w8jp9bjcfik120lkks9nk4ph4mcn5zplg";
   };
 
   propagatedBuildInputs = [ requests ];
