@@ -74038,7 +74038,7 @@ in
       sources."mafmt-7.1.0"
       sources."menoetius-0.0.2"
       sources."merge-recursive-0.0.3"
-      sources."mime-db-1.43.0"
+      sources."mime-db-1.44.0"
       sources."mime-types-2.1.26"
       sources."minimalistic-assert-1.0.1"
       sources."minimalistic-crypto-utils-1.0.1"
