@@ -5197,12 +5197,12 @@ let
         sha512 = "f5WLMpezwVxCLm1xQe/kdPpQIOmL0TXYx2O15VYfYzc7hTIdxiOoOvez+McSIw3b7z/1zGovew9YSL7+h4h7/Q==";
       };
     };
-    "@types/ws-7.2.6" = {
+    "@types/ws-7.3.1" = {
       name = "_at_types_slash_ws";
       packageName = "@types/ws";
-      version = "7.2.6";
+      version = "7.3.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@types/ws/-/ws-7.2.6.tgz";
+        url = "https://registry.npmjs.org/@types/ws/-/ws-7.3.1.tgz";
         sha512 = "Q07IrQUSNpr+cXU4E4LtkSIBPie5GLZyyMC1QtQYRLWz701+XcoVygGUZgvLqElq1nU4ICldMYPnexlBsg3dqQ==";
       };
     };
@@ -55755,7 +55755,7 @@ in
       sources."@types/range-parser-1.2.3"
       sources."@types/serve-static-1.13.5"
       sources."@types/through-0.0.30"
-      sources."@types/ws-7.2.6"
+      sources."ws-7.3.1"
       sources."@types/zen-observable-0.8.1"
       sources."@vue/cli-shared-utils-4.5.6"
       (sources."@vue/cli-ui-4.5.6" // {
@@ -74039,7 +74039,7 @@ in
       sources."menoetius-0.0.2"
       sources."merge-recursive-0.0.3"
       sources."mime-db-1.44.0"
-      sources."mime-types-2.1.26"
+      sources."mime-types-2.1.27"
       sources."minimalistic-assert-1.0.1"
       sources."minimalistic-crypto-utils-1.0.1"
       sources."minimist-1.2.5"
@@ -74099,7 +74099,7 @@ in
       sources."uuid-3.4.0"
       sources."varint-5.0.0"
       sources."wrappy-1.0.2"
-      sources."ws-7.2.3"
+      sources."ws-7.3.1"
       sources."xmlhttprequest-ssl-1.6.0"
       sources."yallist-2.1.2"
       sources."yeast-0.1.2"
