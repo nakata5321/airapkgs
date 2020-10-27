@@ -279,13 +279,15 @@ in {
         if [[ ! -f ${cfg.dataDir}/config ]]; then
           ipfs init ${optionalString cfg.emptyRepo "-e"} \
             ${optionalString (! cfg.localDiscovery) "--profile=server"}
-        else
-          ${if cfg.localDiscovery
-            then "ipfs config profile apply local-discovery"
-            else "ipfs config profile apply server"
-          }
         fi
       '';
+#        else
+#          ${if cfg.localDiscovery
+#            then "ipfs config profile apply local-discovery"
+#            else "ipfs config profile apply server"
+#          }
+#        fi
+#      '';
 
       wantedBy = [ "default.target" ];
 

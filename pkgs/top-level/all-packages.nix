@@ -28336,6 +28336,8 @@ in
 
   substrate_sensor_demo = callPackage ../applications/science/robotics/aira/substrate_sensor_demo {  };
 
+  sensors-connectivity = callPackage ../applications/science/robotics/aira/sensors-connectivity {  };
+
   complier_service = callPackage ../applications/science/robotics/aira/complier_service {  };
 
   de_dev = callPackage ../applications/science/robotics/aira/de_dev { };
