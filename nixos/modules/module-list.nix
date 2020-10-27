@@ -800,6 +800,7 @@
   ./services/robonomics/drone_flight_report.nix
   ./services/robonomics/sen0233.nix
   ./services/robonomics/substrate_sensor.nix
+  ./services/robonomics/sensors-connectivity.nix
   ./services/scheduling/atd.nix
   ./services/scheduling/cron.nix
   ./services/scheduling/fcron.nix
