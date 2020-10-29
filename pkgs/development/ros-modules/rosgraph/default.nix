@@ -18,7 +18,7 @@ in mkRosPackage {
     owner = "ros-gbp";
     repo = "ros_comm-release";
     rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "1gqad3hxgk7bzdrcnwjqcdz1bmcy92ih26c6b4g6qvcj13g0fh54";
+    sha256 = "1w245jbv2achkdd10ws5f0flwhazh3dhxcbzfi0bk58d5vnip99v";
   };
 
   propagatedBuildInputs = [ catkin python3Packages.netifaces ];
