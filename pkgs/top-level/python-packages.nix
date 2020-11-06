@@ -2549,6 +2549,8 @@ in {
 
   graphql-server-core = callPackage ../development/python-modules/graphql-server-core { };
 
+  graphql-server-core120 = callPackage ../development/python-modules/graphql-server-core/graphql-server-core120.nix { };
+
   graph-tool = callPackage ../development/python-modules/graph-tool/2.x.x.nix { inherit (pkgs) pkg-config; };
 
   graphviz = callPackage ../development/python-modules/graphviz { inherit (pkgs) graphviz; };

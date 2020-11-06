@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "0p93qm5rcdjpwkhbdsd5rl5aj6f966yqp8q38pbnqhyz8k07hmc2";
   };
 
-  propagatedBuildInputs = with python3Packages; [ graphql-server-core flask ];
+  propagatedBuildInputs = with python3Packages; [ graphql-server-core120 flask ];
 
   meta = with lib; {
     description = "Adds GraphQL support to your Flask application";
