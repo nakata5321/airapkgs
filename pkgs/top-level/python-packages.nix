@@ -2545,6 +2545,8 @@ in {
 
   graphql-core = callPackage ../development/python-modules/graphql-core { };
 
+  graphql-core2 = callPackage ../development/python-modules/graphql-core/graphql-core2.nix { };
+
   graphql-server-core = callPackage ../development/python-modules/graphql-server-core { };
 
   graph-tool = callPackage ../development/python-modules/graph-tool/2.x.x.nix { inherit (pkgs) pkg-config; };
@@ -6287,6 +6289,8 @@ in {
   runway-python = callPackage ../development/python-modules/runway-python { };
 
   rx = callPackage ../development/python-modules/rx { };
+
+  rx161 = callPackage ../development/python-modules/rx/rx161.nix { };
 
   rxv = callPackage ../development/python-modules/rxv { };
 
