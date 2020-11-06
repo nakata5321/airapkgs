@@ -7,7 +7,7 @@ python3Packages.buildPythonApplication rec {
   pname = "graphql-relay";
   version = "2.0.1";
 
-  propagatedBuildInputs = with python3Packages; [ graphql-core ];
+  propagatedBuildInputs = with python3Packages; [ graphql-core2 ];
 
   src = python3Packages.fetchPypi {
     inherit version;
