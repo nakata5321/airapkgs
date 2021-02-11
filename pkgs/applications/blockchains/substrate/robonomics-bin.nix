@@ -11,13 +11,13 @@ let
     else if stdenv.hostPlatform.system == "aarch64-linux" then "linux-aarch64"
     else throw "Encryptr for ${stdenv.hostPlatform.system} not supported!";
 
-  sha256 = if stdenv.hostPlatform.system == "x86_64-linux" then "1lj2abd5qw4397hc0igmjildla819bwq03v2sh7z00lw2ns2bzfc"
-    else if stdenv.hostPlatform.system == "aarch64-linux" then "0p2568fprrbfaxg0ci3hlxpd2kl0pz9d0h4yjrl0v524vixhxry4"
+  sha256 = if stdenv.hostPlatform.system == "x86_64-linux" then "02zn8by76kx181j56g96qdzl25iq8zz3dmb619nxa48gng2q8d8d"
+    else if stdenv.hostPlatform.system == "aarch64-linux" then "1p6gk61cym1iywa95b2xi9a5jcdmkrxlppr57cwkkbmy45d4r2vm"
     else throw "Encryptr for ${stdenv.hostPlatform.system} not supported!";
 
 in stdenv.mkDerivation rec {
    name = "substrate-node-robonomics-bin-${version}";
-   version = "0.21.0";
+   version = "0.24.0";
    repoUrl = "https://github.com/airalab/robonomics";
    src = fetchurl {
       url = "${repoUrl}/releases/download/v${version}/robonomics-ubuntu-${version}-${arch}.tar.xz";
