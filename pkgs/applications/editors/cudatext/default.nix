@@ -30,33 +30,28 @@ let
   deps = lib.mapAttrs
     (name: spec:
       fetchFromGitHub {
-        owner = "Alexey-T";
         repo = name;
-        inherit (spec) rev sha256;
+        inherit (spec) owner rev sha256;
       }
     )
     (builtins.fromJSON (builtins.readFile ./deps.json));
 in
 stdenv.mkDerivation rec {
   pname = "cudatext";
-  version = "1.111.0";
+  version = "1.122.3";
 
   src = fetchFromGitHub {
     owner = "Alexey-T";
     repo = "CudaText";
     rev = version;
-    sha256 = "1ai0g8fmw4m237dqh5dkr8w9qqricyvp49ijz2ivvmg9dsdfzjfp";
+    sha256 = "1h56hj433z0n4l97zl1cwkjv0qvz4qmvf469zzjzf1nj4zj8px2b";
   };
-
-  patches = [
-    # Don't check for update
-    ./dont-check-update.patch
-  ];
 
   postPatch = ''
     substituteInPlace app/proc_globdata.pas \
       --replace "/usr/share/cudatext" "$out/share/cudatext" \
-      --replace "libpython3.so" "${python3}/lib/libpython3.so"
+      --replace "libpython3.so" "${python3}/lib/libpython${python3.pythonVersion}.so" \
+      --replace "AllowProgramUpdates:= true;" "AllowProgramUpdates:= false;"
   '';
 
   nativeBuildInputs = [ lazarus fpc ]
@@ -74,6 +69,7 @@ stdenv.mkDerivation rec {
     cp -r --no-preserve=mode ${dep} ${name}
   '') deps) + ''
     lazbuild --lazarusdir=${lazarus}/share/lazarus --pcp=./lazarus --ws=${widgetset} \
+      bgrabitmap/bgrabitmap/bgrabitmappack.lpk \
       EncConv/encconv/encconv_package.lpk \
       ATBinHex-Lazarus/atbinhex/atbinhex_package.lpk \
       ATFlatControls/atflatcontrols/atflatcontrols_package.lpk \
@@ -106,6 +102,7 @@ stdenv.mkDerivation rec {
       Search and replace with RegEx. Extendable by Python plugins and themes.
     '';
     homepage = "http://www.uvviewsoft.com/cudatext/";
+    changelog = "http://uvviewsoft.com/cudatext/history.txt";
     license = licenses.mpl20;
     maintainers = with maintainers; [ sikmir ];
     platforms = platforms.linux;

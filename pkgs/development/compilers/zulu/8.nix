@@ -1,6 +1,6 @@
 { stdenv, lib, fetchurl, unzip, makeWrapper, setJavaClassPath
-, zulu, glib, libxml2, libav_0_8, ffmpeg_3, libxslt, libGL, alsaLib
-, fontconfig, freetype, gnome2, cairo, gdk-pixbuf, atk, xorg
+, zulu, glib, libxml2, ffmpeg_3, libxslt, libGL, alsaLib
+, fontconfig, freetype, pango, gtk2, cairo, gdk-pixbuf, atk, xorg
 , swingSupport ? true }:
 
 let
@@ -15,9 +15,9 @@ let
   extension = if stdenv.isDarwin then "zip" else "tar.gz";
 
   libraries = [
-    stdenv.cc.libc glib libxml2 libav_0_8 ffmpeg_3 libxslt libGL
-    xorg.libXxf86vm alsaLib fontconfig freetype gnome2.pango
-    gnome2.gtk cairo gdk-pixbuf atk
+    stdenv.cc.libc glib libxml2 ffmpeg_3 libxslt libGL
+    xorg.libXxf86vm alsaLib fontconfig freetype pango
+    gtk2 cairo gdk-pixbuf atk
   ] ++ (lib.optionals swingSupport (with xorg; [
     xorg.libX11 xorg.libXext xorg.libXtst xorg.libXi xorg.libXp
     xorg.libXt xorg.libXrender stdenv.cc.cc
@@ -62,13 +62,13 @@ in stdenv.mkDerivation {
     EOF
   '';
 
-  rpath = stdenv.lib.strings.makeLibraryPath libraries;
+  rpath = lib.strings.makeLibraryPath libraries;
 
   passthru = {
     home = zulu;
   };
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     homepage = "https://www.azul.com/products/zulu/";
     license = licenses.gpl2;
     description = "Certified builds of OpenJDK";
@@ -76,7 +76,7 @@ in stdenv.mkDerivation {
       Certified builds of OpenJDK that can be deployed across multiple
       operating systems, containers, hypervisors and Cloud platforms.
     '';
-    maintainers = with maintainers; [ nequissimus fpletz ];
+    maintainers = with maintainers; [ fpletz ];
     platforms = [ "x86_64-linux" "x86_64-darwin" ];
   };
 }

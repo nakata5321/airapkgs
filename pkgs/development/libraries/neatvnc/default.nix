@@ -1,27 +1,22 @@
-{ stdenv, fetchFromGitHub, meson, pkg-config, ninja
+{ lib, stdenv, fetchFromGitHub, meson, pkg-config, ninja
 , pixman, gnutls, libdrm, libjpeg_turbo, zlib, aml
 }:
 
 stdenv.mkDerivation rec {
   pname = "neatvnc";
-  version = "0.3.1";
+  version = "0.4.0";
 
   src = fetchFromGitHub {
     owner = "any1";
     repo = pname;
     rev = "v${version}";
-    sha256 = "1209dzlmqf5p1cqzf6kss5inwgj644ynrh9qgpjf1kskqwfxn1c4";
+    sha256 = "1wpq1vyjqra877vwc3n4i0c1dyhmabyn993cslf1k142ikyc0a8w";
   };
-
-  postPatch = ''
-    substituteInPlace meson.build --replace \
-      "version: '0.2.0'" "version: '${version}'"
-  '';
 
   nativeBuildInputs = [ meson pkg-config ninja ];
   buildInputs = [ pixman gnutls libdrm libjpeg_turbo zlib aml ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "A VNC server library";
     longDescription = ''
       This is a liberally licensed VNC server library that's intended to be

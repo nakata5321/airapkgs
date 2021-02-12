@@ -1,4 +1,4 @@
-{ stdenv, callPackage, fetchFromGitHub, autoreconfHook, pkgconfig
+{ lib, stdenv, callPackage, fetchFromGitHub, autoreconfHook, pkg-config
 , CoreFoundation, IOKit, libossp_uuid
 , curl, libcap,  libuuid, lm_sensors, zlib, fetchpatch
 , nixosTests
@@ -10,22 +10,22 @@
 , withDebug ? false
 }:
 
-with stdenv.lib;
+with lib;
 
 let
   go-d-plugin = callPackage ./go.d.plugin.nix {};
 in stdenv.mkDerivation rec {
-  version = "1.25.0";
+  version = "1.29.0";
   pname = "netdata";
 
   src = fetchFromGitHub {
     owner = "netdata";
     repo = "netdata";
     rev = "v${version}";
-    sha256 = "0wsgs0slqmj9q5prwlx7d4692lc4c42g0sv35r33vlxnfdwimfh5";
+    sha256 = "sha256-Bkap0Ld5zz+HxEjkZrmPZieUpyim4/gpE8oL0q9LGqk=";
   };
 
-  nativeBuildInputs = [ autoreconfHook pkgconfig ];
+  nativeBuildInputs = [ autoreconfHook pkg-config ];
   buildInputs = [ curl.dev zlib.dev ]
     ++ optionals stdenv.isDarwin [ CoreFoundation IOKit libossp_uuid ]
     ++ optionals (!stdenv.isDarwin) [ libcap.dev libuuid.dev ]

@@ -77,6 +77,27 @@ in import ./make-test-python.nix ({ lib, ... }: {
         after = [ "acme-a.example.test.service" "nginx-config-reload.service" ];
       };
 
+      # Test that account creation is collated into one service
+      specialisation.account-creation.configuration = { nodes, pkgs, lib, ... }: let
+        email = "newhostmaster@example.test";
+        caDomain = nodes.acme.config.test-support.acme.caDomain;
+        # Exit 99 to make it easier to track if this is the reason a renew failed
+        testScript = ''
+          test -e accounts/${caDomain}/${email}/account.json || exit 99
+        '';
+      in {
+        security.acme.email = lib.mkForce email;
+        systemd.services."b.example.test".preStart = testScript;
+        systemd.services."c.example.test".preStart = testScript;
+
+        services.nginx.virtualHosts."b.example.test" = (vhostBase pkgs) // {
+          enableACME = true;
+        };
+        services.nginx.virtualHosts."c.example.test" = (vhostBase pkgs) // {
+          enableACME = true;
+        };
+      };
+
       # Cert config changes will not cause the nginx configuration to change.
       # This tests that the reload service is correctly triggered.
       # It also tests that postRun is exec'd as root
@@ -94,6 +115,19 @@ in import ./make-test-python.nix ({ lib, ... }: {
       specialisation.nginx-aliases.configuration = { pkgs, ... }: {
         services.nginx.virtualHosts."a.example.test" = {
           serverAliases = [ "b.example.test" ];
+        };
+      };
+
+      # Test OCSP Stapling
+      specialisation.ocsp-stapling.configuration = { pkgs, ... }: {
+        security.acme.certs."a.example.test" = {
+          ocspMustStaple = true;
+        };
+        services.nginx.virtualHosts."a.example.com" = {
+          extraConfig = ''
+            ssl_stapling on;
+            ssl_stapling_verify on;
+          '';
         };
       };
 
@@ -163,6 +197,7 @@ in import ./make-test-python.nix ({ lib, ... }: {
 
   testScript = {nodes, ...}:
     let
+      caDomain = nodes.acme.config.test-support.acme.caDomain;
       newServerSystem = nodes.webserver.config.system.build.toplevel;
       switchToNewServer = "${newServerSystem}/bin/switch-to-configuration test";
     in
@@ -246,6 +281,22 @@ in import ./make-test-python.nix ({ lib, ... }: {
               return check_connection_key_bits(node, domain, bits, retries - 1)
 
 
+      def check_stapling(node, domain, retries=3):
+          assert retries >= 0
+
+          # Pebble doesn't provide a full OCSP responder, so just check the URL
+          result = node.succeed(
+              "openssl s_client -CAfile /tmp/ca.crt"
+              f" -servername {domain} -connect {domain}:443 < /dev/null"
+              " | openssl x509 -noout -ocsp_uri"
+          )
+          print("OCSP Responder URL:", result)
+
+          if "${caDomain}:4002" not in result.lower():
+              time.sleep(1)
+              return check_stapling(node, domain, retries - 1)
+
+
       client.start()
       dnsserver.start()
 
@@ -253,17 +304,17 @@ in import ./make-test-python.nix ({ lib, ... }: {
       client.wait_for_unit("default.target")
 
       client.succeed(
-          'curl --data \'{"host": "acme.test", "addresses": ["${nodes.acme.config.networking.primaryIPAddress}"]}\' http://${dnsServerIP nodes}:8055/add-a'
+          'curl --data \'{"host": "${caDomain}", "addresses": ["${nodes.acme.config.networking.primaryIPAddress}"]}\' http://${dnsServerIP nodes}:8055/add-a'
       )
 
       acme.start()
       webserver.start()
 
-      acme.wait_for_unit("default.target")
+      acme.wait_for_unit("network-online.target")
       acme.wait_for_unit("pebble.service")
 
-      client.succeed("curl https://acme.test:15000/roots/0 > /tmp/ca.crt")
-      client.succeed("curl https://acme.test:15000/intermediate-keys/0 >> /tmp/ca.crt")
+      client.succeed("curl https://${caDomain}:15000/roots/0 > /tmp/ca.crt")
+      client.succeed("curl https://${caDomain}:15000/intermediate-keys/0 >> /tmp/ca.crt")
 
       with subtest("Can request certificate with HTTPS-01 challenge"):
           webserver.wait_for_unit("acme-finished-a.example.test.target")
@@ -284,11 +335,25 @@ in import ./make-test-python.nix ({ lib, ... }: {
           check_issuer(webserver, "a.example.test", "pebble")
           check_connection(client, "a.example.test")
 
+      with subtest("Runs 1 cert for account creation before others"):
+          switch_to(webserver, "account-creation")
+          webserver.wait_for_unit("acme-finished-a.example.test.target")
+          check_connection(client, "a.example.test")
+          webserver.wait_for_unit("acme-finished-b.example.test.target")
+          webserver.wait_for_unit("acme-finished-c.example.test.target")
+          check_connection(client, "b.example.test")
+          check_connection(client, "c.example.test")
+
       with subtest("Can reload web server when cert configuration changes"):
           switch_to(webserver, "cert-change")
           webserver.wait_for_unit("acme-finished-a.example.test.target")
           check_connection_key_bits(client, "a.example.test", "384")
           webserver.succeed("grep testing /var/lib/acme/a.example.test/test")
+
+      with subtest("Correctly implements OCSP stapling"):
+          switch_to(webserver, "ocsp-stapling")
+          webserver.wait_for_unit("acme-finished-a.example.test.target")
+          check_stapling(client, "a.example.test")
 
       with subtest("Can request certificate with HTTPS-01 when nginx startup is delayed"):
           switch_to(webserver, "slow-startup")

@@ -1,27 +1,50 @@
 { lib
-, python3
-, python3Packages
+, buildPythonPackage
+, fetchFromGitHub
+, aniso8601
+, iso8601
+, graphql-core
+, graphql-relay
+, pytestCheckHook
+, pytest-asyncio
+, pytest-benchmark
+, pytest-mock
+, pytz
+, snapshottest
 }:
 
-python3Packages.buildPythonApplication rec {
+buildPythonPackage rec {
   pname = "graphene";
-  version = "2.1.8";
+  version = "3.0.0b7";
 
-  propagatedBuildInputs = with python3Packages; [ graphql-relay aniso8601_7_0_0 ];
-
-  src = python3Packages.fetchPypi {
-    inherit version;
-    pname  = "graphene";
-    sha256 = "1y8jgi4wzln0zl6rj3qvrrhp2x40bc70lxp00mw7pz2wy576vgic";
+  src = fetchFromGitHub {
+    owner = "graphql-python";
+    repo = "graphene";
+    rev = "v${version}";
+    sha256 = "sha256-bVCCLPnV5F8PqLMg3GwcpwpGldrxsU+WryL6gj6y338=";
   };
 
-  doCheck = false;
+  propagatedBuildInputs = [
+    aniso8601
+    graphql-core
+    graphql-relay
+  ];
+
+  checkInputs = [
+    pytestCheckHook
+    pytest-asyncio
+    pytest-benchmark
+    pytest-mock
+    pytz
+    snapshottest
+  ];
+
+  pythonImportsCheck = [ "graphene" ];
 
   meta = with lib; {
-    description = "Graphene is a Python library for building GraphQL schemas/types fast and easily.";
-    homepage = https://github.com/graphql-python/graphene;
+    description = "GraphQL Framework for Python";
+    homepage = "https://github.com/graphql-python/graphene";
     license = licenses.mit;
-    maintainers = with maintainers; [ vourhey ];
+    maintainers = with maintainers; [ SuperSandro2000 ];
   };
 }
-

@@ -1,30 +1,28 @@
-{ stdenv, fetchFromGitHub, pkgconfig, wrapGAppsHook
+{ lib, stdenv, fetchFromGitHub, pkg-config, wrapGAppsHook
 , help2man, luafilesystem, luajit, sqlite
 , webkitgtk, gtk3, gst_all_1, glib-networking
 }:
 
 stdenv.mkDerivation rec {
   pname = "luakit";
-  version = "2.2";
+  version = "2.2.1";
 
   src = fetchFromGitHub {
     owner = "luakit";
-    repo = "luakit";
+    repo = pname;
     rev = version;
-    sha256 = "sha256-rpHW5VyntmmtekdNcZMIw8Xdv4cfiqJaaHj4ZFFGjYc=";
+    sha256 = "sha256-78B8vXkWsFMJIHA72Qrk2SWubrY6YuArqcM0UAPjpzc=";
   };
 
   nativeBuildInputs = [
-    pkgconfig help2man wrapGAppsHook
+    pkg-config help2man wrapGAppsHook
   ];
 
   buildInputs = [
     webkitgtk luafilesystem luajit sqlite gtk3
-    gst_all_1.gstreamer gst_all_1.gst-plugins-base
-    gst_all_1.gst-plugins-good gst_all_1.gst-plugins-bad gst_all_1.gst-plugins-ugly
-    gst_all_1.gst-libav
     glib-networking # TLS support
-  ];
+  ] ++ ( with gst_all_1; [ gstreamer gst-plugins-base gst-plugins-good
+                           gst-plugins-bad gst-plugins-ugly gst-libav ]);
 
   preBuild = ''
     # build-utils/docgen/gen.lua:2: module 'lib.lousy.util' not found
@@ -53,7 +51,7 @@ stdenv.mkDerivation rec {
     )
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Fast, small, webkit-based browser framework extensible in Lua";
     longDescription = ''
       Luakit is a highly configurable browser framework based on the WebKit web

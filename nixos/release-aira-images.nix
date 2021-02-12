@@ -51,6 +51,16 @@ in rec {
         ];
     }).config.system.build.virtualBoxOVA);
 
+  ova_image_ws = with import nixpkgsSrc { system = "x86_64-linux"; };
+    lib.hydraJob ((import lib/eval-config.nix {
+      inherit system;
+      modules =
+        [ ./modules/installer/virtualbox-minimal.nix
+          ./modules/installer/aira_ws.nix
+          ./modules/profiles/aira-foundation.nix
+        ];
+    }).config.system.build.virtualBoxOVA);
+
   # A bootable SD card image for AArch64 SBCs.
   sd_image = with import nixpkgsSrc { system = "aarch64-linux"; };
     lib.hydraJob ((import lib/eval-config.nix {
@@ -89,8 +99,8 @@ in rec {
       websocket-star-rendezvous
 
       robonomics_dev
-      robonomics_comm
-      robonomics_comm-nightly
+#      robonomics_comm
+#      robonomics_comm-nightly
       robonomics_tutorials
       robonomics-tools;
       #      substrate-node-robonomics;
@@ -105,6 +115,7 @@ in rec {
     constituents =
       [ 
         ova_image
+        ova_image_ws
         sd_image
         aira_image_rpi4
       ]

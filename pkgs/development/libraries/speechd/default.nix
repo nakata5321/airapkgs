@@ -1,13 +1,13 @@
-{ stdenv
+{ lib, stdenv
 , substituteAll
-, pkgconfig
+, pkg-config
 , fetchurl
 , python3Packages
 , gettext
 , itstool
 , libtool
 , texinfo
-, utillinux
+, util-linux
 , autoreconfHook
 , glib
 , dotconf
@@ -24,7 +24,7 @@
 }:
 
 let
-  inherit (stdenv.lib) optional optionals;
+  inherit (lib) optional optionals;
   inherit (python3Packages) python pyxdg wrapPython;
 
   # speechd hard-codes espeak, even when built without support for it.
@@ -49,12 +49,12 @@ in stdenv.mkDerivation rec {
   patches = [
     (substituteAll {
       src = ./fix-paths.patch;
-      inherit utillinux;
+      utillinux = util-linux;
     })
   ];
 
   nativeBuildInputs = [
-    pkgconfig
+    pkg-config
     autoreconfHook
     gettext
     libtool
@@ -88,7 +88,7 @@ in stdenv.mkDerivation rec {
   configureFlags = [
     # Audio method falls back from left to right.
     "--with-default-audio-method=\"libao,pulse,alsa,oss\""
-    "--with-systemdsystemunitdir=${placeholder ''out''}/lib/systemd/system"
+    "--with-systemdsystemunitdir=${placeholder "out"}/lib/systemd/system"
   ] ++ optional withPulse "--with-pulse"
     ++ optional withAlsa "--with-alsa"
     ++ optional withLibao "--with-libao"
@@ -110,7 +110,7 @@ in stdenv.mkDerivation rec {
 
   enableParallelBuilding = true;
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Common interface to speech synthesis";
     homepage = "https://devel.freebsoft.org/speechd";
     license = licenses.gpl2Plus;

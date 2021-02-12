@@ -1,12 +1,53 @@
 { lib }:
 
-with lib.lists;
-with lib.strings;
-with lib.trivial;
-with lib.attrsets;
-with lib.options;
-with lib.debug;
-with lib.types;
+let
+  inherit (lib)
+    all
+    any
+    attrByPath
+    attrNames
+    catAttrs
+    concatLists
+    concatMap
+    count
+    elem
+    filter
+    findFirst
+    flip
+    foldl
+    foldl'
+    getAttrFromPath
+    head
+    id
+    imap1
+    isAttrs
+    isBool
+    isFunction
+    isString
+    length
+    mapAttrs
+    mapAttrsToList
+    mapAttrsRecursiveCond
+    min
+    optional
+    optionalAttrs
+    optionalString
+    recursiveUpdate
+    reverseList sort
+    setAttrByPath
+    toList
+    types
+    warn
+    ;
+  inherit (lib.options)
+    isOption
+    mkOption
+    showDefs
+    showFiles
+    showOption
+    unknownModule
+    ;
+in
 
 rec {
 
@@ -224,7 +265,7 @@ rec {
       if badAttrs != {} then
         throw "Module `${key}' has an unsupported attribute `${head (attrNames badAttrs)}'. This is caused by introducing a top-level `config' or `options' attribute. Add configuration attributes immediately on the top level instead, or move all of them (namely: ${toString (attrNames badAttrs)}) into the explicit `config' attribute."
       else
-        { _file = m._file or file;
+        { _file = toString m._file or file;
           key = toString m.key or key;
           disabledModules = m.disabledModules or [];
           imports = m.imports or [];
@@ -232,7 +273,7 @@ rec {
           config = addFreeformType (addMeta (m.config or {}));
         }
     else
-      { _file = m._file or file;
+      { _file = toString m._file or file;
         key = toString m.key or key;
         disabledModules = m.disabledModules or [];
         imports = m.require or [] ++ m.imports or [];
@@ -616,7 +657,7 @@ rec {
   fixupOptionType = loc: opt:
     let
       options = opt.options or
-        (throw "Option `${showOption loc'}' has type optionSet but has no option attribute, in ${showFiles opt.declarations}.");
+        (throw "Option `${showOption loc}' has type optionSet but has no option attribute, in ${showFiles opt.declarations}.");
       f = tp:
         let optionSetIn = type: (tp.name == type) && (tp.functor.wrapped.name == "optionSet");
         in
@@ -719,7 +760,7 @@ rec {
 
        mkRemovedOptionModule [ "boot" "loader" "grub" "bootDevice" ] "<replacement instructions>"
 
-     causes a warning if the user defines boot.loader.grub.bootDevice.
+     causes a assertion if the user defines boot.loader.grub.bootDevice.
 
      replacementInstructions is a string that provides instructions on
      how to achieve the same functionality without the removed option,
@@ -854,7 +895,7 @@ rec {
       fromOpt = getAttrFromPath from options;
       toOf = attrByPath to
         (abort "Renaming error: option `${showOption to}' does not exist.");
-      toType = let opt = attrByPath to {} options; in opt.type or null;
+      toType = let opt = attrByPath to {} options; in opt.type or (types.submodule {});
     in
     {
       options = setAttrByPath from (mkOption {
@@ -875,4 +916,21 @@ rec {
       ];
     };
 
+  /* Use this function to import a JSON file as NixOS configuration.
+
+     importJSON -> path -> attrs
+  */
+  importJSON = file: {
+    _file = file;
+    config = lib.importJSON file;
+  };
+
+  /* Use this function to import a TOML file as NixOS configuration.
+
+     importTOML -> path -> attrs
+  */
+  importTOML = file: {
+    _file = file;
+    config = lib.importTOML file;
+  };
 }

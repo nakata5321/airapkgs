@@ -3,7 +3,7 @@
 , fetchFromGitHub
 , autoreconfHook
 , go-md2man
-, pkgconfig
+, pkg-config
 , libcap
 , libseccomp
 , python3
@@ -35,17 +35,17 @@ let
 in
 stdenv.mkDerivation rec {
   pname = "crun";
-  version = "0.15";
+  version = "0.17";
 
   src = fetchFromGitHub {
     owner = "containers";
     repo = pname;
     rev = version;
-    sha256 = "0cqzk2lm1w0g2v6qhiliq565cf4p7hzh839jb01p3i5cr9kx11kc";
+    sha256 = "sha256-OdB7UXLG99ErbfSCvq87LxBy5EYkUvTfyQNG70RFbl4=";
     fetchSubmodules = true;
   };
 
-  nativeBuildInputs = [ autoreconfHook go-md2man pkgconfig python3 ];
+  nativeBuildInputs = [ autoreconfHook go-md2man pkg-config python3 ];
 
   buildInputs = [ libcap libseccomp systemd yajl ];
 

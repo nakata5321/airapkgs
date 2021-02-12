@@ -276,10 +276,10 @@ in rec {
           in [ "--cross-file=${crossFile}" ] ++ mesonFlags;
         } // lib.optionalAttrs (attrs.enableParallelBuilding or false) {
           enableParallelChecking = attrs.enableParallelChecking or true;
-        } // lib.optionalAttrs (hardeningDisable != [] || hardeningEnable != []) {
+        } // lib.optionalAttrs (hardeningDisable != [] || hardeningEnable != [] || stdenv.hostPlatform.isMusl) {
           NIX_HARDENING_ENABLE = enabledHardeningOptions;
-        } // lib.optionalAttrs (stdenv.hostPlatform.isx86_64 && stdenv.hostPlatform ? platform.gcc.arch) {
-          requiredSystemFeatures = attrs.requiredSystemFeatures or [] ++ [ "gccarch-${stdenv.hostPlatform.platform.gcc.arch}" ];
+        } // lib.optionalAttrs (stdenv.hostPlatform.isx86_64 && stdenv.hostPlatform ? gcc.arch) {
+          requiredSystemFeatures = attrs.requiredSystemFeatures or [] ++ [ "gccarch-${stdenv.hostPlatform.gcc.arch}" ];
         } // lib.optionalAttrs (stdenv.buildPlatform.isDarwin) {
           inherit __darwinAllowLocalNetworking;
           # TODO: remove lib.unique once nix has a list canonicalization primitive
@@ -328,8 +328,9 @@ in rec {
         # Fill `meta.position` to identify the source location of the package.
         // lib.optionalAttrs (pos != null) {
           position = pos.file + ":" + toString pos.line;
-        # Expose the result of the checks for everyone to see.
         } // {
+          # Expose the result of the checks for everyone to see.
+          inherit (validity) unfree broken unsupported insecure;
           available = validity.valid
                    && (if config.checkMetaRecursively or false
                        then lib.all (d: d.meta.available or true) references

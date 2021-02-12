@@ -36,16 +36,9 @@ let
     patches =
       [
         # Do not look in /usr etc. for dependencies.
-        (if (versionOlder version "5.29.6") then ./no-sys-dirs-5.26.patch
-         else if (versionOlder version "5.31.1") then ./no-sys-dirs-5.29.patch
+        (if (versionOlder version "5.31.1") then ./no-sys-dirs-5.29.patch
          else ./no-sys-dirs-5.31.patch)
       ]
-      ++ optional (versionOlder version "5.29.6")
-        # Fix parallel building: https://rt.perl.org/Public/Bug/Display.html?id=132360
-        (fetchurl {
-          url = "https://rt.perl.org/Public/Ticket/Attachment/1502646/807252/0001-Fix-missing-build-dependency-for-pods.patch";
-          sha256 = "1bb4mldfp8kq1scv480wm64n2jdsqa3ar46cjp1mjpby8h5dr2r0";
-        })
       ++ optional stdenv.isSunOS ./ld-shared.patch
       ++ optionals stdenv.isDarwin [ ./cpp-precomp.patch ./sw_vers.patch ]
       ++ optional crossCompiling ./MakeMaker-cross.patch;
@@ -175,11 +168,11 @@ let
       priority = 6; # in `buildEnv' (including the one inside `perl.withPackages') the library files will have priority over files in `perl`
     };
   } // optionalAttrs (stdenv.buildPlatform != stdenv.hostPlatform) rec {
-    crossVersion = "15ca5359f99698ef0a199bc307b7956c08907abc"; # Aug 27, 2020
+    crossVersion = "4c55233ae95a6aef4d93291fe8ad12709b11e575"; # Jan 21, 2021
 
     perl-cross-src = fetchurl {
       url = "https://github.com/arsv/perl-cross/archive/${crossVersion}.tar.gz";
-      sha256 = "0pcwv2ac02i2l0fjc8drdw70q6gwbypj2c5a53x2449m919v37h9";
+      sha256 = "04bxn43ir7b4c2bb1z1l71l93hrysjv00h879nm70m99q6vxq2hc";
     };
 
     depsBuildBuild = [ buildPackages.stdenv.cc makeWrapper ];
@@ -215,7 +208,7 @@ in {
   perldevel = common {
     perl = pkgs.perldevel;
     buildPerl = buildPackages.perldevel;
-    version = "5.33.1";
-    sha256 = "1rlnqqqzyhal79ys5dv7fwm3mg81s43dwks28b74x2gcmsngjnw9";
+    version = "5.33.6";
+    sha256 = "1fx6b2q7wzd0xwy7qkmkvd5bdm09d3zfnynrb6afl9ghd8ww56fv";
   };
 }

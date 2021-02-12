@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, makeWrapper, jre, ncurses }:
+{ lib, stdenv, fetchurl, makeWrapper, jre, ncurses }:
 
 stdenv.mkDerivation rec {
   version = "0.26.0-RC1";
@@ -24,8 +24,8 @@ stdenv.mkDerivation rec {
         done
   '';
 
-  meta = with stdenv.lib; {
-    description = "Research platform for new language concepts and compiler technologies for Scala.";
+  meta = with lib; {
+    description = "Research platform for new language concepts and compiler technologies for Scala";
     longDescription = ''
        Dotty is a platform to try out new language concepts and compiler technologies for Scala.
        The focus is mainly on simplification. We remove extraneous syntax (e.g. no XML literals),

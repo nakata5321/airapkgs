@@ -2,13 +2,13 @@
 
 let
   pname = "plexamp";
-  version = "3.2.0";
+  version = "3.4.1";
   name = "${pname}-${version}";
 
   src = fetchurl {
     url = "https://plexamp.plex.tv/plexamp.plex.tv/desktop/Plexamp-${version}.AppImage";
-    sha256 = "R1BhobnwoU7oJ7bNes8kH2neXqHlMPbRCNjcHyzUPqo=";
     name="${pname}-${version}.AppImage";
+    sha256 = "Vv+e1q5ThuXDPX8baSU+7/U63p6/dvh0ZvScO1Loj+U=";
   };
 
   appimageContents = appimageTools.extractType2 {
@@ -30,7 +30,7 @@ in appimageTools.wrapType2 {
   '';
 
   meta = with lib; {
-    description = "A beautiful Plex music player for audiophiles, curators, and hipsters.";
+    description = "A beautiful Plex music player for audiophiles, curators, and hipsters";
     homepage = "https://plexamp.com/";
     license = licenses.unfree;
     maintainers = with maintainers; [ killercup ];

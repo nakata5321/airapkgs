@@ -1,6 +1,6 @@
 { lib
 , buildPythonPackage
-, fetchPypi
+, fetchFromGitHub
 , isPy3k
 , xmltodict
 , requests
@@ -9,17 +9,21 @@
 # Test dependencies
 , pytest, pylint, flake8, graphviz
 , mock, sphinx, sphinx_rtd_theme
+, requests-mock
 }:
 
 buildPythonPackage rec {
   pname = "pysonos";
-  version = "0.0.32";
+  version = "0.0.40";
 
   disabled = !isPy3k;
 
-  src = fetchPypi {
-    inherit pname version;
-    sha256 = "b739d20807f5fac95f8e02831faaf04023b7a8cb6f371024d89fd16c6bd8a589";
+  # pypi package is missing test fixtures
+  src = fetchFromGitHub {
+    owner = "amelchio";
+    repo = pname;
+    rev = "v${version}";
+    sha256 = "0a0c7jwv39nbvpdcx32sd8kjmj4nyrd7k0yxhpmxdnx4zr4vvzqg";
   };
 
   propagatedBuildInputs = [ xmltodict requests ifaddr ];
@@ -27,6 +31,7 @@ buildPythonPackage rec {
   checkInputs = [
     pytest pylint flake8 graphviz
     mock sphinx sphinx_rtd_theme
+    requests-mock
   ];
 
   checkPhase = ''

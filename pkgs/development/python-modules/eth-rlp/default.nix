@@ -8,7 +8,7 @@
 
 let
   pname = "eth-rlp";
-  version = "0.1.2";
+  version = "0.2.1";
 in buildPythonPackage rec {
   name = "${pname}-${version}";
 
@@ -16,7 +16,7 @@ in buildPythonPackage rec {
     owner = "ethereum";
     repo = "${pname}";
     rev = "v${version}";
-    sha256 = "1ih4lf158zafbpvznkl5q288r9rzjg9q0wijskiylqff23cn0z79";
+    sha256 = "13qhvq8agp6khg0nlmzxp5m1hv7snwxq9bvsz84kgm5ggjq0b6q4";
   };
 
   propagatedBuildInputs = [ eth-utils hexbytes rlp ];
