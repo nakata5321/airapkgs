@@ -3,7 +3,7 @@
 
 buildPythonPackage rec {
   pname = "eth-utils";
-  version = "1.9.5";
+  version = "1.10.0";
 
   # Tests are missing from the PyPI source tarball so let's use GitHub
   # https://github.com/ethereum/eth-utils/issues/130

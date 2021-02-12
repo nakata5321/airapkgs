@@ -6,13 +6,13 @@
 
 let
   pname = "hexbytes";
-  version = "0.1.0";
+  version = "0.2.1";
 in buildPythonPackage rec {
   name = "${pname}-${version}";
 
   src = fetchurl {
     url = "mirror://pypi/${builtins.substring 0 1 pname}/${pname}/${name}.tar.gz";
-    sha256 = "1piqrx5ya45ghbf9y8dmy9z2037pn5dmk3h5xm60lkd1nj661rb7";
+    sha256 = "0nilaqihqlnkqzvaxzz8mfygxb5661wrmjj39yrpxz2jgwwwygqj";
   };
 
   propagatedBuildInputs = [ eth-utils ];
