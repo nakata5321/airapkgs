@@ -1,5 +1,8 @@
-{ buildPythonPackage
-, fetchPypi
+{ lib
+, buildPythonPackage
+, fetchFromGitHub
+, isPy27
+, six
 , requests
 , isPy27
 , lib
@@ -19,10 +22,10 @@ buildPythonPackage rec {
 
   propagatedBuildInputs = [ requests ];
 
-  meta = {
-    description = "A python client library for the IPFS API.";
-    homepage = https://github.com/ipfs/py-ipfs-api;
-    license = lib.licenses.mit;
-    maintainers = [ lib.maintainers.akru ];
+  meta = with lib; {
+    description = "A python client library for the IPFS API";
+    license = licenses.mit;
+    maintainers = with maintainers; [ mguentner ];
+    homepage = "https://pypi.python.org/pypi/ipfsapi";
   };
 }

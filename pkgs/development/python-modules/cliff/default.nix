@@ -7,21 +7,20 @@
 , six
 , stevedore
 , pyyaml
-, unicodecsv
 , cmd2
-, pytest
-, mock
+, pytestCheckHook
 , testtools
 , fixtures
+, which
 }:
 
 buildPythonPackage rec {
   pname = "cliff";
-  version = "3.4.0";
+  version = "3.6.0";
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "49be854582ec4a74240cb72f287846f823cd8cbd2e25f924541d12f27104bda3";
+    sha256 = "a3f4fa67eeafbcfa7cf9fe4b1755d410876528e1d0d115740db00b50a1250272";
   };
 
   propagatedBuildInputs = [
@@ -32,20 +31,21 @@ buildPythonPackage rec {
     stevedore
     pyyaml
     cmd2
-    unicodecsv
   ];
 
-  # remove version constraints
   postPatch = ''
-    sed -i '/cmd2/c\cmd2' requirements.txt
+    sed -i -e '/cmd2/c\cmd2' -e '/PrettyTable/c\PrettyTable' requirements.txt
   '';
 
-  checkInputs = [ fixtures mock pytest testtools ];
+  checkInputs = [ fixtures pytestCheckHook testtools which ];
   # add some tests
-  checkPhase = ''
-    pytest cliff/tests/test_{utils,app,command,help,lister}.py \
-      -k 'not interactive_mode'
-  '';
+  pytestFlagsArray = [
+    "cliff/tests/test_utils.py"
+    "cliff/tests/test_app.py"
+    "cliff/tests/test_command.py"
+    "cliff/tests/test_help.py"
+    "cliff/tests/test_lister.py"
+  ];
 
   meta = with lib; {
     description = "Command Line Interface Formulation Framework";

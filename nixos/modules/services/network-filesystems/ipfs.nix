@@ -95,6 +95,13 @@ in {
 
       enable = mkEnableOption "Interplanetary File System (WARNING: may cause severe network degredation)";
 
+      package = mkOption {
+        type = types.package;
+        default = pkgs.ipfs;
+        defaultText = "pkgs.ipfs";
+        description = "Which IPFS package to use.";
+      };
+
       user = mkOption {
         type = types.str;
         default = "ipfs";
@@ -266,14 +273,14 @@ in {
       "d '${cfg.ipnsMountDir}' - ${cfg.user} ${cfg.group} - -"
     ];
 
-    systemd.packages = [ pkgs.ipfs ];
+    systemd.packages = [ cfg.package ];
 
     systemd.services.ipfs-init = {
       description = "IPFS Initializer";
 
       environment.IPFS_PATH = cfg.dataDir;
 
-      path = [ pkgs.ipfs ];
+      path = [ cfg.package ];
 
       script = ''
         if [[ ! -f ${cfg.dataDir}/config ]]; then
@@ -300,7 +307,7 @@ in {
     };
 
     systemd.services.ipfs = {
-      path = [ "/run/wrappers" pkgs.ipfs ];
+      path = [ "/run/wrappers" cfg.package ];
       environment.IPFS_PATH = cfg.dataDir;
 
       wants = [ "ipfs-init.service" ];
@@ -328,7 +335,7 @@ in {
               cfg.extraConfig))
           );
       serviceConfig = {
-        ExecStart = ["" "${pkgs.ipfs}/bin/ipfs daemon ${ipfsFlags}"];
+        ExecStart = ["" "${cfg.package}/bin/ipfs daemon ${ipfsFlags}"];
         User = cfg.user;
         Group = cfg.group;
       } // optionalAttrs (cfg.serviceFdlimit != null) { LimitNOFILE = cfg.serviceFdlimit; };

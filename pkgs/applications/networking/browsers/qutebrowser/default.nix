@@ -1,4 +1,4 @@
-{ stdenv, lib, fetchurl, fetchzip, python3
+{ lib, fetchurl, fetchzip, python3
 , mkDerivationWith, wrapQtAppsHook, wrapGAppsHook, qtbase, glib-networking
 , asciidoc, docbook_xml_dtd_45, docbook_xsl, libxml2
 , libxslt, gst_all_1 ? null
@@ -12,12 +12,12 @@ assert withMediaPlayback -> gst_all_1 != null;
 let
   python3Packages = python3.pkgs;
   pdfjs = let
-    version = "2.4.456";
+    version = "2.6.347";
   in
   fetchzip rec {
     name = "pdfjs-${version}";
     url = "https://github.com/mozilla/pdf.js/releases/download/v${version}/${name}-dist.zip";
-    sha256 = "02hpy96pi06gdq2s7n56ycm34d6d3gf8ly22y366np5vpwmc29rx";
+    sha256 = "0d016fyg81cq464li01xlkf9rxrb3rpsvmk5gh9m4d5yzmcakkfm";
     stripRoot = false;
   };
 
@@ -31,12 +31,12 @@ let
 
 in mkDerivationWith python3Packages.buildPythonApplication rec {
   pname = "qutebrowser";
-  version = "1.13.1";
+  version = "2.0.2";
 
   # the release tarballs are different from the git checkout!
   src = fetchurl {
     url = "https://github.com/qutebrowser/qutebrowser/releases/download/v${version}/${pname}-${version}.tar.gz";
-    sha256 = "1n72dvrv4dch4i07lsis76p7g16a039fwx8rk7w8q9f60wgqb5i8";
+    sha256 = "0fxkazz4ykmkiww27l92yr96hq00qn5vvjmknxcy4cl97d2pxa28";
   };
 
   # Needs tox
@@ -55,13 +55,16 @@ in mkDerivationWith python3Packages.buildPythonApplication rec {
     docbook_xml_dtd_45 docbook_xsl libxml2 libxslt
   ];
 
-  propagatedBuildInputs = with python3Packages; [
+  propagatedBuildInputs = with python3Packages; ([
     pyyaml backendPackage jinja2 pygments
-    pypeg2 cssutils pyopengl attrs setuptools
     # scripts and userscripts libs
     tldextract beautifulsoup4
     pyreadability pykeepass stem
-  ];
+    # extensive ad blocking
+    adblock
+  ]
+    ++ lib.optional (pythonOlder "3.9") importlib-resources
+  );
 
   patches = [ ./fix-restart.patch ];
 
@@ -113,7 +116,7 @@ in mkDerivationWith python3Packages.buildPythonApplication rec {
       --add-flags '--backend ${backend}'
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     homepage    = "https://github.com/The-Compiler/qutebrowser";
     description = "Keyboard-focused browser with a minimal GUI";
     license     = licenses.gpl3Plus;

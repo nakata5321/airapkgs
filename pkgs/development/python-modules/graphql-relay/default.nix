@@ -1,27 +1,24 @@
-{ lib
-, python3
-, python3Packages
-}:
+{ lib, buildPythonPackage, fetchPypi, graphql-core, pytestCheckHook }:
 
-python3Packages.buildPythonApplication rec {
+buildPythonPackage rec {
   pname = "graphql-relay";
-  version = "2.0.1";
+  version = "3.0.0";
 
-  propagatedBuildInputs = with python3Packages; [ graphql-core2 ];
-
-  src = python3Packages.fetchPypi {
-    inherit version;
-    pname  = "graphql-relay";
-    sha256 = "1fzsi99bi351kz9hrx3b8rdcxb11w2n9x9qmnah3hfhj0i9nn2w7";
+  src = fetchPypi {
+    inherit pname version;
+    sha256 = "0mjmpf4abrxfyln0ykxq4xa6lp7xwgqr8631qp011hv0nfl6jgxd";
   };
 
-  doCheck = false;
+  propagatedBuildInputs = [ graphql-core ];
+
+  checkInputs = [ pytestCheckHook ];
+
+  pythonImportsCheck = [ "graphql_relay" ];
 
   meta = with lib; {
-    description = "GraphQL-relay-py is the Relay library for GraphQL-core.";
-    homepage = https://github.com/graphql-python/graphql-relay-py;
+    description = "A library to help construct a graphql-py server supporting react-relay";
+    homepage = "https://github.com/graphql-python/graphql-relay-py/";
     license = licenses.mit;
-    maintainers = with maintainers; [ vourhey ];
+    maintainers = with maintainers; [ SuperSandro2000 ];
   };
 }
-

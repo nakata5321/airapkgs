@@ -1,12 +1,12 @@
-{ stdenv, fetchurl, pkg-config, gobject-introspection, glib, python3, libgudev, libmbim }:
+{ lib, stdenv, fetchurl, pkg-config, gobject-introspection, glib, python3, libgudev, libmbim }:
 
 stdenv.mkDerivation rec {
   pname = "libqmi";
-  version = "1.26.2";
+  version = "1.26.8";
 
   src = fetchurl {
     url = "https://www.freedesktop.org/software/libqmi/${pname}-${version}.tar.xz";
-    sha256 = "00vvvfq74awg6mk0si1cdv79f6z6wqx11h47nl78a1h7zsr6fd0k";
+    sha256 = "sha256-73bclasKBjIaG9Jeh1SJy6Esn2YRl0ygE1zwZ7sgyWA=";
   };
 
   outputs = [ "out" "dev" "devdoc" ];
@@ -32,7 +32,7 @@ stdenv.mkDerivation rec {
 
   doCheck = true;
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     homepage = "https://www.freedesktop.org/wiki/Software/libqmi/";
     description = "Modem protocol helper library";
     platforms = platforms.linux;

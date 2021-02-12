@@ -1,40 +1,42 @@
-{ stdenv
+{ clang
 , fetchFromGitHub
-, rustPlatform
+, lib
 , llvmPackages
-, pkgconfig
-, openssl
-, clang
+, protobuf
+, rustPlatform
 }:
-
 rustPlatform.buildRustPackage rec {
-  name = "polkadot-${version}";
-  version = "0.4.4";
+  pname = "polkadot";
+  version = "0.8.28";
 
   src = fetchFromGitHub {
     owner = "paritytech";
-    # N.B. In 2018, the thing that was "polkadot" was split off into its own
-    # repo, so if this package is ever updated it should be changed to
-    # paritytech/polkadot, as per comment here:
-    # https://github.com/paritytech/polkadot#note
-    repo = "substrate";
-    rev = "19f4f4d4df3bb266086b4e488739f73d3d5e588c";
-    sha256 = "0v7g03rbml2afw0splmyjh9nqpjg0ldjw09hyc0jqd3qlhgxiiyj";
+    repo = "polkadot";
+    rev = "v${version}";
+    sha256 = "sha256-t6ULiTY+4jRfkdSN52A8c3YWznqbI2YVicKwfWJ/dGA=";
   };
 
-  cargoSha256 = "1h5v7c7xi2r2wzh1pj6xidrg7dx23w3rjm88mggpq7574arijk4i";
+  cargoSha256 = "sha256-ag+Xvo1i1WR4oCtGsFIRtUGgd5AIBFsIKblY6TAsUV0=";
 
-  buildInputs = [ pkgconfig openssl openssl.dev clang ];
+  nativeBuildInputs = [ clang ];
+
   LIBCLANG_PATH = "${llvmPackages.libclang}/lib";
+  PROTOC = "${protobuf}/bin/protoc";
 
-  meta = with stdenv.lib; {
+  # NOTE: We don't build the WASM runtimes since this would require a more
+  # complicated rust environment setup and this is only needed for developer
+  # environments. The resulting binary is useful for end-users of live networks
+  # since those just use the WASM blob from the network chainspec.
+  SKIP_WASM_BUILD = 1;
+
+  # We can't run the test suite since we didn't compile the WASM runtimes.
+  doCheck = false;
+
+  meta = with lib; {
     description = "Polkadot Node Implementation";
     homepage = "https://polkadot.network";
     license = licenses.gpl3;
-    maintainers = [ maintainers.akru ];
+    maintainers = with maintainers; [ akru andresilva RaghavSood ];
     platforms = platforms.linux;
-    # Last attempt at building this was on v0.7.22
-    # https://github.com/paritytech/polkadot/releases
-    broken = true;
   };
 }

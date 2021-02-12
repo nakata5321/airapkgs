@@ -1,6 +1,8 @@
 { lib
+, nixosTests
 , buildPythonPackage
 , fetchPypi
+, substituteAll
 , pkgs
 , argcomplete
 , pyyaml
@@ -10,18 +12,28 @@
 , flake8
 , jq
 , pytest
-, unixtools
 , toml
 }:
 
 buildPythonPackage rec {
   pname = "yq";
-  version = "2.11.0";
+  version = "2.12.0";
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "1gp9q5w1bjbw7wmba5hm8ippwvkind0p02n07fqa9jlqglhxhm46";
+    sha256 = "sha256-HSrUA1BNMGtSWLhsaY+YVtetWLe7F6K4dWkaanuMTCA=";
   };
+
+  patches = [
+    (substituteAll {
+      src = ./jq-path.patch;
+      jq = "${lib.getBin pkgs.jq}/bin/jq";
+    })
+  ];
+
+  postPatch = ''
+    substituteInPlace test/test.py --replace "expect_exit_codes={0} if sys.stdin.isatty() else {2}" "expect_exit_codes={0}"
+  '';
 
   propagatedBuildInputs = [
     pyyaml
@@ -32,21 +44,20 @@ buildPythonPackage rec {
   doCheck = true;
 
   checkInputs = [
-   unixtools.script
    pytest
    coverage
    flake8
-   pkgs.jq
    toml
   ];
 
-  # tests fails if stdin is not a tty
-  checkPhase = "echo | script -c 'pytest ./test/test.py'";
+  checkPhase = "pytest ./test/test.py";
 
   pythonImportsCheck = [ "yq" ];
 
+  passthru.tests = { inherit (nixosTests) yq; };
+
   meta = with lib; {
-    description = "Command-line YAML processor - jq wrapper for YAML documents.";
+    description = "Command-line YAML processor - jq wrapper for YAML documents";
     homepage = "https://github.com/kislyuk/yq";
     license = [ licenses.asl20 ];
     maintainers = [ maintainers.womfoo ];

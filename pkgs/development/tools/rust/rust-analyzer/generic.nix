@@ -16,12 +16,6 @@ rustPlatform.buildRustPackage {
     inherit rev sha256;
   };
 
-  patches = [
-    # FIXME: Temporary fix for our rust 1.45.0 since rust-analyzer requires 1.46.0
-    ./no-loop-in-const-fn.patch
-    ./no-option-zip.patch
-  ];
-
   buildAndTestSubdir = "crates/rust-analyzer";
 
   cargoBuildFlags = lib.optional useMimalloc "--features=mimalloc";
@@ -35,7 +29,7 @@ rustPlatform.buildRustPackage {
 
   inherit doCheck;
   preCheck = lib.optionalString doCheck ''
-    export RUST_SRC_PATH=${rustPlatform.rustcSrc}
+    export RUST_SRC_PATH=${rustPlatform.rustLibSrc}
   '';
 
   doInstallCheck = true;
@@ -47,7 +41,7 @@ rustPlatform.buildRustPackage {
     runHook postInstallCheck
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "An experimental modular compiler frontend for the Rust language";
     homepage = "https://github.com/rust-analyzer/rust-analyzer";
     license = with licenses; [ mit asl20 ];

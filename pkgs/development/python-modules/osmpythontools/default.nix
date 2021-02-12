@@ -1,6 +1,6 @@
 { lib
 , buildPythonPackage
-, fetchPypi
+, fetchFromGitHub
 , beautifulsoup4
 , geojson
 , lxml
@@ -13,13 +13,16 @@
 
 buildPythonPackage rec {
   pname = "osmpythontools";
-  version = "0.2.6";
+  version = "0.2.9";
 
-  src = fetchPypi {
-    pname = "OSMPythonTools";
-    inherit version;
-    sha256 = "efc72e3963971c6c7fd94bd374704a5b78eb6c07397a4ffb5f9176c1e4aee096";
+  src = fetchFromGitHub {
+    owner = "mocnik-science";
+    repo = "osm-python-tools";
+    rev = "v${version}";
+    sha256 = "1qpj03fgn8rmrg9a9vk7bw32k9hdy15g5p2q3a6q52ykpb78jdz5";
   };
+
+  patches = [ ./remove-test-only-dependencies.patch ];
 
   propagatedBuildInputs = [
     beautifulsoup4
@@ -32,9 +35,7 @@ buildPythonPackage rec {
     xarray
   ];
 
-  patches = [ ./remove-unused-dependency.patch ];
-
-  # no tests included
+  # tests touch network
   doCheck = false;
 
   pythonImportsCheck = [

@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, makeFontsConf
+{ lib, stdenv, fetchurl, makeFontsConf
 , cacert
 , cairo, coreutils, fontconfig, freefont_ttf
 , glib, gmp
@@ -22,7 +22,7 @@ let
     fontDirectories = [ freefont_ttf ];
   };
 
-  libPath = stdenv.lib.makeLibraryPath [
+  libPath = lib.makeLibraryPath [
     cairo
     fontconfig
     glib
@@ -46,33 +46,33 @@ in
 
 stdenv.mkDerivation rec {
   pname = "racket";
-  version = "7.8"; # always change at once with ./minimal.nix
+  version = "7.9"; # always change at once with ./minimal.nix
 
-  src = (stdenv.lib.makeOverridable ({ name, sha256 }:
+  src = (lib.makeOverridable ({ name, sha256 }:
     fetchurl {
       url = "https://mirror.racket-lang.org/installers/${version}/${name}-src.tgz";
       inherit sha256;
     }
   )) {
     name = "${pname}-${version}";
-    sha256 = "19z3dayybcra277s4gk2mppalwawd93f2b16xyrb6d7rbbfz7j9j";
+    sha256 = "0gmp2ahmfd97nn9bwpfx9lznjmjkd042slnrrbdmyh59cqh98y2m";
   };
 
   FONTCONFIG_FILE = fontsConf;
   LD_LIBRARY_PATH = libPath;
-  NIX_LDFLAGS = stdenv.lib.concatStringsSep " " [
-    (stdenv.lib.optionalString (stdenv.cc.isGNU && ! stdenv.isDarwin) "-lgcc_s")
-    (stdenv.lib.optionalString stdenv.isDarwin "-framework CoreFoundation")
+  NIX_LDFLAGS = lib.concatStringsSep " " [
+    (lib.optionalString (stdenv.cc.isGNU && ! stdenv.isDarwin) "-lgcc_s")
+    (lib.optionalString stdenv.isDarwin "-framework CoreFoundation")
   ];
 
   nativeBuildInputs = [ cacert wrapGAppsHook ];
 
   buildInputs = [ fontconfig libffi libtool sqlite gsettings-desktop-schemas gtk3 ]
-    ++ stdenv.lib.optionals stdenv.isDarwin [ libiconv CoreFoundation ];
+    ++ lib.optionals stdenv.isDarwin [ libiconv CoreFoundation ];
 
   preConfigure = ''
     unset AR
-    for f in src/lt/configure src/cs/c/configure src/racket/src/string.c; do
+    for f in src/lt/configure src/cs/c/configure src/bc/src/string.c; do
       substituteInPlace "$f" --replace /usr/bin/uname ${coreutils}/bin/uname
     done
     mkdir src/build
@@ -83,15 +83,15 @@ stdenv.mkDerivation rec {
 
   shared = if stdenv.isDarwin then "dylib" else "shared";
   configureFlags = [ "--enable-${shared}"  "--enable-lt=${libtool}/bin/libtool" ]
-                   ++ stdenv.lib.optional disableDocs [ "--disable-docs" ]
-                   ++ stdenv.lib.optional stdenv.isDarwin [ "--enable-xonx" ];
+                   ++ lib.optional disableDocs [ "--disable-docs" ]
+                   ++ lib.optional stdenv.isDarwin [ "--enable-xonx" ];
 
   configureScript = "../configure";
 
   enableParallelBuilding = false;
 
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "A programmable programming language";
     longDescription = ''
       Racket is a full-spectrum programming language. It goes beyond

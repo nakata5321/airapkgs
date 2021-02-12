@@ -1,19 +1,19 @@
-{ stdenv, fetchFromGitHub, buildGoModule
+{ lib, fetchFromGitHub, buildGoModule
 , pkg-config, ffmpeg, gnutls
 }:
 
 buildGoModule rec {
   pname = "livepeer";
-  version = "0.5.10";
+  version = "0.5.13";
 
   runVend = true;
-  vendorSha256 = "0i5977skw4b209zvdvgvzfnhqb574067mmfk2gf9y590lgnr86f7";
+  vendorSha256 = "sha256-wAjGgYDyBWqE8KCQ6TQ+LGDDZqF+5XY+NzU74RwPuRE=";
 
   src = fetchFromGitHub {
     owner = "livepeer";
     repo = "go-livepeer";
     rev = "v${version}";
-    sha256 = "0qccvnk2yyly7ha9lkcpd6zj5n9xnhdjkl3nllb9xziidsq6p65h";
+    sha256 = "sha256-b4O8Hc8A8TN5KFcQ7KYvFPVFgposDgPw06WowrXzpAs=";
   };
 
   # livepeer_cli has a vendoring problem
@@ -23,7 +23,7 @@ buildGoModule rec {
 
   buildInputs = [ ffmpeg gnutls ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Official Go implementation of the Livepeer protocol";
     homepage = "https://livepeer.org";
     license = licenses.mit;

@@ -1,4 +1,5 @@
-{ stdenv
+{ lib
+, stdenv
 , fetchurl
 , wrapQtAppsHook
 , pcsclite
@@ -15,8 +16,6 @@
 , yubikey-manager
 , yubikey-personalization
 }:
-
-let inherit (stdenv) lib; in
 
 stdenv.mkDerivation rec {
   pname = "yubikey-manager-qt";
@@ -44,7 +43,7 @@ stdenv.mkDerivation rec {
     buildPythonPath "$pythonPath"
 
     wrapQtApp $out/bin/ykman-gui \
-      --prefix LD_LIBRARY_PATH : "${stdenv.lib.getLib pcsclite}/lib:${yubikey-personalization}/lib" \
+      --prefix LD_LIBRARY_PATH : "${lib.getLib pcsclite}/lib:${yubikey-personalization}/lib" \
       --prefix PYTHONPATH : "$program_PYTHONPATH"
 
     mkdir -p $out/share/applications
@@ -57,7 +56,7 @@ stdenv.mkDerivation rec {
 
   meta = with lib; {
     inherit version;
-    description = "Cross-platform application for configuring any YubiKey over all USB interfaces.";
+    description = "Cross-platform application for configuring any YubiKey over all USB interfaces";
     homepage = "https://developers.yubico.com/yubikey-manager-qt/";
     license = licenses.bsd2;
     maintainers = [ maintainers.cbley ];

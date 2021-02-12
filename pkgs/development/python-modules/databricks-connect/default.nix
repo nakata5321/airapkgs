@@ -2,11 +2,11 @@
 
 buildPythonPackage rec {
   pname = "databricks-connect";
-  version = "7.1.0";
+  version = "7.3.8";
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "996a9d0f271f6c7edbd2d85b2efb6ff4e58d15222e80f87ca17fdbf224e17056";
+    sha256 = "0c0f036cf30e00fdc47c983875c72d16a3073ae9be9bcf39371514280f00a82d";
   };
 
   sourceRoot = ".";
@@ -16,8 +16,13 @@ buildPythonPackage rec {
   # requires network access
   doCheck = false;
 
+  prePatch = ''
+    substituteInPlace setup.py \
+      --replace "py4j==0.10.9" "py4j"
+  '';
+
   preFixup = ''
-      substituteInPlace "$out/bin/find-spark-home" \
+    substituteInPlace "$out/bin/find-spark-home" \
       --replace find_spark_home.py .find_spark_home.py-wrapped
   '';
 

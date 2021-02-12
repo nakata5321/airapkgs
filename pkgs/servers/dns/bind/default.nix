@@ -10,11 +10,11 @@ assert enablePython -> python3 != null;
 
 stdenv.mkDerivation rec {
   pname = "bind";
-  version = "9.16.7";
+  version = "9.16.11";
 
   src = fetchurl {
     url = "https://downloads.isc.org/isc/bind9/${version}/${pname}-${version}.tar.xz";
-    sha256 = "1l8lhgnkj3fnl1101bs3pzj5gv2x5m9ahvrbyscsc9mxxc91hzcz";
+    sha256 = "sha256-ARH2TdfY9RXPoSnhgczpb/ggcNGyfxGiH2hWEQ0GmcE=";
   };
 
   outputs = [ "out" "lib" "dev" "man" "dnsutils" "host" ];
@@ -74,7 +74,7 @@ stdenv.mkDerivation rec {
 
   passthru.tests = { inherit (nixosTests) bind; };
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     homepage = "https://www.isc.org/downloads/bind/";
     description = "Domain name server";
     license = licenses.mpl20;

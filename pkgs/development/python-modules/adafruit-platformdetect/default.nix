@@ -1,27 +1,28 @@
 { lib
-, python3
-, python3Packages
+, buildPythonPackage
+, fetchPypi
+, setuptools-scm
 }:
 
-python3Packages.buildPythonApplication rec {
+buildPythonPackage rec {
   pname = "Adafruit-PlatformDetect";
-  version = "1.3.8";
+  version = "3.1.0";
 
-  propagatedBuildInputs = with python3Packages; [ ];
-
-  src = python3Packages.fetchPypi {
-    inherit version;
-    pname  = "Adafruit-PlatformDetect";
-    sha256 = "1pl7l40y5bf7jl5vbb06jylvl8xhhbn80bhb2139kmf8mr2128kc";
+  src = fetchPypi {
+    inherit pname version;
+    sha256 = "sha256-Wd8Qq/jE/C/zx1CRuKLt5Tz8VHY/4bwUa229aDcCFjk=";
   };
 
+  nativeBuildInputs = [ setuptools-scm ];
+
+  # Project has not published tests yet
   doCheck = false;
+  pythonImportsCheck = [ "adafruit_platformdetect" ];
 
   meta = with lib; {
-    description = "This library provides best-guess platform detection for a range of single-board computers and (potentially) other platforms. It was written primarily for use in Adafruit_Blinka, but may be useful in other contexts.";
-    homepage = https://github.com/adafruit/Adafruit_Python_PlatformDetect;
-    license = licenses.mit;
-    maintainers = with maintainers; [ vourhey ];
+    description = "Platform detection for use by Adafruit libraries";
+    homepage = "https://github.com/adafruit/Adafruit_Python_PlatformDetect";
+    license = with licenses; [ mit ];
+    maintainers = with maintainers; [ fab ];
   };
 }
-

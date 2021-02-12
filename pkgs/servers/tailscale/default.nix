@@ -2,29 +2,39 @@
 
 buildGoModule rec {
   pname = "tailscale";
-  version = "1.0.5";
+  version = "1.4.2";
+  tagHash = "f40ccb086c4c3f09b3cc67b7c559bd2c5d3cf953"; # from `git rev-parse v1.4.2`
 
   src = fetchFromGitHub {
     owner = "tailscale";
     repo = "tailscale";
     rev = "v${version}";
-    sha256 = "0ib2s694kf5iz5hvrlzfs80z0931dhva7yir80crq0pji9y4rp7b";
+    sha256 = "0jc7z6ml59a1xs3c3mskj9s34gw7hmixn8dbz3bi81qv0yi9pvnx";
   };
 
   nativeBuildInputs = [ makeWrapper ];
 
   CGO_ENABLED = 0;
 
-  vendorSha256 = "0l9lzwwvshg9a2kmmq1cvvlaxncbas78a9hjhvjjar89rjr2k2sv";
+  vendorSha256 = "16aa7jc2h59hnnh0mfmnd0k198dijm9j4c44j80wpzlhf4x27yjs";
 
   doCheck = false;
 
   subPackages = [ "cmd/tailscale" "cmd/tailscaled" ];
 
+  preBuild = ''
+    export buildFlagsArray=(
+      -tags="xversion"
+      -ldflags="-X tailscale.com/version.Long=${version} -X tailscale.com/version.Short=${version} -X tailscale.com/version.GitCommit=${tagHash}"
+    )
+  '';
+
   postInstall = ''
     wrapProgram $out/bin/tailscaled --prefix PATH : ${
       lib.makeBinPath [ iproute iptables ]
     }
+    sed -i -e "s#/usr/sbin#$out/bin#" -e "/^EnvironmentFile/d" ./cmd/tailscaled/tailscaled.service
+    install -D -m0444 -t $out/lib/systemd/system ./cmd/tailscaled/tailscaled.service
   '';
 
   meta = with lib; {
