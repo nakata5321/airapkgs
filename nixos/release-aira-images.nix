@@ -57,7 +57,8 @@ in rec {
       modules =
         [ ./modules/installer/virtualbox-minimal.nix
           ./modules/installer/aira_ws.nix
-          ./modules/profiles/aira-foundation.nix
+          ./modules/profiles/aira-foundation-nightly.nix
+#          ./modules/profiles/aira-foundation.nix
         ];
     }).config.system.build.virtualBoxOVA);
 

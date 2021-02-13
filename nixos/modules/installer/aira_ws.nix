@@ -15,7 +15,7 @@
     gpm.enable = true;
 
     # Enable telemetry node
-    liability.graph = true;
+    liability-nightly.graph = true;
   };
 
   programs.zsh = {

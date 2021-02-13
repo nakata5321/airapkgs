@@ -823,6 +823,7 @@
   ./services/robonomics/liability.nix
   ./services/robonomics/liability-nightly.nix
   ./services/robonomics/erc20.nix
+  ./services/robonomics/erc20-nightly.nix
   ./services/robonomics/xrtd.nix
   ./services/robonomics/roscore.nix
   ./services/robonomics/substrate-node-robonomics.nix
