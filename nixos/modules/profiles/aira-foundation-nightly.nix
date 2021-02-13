@@ -18,7 +18,7 @@ in {
   };
 
   # Set params for XRT
-  services.erc20 = {
+  services.erc20-nightly = {
     enable = true;
     inherit web3_http_provider web3_ws_provider token factory;
   };
