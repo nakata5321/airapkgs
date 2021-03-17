@@ -30054,6 +30054,8 @@ in
 
   robonomics_dev = callPackage ../applications/science/robotics/aira/robonomics_dev { };
 
+  hello_aira = callPackage ../applications/science/robotics/aira/hello_aira { };
+
   drone_passport_agent = callPackage ../applications/science/robotics/aira/drone_passport_agent {  };
 
   drone_flight_report = callPackage ../applications/science/robotics/aira/drone_flight_report {  };

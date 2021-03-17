@@ -34,6 +34,7 @@
     '';
     shellInit = ''
       source ${pkgs.robonomics_tutorials}/setup.zsh
+      source ${pkgs.hello_aira}/setup.zsh
     '';
   };
 
@@ -46,7 +47,7 @@
 
   # Useful preinstall utils
   environment.systemPackages = with pkgs; [
-    vim git htop screen mosh cmake gcc substrate-node-robonomics-bin
+    vim git htop screen mosh cmake gcc substrate-node-robonomics-bin hello_aira
   ];
 
 }
