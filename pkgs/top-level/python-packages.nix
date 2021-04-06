@@ -7583,6 +7583,8 @@ in {
 
   subprocess32 = callPackage ../development/python-modules/subprocess32 { };
 
+  substrate-interface = callPackage ../development/python-modules/substrate-interface { };
+
   subunit = callPackage ../development/python-modules/subunit { inherit (pkgs) subunit pkg-config cppunit check; };
 
   suds = callPackage ../development/python-modules/suds { };
