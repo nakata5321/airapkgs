@@ -868,6 +868,8 @@ in {
 
   base58 = callPackage ../development/python-modules/base58 { };
 
+  base58-2_0_1 = callPackage ../development/python-modules/base58/2.0.1.nix { };
+
   baselines = callPackage ../development/python-modules/baselines { };
 
   basemap = callPackage ../development/python-modules/basemap { };
@@ -6581,6 +6583,10 @@ in {
   pywal = callPackage ../development/python-modules/pywal { };
 
   py-ed25519-bindings = callPackage ../development/python-modules/py-ed25519-bindings { };
+
+  py-bip39-bindings = callPackage ../development/python-modules/py-bip39-bindings { };
+
+  py-sr25519-bindings = callPackage ../development/python-modules/py-sr25519-bindings { };
 
   pywatchman = callPackage ../development/python-modules/pywatchman { };
 

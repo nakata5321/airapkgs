@@ -6,14 +6,13 @@
 }:
 
 buildPythonPackage rec {
-  pname = "py_ed25519_bindings";
-  version = "0.1.2";
+  pname = "py_bip39_bindings";
+  version = "0.1.6";
 
   format = "wheel";
   src = fetchPypi {
-    # substrate_interface-0.12.3-py3-none-any.whl
     inherit pname version;
-    sha256 = "14qhy17knazvpp9sd1xpyamf2fd0xcpq7z3v3mcg06r4p8id9jsq";
+    sha256 = "1xkhhfv5dvpb06ypq98w97i4lmwfiz638c3hihj9wwgjsgzrvdyf";
     format = "wheel";
     python = "cp38";
     abi = "cp38";
@@ -30,4 +29,5 @@ buildPythonPackage rec {
     maintainers = with lib.maintainers; [ Vourhey ];
   };
 }
+
 

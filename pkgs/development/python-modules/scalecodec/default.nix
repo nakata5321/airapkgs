@@ -3,7 +3,7 @@
 , fetchPypi
 , more-itertools
 , requests
-, base58
+, base58-2_0_1
 }:
 
 buildPythonPackage rec {
@@ -16,8 +16,8 @@ buildPythonPackage rec {
     sha256 = "1rfdcp2gnvrpyx0bzchh12ir8lh30wqkgjmq2m394zgdjrxfilp0";
   };
 
-  propagatedBuildInputs = [ more-itertools requests base58];  # зависимости
-  
+  propagatedBuildInputs = [ more-itertools requests base58-2_0_1 ];  # зависимости
+
   meta = {
     description = "мета";
     homepage = "https://polkascan.github.io/py-scale-codec/";
