@@ -2796,6 +2796,9 @@ in {
 
   graphene = callPackage ../development/python-modules/graphene { };
 
+  graphene_2_1_8 = callPackage ../development/python-modules/graphene/2_1_8.nix { };
+
+
   graphql-core = callPackage ../development/python-modules/graphql-core { };
 
   graphql-core2 = callPackage ../development/python-modules/graphql-core/graphql-core2.nix { };
