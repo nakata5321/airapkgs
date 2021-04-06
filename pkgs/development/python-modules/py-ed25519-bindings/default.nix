@@ -1,20 +1,32 @@
 { lib
 , buildPythonPackage
-, fetchPypi
+, rustPlatform
+, fetchFromGitHub
+, cargoSetupHook
 }:
 
 buildPythonPackage rec {
-  pname = "py_ed25519_bindings";
+  pname = "py-ed25519-bindings";
   version = "0.1.2";
 
-
-  src = fetchPypi {
-    inherit pname version;
-    sha256 = "cb3266cf7863815ed5ba402cc298997f6e7e00e1036d34ea9c31f0bd0a6e8515";
+  src = fetchFromGitHub {
+    owner = "polkascan";
+    repo = "py-ed25519-bindings";
+    rev = version;
+    sha256 = "11n30ldg3y3y6qxg3hbj837pnbwjkqw3nxq6frds647mmmprrd20";
   };
 
-  propagatedBuildInputs = [ ];  # зависимости
+  sourceRoot = "src";
   
+  cargoDeps = rustPlatform.fetchCargoTarball {
+    inherit (src cargoSetupHook);
+    name = "${pname}-${version}";
+    hash = "sha256-heOBK8qi2nuc/Ib+I/vLzZ1fUUD/G/KTw9d7M4Hz5O0=";
+  };
+
+  format = "pyproject";
+
+  nativeBuildInputs = with rustPlatform; [ maturinBuildHook cargoSetupHook ];
 
   meta = {
     description = "мета";
