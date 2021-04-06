@@ -6580,6 +6580,8 @@ in {
 
   pywal = callPackage ../development/python-modules/pywal { };
 
+  py-ed25519-bindings = callPackage ../development/python-modules/py-ed25519-bindings { };
+
   pywatchman = callPackage ../development/python-modules/pywatchman { };
 
   pywavelets = callPackage ../development/python-modules/pywavelets { };
@@ -7009,6 +7011,8 @@ in {
   scales = callPackage ../development/python-modules/scales { };
 
   scandir = callPackage ../development/python-modules/scandir { };
+
+  scalecodec = callPackage ../development/python-modules/scalecodec { };
 
   scapy = callPackage ../development/python-modules/scapy { };
 

@@ -1,20 +1,22 @@
 { lib
 , buildPythonPackage
 , fetchPypi
-, python-markdown-math
-, markdown
+, scalecodec
+, py-ed25519-bindings
 }:
 
 buildPythonPackage rec {
   pname = "substrate-interface";
-  version = "1.2.3";
+  version = "0.12.3";
+  GITHUB_REF="refs/tags/v0.12.3";
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "1ea19458dfca6a4562044e701aa8698089a0c659fc535689ed260f89a04f8d39";
+    sha256 = "125rgspip6ipyazrzq7la1bda1ivxcpz3bcyixzz78lmy1yyrqfw";
   };
 
-  propagatedBuildInputs = [ python-markdown-math markdown];  # зависимости
+  propagatedBuildInputs = [ scalecodec py-ed25519-bindings];  # зависимости
+  
 
   meta = {
     description = "мета";
