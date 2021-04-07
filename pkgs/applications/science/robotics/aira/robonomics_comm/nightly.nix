@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , ros_comm
 , mkRosPackage
 , python3Packages
@@ -29,7 +29,7 @@ in mkRosPackage rec {
     patch $out/lib/${python3.libPrefix}/site-packages/ethereum_common/msg/_UInt256.py $src/ethereum_common/msg/_UInt256.py.patch
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Robonomics communication stack";
     homepage = http://github.com/airalab/robonomics_comm;
     license = licenses.bsd3;

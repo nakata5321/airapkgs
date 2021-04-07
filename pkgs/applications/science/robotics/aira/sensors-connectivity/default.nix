@@ -1,5 +1,4 @@
-{ pkgs ? import <nixpkgs> { }
-, stdenv
+{ lib
 , fetchFromGitHub
 , mkRosPackage
 , robonomics_comm
@@ -20,7 +19,7 @@ mkRosPackage rec {
 
   propagatedBuildInputs = [ robonomics_comm python3Packages.pyserial python3Packages.sentry-sdk python3Packages.pynacl];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Aira source package to input data from sensors. ROS-enabled telemetry agent";
     homepage = http://github.com/airalab/sensors-connectivity;
     license = licenses.bsd3;

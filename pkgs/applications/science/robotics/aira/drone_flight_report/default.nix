@@ -1,5 +1,4 @@
-{ pkgs ? import <nixpkgs> { }
-, stdenv
+{ lib
 , fetchFromGitHub
 , mkRosPackage
 , robonomics_comm
@@ -19,7 +18,7 @@ mkRosPackage rec {
 
   propagatedBuildInputs = [ robonomics_comm ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Service to register a drone flight via Robonmics Network";
     homepage = http://github.com/DistributedSky/drone_flight_report;
     license = licenses.bsd3;

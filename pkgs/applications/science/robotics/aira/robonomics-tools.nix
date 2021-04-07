@@ -1,7 +1,7 @@
 { mkDerivation, aeson, async, base, base58string, bytestring
 , exceptions, generics-sop, hashable, hpack, pipes, memory, http-conduit
 , microlens, monad-control, monad-logger, mtl, optparse-applicative
-, unordered-containers, heap, cryptonite, data-default, process, stdenv, text, web3
+, unordered-containers, heap, cryptonite, data-default, process, lib, text, web3
 , fetchFromGitHub
 }:
 
@@ -29,6 +29,6 @@ mkDerivation rec {
 
   homepage = "https://github.com/airalab/robonomics-tools#readme";
   description = "Robonomics.network tools";
-  license = stdenv.lib.licenses.bsd3;
-  maintainers = with stdenv.lib.maintainers; [ akru ];
+  license = lib.licenses.bsd3;
+  maintainers = with lib.maintainers; [ akru ];
 }

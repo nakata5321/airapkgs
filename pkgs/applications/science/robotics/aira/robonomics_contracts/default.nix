@@ -1,4 +1,5 @@
-{ stdenv
+{ lib
+, stdenv
 , fetchFromGitHub
 , pkgs
 , makeWrapper
@@ -10,7 +11,7 @@ let
   nodePackages = import ./node.nix { inherit pkgs; };
   nodeEnv = buildEnv {
     name = "robonomics_contracts-env";
-    paths = stdenv.lib.attrValues nodePackages;
+    paths = lib.attrValues nodePackages;
   };
 
 in stdenv.mkDerivation rec {
@@ -57,7 +58,7 @@ in stdenv.mkDerivation rec {
       --set NODE_PATH "${nodeEnv}/lib/node_modules"
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Robonomics platform smart contracts";
     homepage = http://github.com/airalab/robonomics_contracts;
     license = licenses.bsd3;

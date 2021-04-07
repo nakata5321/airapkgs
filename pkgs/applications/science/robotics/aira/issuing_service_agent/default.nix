@@ -1,5 +1,4 @@
-{ pkgs ? import <nixpkgs> { }
-, stdenv
+{ lib
 , fetchFromGitHub
 , mkRosPackage
 , robonomics_comm
@@ -19,7 +18,7 @@ mkRosPackage rec {
 
   propagatedBuildInputs = [ robonomics_comm ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "The agent is responsible for checking the data and issuing the green certificates";
     homepage = http://github.com/DAO-IPCI/issuing_agent;
     license = licenses.bsd3;

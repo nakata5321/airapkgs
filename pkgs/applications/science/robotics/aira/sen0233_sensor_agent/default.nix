@@ -1,5 +1,4 @@
-{ pkgs ? import <nixpkgs> { }
-, stdenv
+{ stdenv
 , fetchFromGitHub
 , mkRosPackage
 , robonomics_comm
@@ -20,7 +19,7 @@ mkRosPackage rec {
 
   propagatedBuildInputs = [ robonomics_comm python3Packages.pyserial ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Agent works with SEN0233 sensor and publishes data on demand";
     homepage = http://github.com/vourhey/sen0233_sensor_agent;
     license = licenses.bsd3;

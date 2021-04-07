@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , robonomics_comm
 , rosserial
 , mkRosPackage
@@ -19,7 +19,7 @@ mkRosPackage rec {
 
   propagatedBuildInputs = [ robonomics_comm rosserial ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Robonomics tutorials stack";
     homepage = http://github.com/airalab/robonomics_tutorials;
     license = licenses.bsd3;

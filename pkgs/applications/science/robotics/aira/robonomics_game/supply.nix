@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -25,7 +25,7 @@ in mkRosPackage {
   propagatedBuildInputs =
   [ catkin actionlib robonomics_comm ros_opcua_communication robonomics_game_plant ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Robonomics game plant supply chains";
     homepage = http://github.com/airalab/robonomics_game;
     license = licenses.bsd3;

@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -29,7 +29,7 @@ in mkRosPackage {
     robonomics_comm voluptuous
   ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Drone Employee development kit";
     homepage = http://github.com/tuuzdu/de_dev;
     license = licenses.bsd3;

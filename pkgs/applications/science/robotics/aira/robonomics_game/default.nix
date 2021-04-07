@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -26,7 +26,7 @@ in mkRosPackage {
   [ catkin robonomics_game_transport robonomics_game_warehouse
     robonomics_game_plant robonomics_game_supply ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Robonomics game meta-package";
     homepage = http://github.com/airalab/robonomics_game;
     license = licenses.bsd3;

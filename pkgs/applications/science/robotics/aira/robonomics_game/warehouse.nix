@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -23,7 +23,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin message_generation std_msgs rospy ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Robonomics game virtual warehouse nodes";
     homepage = http://github.com/airalab/robonomics_game;
     license = licenses.bsd3;

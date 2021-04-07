@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , ros_comm
@@ -26,7 +26,7 @@ in mkRosPackage {
     numpy web3 google_api_python_client voluptuous multihash python-persistent-queue
   ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Robonomics development kit";
     homepage = http://github.com/airalab/robonomics_dev;
     license = licenses.bsd3;

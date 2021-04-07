@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -27,7 +27,7 @@ in mkRosPackage {
   [ catkin actionlib robonomics_comm google_api_python_client 
     ros_opcua_communication robonomics_game_warehouse ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Robonomics game plant driver & logic";
     homepage = http://github.com/airalab/robonomics_game;
     license = licenses.bsd3;

@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , fetchFromGitHub
 , robonomics_comm
 , mkRosPackage
@@ -22,7 +22,7 @@ mkRosPackage rec {
     pkgs.python3Packages.pinatapy
   ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "ROS-enabled drone passport agent";
     homepage = http://github.com/DistributedSky/drone_passport_agent;
     license = licenses.bsd3;

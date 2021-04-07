@@ -1,5 +1,4 @@
-{ pkgs ? import <nixpkgs> { }
-, stdenv
+{ lib
 , fetchFromGitHub
 , mkRosPackage
 , robonomics_comm
@@ -19,7 +18,7 @@ mkRosPackage rec {
 
   propagatedBuildInputs = [ robonomics_comm ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "The service offsets CO2 footprint by burning VCU tokens";
     homepage = http://github.com/DAO-IPCI/complier_service;
     license = licenses.bsd3;
