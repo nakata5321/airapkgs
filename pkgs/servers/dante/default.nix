@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, pam, libkrb5, cyrus_sasl, miniupnpc }:
+{ lib, stdenv, fetchurl, pam, libkrb5, cyrus_sasl, miniupnpc }:
 let
   libc = if stdenv.hostPlatform.system == "i686-linux" then "${stdenv.glibc.out}/lib/libc.so.6"
   else if stdenv.hostPlatform.system == "x86_64-linux" then "${stdenv.glibc.out}/lib/libc.so.6"
