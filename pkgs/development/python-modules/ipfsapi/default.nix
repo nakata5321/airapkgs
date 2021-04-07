@@ -1,11 +1,9 @@
 { lib
 , buildPythonPackage
-, fetchFromGitHub
-, isPy27
+, fetchPypi
 , six
 , requests
 , isPy27
-, lib
 }:
 
 buildPythonPackage rec {

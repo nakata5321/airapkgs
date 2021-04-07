@@ -9575,6 +9575,12 @@
     githubId = 563054;
     name = "Thomas Tuegel";
   };
+  tuuzdu = {
+    email = "tvvzdv@gmail.com";
+    github = "tuuzdu";
+    githubId = 5239268;
+    name = "Ivan Biriuk";
+  };
   turion = {
     email = "programming@manuelbaerenz.de";
     github = "turion";
