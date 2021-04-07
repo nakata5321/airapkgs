@@ -2,7 +2,7 @@
 , stdenv
 , fetchFromGitHub
 , cmake
-, pkgconfig
+, pkg-config
 }:
 
 let
@@ -19,7 +19,7 @@ in stdenv.mkDerivation {
     sha256 = "0yzzi2dx4plflnas7ipn1xpmaw2rcy45wd19da24r31fkv7xjys0";
   };
 
-  nativeBuildInputs = [ cmake pkgconfig ];
+  nativeBuildInputs = [ cmake pkg-config ];
 
   meta = with lib; {
     description = "Logging that seamlessly pipes into rosconsole/rosout";

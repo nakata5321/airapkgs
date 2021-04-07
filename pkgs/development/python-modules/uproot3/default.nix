@@ -1,6 +1,6 @@
 { lib, fetchFromGitHub, buildPythonPackage, isPy27
 , awkward0, backports_lzma, cachetools, lz4, pandas
-, pytestCheckHook, pytestrunner, pkgconfig, mock
+, pytestCheckHook, pytestrunner, pkg-config, mock
 , numpy, requests, uproot3-methods, xxhash, zstandard
 }:
 
@@ -30,7 +30,7 @@ buildPythonPackage rec {
   checkInputs = [
     mock
     pandas
-    pkgconfig
+    pkg-config
     pytestCheckHook
     requests
   ] ++ lib.optional isPy27 backports_lzma;

@@ -2,7 +2,7 @@
 , fetchFromGitHub
 , fetchpatch
 , buildPythonPackage
-, pkgconfig
+, pkg-config
 , gmp
 , pari
 , mpfr
@@ -52,7 +52,7 @@ buildPythonPackage rec {
   ];
 
   nativeBuildInputs = [
-    pkgconfig
+    pkg-config
   ];
 
   checkInputs = [

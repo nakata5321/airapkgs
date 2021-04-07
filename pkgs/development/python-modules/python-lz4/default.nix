@@ -3,7 +3,7 @@
 , fetchFromGitHub
 , future
 , isPy3k
-, pkgconfig
+, pkg-config
 , psutil
 , pytest
 , pytestcov
@@ -23,7 +23,7 @@ buildPythonPackage rec {
     sha256 = "02cadqfdmw4vc94px18dh4hcybpsa2lr6jz6j5phwc0jjaavh3wr";
   };
 
-  nativeBuildInputs = [ setuptools_scm pkgconfig pytestrunner ];
+  nativeBuildInputs = [ setuptools_scm pkg-config pytestrunner ];
   checkInputs = [ pytest pytestcov psutil ];
   propagatedBuildInputs = lib.optionals (!isPy3k) [ future ];
 

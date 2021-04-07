@@ -2,7 +2,7 @@
 , fetchFromGitHub
 , rustPlatform
 , llvmPackages
-, pkgconfig
+, pkg-config
 , protobuf
 , openssl
 , clang
@@ -22,7 +22,7 @@ rustPlatform.buildRustPackage rec {
 
   cargoSha256 = "19wf53jidgkr1k6h5dsx53z4r3rzdmv98qhz8zmg95dx2v7bv0kh";
 
-  buildInputs = [ pkgconfig openssl openssl.dev clang ];
+  buildInputs = [ pkg-config openssl openssl.dev clang ];
   LIBCLANG_PATH = "${llvmPackages.libclang}/lib";
   PROTOC = "${protobuf}/bin/protoc";
 

@@ -5,7 +5,7 @@
 , fetchFromGitHub
 , isPy27
 , isPyPy
-, pkgconfig
+, pkg-config
 }:
 
 buildPythonPackage rec {
@@ -20,7 +20,7 @@ buildPythonPackage rec {
     sha256 = "1n6dq2fbagi3wvrpkyb7wx4y15nkm2grln4y75hrqgmnli8ggi9v";
   };
 
-  buildInputs = [ capnproto cython pkgconfig ];
+  buildInputs = [ capnproto cython pkg-config ];
 
   # Tests disabled due to dependency on jinja and various other libraries.
   doCheck = false;

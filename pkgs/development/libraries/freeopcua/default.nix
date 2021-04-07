@@ -2,7 +2,7 @@
 , stdenv
 , fetchFromGitHub
 , cmake
-, pkgconfig
+, pkg-config
 , boost
 , libxml2
 , python3
@@ -18,7 +18,7 @@ stdenv.mkDerivation {
     sha256 = "0d7884mj7ar324rdhs801a62lz1gcl50wk8inb96w6h7p26xvc8z";
   };
 
-  nativeBuildInputs = [ cmake pkgconfig ];
+  nativeBuildInputs = [ cmake pkg-config ];
   buildInputs = [ boost libxml2 python3 ];
 
   cmakeFlags = [ "-DBUILD_SERVER=OFF" "-DSSL_SUPPORT_MBEDTLS=OFF" ];

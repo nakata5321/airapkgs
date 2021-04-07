@@ -88,7 +88,7 @@ reseal_on_txs = "none"
 
 in {
   name = "liability";
-  meta = with pkgs.stdenv.lib.maintainers; {
+  meta = with pkgs.lib.maintainers; {
     maintainers = [ strdn akru ];
   };
 

@@ -1,4 +1,4 @@
-{ lib, stdenv, fetchFromGitHub, cmake, pkgconfig, zlib, jansson }:
+{ lib, stdenv, fetchFromGitHub, cmake, pkg-config, zlib, jansson }:
 
 stdenv.mkDerivation rec {
   name = "${pname}-${version}";
@@ -12,7 +12,7 @@ stdenv.mkDerivation rec {
     sha256 = "1lxhsfym4pq25p4wzirgvxmmpc1177dzpzs32n19fbqj6328fywn";
   };
 
-  nativeBuildInputs = [ cmake pkgconfig ];
+  nativeBuildInputs = [ cmake pkg-config ];
   buildInputs = [ zlib jansson ];
 
   postPatch = ''

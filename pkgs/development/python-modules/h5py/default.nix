@@ -1,5 +1,5 @@
 { lib, fetchPypi, isPy27, python, buildPythonPackage, pythonOlder
-, numpy, hdf5, cython, six, pkgconfig, unittest2, fetchpatch
+, numpy, hdf5, cython, six, pkg-config, unittest2, fetchpatch
 , mpi4py ? null, openssh, pytestCheckHook, cached-property }:
 
 assert hdf5.mpiSupport -> mpi4py != null && hdf5.mpi == mpi4py.mpi;
@@ -37,7 +37,7 @@ in buildPythonPackage rec {
   # tests now require pytest-mpi, which isn't available and difficult to package
   doCheck = false;
   checkInputs = lib.optional isPy27 unittest2 ++ [ pytestCheckHook openssh ];
-  nativeBuildInputs = [ pkgconfig cython ];
+  nativeBuildInputs = [ pkg-config cython ];
   buildInputs = [ hdf5 ]
     ++ lib.optional mpiSupport mpi;
   propagatedBuildInputs = [ numpy six]

@@ -18635,8 +18635,6 @@ in
 
   alfred-json = callPackage ../os-specific/linux/batman-adv/alfred-json.nix { };
 
-  alienfx = callPackage ../os-specific/linux/alienfx { };
-
   alertmanager-bot = callPackage ../servers/monitoring/alertmanager-bot { };
 
   alsa-firmware = callPackage ../os-specific/linux/alsa-firmware { };

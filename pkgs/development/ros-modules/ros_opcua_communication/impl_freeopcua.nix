@@ -6,7 +6,7 @@
 , ros_opcua_srvs
 , freeopcua
 , libxml2
-, pkgconfig
+, pkg-config
 }:
 
 let
@@ -23,7 +23,7 @@ in mkRosPackage {
     sha256 = "1b1rcpma4dzvg3z2jymdsacqrzbvki97cfbvbra0gik19i6r2pz0";
   };
 
-  propagatedBuildInputs = [ catkin roscpp ros_opcua_srvs freeopcua libxml2 pkgconfig ];
+  propagatedBuildInputs = [ catkin roscpp ros_opcua_srvs freeopcua libxml2 pkg-config ];
 
   meta = with lib; {
     description = "Bindings for freeopcua - Open Source C++ OPC-UA Server and Client Library";

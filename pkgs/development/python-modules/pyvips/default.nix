@@ -1,5 +1,5 @@
 { buildPythonPackage, fetchPypi, pytestrunner, pytestCheckHook, glib, vips, cffi
-, pkg-config, pkgconfig, lib }:
+, pkg-config, lib }:
 
 buildPythonPackage rec {
   pname = "pyvips";
@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "244e79c625be65237677c79424d4476de6c406805910015d4adbd0186c64a6a2";
   };
 
-  nativeBuildInputs = [ pytestrunner pkgconfig pkg-config ];
+  nativeBuildInputs = [ pytestrunner pkg-config ];
 
   buildInputs = [ glib vips ];
 

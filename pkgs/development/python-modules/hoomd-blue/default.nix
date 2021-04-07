@@ -1,5 +1,5 @@
 { lib, stdenv, fetchgit
-, cmake, pkgconfig
+, cmake, pkg-config
 , python
 , mpi ? null
 }:
@@ -28,7 +28,7 @@ stdenv.mkDerivation rec {
     inherit components mpi;
   };
 
-  nativeBuildInputs = [ cmake pkgconfig ];
+  nativeBuildInputs = [ cmake pkg-config ];
   buildInputs = lib.optionals withMPI [ mpi ];
   propagatedBuildInputs = [ python.pkgs.numpy ]
    ++ lib.optionals withMPI [ python.pkgs.mpi4py ];

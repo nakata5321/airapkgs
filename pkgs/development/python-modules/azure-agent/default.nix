@@ -11,7 +11,7 @@
 , nettools
 , procps
 , shadow
-, utillinux
+, util-linux
 , parted
 , python
 , python3Packages
@@ -43,7 +43,7 @@ buildPythonPackage rec {
                     nettools # for hostname
                     procps # for pidof
                     shadow # for useradd, usermod
-                    utillinux # for (u)mount, fdisk, sfdisk, mkswap
+                    util-linux # for (u)mount, fdisk, sfdisk, mkswap
                     parted
                 ];
   pythonPath = [ python3Packages.pyasn1 ];

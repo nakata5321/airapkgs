@@ -32,7 +32,6 @@
 , ntl
 , numpy
 , pari
-, pkgconfig
 , pkg-config
 , planarity
 , ppl
@@ -86,7 +85,7 @@ buildPythonPackage rec {
     cypari2
     jinja2
     numpy
-    pkgconfig
+    pkg-config
     boost
     arb
     brial

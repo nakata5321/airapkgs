@@ -2,7 +2,7 @@
 , fetchFromGitHub
 , rustPlatform
 , llvmPackages
-, pkgconfig
+, pkg-config
 , openssl
 , clang
 }:
@@ -21,7 +21,7 @@ rustPlatform.buildRustPackage rec {
 
   cargoSha256 = "1bh9fjzcgvwgl621d24h5z0xvm7aj4z2amb80grgafdma4pbvv4b";
 
-  buildInputs = [ pkgconfig openssl openssl.dev clang ];
+  buildInputs = [ pkg-config openssl openssl.dev clang ];
   LIBCLANG_PATH = "${llvmPackages.libclang}/lib";
 
   meta = with lib; {
