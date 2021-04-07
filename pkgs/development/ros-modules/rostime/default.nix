@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -22,7 +22,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin cpp_common ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Time and Duration implementations for C++ libraries";
     homepage = http://wiki.ros.org/rostime;
     license = licenses.bsd3;

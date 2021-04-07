@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -25,7 +25,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin roscpp ros_opcua_srvs freeopcua libxml2 pkgconfig ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Bindings for freeopcua - Open Source C++ OPC-UA Server and Client Library";
     homepage = http://wiki.ros.org/ros_opcua_impl_freeopcua;
     license = licenses.lgpl3;

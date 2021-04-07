@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -24,7 +24,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin genmsg rosbag roslib ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Command-line tool for displaying information about ROS Message/Service types";
     homepage = http://wiki.ros.org/rosmsg;
     license = licenses.bsd3;

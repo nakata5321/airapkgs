@@ -1,4 +1,5 @@
-{ stdenv
+{ lib
+, stdenv
 , fetchFromGitHub
 , python3Packages
 , python3
@@ -31,7 +32,7 @@ in stdenv.mkDerivation {
     sed -i 's|#!/usr/bin/env python|#!${python3.interpreter}|' ./cmake/parse_package_xml.py
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "A CMake-based build system that is used to build all packages in ROS";
     homepage = http://wiki.ros.org/catkin;
     license = licenses.bsd3;

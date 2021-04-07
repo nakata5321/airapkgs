@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , fetchFromGitHub
 , rustPlatform
 , llvmPackages
@@ -24,7 +24,7 @@ rustPlatform.buildRustPackage rec {
   buildInputs = [ pkgconfig openssl openssl.dev clang ];
   LIBCLANG_PATH = "${llvmPackages.libclang}/lib";
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Robonomics on Substrate";
     homepage = https://github.com/airalab/substrate-node-robonomics;
     license = licenses.asl20;

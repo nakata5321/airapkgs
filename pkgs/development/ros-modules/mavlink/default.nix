@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , python3Packages
@@ -23,7 +23,7 @@ mkRosPackage rec {
     substituteInPlace CMakeLists.txt --replace "/usr/bin/env" "env"
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Marshalling / communication library for drones.";
     homepage = https://github.com/mavlink/mavlink;
     license = licenses.gpl3;

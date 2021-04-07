@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , orocos_kdl
@@ -26,7 +26,7 @@ mkRosPackage rec {
     sed -i '/find_package(Eigen3 REQUIRED)/d' CMakeLists.txt
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Conversion functions between: - Eigen and KDL - Eigen and geometry_msgs.";
     homepage = http://wiki.ros.org/eigen_conversions;
     license = licenses.bsd3;

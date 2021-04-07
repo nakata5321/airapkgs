@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , rospy
@@ -20,7 +20,7 @@ mkRosPackage rec {
 
   propagatedBuildInputs = [ tf2 rospy ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Binds the tf2 functions and exceptions to python.";
     homepage = http://wiki.ros.org/tf2_py;
     license = licenses.bsd3;

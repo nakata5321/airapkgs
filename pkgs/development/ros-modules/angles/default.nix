@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -21,7 +21,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "A set of simple math utilities to work with angles.";
     homepage = http://wiki.ros.org/angles;
     license = licenses.bsd3;

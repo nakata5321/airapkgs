@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , genmsg
@@ -23,7 +23,7 @@ mkRosPackage rec {
     sed -i 's/''${PYTHON_EXECUTABLE} //' ./cmake/gencpp-extras.cmake.em
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "C++ ROS message and service generators";
     homepage = http://wiki.ros.org/gencpp;
     license = licenses.bsd3;

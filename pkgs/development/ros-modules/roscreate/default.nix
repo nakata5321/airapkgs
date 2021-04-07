@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -21,7 +21,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "";
     homepage = http://wiki.ros.org/roscreate;
     license = licenses.bsd3;

@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , python3Packages
@@ -25,7 +25,7 @@ mkRosPackage rec {
   propagatedBuildInputs = with python3Packages;
   [ ros_comm geometry_msgs nav_msgs sensor_msgs diagnostic_msgs pyserial ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "A ROS client library for small, embedded devices, such as Arduino.";
     homepage = http://wiki.ros.org/rosserial;
     license = licenses.bsd3;

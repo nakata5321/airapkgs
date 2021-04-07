@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -23,7 +23,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin roscpp rostest openssl.dev ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Server Side tools for Authorization and Authentication of ROS Clients";
     homepage = http://wiki.ros.org/rosauth;
     license = licenses.bsd3;

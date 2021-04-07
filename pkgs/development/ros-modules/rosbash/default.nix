@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -25,7 +25,7 @@ in mkRosPackage {
     sed -i 's|_perm="+111"|_perm="/111"|' ./scripts/rosrun
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Assorted shell commands for using ros with bash";
     homepage = http://wiki.ros.org/rosbash;
     license = licenses.bsd3;

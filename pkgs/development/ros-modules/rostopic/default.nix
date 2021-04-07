@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -25,7 +25,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin genpy rosbag rospy rostest ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Command-line tool for displaying debug information about ROS Topics";
     homepage = http://wiki.ros.org/rostopic;
     license = licenses.bsd3;

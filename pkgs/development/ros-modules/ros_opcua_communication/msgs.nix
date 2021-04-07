@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -22,7 +22,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin message_generation std_msgs ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Common used ROS OPC-UA messages";
     homepage = http://wiki.ros.org/ros_opcua_communication;
     license = licenses.lgpl3;

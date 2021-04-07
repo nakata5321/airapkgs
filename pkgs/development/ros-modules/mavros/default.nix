@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , diagnostic_updater
@@ -38,7 +38,7 @@ mkRosPackage rec {
     eigen_conversions mavros_msgs geographiclib
   ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "MAVLink extendable communication node for ROS with proxy for Ground Control Station.";
     homepage = https://github.com/mavlink/mavro;
     license = licenses.gpl3;

@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -21,7 +21,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Cleanup filesystem resources (e.g. log files)";
     homepage = http://wiki.ros.org/rosclean;
     license = licenses.bsd3;

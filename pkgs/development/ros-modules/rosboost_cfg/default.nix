@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -21,7 +21,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Contains scripts used by the rosboost-cfg tool for determining cflags/lflags/etc. of boost on your system";
     homepage = http://wiki.ros.org/rosboost_cfg;
     license = licenses.bsd3;

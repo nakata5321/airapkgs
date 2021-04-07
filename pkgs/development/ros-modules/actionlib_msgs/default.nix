@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , message_generation
@@ -22,7 +22,7 @@ in mkRosPackage rec {
 
   propagatedBuildInputs = [ message_generation std_msgs ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Common messages to interact with an action server and an action client";
     homepage = http://wiki.ros.org/actionlib_msgs;
     license = licenses.bsd3;

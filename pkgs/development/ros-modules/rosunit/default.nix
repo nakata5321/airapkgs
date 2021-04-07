@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -22,7 +22,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin roslib ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Unit-testing package for ROS";
     homepage = http://wiki.ros.org/rosunit;
     license = licenses.bsd3;

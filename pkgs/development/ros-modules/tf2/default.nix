@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , console_bridge
@@ -20,7 +20,7 @@ mkRosPackage rec {
 
   propagatedBuildInputs = [ console_bridge tf2_msgs ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "ROS bindings for the tf2 library, for both Python and C++.";
     homepage = http://wiki.ros.org/tf2;
     license = licenses.bsd3;

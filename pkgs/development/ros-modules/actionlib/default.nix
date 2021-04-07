@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -28,7 +28,7 @@ in mkRosPackage {
   propagatedBuildInputs =
   [ catkin actionlib_msgs message_generation roscpp rosunit rostest std_msgs ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Standardized interface for interfacing with preemptable tasks";
     homepage = http://wiki.ros.org/actionlib;
     license = licenses.bsd3;

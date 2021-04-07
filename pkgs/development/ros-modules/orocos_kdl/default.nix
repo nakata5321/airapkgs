@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , eigen
@@ -19,7 +19,7 @@ mkRosPackage rec {
 
   buildInputs = [ eigen ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Kinematics and Dynamics Library";
     homepage = http://wiki.ros.org/orocos_kdl;
     license = licenses.bsd3;

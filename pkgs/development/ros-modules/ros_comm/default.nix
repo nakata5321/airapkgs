@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -46,7 +46,7 @@ in mkRosPackage {
     rosout rosparam rospy rosservice rostest rostopic roswtf
     std_srvs topic_tools xmlrpcpp ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "ROS communications-related packages, including core client libraries";
     homepage = http://wiki.ros.org/ros_comm;
     license = licenses.bsd3;

@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -23,7 +23,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin message_generation message_runtime ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Contains scripts for managing the CMake-based build system for ROS";
     homepage = http://wiki.ros.org/rosbuild;
     license = licenses.bsd3;

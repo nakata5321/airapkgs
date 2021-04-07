@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -26,7 +26,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin genpy rosgraph roslib rosmsg rospy ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Command-line tool for listing and querying ROS Services";
     homepage = http://wiki.ros.org/rosservice;
     license = licenses.bsd3;

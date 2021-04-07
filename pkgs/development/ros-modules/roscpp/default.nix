@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -35,7 +35,7 @@ in mkRosPackage {
     rosconsole roscpp_serialization roscpp_traits rosgraph_msgs
     roslang rostime std_msgs xmlrpcpp ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "C++ implementation of ROS client library";
     homepage = http://wiki.ros.org/roscpp;
     license = licenses.bsd3;

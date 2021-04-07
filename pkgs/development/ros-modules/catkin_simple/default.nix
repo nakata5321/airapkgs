@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -20,7 +20,7 @@ in mkRosPackage {
   
   propagatedBuildInputs = [ catkin ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Catkin simpler wrapper.";
     homepage = https://github.com/catkin/catkin_simple;
     license = licenses.bsd3;

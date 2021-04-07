@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -24,7 +24,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin cpp_common rostime roscpp_traits ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Contains the code for serialization, is a component of roscpp";
     homepage = http://wiki.ros.org/roscpp_serialization;
     license = licenses.bsd3;

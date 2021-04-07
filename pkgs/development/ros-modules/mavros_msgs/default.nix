@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , message_generation
@@ -22,7 +22,7 @@ mkRosPackage rec {
 
   propagatedBuildInputs = [ message_generation message_runtime geographic_msgs sensor_msgs ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "MAVLink extendable communication node messages.";
     homepage = https://github.com/mavlink/mavros;
     license = licenses.gpl3;

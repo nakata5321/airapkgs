@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , rosconsole
@@ -23,7 +23,7 @@ mkRosPackage rec {
 
   propagatedBuildInputs = [ rosconsole rostest roscpp rosunit xmlrpcpp ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "A set of message filters which take in messages and may output those messages at a later time, based on the conditions that filter needs met";
     homepage = http://wiki.ros.org/message_filters;
     license = licenses.bsd3;

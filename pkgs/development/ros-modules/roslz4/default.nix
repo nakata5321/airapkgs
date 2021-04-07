@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -23,7 +23,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin lz4 cpp_common ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "A Python and C++ implementation of the LZ4 streaming format";
     homepage = http://wiki.ros.org/roslz4;
     license = licenses.bsd3;

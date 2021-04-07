@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , genmsg
@@ -25,7 +25,7 @@ mkRosPackage rec {
     sed -i 's/geneus gennodejs genlisp //g' CMakeLists.txt
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Package modeling the build-time dependencies for generating language bindings of messages";
     homepage = http://wiki.ros.org/message_generation;
     license = licenses.bsd3;

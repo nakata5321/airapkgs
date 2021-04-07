@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , message_generation
@@ -20,7 +20,7 @@ mkRosPackage rec {
 
   propagatedBuildInputs = [ message_generation message_runtime ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Common message types representing primitive data types and other basic message constructs";
     homepage = http://wiki.ros.org/std_msgs;
     license = licenses.bsd3;

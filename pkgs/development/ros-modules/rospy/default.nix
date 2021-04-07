@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -27,7 +27,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin genpy roscpp rosgraph rosgraph_msgs roslib std_msgs ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Python client library for ROS";
     homepage = http://wiki.ros.org/rospy;
     license = licenses.bsd3;

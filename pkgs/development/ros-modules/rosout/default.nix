@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -23,7 +23,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin roscpp rosgraph_msgs ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "System-wide logging mechanism for messages sent to the /rosout topic";
     homepage = http://wiki.ros.org/rosout;
     license = licenses.bsd3;

@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -24,7 +24,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin message_generation message_runtime std_msgs ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Diagnostic messages which provide the standardized interface for the diagnostic and runtime monitoring systems in ROS.";
     homepage = http://wiki.ros.org/diagnostic_msgs;
     license = licenses.bsd3;

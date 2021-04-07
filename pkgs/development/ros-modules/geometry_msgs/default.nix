@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -24,7 +24,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin message_generation message_runtime std_msgs ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Messages for common geometric primitives such as points, vectors, and poses.";
     homepage = http://wiki.ros.org/geometry_msgs;
     license = licenses.bsd3;

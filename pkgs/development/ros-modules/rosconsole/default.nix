@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -27,7 +27,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin boost cpp_common log4cxx rosbuild rostime rosunit ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "ROS console output library";
     homepage = http://wiki.ros.org/rosconsole;
     license = licenses.bsd3;

@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -23,7 +23,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin cpp_common rostime ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Contains the message traits code, is a component of roscpp";
     homepage = http://wiki.ros.org/roscpp_traits;
     license = licenses.bsd3;

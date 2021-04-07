@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -25,7 +25,7 @@ in mkRosPackage {
     sed -i 's/''${PYTHON_EXECUTABLE} ''${GENMSG_CHECK_DEPS_SCRIPT}/''${GENMSG_CHECK_DEPS_SCRIPT}/' ./cmake/pkg-genmsg.cmake.em
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Standalone Python library for generating ROS message and service data structures for various languages";
     homepage = http://wiki.ros.org/genmsg;
     license = licenses.bsd3;

@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , cmake_modules
@@ -22,7 +22,7 @@ mkRosPackage rec {
   buildInputs = [ boost tinyxml-2 ];
   propagatedBuildInputs = [ cmake_modules ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "ROS Package Tool";
     homepage = http://wiki.ros.org/rospack;
     license = licenses.bsd3;

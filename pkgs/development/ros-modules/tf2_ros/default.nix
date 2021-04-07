@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , actionlib
@@ -21,7 +21,7 @@ mkRosPackage rec {
 
   propagatedBuildInputs = [ actionlib message_filters tf2_py ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "ROS bindings for the tf2 library, for both Python and C++.";
     homepage = http://wiki.ros.org/tf2_ros;
     license = licenses.bsd3;

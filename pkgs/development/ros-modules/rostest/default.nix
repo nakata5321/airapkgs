@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -26,7 +26,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin rosgraph roslaunch rosmaster rospy rosunit ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Integration test suite based on roslaunch that is compatible with xUnit frameworks";
     homepage = http://wiki.ros.org/rostest;
     license = licenses.bsd3;

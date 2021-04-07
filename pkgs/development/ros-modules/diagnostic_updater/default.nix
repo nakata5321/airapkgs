@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -23,7 +23,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin diagnostic_msgs roscpp ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Tools for easily updating diagnostics";
     homepage = http://wiki.ros.org/diagnostic_updater;
     license = licenses.bsd3;

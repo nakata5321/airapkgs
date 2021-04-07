@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -23,7 +23,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin ros_opcua_msgs ros_opcua_srvs ros_opcua_impl_freeopcua ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "ROS bidings for different open-source OPC-UA implementations";
     homepage = http://wiki.ros.org/ros_opcua_communication;
     license = licenses.lgpl3;

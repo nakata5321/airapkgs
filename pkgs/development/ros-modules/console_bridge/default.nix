@@ -1,4 +1,5 @@
-{ stdenv
+{ lib
+, stdenv
 , fetchFromGitHub
 , cmake
 , pkgconfig
@@ -20,7 +21,7 @@ in stdenv.mkDerivation {
 
   nativeBuildInputs = [ cmake pkgconfig ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Logging that seamlessly pipes into rosconsole/rosout";
     homepage = http://wiki.ros.org/console_bridge;
     license = licenses.bsd3;

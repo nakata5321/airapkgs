@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , message_filters
@@ -21,7 +21,7 @@ mkRosPackage rec {
 
   propagatedBuildInputs = [ message_filters pluginlib sensor_msgs ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Provides transparent support for transporting images in low-bandwidth compressed formats.";
     homepage = http://wiki.ros.org/image_transport;
     license = licenses.bsd3;

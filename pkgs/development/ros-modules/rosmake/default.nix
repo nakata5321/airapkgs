@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -21,7 +21,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "ROS dependency aware build tool which can be used to build all dependencies in the correct order";
     homepage = http://wiki.ros.org/rosmake;
     license = licenses.bsd3;

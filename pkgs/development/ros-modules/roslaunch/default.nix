@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -30,7 +30,7 @@ in mkRosPackage {
   propagatedBuildInputs = [ catkin rosclean rosgraph_msgs roslib
                             rosmaster rosout rosparam rosunit python3Packages.defusedxml ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Tool for easily launching multiple ROS nodes";
     homepage = http://wiki.ros.org/roslaunch;
     license = licenses.bsd3;

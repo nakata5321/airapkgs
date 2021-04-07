@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -23,7 +23,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin boost console_bridge ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "C++ code for doing things that are not necessarily ROS related";
     homepage = http://wiki.ros.org/cpp_common;
     license = licenses.bsd3;

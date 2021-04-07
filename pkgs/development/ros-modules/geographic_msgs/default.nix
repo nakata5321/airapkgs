@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -25,7 +25,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin message_generation message_runtime geometry_msgs uuid_msgs ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "ROS messages for Geographic Information Systems.";
     homepage = http://wiki.ros.org/geographic_msgs;
     license = licenses.bsd3;

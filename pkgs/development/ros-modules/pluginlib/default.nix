@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , class_loader
@@ -22,7 +22,7 @@ mkRosPackage rec {
   buildInputs = [ tinyxml-2 ];
   propagatedBuildInputs = [ class_loader rosconsole ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Tools for writing and dynamically loading plugins using the ROS build infrastructure.";
     homepage = http://wiki.ros.org/pluginlib;
     license = licenses.bsd3;

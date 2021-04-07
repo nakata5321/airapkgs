@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , djiosdk
@@ -32,7 +32,7 @@ mkRosPackage rec {
   buildInputs = [ djiosdk ];
   propagatedBuildInputs = [ tf nav_msgs roscpp rospy sensor_msgs ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Official ROS packages for DJI onboard SDK.";
     homepage = https://github.com/dji-sdk/Onboard-SDK-ROS;
     maintainers = [ maintainers.akru ];

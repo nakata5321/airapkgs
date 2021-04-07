@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , ros_environment
@@ -22,7 +22,7 @@ mkRosPackage rec {
   buildInputs = [ boost ];
   propagatedBuildInputs = [ rospack ros_environment ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Base dependencies and support libraries for ROS";
     homepage = http://wiki.ros.org/roslib;
     license = licenses.bsd3;

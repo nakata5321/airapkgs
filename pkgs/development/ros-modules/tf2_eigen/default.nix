@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , cmake_modules
@@ -21,7 +21,7 @@ mkRosPackage rec {
 
   propagatedBuildInputs = [ cmake_modules tf2 eigen ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Convert tf2 data to eigen data structures.";
     homepage = http://wiki.ros.org/tf2_eigen;
     license = licenses.bsd3;

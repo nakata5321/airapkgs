@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , genmsg
@@ -26,7 +26,7 @@ mkRosPackage rec {
   propagatedBuildInputs =
   [ genmsg gencpp genpy cpp_common roscpp_serialization roscpp_traits rostime ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Package modeling the run-time dependencies for language bindings of messages";
     homepage = http://wiki.ros.org/message_runtime;
     license = licenses.bsd3;

@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , geometry_msgs
@@ -20,7 +20,7 @@ mkRosPackage rec {
 
   propagatedBuildInputs = [ actionlib_msgs geometry_msgs ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "ROS bindings for the tf2 library, for both Python and C++.";
     homepage = http://wiki.ros.org/tf2_msgs;
     license = licenses.bsd3;

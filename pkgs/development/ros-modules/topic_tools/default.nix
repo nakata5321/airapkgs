@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , cpp_common
@@ -30,7 +30,7 @@ mkRosPackage rec {
   [ cpp_common message_generation message_runtime rosconsole
     roscpp rostest rostime rosunit std_msgs xmlrpcpp ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Tools for directing, throttling, selecting, and otherwise messing with ROS topics";
     homepage = http://wiki.ros.org/topic_tools;
     license = licenses.bsd3;

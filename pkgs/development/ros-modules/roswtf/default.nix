@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -28,7 +28,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin rosbuild rosgraph roslaunch roslib rosnode rosservice rostest ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Tool for diagnosing issues with a running ROS system";
     homepage = http://wiki.ros.org/roswtf;
     license = licenses.bsd3;

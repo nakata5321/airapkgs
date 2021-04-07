@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -24,7 +24,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin mavlink console_bridge boost ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "MAVLink communication library.";
     homepage = https://github.com/mavlink/mavros;
     license = licenses.gpl3;

@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -22,7 +22,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin rosgraph ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Command-line tool for getting and setting ROS Parameters";
     homepage = http://wiki.ros.org/rosparam;
     license = licenses.bsd3;

@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -23,7 +23,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin python3Packages.netifaces ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Command-line tool, which prints information about the ROS Computation Graph";
     homepage = http://wiki.ros.org/rosgraph;
     license = licenses.bsd3;

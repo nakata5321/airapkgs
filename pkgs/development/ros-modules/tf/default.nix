@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -27,7 +27,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin console_bridge angles geometry_msgs sensor_msgs message_filters tf2_ros];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "ROS bindings for the tf library, for both Python and C++.";
     homepage = http://wiki.ros.org/tf;
     license = licenses.bsd3;

@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -34,7 +34,7 @@ in mkRosPackage {
                             roscpp_traits roslz4 bzip2 rostime
                             pluginlib gpgme openssl std_msgs ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "This is a set of tools for recording from and playing back ROS message without relying on the ROS client library";
     homepage = http://wiki.ros.org/rosbag_storage;
     license = licenses.bsd3;

@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -21,7 +21,7 @@ mkRosPackage rec {
 
   propagatedBuildInputs = [ catkin cpp_common rostime ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "C++ implementation of the XML-RPC protocol";
     homepage = http://wiki.ros.org/xmlrpcpp;
     license = licenses.bsd3;

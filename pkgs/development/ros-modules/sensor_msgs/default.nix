@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -24,7 +24,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin message_generation message_runtime geometry_msgs ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Messages for commonly used sensors.";
     homepage = http://wiki.ros.org/sensor_msgs;
     license = licenses.bsd3;

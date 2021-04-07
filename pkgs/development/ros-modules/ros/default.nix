@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -31,7 +31,7 @@ in mkRosPackage {
   propagatedBuildInputs = [ catkin rosbash rosboost_cfg rosbuild rosclean
                             roscreate roslang roslib rosmake rosunit ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "ROS packaging system";
     homepage = http://wiki.ros.org/ros;
     license = licenses.bsd3;

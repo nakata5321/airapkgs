@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 }:
@@ -16,10 +16,10 @@ mkRosPackage rec {
     sha256 = "11kh2z059ffxgjzrzh9jgdln3fhydh799bc590kfgxcqjx0kqpli";
   };
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "A common repository for CMake Modules for ROS";
     homepage = http://wiki.ros.org/cmake_modules;
     license = licenses.bsd3;
-    maintainers = [ stdenv.lib.maintainers.akru ];
+    maintainers = [ lib.maintainers.akru ];
   };
 }

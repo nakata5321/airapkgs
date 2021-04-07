@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , python3Packages
@@ -39,7 +39,7 @@ in mkRosPackage {
     roscpp roscpp_serialization roslib rospy topic_tools xmlrpcpp
     pluginlib openssl python3Packages.python-gnupg python3Packages.pycrypto python3Packages.pycryptodomex ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Set of tools for recording from and playing back to ROS topics";
     homepage = http://wiki.ros.org/rosbag;
     license = licenses.bsd3;

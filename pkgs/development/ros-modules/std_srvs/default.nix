@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , message_generation
@@ -20,7 +20,7 @@ mkRosPackage rec {
 
   propagatedBuildInputs = [ message_generation message_runtime ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Common service definitions";
     homepage = http://wiki.ros.org/std_srvs;
     license = licenses.bsd3;

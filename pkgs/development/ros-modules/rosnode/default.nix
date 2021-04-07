@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -24,7 +24,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin rosgraph rostopic ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Command-line tool for displaying debug information about ROS Nodes";
     homepage = http://wiki.ros.org/rosnode;
     license = licenses.bsd3;

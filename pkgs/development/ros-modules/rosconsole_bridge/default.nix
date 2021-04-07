@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , catkin
@@ -23,7 +23,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin console_bridge rosconsole ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "ROS console output library";
     homepage = http://wiki.ros.org/rosconsole_bridge;
     license = licenses.bsd3;

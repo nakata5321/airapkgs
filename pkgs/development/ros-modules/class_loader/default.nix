@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , mkRosPackage
 , fetchFromGitHub
 , console_bridge
@@ -25,7 +25,7 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin console_bridge cmake_modules boost poco ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "ROS-independent package for loading plugins during runtime.";
     homepage = http://wiki.ros.org/class_loader;
     license = licenses.bsd3;
