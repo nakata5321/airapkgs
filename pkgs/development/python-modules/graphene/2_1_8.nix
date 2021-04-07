@@ -1,33 +1,37 @@
 { lib
 , buildPythonPackage
 , fetchFromGitHub
-, aniso8601
+, aniso8601_7_0_0
 , iso8601
-, graphql-core
-, graphql-relay
+, graphql-core2
+, graphql-relay_2_0_1
 , pytestCheckHook
 , pytest-asyncio
 , pytest-benchmark
 , pytest-mock
 , pytz
 , snapshottest
+, fetchPypi
 }:
 
 buildPythonPackage rec {
   pname = "graphene";
-  version = "2_1_8";
+  version = "2.1.8";
 
-  src = fetchFromGitHub {
-    owner = "graphql-python";
-    repo = "graphene";
-    rev = "v${version}";
-    sha256 = "sha256-bVCCLPnV5F8PqLMg3GwcpwpGldrxsU+WryL6gj6y338=";
+  format = "wheel";
+  src = fetchPypi {
+    inherit pname version;
+    sha256 = "15m8qpwjl64k7j6n42jbqxraqvdyp4nlhcxiayzpc6srw41my5h9";
+    format = "wheel";
+    python = "py2.py3";
+    abi = "none";
+    platform = "any";
+
   };
 
+  buildInputs = [ graphql-core2 aniso8601_7_0_0 ];
   propagatedBuildInputs = [
-    aniso8601
-    graphql-core
-    graphql-relay
+    graphql-relay_2_0_1
   ];
 
   doCheck = false;

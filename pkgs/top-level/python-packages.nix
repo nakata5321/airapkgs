@@ -2805,6 +2805,9 @@ in {
 
   graphql-relay = callPackage ../development/python-modules/graphql-relay { };
 
+  graphql-relay_2_0_1 = callPackage ../development/python-modules/graphql-relay/2_0_1.nix { };
+
+
   graphql-server-core = callPackage ../development/python-modules/graphql-server-core { };
 
   graphql-server-core120 = callPackage ../development/python-modules/graphql-server-core/graphql-server-core120.nix { };
