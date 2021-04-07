@@ -1,4 +1,5 @@
-{ stdenv
+{ lib
+, stdenv
 , fetchFromGitHub
 , cmake
 , pkgconfig
@@ -24,7 +25,7 @@ stdenv.mkDerivation {
 
   patches = [ ./pkgconfig_generator.patch ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     homepage = https://github.com/FreeOpcUa/freeopcua;
     license = licenses.lgpl3;
     shortDescription = "Open Source C++ OPC-UA Server and Client Library";

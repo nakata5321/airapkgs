@@ -1,4 +1,5 @@
-{ stdenv
+{ lib
+, stdenv
 , fetchFromGitHub
 , wget
 , cacert
@@ -26,7 +27,7 @@ in stdenv.mkDerivation {
     $out/sbin/geographiclib-get-magnetic emm2015
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Small set of C++ classes for performing conversions between geographic.";
     homepage = https://github.com/ethz-asl/geographic_lib;
     license = licenses.mit;

@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , fetchPypi
 , buildPythonApplication
 , catkin_pkg
@@ -19,7 +19,7 @@ in buildPythonApplication rec {
 
   doCheck = false;
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Command line tools for working with catkin";
     homepage = http://catkin-tools.readthedocs.org;
     license = licenses.asl20;

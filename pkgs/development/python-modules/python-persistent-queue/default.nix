@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , buildPythonPackage
 , fetchPypi
 }:
@@ -14,7 +14,7 @@ buildPythonPackage rec {
 
   doCheck = false;
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Implementation of a persistent queue in Python. ";
     homepage = "https://github.com/philipbl/python-persistent-queue";
     license = licenses.mit;

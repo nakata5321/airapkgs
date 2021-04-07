@@ -1,4 +1,5 @@
-{ stdenv
+{ lib
+, stdenv
 , fetchFromGitHub
 , cmake
 }:
@@ -16,7 +17,7 @@ stdenv.mkDerivation rec {
 
   buildInputs = [ cmake ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "DJI Onboard SDK";
     homepage = https://github.com/dji-sdk/Onboard-SDK;
     platforms = platforms.linux;

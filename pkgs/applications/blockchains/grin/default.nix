@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , fetchFromGitHub
 , rustPlatform
 , llvmPackages
@@ -25,7 +25,7 @@ rustPlatform.buildRustPackage rec {
   buildInputs = [ pkgconfig openssl openssl.dev clang ncurses ];
   LIBCLANG_PATH = "${llvmPackages.libclang}/lib";
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Minimal implementation of the MimbleWimble protocol.";
     homepage = http://grin-tech.org/;
     license = licenses.asl20;

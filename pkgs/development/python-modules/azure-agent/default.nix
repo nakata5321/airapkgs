@@ -1,5 +1,5 @@
-{ stdenv
-, lib
+{ lib
+, stdenv
 , fetchFromGitHub
 , buildPythonPackage
 , findutils
@@ -66,7 +66,7 @@ buildPythonPackage rec {
         --prefix PATH : "${makeBinPath runtimeDeps}"
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Microsoft Azure Linux Guest Agent http://azure.microsoft.com/";
     homepage    = "https://github.com/Azure/WALinuxAgent/";
     license     = licenses.asl20;

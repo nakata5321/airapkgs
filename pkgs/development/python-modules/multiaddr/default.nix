@@ -1,7 +1,6 @@
-{ stdenv
+{ lib
 , buildPythonPackage
 , fetchPypi
-, lib
 , netaddr
 , six
 , varint
@@ -20,7 +19,7 @@ buildPythonPackage rec {
 
   propagatedBuildInputs = [ netaddr six varint base58 idna ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "multiaddr implementation in Python";
     homepage = https://github.com/multiformats/py-multiaddr;
     license = [licenses.mit licenses.asl20];

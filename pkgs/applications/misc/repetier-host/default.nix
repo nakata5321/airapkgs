@@ -1,12 +1,12 @@
-{ fetchurl, gtk2, mono, stdenv }:
+{ fetchurl, gtk2, mono, stdenv, lib }:
 
 stdenv.mkDerivation rec {
   name = "repetier-host-${version}";
-  version = "2.1.3";
+  version = "2.1.6";
 
   src = fetchurl {
-    url = "http://download.repetier.com/files/host/linux/repetierHostLinux_2_1_3.tgz";
-    sha256 = "1wrf9yr3r57j0lb1lc36rm5n86nzyr7wqlkzix5d746c0m36chfy";
+    url = "http://download.repetier.com/files/host/linux/repetierHostLinux_2_1_6.tgz";
+    sha256 = "1q3yw0ha2v9nn2bx0lj2xp0904kxf2r1h7c9skriixx30m39lbz3";
   };
 
   buildPhase = ''
@@ -39,7 +39,7 @@ stdenv.mkDerivation rec {
     runHook postInstall
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Repetier-Host is a 3D printing application developed by Hot-World GmbH & Co. KG.";
     longDescription = ''
       Some 3D printing software is easier to learn than others.

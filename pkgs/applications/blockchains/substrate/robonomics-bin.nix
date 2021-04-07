@@ -1,4 +1,5 @@
-{ stdenv
+{ lib	
+, stdenv
 , fetchurl
 , libgcc
 , openssl
@@ -25,7 +26,7 @@ in stdenv.mkDerivation rec {
    };
   dontBuild = true;
   sourceRoot = ".";
-  libPath = stdenv.lib.makeLibraryPath
+  libPath = lib.makeLibraryPath
     [ libgcc
       openssl
       stdenv.cc.cc.lib # libstdc++.so.6
@@ -46,7 +47,7 @@ in stdenv.mkDerivation rec {
    meta = {
       description = "Robonomics on Substrate node";
       homepage = https://github.com/airalab/substrate-node-robonomics;
-      license = stdenv.lib.licenses.asl20;
+      license = lib.licenses.asl20;
       maintainers = [ "spd - spd@aira.life" ];
       platforms = [ "x86_64-linux" "aarch64-linux" ];
    };

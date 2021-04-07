@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, cmake, pkgconfig, zlib, jansson }:
+{ lib, stdenv, fetchFromGitHub, cmake, pkgconfig, zlib, jansson }:
 
 stdenv.mkDerivation rec {
   name = "${pname}-${version}";
@@ -22,8 +22,8 @@ stdenv.mkDerivation rec {
   meta = {
     homepage = https://github.com/ffnord/alfred-json;
     description = "Simple alfred client with JSON output.";
-    license = stdenv.lib.licenses.gpl2;
-    maintainers = with stdenv.lib.maintainers; [ akru ];
-    platforms = with stdenv.lib.platforms; linux;
+    license = lib.licenses.gpl2;
+    maintainers = with lib.maintainers; [ akru ];
+    platforms = with lib.platforms; linux;
   };
 }

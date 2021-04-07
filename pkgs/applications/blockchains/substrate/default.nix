@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , fetchFromGitHub
 , rustPlatform
 , llvmPackages
@@ -26,7 +26,7 @@ rustPlatform.buildRustPackage rec {
   LIBCLANG_PATH = "${llvmPackages.libclang}/lib";
   PROTOC = "${protobuf}/bin/protoc";
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Substrate: The platform for blockchain innovators";
     homepage = https://github.com/paritytech/substrate;
     license = licenses.gpl3;

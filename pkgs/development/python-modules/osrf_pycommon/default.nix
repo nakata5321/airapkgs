@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , fetchPypi
 , buildPythonPackage
 , trollius
@@ -17,7 +17,7 @@ in buildPythonPackage rec {
 
   doCheck = false;
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Commonly needed Python modules, used by Python software developed at OSRF";
     homepage = http://osrf-pycommon.readthedocs.io;
     license = licenses.asl20;

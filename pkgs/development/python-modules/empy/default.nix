@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , fetchPypi
 , buildPythonApplication
 }:
@@ -12,7 +12,7 @@ in buildPythonApplication rec {
   name = "${pname}-${version}";
   src = fetchPypi { inherit pname version sha256; };
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     homepage = http://www.alcyone.com/software/empy/;
     description = "A powerful and robust templating system for Python";
     license = licenses.lgpl3;

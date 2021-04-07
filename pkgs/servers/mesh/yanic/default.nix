@@ -1,11 +1,11 @@
-{ stdenv
+{ lib
 , buildGoPackage
 , fetchgit
 }:
 
 buildGoPackage rec {
   name = "yanic-${version}";
-  version = "2018-07-10";
+  version = "2021-04-02";
   rev = "71c3e5ffe4d1fb09736edf7d469c892f6eb8e99f";
 
   goPackagePath = "github.com/FreifunkBremen/yanic";
@@ -18,7 +18,7 @@ buildGoPackage rec {
 
   goDeps = ./deps.nix;
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     homepage = https://github.com/FreifunkBremen/yanic;
     description = "Yet another node info collector - for respondd to be used with meshviewer";
     license = licenses.agpl3;

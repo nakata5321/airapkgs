@@ -1,4 +1,4 @@
-{ stdenv, fetchPypi, buildPythonPackage, libsodium, pytest }:
+{ lib, stdenv, fetchPypi, buildPythonPackage, libsodium, pytest }:
 
 buildPythonPackage rec {
   pname = "pysodium";
@@ -21,7 +21,7 @@ buildPythonPackage rec {
     py.test
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "A very simple wrapper around libsodium masquerading as nacl.";
     homepage = https://github.com/stef/pysodium;
     license = licenses.bsd3;

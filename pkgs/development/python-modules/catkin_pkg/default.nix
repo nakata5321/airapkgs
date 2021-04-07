@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , fetchPypi
 , buildPythonPackage
 , pyparsing
@@ -17,7 +17,7 @@ in buildPythonPackage rec {
 
   propagatedBuildInputs = [ pyparsing docutils dateutil ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Standalone Python library for the catkin package system";
     homepage = http://wiki.ros.org/catkin_pkg;
     license = licenses.bsd3;

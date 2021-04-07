@@ -1,4 +1,5 @@
-{ stdenv
+{ lib
+, stdenv
 , fetchzip
 , fetchFromGitHub
 , llvm
@@ -57,7 +58,7 @@ stdenv.mkDerivation {
 
   outputs = [ "out" "dev" ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Compiler for Ethereum smart contract language Solidity";
     longDescription = "This package also includes `lllc', the LLL compiler.";
     homepage = https://github.com/ethereum/solidity;

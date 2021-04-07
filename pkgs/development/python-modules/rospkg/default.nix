@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , fetchPypi
 , buildPythonPackage
 , catkin_pkg
@@ -16,7 +16,7 @@ in buildPythonPackage rec {
 
   propagatedBuildInputs = [ catkin_pkg pyyaml ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Standalone Python library for the ROS package system";
     homepage = http://wiki.ros.org/rospkg;
     license = licenses.bsd3;

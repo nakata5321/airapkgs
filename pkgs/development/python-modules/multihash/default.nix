@@ -1,4 +1,4 @@
-{ stdenv
+{ lib
 , buildPythonPackage
 , fetchFromGitHub
 , base58
@@ -19,7 +19,7 @@ buildPythonPackage rec {
 
   propagatedBuildInputs = [ base58 ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Implementation of the multihash specification in Python";
     homepage = https://github.com/multiformats/multihash;
     license = licenses.mit;
