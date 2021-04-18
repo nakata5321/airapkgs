@@ -30,7 +30,6 @@ buildPythonPackage rec {
 
   buildInputs = [
     base58-2_0_1
-    #base58-2_0_1
     requests
     xxhash
   ];
@@ -43,15 +42,11 @@ buildPythonPackage rec {
     py-sr25519-bindings
     py-ed25519-bindings
     py-bip39-bindings
-
-    #requests
-    #base58
-    #base58-2_0_1
   ];  # зависимости
 
 
   meta = {
-    description = "мета";
+    description = "interfacing with a Substrate node";
     homepage = "https://github.com/polkascan/py-substrate-interface";
     license = lib.licenses.bsd3;
     maintainers = with lib.maintainers; [ Vourhey ];

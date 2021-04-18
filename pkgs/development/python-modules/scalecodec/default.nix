@@ -19,7 +19,7 @@ buildPythonPackage rec {
   propagatedBuildInputs = [ more-itertools requests base58-2_0_1 ];  # зависимости
 
   meta = {
-    description = "мета";
+    description = "Substrate RPCs output scale decodec";
     homepage = "https://polkascan.github.io/py-scale-codec/";
     license = lib.licenses.bsd3;
     maintainers = with lib.maintainers; [ Vourhey ];

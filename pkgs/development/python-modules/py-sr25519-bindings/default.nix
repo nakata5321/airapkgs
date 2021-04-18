@@ -24,7 +24,7 @@ buildPythonPackage rec {
 
 
   meta = {
-    description = "мета";
+    description = "Python bindings for sr25519 library";
     homepage = "https://github.com/polkascan/py-ed25519-bindings";
     license = lib.licenses.bsd3;
     maintainers = with lib.maintainers; [ Vourhey ];

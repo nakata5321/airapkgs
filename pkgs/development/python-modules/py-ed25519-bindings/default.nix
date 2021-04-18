@@ -24,7 +24,7 @@ buildPythonPackage rec {
 
 
   meta = {
-    description = "мета";
+    description = "Python bindings for the ed25519-dalek RUST crate";
     homepage = "https://github.com/polkascan/py-ed25519-bindings";
     license = lib.licenses.bsd3;
     maintainers = with lib.maintainers; [ Vourhey ];
