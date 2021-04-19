@@ -868,6 +868,8 @@ in {
 
   base58 = callPackage ../development/python-modules/base58 { };
 
+  base58-2_0_1 = callPackage ../development/python-modules/base58/2.0.1.nix { };
+
   baselines = callPackage ../development/python-modules/baselines { };
 
   basemap = callPackage ../development/python-modules/basemap { };
@@ -2794,11 +2796,17 @@ in {
 
   graphene = callPackage ../development/python-modules/graphene { };
 
+  graphene_2_1_8 = callPackage ../development/python-modules/graphene/2_1_8.nix { };
+
+
   graphql-core = callPackage ../development/python-modules/graphql-core { };
 
   graphql-core2 = callPackage ../development/python-modules/graphql-core/graphql-core2.nix { };
 
   graphql-relay = callPackage ../development/python-modules/graphql-relay { };
+
+  graphql-relay_2_0_1 = callPackage ../development/python-modules/graphql-relay/2_0_1.nix { };
+
 
   graphql-server-core = callPackage ../development/python-modules/graphql-server-core { };
 
@@ -6580,6 +6588,12 @@ in {
 
   pywal = callPackage ../development/python-modules/pywal { };
 
+  py-ed25519-bindings = callPackage ../development/python-modules/py-ed25519-bindings { };
+
+  py-bip39-bindings = callPackage ../development/python-modules/py-bip39-bindings { };
+
+  py-sr25519-bindings = callPackage ../development/python-modules/py-sr25519-bindings { };
+
   pywatchman = callPackage ../development/python-modules/pywatchman { };
 
   pywavelets = callPackage ../development/python-modules/pywavelets { };
@@ -7009,6 +7023,8 @@ in {
   scales = callPackage ../development/python-modules/scales { };
 
   scandir = callPackage ../development/python-modules/scandir { };
+
+  scalecodec = callPackage ../development/python-modules/scalecodec { };
 
   scapy = callPackage ../development/python-modules/scapy { };
 
@@ -7582,6 +7598,8 @@ in {
   subliminal = callPackage ../development/python-modules/subliminal { };
 
   subprocess32 = callPackage ../development/python-modules/subprocess32 { };
+
+  substrate-interface = callPackage ../development/python-modules/substrate-interface { };
 
   subunit = callPackage ../development/python-modules/subunit { inherit (pkgs) subunit pkg-config cppunit check; };
 

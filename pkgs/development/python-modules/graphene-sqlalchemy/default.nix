@@ -1,13 +1,16 @@
 { lib
 , python3
 , python3Packages
+, graphene_2_1_8
+, aniso8601_7_0_0
 }:
 
 python3Packages.buildPythonApplication rec {
   pname = "graphene-sqlalchemy";
   version = "2.2.0";
-
-  propagatedBuildInputs = with python3Packages; [ graphene singledispatch sqlalchemy ];
+  
+  #buildInputs = [ graphene_2_1_8 aniso8601_7_0_0 ];
+  propagatedBuildInputs = with python3Packages; [ singledispatch sqlalchemy graphene_2_1_8 aniso8601_7_0_0 ];
 
   src = python3Packages.fetchPypi {
     inherit version;
