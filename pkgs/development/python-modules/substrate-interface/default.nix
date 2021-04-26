@@ -49,7 +49,7 @@ buildPythonPackage rec {
     description = "interfacing with a Substrate node";
     homepage = "https://github.com/polkascan/py-substrate-interface";
     license = lib.licenses.bsd3;
-    maintainers = with lib.maintainers; [ Vourhey ];
+    maintainers = with lib.maintainers; [ vourhey ];
   };
 }
 

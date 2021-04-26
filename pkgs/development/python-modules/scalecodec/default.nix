@@ -22,6 +22,6 @@ buildPythonPackage rec {
     description = "Substrate RPCs output scale decodec";
     homepage = "https://polkascan.github.io/py-scale-codec/";
     license = lib.licenses.bsd3;
-    maintainers = with lib.maintainers; [ Vourhey ];
+    maintainers = with lib.maintainers; [ vourhey ];
   };
 }
