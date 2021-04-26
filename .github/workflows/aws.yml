@@ -1,0 +1,33 @@
+name: "aws"
+on:
+  pull_request:
+  push:
+jobs:
+  upload:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v2.3.4
+      - uses: cachix/install-nix-action@v13
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+      - run: |
+          nix-build -A nixpkgs.tarball $GITHUB_WORKSPACE/nixos/release-aira.nix -I nixpkgs=$GITHUB_WORKSPACE
+          mkdir $GITHUB_RUN_ID
+          cp $GITHUB_WORKSPACE/result/tarballs/*.tar.xz $GITHUB_RUN_ID/nixexprs.tar.xz
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-1
+      - id: install-aws-cli
+        uses: unfor19/install-aws-cli-action@v1
+      - run: |
+          echo "Upload nixexprs.tar.xz"
+          aws s3 cp --recursive  $GITHUB_RUN_ID/ s3://releases.aira.life/channels/aira/unstable/$GITHUB_RUN_ID
+          echo "Generate nginx config"
+          mkdir conf
+          echo 'location ~ ^/channels/aira-unstable(.*)$ { index index.html;try_files $uri $uri/ @unstable;}' > conf/unstable.conf
+          echo 'location @unstable { return 302  https://releases.aira.life/channels/aira/unstable/'$GITHUB_RUN_ID'$1;}' >> conf/unstable.conf
+          aws s3 cp conf/unstable.conf s3://releases.aira.life/conf/unstable.conf
+        shell: bash
