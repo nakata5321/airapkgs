@@ -67,9 +67,12 @@ in {
 
       serviceConfig = {
         Restart = "on-failure";
-        StartLimitInterval = 0;
         RestartSec = 60;
         User = cfg.user;
+      };
+      unitConfig = {
+        StartLimitIntervalSec = 0;
+        StartLimitBurst = 3;
       };
     };
   };

@@ -2,7 +2,7 @@
 
 {
 
-  imports = [ ../profiles/aira.nix ];
+  imports = [ ../profiles/aira-unstable.nix ];
 
   # https://github.com/NixOS/nixpkgs/issues/26776
   systemd.services.sshd.wantedBy = lib.mkOverride 40 [ "multi-user.target" ];
@@ -27,6 +27,7 @@
       echo -e "Starting..."
       sleep 5
       ${pkgs.figlet}/bin/figlet AIRA
+      echo "\naira-unstable"
       export ADDRESS=`cat /var/lib/liability/keyfile|${pkgs.jq}/bin/jq ".address"`
       echo -e "\nMy Ethereum address is $ADDRESS"
       export ID=`${pkgs.ipfs}/bin/ipfs --api /ip4/127.0.0.1/tcp/5001 id|${pkgs.jq}/bin/jq ".ID"`
