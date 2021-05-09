@@ -22,7 +22,7 @@ jobs:
           cp $GITHUB_WORKSPACE/result/tarballs/*.tar.xz $GITHUB_RUN_ID/nixexprs.tar.xz
       - run: |
           nix-build -A ova_image_unstable $GITHUB_WORKSPACE/nixos/release-aira-images.nix -I nixpkgs=$GITHUB_WORKSPACE
-          la -al $GITHUB_WORKSPACE/result/
+          cp $GITHUB_WORKSPACE/result/*.ova $GITHUB_RUN_ID/
       - run: |
           cd $GITHUB_RUN_ID
           tree -P "*.tar.gz|*.tar.xz|*.ova" -h -D --dirsfirst -r -H . > index.html
@@ -36,10 +36,10 @@ jobs:
         uses: unfor19/install-aws-cli-action@v1
       - run: |
           echo "Upload files"
-          aws s3 cp --recursive  $GITHUB_RUN_ID/ s3://releases.aira.life/channels/aira/unstable/$GITHUB_RUN_ID
-          #echo "Generate nginx config"
-          #mkdir conf
-          #echo 'location ~ ^/channels/aira-unstable(.*)$ { index index.html;try_files $uri $uri/ @unstable;}' > conf/unstable.conf
-          #echo 'location @unstable { return 302  https://releases.aira.life/channels/aira/unstable/'$GITHUB_RUN_ID'$1;}' >> conf/unstable.conf
-          #aws s3 cp conf/unstable.conf s3://releases.aira.life/conf/unstable.conf
+          ws s3 cp --recursive  $GITHUB_RUN_ID/ s3://releases.aira.life/channels/aira/unstable/$GITHUB_RUN_ID
+          echo "Generate nginx config"
+          mkdir conf
+          echo 'location ~ ^/channels/aira-unstable(.*)$ { index index.html;try_files $uri $uri/ @unstable;}' > conf/unstable.conf
+          echo 'location @unstable { return 302  https://releases.aira.life/channels/aira/unstable/'$GITHUB_RUN_ID'$1;}' >> conf/unstable.conf
+          aws s3 cp conf/unstable.conf s3://releases.aira.life/conf/unstable.conf
         shell: bash
