@@ -36,7 +36,7 @@ jobs:
         uses: unfor19/install-aws-cli-action@v1
       - run: |
           echo "Upload files"
-          ws s3 cp --recursive  $GITHUB_RUN_ID/ s3://releases.aira.life/channels/aira/unstable/$GITHUB_RUN_ID
+          aws s3 cp --recursive  $GITHUB_RUN_ID/ s3://releases.aira.life/channels/aira/unstable/$GITHUB_RUN_ID
           echo "Generate nginx config"
           mkdir conf
           echo 'location ~ ^/channels/aira-unstable(.*)$ { index index.html;try_files $uri $uri/ @unstable;}' > conf/unstable.conf
