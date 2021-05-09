@@ -51,14 +51,13 @@ in rec {
         ];
     }).config.system.build.virtualBoxOVA);
 
-  ova_image_ws = with import nixpkgsSrc { system = "x86_64-linux"; };
+  ova_image_unstable = with import nixpkgsSrc { system = "x86_64-linux"; };
     lib.hydraJob ((import lib/eval-config.nix {
       inherit system;
       modules =
         [ ./modules/installer/virtualbox-minimal.nix
-          ./modules/installer/aira_ws.nix
+          ./modules/installer/aira-unstable.nix
           ./modules/profiles/aira-foundation-nightly.nix
-#          ./modules/profiles/aira-foundation.nix
         ];
     }).config.system.build.virtualBoxOVA);
 
@@ -116,7 +115,7 @@ in rec {
     constituents =
       [ 
         ova_image
-        ova_image_ws
+        ova_image_unstable
         sd_image
         aira_image_rpi4
       ]
