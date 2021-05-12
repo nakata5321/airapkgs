@@ -42,7 +42,7 @@
 
   # Root autologin
   users.extraUsers.root.initialHashedPassword = "";
-  services.mingetty.autologinUser = "root";
+  services.getty.autologinUser = "root";
 
   # Useful preinstall utils
   environment.systemPackages = with pkgs; [
