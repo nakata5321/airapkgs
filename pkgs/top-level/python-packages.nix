@@ -7026,6 +7026,8 @@ in {
 
   scalecodec = callPackage ../development/python-modules/scalecodec { };
 
+  scalecodec_0_11_11 = callPackage ../development/python-modules/scalecodec/0_11_11.nix { };
+
   scapy = callPackage ../development/python-modules/scapy { };
 
   schedule = callPackage ../development/python-modules/schedule { };
@@ -7600,6 +7602,8 @@ in {
   subprocess32 = callPackage ../development/python-modules/subprocess32 { };
 
   substrate-interface = callPackage ../development/python-modules/substrate-interface { };
+
+  substrate-interface_0_13_8 = callPackage ../development/python-modules/substrate-interface/0_13_8.nix { };
 
   subunit = callPackage ../development/python-modules/subunit { inherit (pkgs) subunit pkg-config cppunit check; };
 
