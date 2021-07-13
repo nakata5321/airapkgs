@@ -7604,6 +7604,8 @@ in {
   substrate-interface = callPackage ../development/python-modules/substrate-interface { };
 
   substrate-interface_0_13_8 = callPackage ../development/python-modules/substrate-interface/0_13_8.nix { };
+  
+  substrate-interface_0_13_6 = callPackage ../development/python-modules/substrate-interface/0_13_6.nix { };
 
   subunit = callPackage ../development/python-modules/subunit { inherit (pkgs) subunit pkg-config cppunit check; };
 
