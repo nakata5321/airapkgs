@@ -7026,7 +7026,7 @@ in {
 
   scalecodec = callPackage ../development/python-modules/scalecodec { };
 
-  scalecodec_0_11_11 = callPackage ../development/python-modules/scalecodec/0_11_11.nix { };
+  scalecodec_0_11_16 = callPackage ../development/python-modules/scalecodec/0_11_16.nix { };
 
   scapy = callPackage ../development/python-modules/scapy { };
 

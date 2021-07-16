@@ -1,7 +1,7 @@
 { lib
 , buildPythonPackage
 , fetchPypi
-, scalecodec_0_11_11
+, scalecodec_0_11_16
 , websocket_client
 , py-sr25519-bindings
 , py-ed25519-bindings
@@ -37,7 +37,7 @@ buildPythonPackage rec {
   format = "wheel";
 
   propagatedBuildInputs =  [
-    scalecodec_0_11_11
+    scalecodec_0_11_16
     websocket_client
     py-sr25519-bindings
     py-ed25519-bindings
