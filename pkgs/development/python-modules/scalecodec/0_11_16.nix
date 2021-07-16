@@ -8,12 +8,12 @@
 
 buildPythonPackage rec {
   pname = "scalecodec";
-  version = "0.11.11";
-  GITHUB_REF="refs/tags/v0.11.11";
+  version = "0.11.16";
+  GITHUB_REF="refs/tags/v0.11.16";
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "1pb5sihlxn071xh7fmvy134zbji6rl7nhxrynis1qpq0zkwqk3dm";
+    sha256 = "1nmay84fspf04ml1z92g8amczv53skldv1c6jiyiai5fy872qya2";
   };
 
   propagatedBuildInputs = [ more-itertools requests base58-2_0_1 ];  # зависимости
