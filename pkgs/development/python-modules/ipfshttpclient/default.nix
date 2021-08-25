@@ -10,19 +10,19 @@
 buildPythonPackage rec {
   name = "${pname}-${version}";
   pname = "ipfshttpclient";
-  version = "0.6.1";
+  version = "0.8.0a2";
 
   disabled = isPy27;
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "160hcczkrnbqwqjx86vri5kvmvn17v01csll1c8w8ifx96r14azv";
+    sha256 = "0d91h4h2c2zpa9f4fra2nyx8yg7w6qdgi6z72kacf0hbwrgfk00d";
   };
 
   propagatedBuildInputs = [ multiaddr requests httpx ];
-  patchPhase = ''
-sed -i 's/0.7.0/0.8.0/' ipfshttpclient/client/__init__.py
-  '';
+  #patchPhase = ''
+  #sed -i 's/0.7.0/0.8.0/' ipfshttpclient/client/__init__.py
+  #  '';
 
 
   meta = {

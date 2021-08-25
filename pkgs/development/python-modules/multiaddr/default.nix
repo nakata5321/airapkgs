@@ -6,6 +6,7 @@
 , varint
 , base58
 , idna
+, pytestCheckHook
 }:
 
 buildPythonPackage rec {
@@ -16,6 +17,16 @@ buildPythonPackage rec {
     inherit pname version;
     sha256 = "1kqfmcbv8plpicbygwpdljin7n82iyxklc0w1ywxbhzdi58nkcih";
   };
+
+  postPatch = ''
+    substituteInPlace setup.py --replace "'pytest-runner'," ""
+  '';
+
+  checkInputs = [
+    pytestCheckHook
+  ];
+
+  pythonImportsCheck = [ "multiaddr" ];
 
   propagatedBuildInputs = [ netaddr six varint base58 idna ];
 
