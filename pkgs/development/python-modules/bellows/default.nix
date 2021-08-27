@@ -1,36 +1,63 @@
-{ lib, buildPythonPackage, fetchFromGitHub
-, click, click-log, pure-pcapy3
-, pyserial-asyncio, voluptuous, zigpy
-, asynctest, pytestCheckHook, pytest-asyncio }:
+{ lib
+, buildPythonPackage
+, fetchFromGitHub
+, click
+, click-log
+, dataclasses
+, pure-pcapy3
+, pyserial-asyncio
+, voluptuous
+, zigpy
+, asynctest
+, pythonOlder
+, pytestCheckHook
+, pytest-asyncio
+, pytest-timeout
+}:
 
 buildPythonPackage rec {
   pname = "bellows";
-  version = "0.21.0";
+  version = "0.26.0";
 
   src = fetchFromGitHub {
     owner = "zigpy";
     repo = "bellows";
     rev = version;
-    sha256 = "1gja7cb1cyzbi19k8awa2gyc3bjam0adapalpk5slxny0vxlc73a";
+    sha256 = "0qbsk5iv3vrpwz7kfmjdbc66rfkg788p6wwxbf6jzfarfhcgrh3k";
   };
 
   propagatedBuildInputs = [
-    click click-log pure-pcapy3 pyserial-asyncio voluptuous zigpy
+    click
+    click-log
+    pure-pcapy3
+    pyserial-asyncio
+    voluptuous
+    zigpy
+  ] ++ lib.optionals (pythonOlder "3.7") [
+    dataclasses
   ];
 
   checkInputs = [
-    asynctest
     pytestCheckHook
     pytest-asyncio
+    pytest-timeout
+  ]  ++ lib.optionals (pythonOlder "3.8") [
+    asynctest
   ];
 
-  prePatch = ''
-    substituteInPlace setup.py \
-      --replace "click-log==0.2.0" "click-log>=0.2.0"
-  '';
+  disabledTests = [
+    # RuntimeError: coroutine 'test_remigrate_forcibly_downgraded_v4' was never awaited
+    #"test_remigrate_forcibly_downgraded_v4"
+    # RuntimeError: Event loop is closed
+    "test_thread_already_stopped"
+  ];
+
+  pythonImportsCheck = [
+    "bellows"
+  ];
 
   meta = with lib; {
-    description = "A Python 3 project to implement EZSP for EmberZNet devices";
+    description = "Python module to implement EZSP for EmberZNet devices";
     homepage = "https://github.com/zigpy/bellows";
     license = licenses.gpl3Plus;
     maintainers = with maintainers; [ etu mvnetbiz ];

@@ -1,27 +1,47 @@
-{ lib, buildPythonPackage, fetchPypi, isPy3k, attrs, protobuf, zeroconf }:
+{ lib
+, buildPythonPackage
+, fetchFromGitHub
+, mock
+, protobuf
+, pytest-asyncio
+, pytestCheckHook
+, pythonOlder
+, zeroconf
+}:
 
 buildPythonPackage rec {
   pname = "aioesphomeapi";
-  version = "2.6.4";
+  version = "7.0.0";
+  format = "setuptools";
 
-  disabled = !isPy3k;
+  disabled = pythonOlder "3.7";
 
-  src = fetchPypi {
-    inherit pname version;
-    sha256 = "d8def7a909c0471479e1d8b0965de6bb7644b8de315d6e578f9d848b8a6812d0";
+  src = fetchFromGitHub {
+    owner = "esphome";
+    repo = pname;
+    rev = "v${version}";
+    sha256 = "sha256-ho/1fpq4yAgmYNERPqs51oqr08ncaN9+GRTUUuGU7ps=";
   };
 
-  propagatedBuildInputs = [ attrs protobuf zeroconf ];
+  propagatedBuildInputs = [
+    protobuf
+    zeroconf
+  ];
 
-  # no tests implemented
-  doCheck = false;
+  checkInputs = [
+    mock
+    pytest-asyncio
+    pytestCheckHook
+  ];
 
-  pythonImportsCheck = [ "aioesphomeapi" ];
+  pythonImportsCheck = [
+    "aioesphomeapi"
+  ];
 
   meta = with lib; {
     description = "Python Client for ESPHome native API";
     homepage = "https://github.com/esphome/aioesphomeapi";
     license = licenses.mit;
-    maintainers = with maintainers; [ dotlambda ];
+    maintainers = with maintainers; [ fab hexa ];
   };
 }

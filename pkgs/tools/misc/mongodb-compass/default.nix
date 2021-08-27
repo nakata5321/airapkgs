@@ -1,12 +1,12 @@
 { lib, stdenv, fetchurl, dpkg
-, alsaLib, at-spi2-atk, at-spi2-core, atk, cairo, cups, curl, dbus, expat, fontconfig, freetype, glib
+, alsa-lib, at-spi2-atk, at-spi2-core, atk, cairo, cups, curl, dbus, expat, fontconfig, freetype, glib
 , gnome2, gdk-pixbuf, gtk3, pango, libnotify, libsecret, libuuid, libxcb, nspr, nss, systemd, xorg, wrapGAppsHook }:
 
 let
-  version = "1.23.0";
+  version = "1.25.0";
 
   rpath = lib.makeLibraryPath [
-    alsaLib
+    alsa-lib
     at-spi2-atk
     at-spi2-core
     atk
@@ -49,7 +49,7 @@ let
     if stdenv.hostPlatform.system == "x86_64-linux" then
       fetchurl {
         url = "https://downloads.mongodb.com/compass/mongodb-compass_${version}_amd64.deb";
-        sha256 = "1kmhki4kq28z8h249p4imcpb0nz2dx5bmpv8ldhhqh3rcq5vzxsv";
+        sha256 = "sha256-998/voQ04fLj3KZCy6BueUoI1v++4BoGRTGJT7Nsv40=";
       }
     else
       throw "MongoDB compass is not supported on ${stdenv.hostPlatform.system}";

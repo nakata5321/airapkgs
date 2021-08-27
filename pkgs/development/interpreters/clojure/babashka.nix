@@ -1,53 +1,89 @@
 { lib, stdenv, fetchurl, graalvm11-ce, glibcLocales }:
 
-with lib;
 stdenv.mkDerivation rec {
   pname = "babashka";
-  version = "0.2.3";
+  version = "0.5.1";
 
   reflectionJson = fetchurl {
     name = "reflection.json";
-    url = "https://github.com/borkdude/${pname}/releases/download/v${version}/${pname}-${version}-reflection.json";
-    sha256 = "0lbdh3v3g3j00bn99bjhjj3gk1q9ks2alpvl9bxc00xpyw86f7z8";
+    url = "https://github.com/babashka/${pname}/releases/download/v${version}/${pname}-${version}-reflection.json";
+    sha256 = "1mx89rrkxyn7s8nfif0564gjrpc299wzl0wfq9qx8blc6a1438a9";
   };
 
   src = fetchurl {
-    url = "https://github.com/borkdude/${pname}/releases/download/v${version}/${pname}-${version}-standalone.jar";
-    sha256 = "0vh6k3dkzyk346jjzg6n4mdi65iybrmhb3js9lm73yc3ay2c5dyi";
+    url = "https://github.com/babashka/${pname}/releases/download/v${version}/${pname}-${version}-standalone.jar";
+    sha256 = "0rp6lam3psnk12j69z8qp1ixyp7zvvjahn18mvkmc38naml0p514";
   };
 
   dontUnpack = true;
 
-  LC_ALL = "en_US.UTF-8";
   nativeBuildInputs = [ graalvm11-ce glibcLocales ];
 
+  LC_ALL = "en_US.UTF-8";
+  BABASHKA_JAR = src;
+  BABASHKA_BINARY = "bb";
+  BABASHKA_XMX = "-J-Xmx4500m";
+
   buildPhase = ''
-    native-image \
-      -jar ${src} \
-      -H:Name=bb \
-      ${optionalString stdenv.isDarwin ''-H:-CheckToolchain''} \
-      -H:+ReportExceptionStackTraces \
-      -J-Dclojure.spec.skip-macros=true \
-      -J-Dclojure.compiler.direct-linking=true \
-      "-H:IncludeResources=BABASHKA_VERSION" \
-      "-H:IncludeResources=SCI_VERSION" \
-      -H:ReflectionConfigurationFiles=${reflectionJson} \
-      --initialize-at-build-time \
-      -H:Log=registerResource: \
-      -H:EnableURLProtocols=http,https \
-      --enable-all-security-services \
-      -H:+JNI \
-      --verbose \
-      --no-fallback \
-      --no-server \
-      --report-unsupported-elements-at-runtime \
-      "--initialize-at-run-time=org.postgresql.sspi.SSPIClient" \
-      "-J-Xmx4500m"
+    runHook preBuild
+
+    # https://github.com/babashka/babashka/blob/77daea7362d8e2562c89c315b1fbcefde6fa56a5/script/compile
+    args=("-jar" "$BABASHKA_JAR"
+          "-H:Name=$BABASHKA_BINARY"
+          "${lib.optionalString stdenv.isDarwin ''-H:-CheckToolchain''}"
+          "-H:+ReportExceptionStackTraces"
+          "-J-Dclojure.spec.skip-macros=true"
+          "-J-Dclojure.compiler.direct-linking=true"
+          "-H:IncludeResources=BABASHKA_VERSION"
+          "-H:IncludeResources=META-INF/babashka/.*"
+          "-H:IncludeResources=SCI_VERSION"
+          "-H:ReflectionConfigurationFiles=${reflectionJson}"
+          "--initialize-at-build-time"
+          # "-H:+PrintAnalysisCallTree"
+          # "-H:+DashboardAll"
+          # "-H:DashboardDump=reports/dump"
+          # "-H:+DashboardPretty"
+          # "-H:+DashboardJson"
+          "-H:Log=registerResource:"
+          "-H:EnableURLProtocols=http,https,jar"
+          "--enable-all-security-services"
+          "-H:+JNI"
+          "--verbose"
+          "--no-fallback"
+          "--no-server"
+          "--report-unsupported-elements-at-runtime"
+          "--initialize-at-run-time=org.postgresql.sspi.SSPIClient"
+          "--initialize-at-run-time=org.httpkit.client.ClientSslEngineFactory\$SSLHolder"
+          "--native-image-info"
+          "--verbose"
+          "-H:ServiceLoaderFeatureExcludeServices=javax.sound.sampled.spi.AudioFileReader"
+          "-H:ServiceLoaderFeatureExcludeServices=javax.sound.midi.spi.MidiFileReader"
+          "-H:ServiceLoaderFeatureExcludeServices=javax.sound.sampled.spi.MixerProvider"
+          "-H:ServiceLoaderFeatureExcludeServices=javax.sound.sampled.spi.FormatConversionProvider"
+          "-H:ServiceLoaderFeatureExcludeServices=javax.sound.sampled.spi.AudioFileWriter"
+          "-H:ServiceLoaderFeatureExcludeServices=javax.sound.midi.spi.MidiDeviceProvider"
+          "-H:ServiceLoaderFeatureExcludeServices=javax.sound.midi.spi.SoundbankReader"
+          "-H:ServiceLoaderFeatureExcludeServices=javax.sound.midi.spi.MidiFileWriter"
+          "$BABASHKA_XMX")
+
+     native-image ''${args[@]}
+
+     runHook postBuild
   '';
 
   installPhase = ''
+    runHook preInstall
+
     mkdir -p $out/bin
     cp bb $out/bin/bb
+
+    runHook postInstall
+  '';
+
+  installCheckPhase = ''
+    $out/bin/bb --version | grep '${version}'
+    $out/bin/bb '(+ 1 2)' | grep '3'
+    $out/bin/bb '(vec (dedupe *input*))' <<< '[1 1 1 1 2]' | grep '[1 2]'
   '';
 
   meta = with lib; {
@@ -76,9 +112,15 @@ stdenv.mkDerivation rec {
     - Batteries included (tools.cli, cheshire, ...)
     - Library support via popular tools like the clojure CLI
     '';
-    homepage = "https://github.com/borkdude/babashka";
+    homepage = "https://github.com/babashka/babashka";
     license = licenses.epl10;
     platforms = graalvm11-ce.meta.platforms;
-    maintainers = with maintainers; [ bandresen bhougland DerGuteMoritz jlesquembre ];
+    maintainers = with maintainers; [
+      bandresen
+      bhougland
+      DerGuteMoritz
+      jlesquembre
+      thiagokokada
+    ];
   };
 }

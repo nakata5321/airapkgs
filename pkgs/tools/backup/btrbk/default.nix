@@ -1,5 +1,5 @@
-{ lib, stdenv, fetchurl, coreutils, bash, btrfs-progs, openssh, perl, perlPackages
-, util-linux, asciidoc, asciidoctor, mbuffer, makeWrapper }:
+{ lib, stdenv, fetchurl, bash, btrfs-progs, openssh, perl, perlPackages
+, util-linux, asciidoc, asciidoctor, mbuffer, makeWrapper, nixosTests }:
 
 stdenv.mkDerivation rec {
   pname = "btrbk";
@@ -24,12 +24,6 @@ stdenv.mkDerivation rec {
     # Tainted Mode disables PERL5LIB
     substituteInPlace btrbk --replace "perl -T" "perl"
 
-    # Fix btrbk-mail
-    substituteInPlace contrib/cron/btrbk-mail \
-      --replace "/bin/date" "${coreutils}/bin/date" \
-      --replace "/bin/echo" "${coreutils}/bin/echo" \
-      --replace '$btrbk' 'btrbk'
-
     # Fix SSH filter script
     sed -i '/^export PATH/d' ssh_filter_btrbk.sh
     substituteInPlace ssh_filter_btrbk.sh --replace logger ${util-linux}/bin/logger
@@ -41,12 +35,13 @@ stdenv.mkDerivation rec {
       --prefix PATH ':' "${lib.makeBinPath [ btrfs-progs bash mbuffer openssh ]}"
   '';
 
+  passthru.tests.btrbk = nixosTests.btrbk;
+
   meta = with lib; {
     description = "A backup tool for btrfs subvolumes";
     homepage = "https://digint.ch/btrbk";
     license = licenses.gpl3;
     platforms = platforms.unix;
     maintainers = with maintainers; [ asymmetric ];
-    inherit version;
   };
 }

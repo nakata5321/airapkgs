@@ -4,7 +4,7 @@ with lib;
 
 buildGoPackage rec {
   pname   = "nats-server";
-  version = "2.1.9";
+  version = "2.3.4";
 
   goPackagePath = "github.com/nats-io/${pname}";
 
@@ -12,7 +12,7 @@ buildGoPackage rec {
     rev    = "v${version}";
     owner  = "nats-io";
     repo   = pname;
-    sha256 = "0y92isca1dlvprik0lbiz8ny1w84svy4zn73brqhzrkxnqppcxi2";
+    sha256 = "sha256-VNnL1v7R8cko9C/494XJh4aMRZv459tAHys9nmrA9QE=";
   };
 
   meta = {

@@ -1,4 +1,6 @@
-{ lib, stdenv, fetchFromGitHub, meson, ninja, pkg-config, glib, systemd, boost, darwin
+{ lib, stdenv, fetchFromGitHub, meson, ninja, pkg-config, glib, systemd, boost
+# Darwin inputs
+, AudioToolbox, AudioUnit
 # Inputs
 , curl, libmms, libnfs, liburing, samba
 # Archive support
@@ -9,13 +11,13 @@
 # Filters
 , libsamplerate
 # Outputs
-, alsaLib, libjack2, libpulseaudio, libshout
+, alsa-lib, libjack2, libpulseaudio, libshout
 # Misc
 , icu, sqlite, avahi, dbus, pcre, libgcrypt, expat
 # Services
 , yajl
 # Client support
-, mpd_clientlib
+, libmpdclient
 # Tag support
 , libid3tag
 , nixosTests
@@ -61,7 +63,7 @@ let
     # Filter plugins
     libsamplerate = [ libsamplerate ];
     # Output plugins
-    alsa          = [ alsaLib ];
+    alsa          = [ alsa-lib ];
     jack          = [ libjack2 ];
     pulse         = [ libpulseaudio ];
     shout         = [ libshout ];
@@ -70,7 +72,7 @@ let
     soundcloud    = [ curl yajl ];
     tidal         = [ curl yajl ];
     # Client support
-    libmpdclient  = [ mpd_clientlib ];
+    libmpdclient  = [ libmpdclient ];
     # Tag support
     id3tag        = [ libid3tag ];
     # Misc
@@ -114,13 +116,13 @@ let
 
     in stdenv.mkDerivation rec {
       pname = "mpd";
-      version = "0.22.4";
+      version = "0.22.10";
 
       src = fetchFromGitHub {
         owner  = "MusicPlayerDaemon";
         repo   = "MPD";
         rev    = "v${version}";
-        sha256 = "sha256-CVi+fcmFMJMv7X4okALlVsxqsuUsirHgQT61IHdrBNE=";
+        sha256 = "sha256-h9dmi8AI8ZCjF4nlTi07uOWKs+8gly2HhSbPRB3Jl0g=";
       };
 
       buildInputs = [
@@ -133,7 +135,7 @@ let
         gtest
       ]
         ++ concatAttrVals features_ featureDependencies
-        ++ lib.optionals stdenv.isDarwin [ darwin.apple_sdk.frameworks.AudioToolbox darwin.apple_sdk.frameworks.AudioUnit ];
+        ++ lib.optionals stdenv.isDarwin [ AudioToolbox AudioUnit ];
 
       nativeBuildInputs = [
         meson
@@ -148,8 +150,6 @@ let
       checkInputs = [ zip ];
 
       doCheck = true;
-
-      enableParallelBuilding = true;
 
       mesonAutoFeatures = "disabled";
 
@@ -173,7 +173,7 @@ let
       meta = with lib; {
         description = "A flexible, powerful daemon for playing music";
         homepage    = "https://www.musicpd.org/";
-        license     = licenses.gpl2;
+        license     = licenses.gpl2Only;
         maintainers = with maintainers; [ astsmtl ehmry fpletz tobim ];
         platforms   = platforms.unix;
 

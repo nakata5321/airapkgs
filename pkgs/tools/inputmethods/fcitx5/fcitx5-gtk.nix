@@ -1,12 +1,14 @@
 { lib, stdenv
-, fetchurl
 , fetchFromGitHub
 , cmake
 , extra-cmake-modules
 , fcitx5
 , gobject-introspection
+, glib
 , gtk2
 , gtk3
+, gtk4
+, fmt
 , pcre
 , libuuid
 , libselinux
@@ -24,24 +26,25 @@
 
 stdenv.mkDerivation rec {
   pname = "fcitx5-gtk";
-  version = "5.0.3";
+  version = "5.0.7";
 
   src = fetchFromGitHub {
     owner = "fcitx";
-    repo = "fcitx5-gtk";
+    repo = pname;
     rev = version;
-    sha256 = "sha256-+BzXbZyzC3fvLqysufblk0zK9fAg5jslVdm/v3jz4B4=";
+    sha256 = "0vcikqrxv1xxcdaiz3axgm7rpab4w8aciw838sbpa9l20dp8cnyq";
   };
 
   cmakeFlags = [
     "-DGOBJECT_INTROSPECTION_GIRDIR=share/gir-1.0"
     "-DGOBJECT_INTROSPECTION_TYPELIBDIR=lib/girepository-1.0"
-    # disabled since we currently don't have gtk4 in nixpkgs
-    "-DENABLE_GTK4_IM_MODULE=off"
   ] ++ lib.optional (! withGTK2) "-DENABLE_GTK2_IM_MODULE=off";
 
   buildInputs = [
+    glib
     gtk3
+    gtk4
+    fmt
     gobject-introspection
     fcitx5
     pcre
@@ -57,6 +60,11 @@ stdenv.mkDerivation rec {
     at-spi2-core
     libXtst
   ] ++ lib.optional withGTK2 gtk2;
+
+  NIX_CFLAGS_COMPILE = lib.concatMapStringsSep " " (s: "-isystem ${s}") [
+    "${glib.dev}/include/gio-unix-2.0"
+    "${glib.dev}/include/glib-2.0"
+  ];
 
   nativeBuildInputs = [
     cmake

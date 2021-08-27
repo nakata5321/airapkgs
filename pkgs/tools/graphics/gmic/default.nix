@@ -15,13 +15,13 @@
 
 stdenv.mkDerivation rec {
   pname = "gmic";
-  version = "2.9.5";
+  version = "2.9.8";
 
   outputs = [ "out" "lib" "dev" "man" ];
 
   src = fetchurl {
     url = "https://gmic.eu/files/source/gmic_${version}.tar.gz";
-    sha256 = "sha256-KV/Ti6mPW+FASjug6q8Qfgra8L/TIyl/Y6JwANzQreE=";
+    sha256 = "sha256-GNa7xzGuO02oplasGJR2eTsRGp3Rn3LbIxLwdN983II=";
   };
 
   nativeBuildInputs = [

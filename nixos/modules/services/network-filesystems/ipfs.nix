@@ -1,7 +1,6 @@
 { config, lib, pkgs, options, ... }:
 with lib;
 let
-  inherit (pkgs) ipfs runCommand makeWrapper;
   cfg = config.services.ipfs;
   opt = options.services.ipfs;
 
@@ -11,57 +10,7 @@ let
     (optionalString (cfg.serviceFdlimit != null)     "--manage-fdlimit=false")
     (optionalString (cfg.defaultMode == "offline")   "--offline")
     (optionalString (cfg.defaultMode == "norouting") "--routing=none")
-    (optionalString cfg.pubsubExperiment             "--enable-pubsub-experiment")
   ] ++ cfg.extraFlags);
-
-  defaultDataDir = if versionAtLeast config.system.stateVersion "17.09" then
-    "/var/lib/ipfs" else
-    "/var/lib/ipfs/.ipfs";
-
-  # Wrapping the ipfs binary with the environment variable IPFS_PATH set to dataDir because we can't set it in the user environment
-  wrapped = runCommand "ipfs" { buildInputs = [ makeWrapper ]; } ''
-    mkdir -p "$out/bin"
-    makeWrapper "${ipfs}/bin/ipfs" "$out/bin/ipfs" \
-      --set IPFS_PATH ${cfg.dataDir} \
-      --prefix PATH : /run/wrappers/bin
-  '';
-
-  commonEnv = {
-    environment.IPFS_PATH = cfg.dataDir;
-    path = [ wrapped ];
-    serviceConfig.User = cfg.user;
-    serviceConfig.Group = cfg.group;
-  };
-
-  baseService = recursiveUpdate commonEnv {
-    wants = [ "ipfs-init.service" ];
-    preStart = ''
-      ipfs repo fsck # workaround for BUG #4212 (https://github.com/ipfs/go-ipfs/issues/4214)
-      ipfs --local config Addresses.API ${cfg.apiAddress}
-      ipfs --local config Addresses.Gateway ${cfg.gatewayAddress}
-    '' + optionalString cfg.autoMount ''
-      ipfs --local config Mounts.FuseAllowOther --json true
-      ipfs --local config Mounts.IPFS ${cfg.ipfsMountDir}
-      ipfs --local config Mounts.IPNS ${cfg.ipnsMountDir}
-    '' + concatStringsSep "\n" (collect
-          isString
-          (mapAttrsRecursive
-            (path: value:
-            # Using heredoc below so that the value is never improperly quoted
-            ''
-              read value <<EOF
-              ${builtins.toJSON value}
-              EOF
-              ipfs --local config --json "${concatStringsSep "." path}" "$value"
-            '')
-            cfg.extraConfig)
-        );
-    serviceConfig = {
-      ExecStart = "${wrapped}/bin/ipfs daemon ${ipfsFlags}";
-      Restart = "on-failure";
-      RestartSec = 1;
-    } // optionalAttrs (cfg.serviceFdlimit != null) { LimitNOFILE = cfg.serviceFdlimit; };
-  };
 
   splitMulitaddr = addrRaw: lib.tail (lib.splitString "/" addrRaw);
 
@@ -181,12 +130,6 @@ in {
         description = "If set to true, the repo won't be initialized with help files";
       };
 
-      pubsubExperiment = mkOption {
-        type = types.bool;
-        default = false;
-        description = "If set to true, the IPFS started with enabled experimental PubSub support";
-      };
-
       extraConfig = mkOption {
         type = types.attrs;
         description = ''
@@ -240,11 +183,9 @@ in {
   ###### implementation
 
   config = mkIf cfg.enable {
-    networking.firewall.allowedTCPPorts = [ 4001 ];
-    networking.firewall.allowedUDPPorts = [ 5353 ];
-
-    environment.systemPackages = [ wrapped ];
+    environment.systemPackages = [ cfg.package ];
     environment.variables.IPFS_PATH = cfg.dataDir;
+
     programs.fuse = mkIf cfg.autoMount {
       userAllowOther = true;
     };
@@ -275,48 +216,24 @@ in {
 
     systemd.packages = [ cfg.package ];
 
-    systemd.services.ipfs-init = {
-      description = "IPFS Initializer";
-
-      environment.IPFS_PATH = cfg.dataDir;
-
-      path = [ cfg.package ];
-
-      script = ''
-        if [[ ! -f ${cfg.dataDir}/config ]]; then
-          ipfs init ${optionalString cfg.emptyRepo "-e"} \
-            ${optionalString (! cfg.localDiscovery) "--profile=server"}
-        fi
-      '';
-#        else
-#          ${if cfg.localDiscovery
-#            then "ipfs config profile apply local-discovery"
-#            else "ipfs config profile apply server"
-#          }
-#        fi
-#      '';
-
-      wantedBy = [ "default.target" ];
-
-      serviceConfig = {
-        Type = "oneshot";
-        RemainAfterExit = true;
-        User = cfg.user;
-        Group = cfg.group;
-      };
-    };
-
     systemd.services.ipfs = {
       path = [ "/run/wrappers" cfg.package ];
       environment.IPFS_PATH = cfg.dataDir;
 
-      wants = [ "ipfs-init.service" ];
-      after = [ "ipfs-init.service" ];
-
-      preStart = optionalString cfg.autoMount ''
-        ipfs --local config Mounts.FuseAllowOther --json true
-        ipfs --local config Mounts.IPFS ${cfg.ipfsMountDir}
-        ipfs --local config Mounts.IPNS ${cfg.ipnsMountDir}
+      preStart = ''
+        if [[ ! -f ${cfg.dataDir}/config ]]; then
+          ipfs init ${optionalString cfg.emptyRepo "-e"} \
+            ${optionalString (! cfg.localDiscovery) "--profile=server"}
+        else
+          ${if cfg.localDiscovery
+            then "ipfs config profile apply local-discovery"
+            else "ipfs config profile apply server"
+          }
+        fi
+      '' + optionalString cfg.autoMount ''
+        ipfs --offline config Mounts.FuseAllowOther --json true
+        ipfs --offline config Mounts.IPFS ${cfg.ipfsMountDir}
+        ipfs --offline config Mounts.IPNS ${cfg.ipnsMountDir}
       '' + concatStringsSep "\n" (collect
             isString
             (mapAttrsRecursive
@@ -326,7 +243,7 @@ in {
                 read value <<EOF
                 ${builtins.toJSON value}
                 EOF
-                ipfs --local config --json "${concatStringsSep "." path}" "$value"
+                ipfs --offline config --json "${concatStringsSep "." path}" "$value"
               '')
               ({ Addresses.API = cfg.apiAddress;
                  Addresses.Gateway = cfg.gatewayAddress;
@@ -357,7 +274,7 @@ in {
 
     systemd.sockets.ipfs-api = {
       wantedBy = [ "sockets.target" ];
-      # We also include "%t/ipfs.sock" because tere is no way to put the "%t"
+      # We also include "%t/ipfs.sock" because there is no way to put the "%t"
       # in the multiaddr.
       socketConfig.ListenStream = let
           fromCfg = multiaddrToListenStream cfg.apiAddress;

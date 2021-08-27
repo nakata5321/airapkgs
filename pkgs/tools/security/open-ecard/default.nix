@@ -23,9 +23,9 @@ in stdenv.mkDerivation rec {
 
   src = srcs.richclient;
 
-  phases = "installPhase";
+  dontUnpack = true;
 
-  buildInputs = [ makeWrapper ];
+  nativeBuildInputs = [ makeWrapper ];
 
   desktopItem = makeDesktopItem {
     name = appName;

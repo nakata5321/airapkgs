@@ -5,26 +5,28 @@
 , numba
 , numpy
 , pytestCheckHook
+, pyyaml
 , rapidjson
 }:
 
 buildPythonPackage rec {
   pname = "awkward";
-  version = "1.0.2";
+  version = "1.4.0";
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "3468cb80cab51252a1936e5e593c7df4588ea0e18dcb6fb31e3d2913ba883928";
+    sha256 = "25ae6114d5962c717cb87e3bc30a2f6eaa232b252cf8c51ba805b8f04664ae0d";
   };
 
   nativeBuildInputs = [ cmake ];
-  buildInputs = [ rapidjson ];
+  buildInputs = [ pyyaml rapidjson ];
   propagatedBuildInputs = [ numpy ];
 
   dontUseCmakeConfigure = true;
 
   checkInputs = [ pytestCheckHook numba ];
   dontUseSetuptoolsCheck = true;
+  disabledTestPaths = [ "tests-cuda" ];
 
   meta = with lib; {
     description = "Manipulate JSON-like data with NumPy-like idioms";

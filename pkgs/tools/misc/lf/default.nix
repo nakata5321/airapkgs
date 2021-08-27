@@ -2,16 +2,16 @@
 
 buildGoModule rec {
   pname = "lf";
-  version = "20";
+  version = "24";
 
   src = fetchFromGitHub {
     owner = "gokcehan";
     repo = "lf";
     rev = "r${version}";
-    sha256 = "056g2g503ppbqqbq5nk90sl8ki1q4fixdc25a6wv15gm1inxrb4b";
+    sha256 = "0nc7vfkaxxl2a201wnbz74an3siz8cjwrfylx17v6al5n93vxip0";
   };
 
-  vendorSha256 = "12njqs39ympi2mqal1cdn0smp80yzcs8xmca1iih8pbmxv51r2gg";
+  vendorSha256 = "sha256-ujQh4aE++K/fn3PJqkAbTtwRyJPSI9TJQ1DvwLF9etU=";
 
   nativeBuildInputs = [ installShellFiles ];
 
@@ -35,6 +35,6 @@ buildGoModule rec {
     changelog = "https://github.com/gokcehan/lf/releases/tag/r${version}";
     license = licenses.mit;
     platforms = platforms.unix;
-    maintainers = with maintainers; [ primeos ];
+    maintainers = with maintainers; [ dotlambda ];
   };
 }

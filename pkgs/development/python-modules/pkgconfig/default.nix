@@ -2,7 +2,7 @@
 
 buildPythonPackage rec {
   pname = "pkgconfig";
-  version = "1.5.1";
+  version = "1.5.4";
 
   inherit (pkg-config)
     setupHooks
@@ -14,7 +14,7 @@ buildPythonPackage rec {
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "97bfe3d981bab675d5ea3ef259045d7919c93897db7d3b59d4e8593cba8d354f";
+    sha256 = "c34503829fd226822fd93c902b1cf275516908a023a24be0a02ba687f3a00399";
   };
 
 

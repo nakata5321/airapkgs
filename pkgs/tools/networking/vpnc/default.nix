@@ -1,7 +1,8 @@
 { lib, stdenv, fetchsvn, nettools, libgcrypt, openssl, openresolv, perl, gawk, makeWrapper }:
 
 stdenv.mkDerivation {
-  name = "vpnc-0.5.3-post-r550";
+  pname = "vpnc";
+  version = "0.5.3-post-r550";
   src = fetchsvn {
     url = "https://svn.unix-ag.uni-kl.de/vpnc";
     rev = "550";
@@ -19,7 +20,8 @@ stdenv.mkDerivation {
   # `ifconfig' as found in net-tools (not GNU Inetutils).
   propagatedBuildInputs = [ nettools ];
 
-  buildInputs = [libgcrypt perl makeWrapper openssl ];
+  nativeBuildInputs = [ makeWrapper ];
+  buildInputs = [libgcrypt perl openssl ];
 
   preConfigure = ''
     sed -i 's|^#OPENSSL|OPENSSL|g' Makefile

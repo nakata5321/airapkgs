@@ -1,11 +1,11 @@
-{ lib, stdenv, ocaml, findlib, dune, dune_2 }:
+{ lib, stdenv, ocaml, findlib, dune_1, dune_2 }:
 
 { pname, version, buildInputs ? [], enableParallelBuilding ? true, ... }@args:
 
-let Dune = if args.useDune2 or false then dune_2 else dune; in
+let Dune = if args.useDune2 or false then dune_2 else dune_1; in
 
-if args ? minimumOCamlVersion &&
-   ! lib.versionAtLeast ocaml.version args.minimumOCamlVersion
+if (args ? minimumOCamlVersion && ! lib.versionAtLeast ocaml.version args.minimumOCamlVersion) ||
+   (args ? minimalOCamlVersion && ! lib.versionAtLeast ocaml.version args.minimalOCamlVersion)
 then throw "${pname}-${version} is not available for OCaml ${ocaml.version}"
 else
 
@@ -29,7 +29,7 @@ stdenv.mkDerivation ({
     runHook postInstall
   '';
 
-} // args // {
+} // (builtins.removeAttrs args [ "minimalOCamlVersion" ]) // {
 
   name = "ocaml${ocaml.version}-${pname}-${version}";
 

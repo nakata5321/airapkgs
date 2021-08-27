@@ -1,9 +1,11 @@
 { lib
+, stdenv
 , bokeh
 , buildPythonPackage
 , fetchFromGitHub
 , fsspec
 , pytestCheckHook
+, pytest-rerunfailures
 , pythonOlder
 , cloudpickle
 , numpy
@@ -11,26 +13,22 @@
 , dill
 , pandas
 , partd
+, pytest-xdist
+, withExtraComplete ? false
+, distributed
 }:
 
 buildPythonPackage rec {
   pname = "dask";
-  version = "2021.01.0";
-
+  version = "2021.06.2";
   disabled = pythonOlder "3.5";
 
   src = fetchFromGitHub {
     owner = "dask";
     repo = pname;
     rev = version;
-    sha256 = "V2cEOzV/L1zjyQ76zlGyN9CIkq6W8y8Yab4NQi3/Ju4=";
+    sha256 = "sha256-qvfjdijzlqaJQrDztRAVr5PudTaVd3WOTBid2ElZQgg=";
   };
-
-  checkInputs = [
-    pytestCheckHook
-  ];
-
-  dontUseSetuptoolsCheck = true;
 
   propagatedBuildInputs = [
     bokeh
@@ -41,7 +39,19 @@ buildPythonPackage rec {
     pandas
     partd
     toolz
+  ] ++ lib.optionals withExtraComplete [
+    distributed
   ];
+
+  doCheck = true;
+
+  checkInputs = [
+    pytestCheckHook
+    pytest-rerunfailures
+    pytest-xdist
+  ];
+
+  dontUseSetuptoolsCheck = true;
 
   postPatch = ''
     # versioneer hack to set version of github package
@@ -52,21 +62,32 @@ buildPythonPackage rec {
       --replace "cmdclass=versioneer.get_cmdclass()," ""
   '';
 
-  #pytestFlagsArray = [ "-n $NIX_BUILD_CORES" ];
-
-  disabledTests = [
-    "test_argwhere_str"
-    "test_count_nonzero_str"
-    "rolling_methods"  # floating percision error ~0.1*10^8 small
-    "num_workers_config" # flaky
-    "test_2args_with_array[pandas1-darray1-ldexp]"  # flaky
+  pytestFlagsArray = [
+    "-n $NIX_BUILD_CORES"
+    "-m 'not network'"
   ];
 
-  meta = {
+  disabledTests = lib.optionals stdenv.isDarwin [
+    # this test requires features of python3Packages.psutil that are
+    # blocked in sandboxed-builds
+    "test_auto_blocksize_csv"
+  ] ++ [
+    # A deprecation warning from newer sqlalchemy versions makes these tests
+    # to fail https://github.com/dask/dask/issues/7406
+    "test_sql"
+    # Test interrupt fails intermittently https://github.com/dask/dask/issues/2192
+    "test_interrupt"
+  ];
+
+  __darwinAllowLocalNetworking = true;
+
+  pythonImportsCheck = [ "dask.dataframe" "dask" "dask.array" ];
+
+  meta = with lib; {
     description = "Minimal task scheduling abstraction";
     homepage = "https://dask.org/";
     changelog = "https://docs.dask.org/en/latest/changelog.html";
-    license = lib.licenses.bsd3;
-    maintainers = with lib.maintainers; [ fridh ];
+    license = licenses.bsd3;
+    maintainers = with maintainers; [ fridh ];
   };
 }

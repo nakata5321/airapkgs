@@ -2,16 +2,21 @@
 
 buildGoModule rec {
   pname = "grafana-agent";
-  version = "0.12.0";
+  version = "0.18.2";
 
   src = fetchFromGitHub {
     rev = "v${version}";
     owner = "grafana";
     repo = "agent";
-    sha256 = "sha256-kWl6wkyN/ytnct2MseZ5FQgOL2WeGJDFPPGJxkdcDX8=";
+    sha256 = "sha256-yTCFMnOSRgMqL9KD26cYeJcQ1rrUBOf8I+i7IPExP9I=";
   };
 
-  vendorSha256 = null;
+  vendorSha256 = "sha256-MZGOZB/mS3pmZuI35E/QkaNLLhbuW2DfZiih9OCXMj0=";
+
+  patches = [
+    # https://github.com/grafana/agent/issues/731
+    ./skip_test_requiring_network.patch
+  ];
 
   # uses go-systemd, which uses libsystemd headers
   # https://github.com/coreos/go-systemd/issues/351

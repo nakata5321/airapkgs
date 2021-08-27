@@ -14,7 +14,7 @@ let
       }) [ def ]);
     in formatSet.generate "test-format-file" config;
 
-  runBuildTest = name: { drv, expected }: pkgs.runCommandNoCC name {} ''
+  runBuildTest = name: { drv, expected }: pkgs.runCommand name {} ''
     if diff -u '${builtins.toFile "expected" expected}' '${drv}'; then
       touch "$out"
     else
@@ -38,6 +38,7 @@ in runBuildTests {
       str = "foo";
       attrs.foo = null;
       list = [ null null ];
+      path = ./formats.nix;
     };
     expected = ''
       {
@@ -52,6 +53,7 @@ in runBuildTests {
           null
         ],
         "null": null,
+        "path": "${./formats.nix}",
         "str": "foo",
         "true": true
       }
@@ -67,6 +69,7 @@ in runBuildTests {
       str = "foo";
       attrs.foo = null;
       list = [ null null ];
+      path = ./formats.nix;
     };
     expected = ''
       {
@@ -80,6 +83,7 @@ in runBuildTests {
           null
         ],
         "null": null,
+        "path": "${./formats.nix}",
         "str": "foo",
         "true": true
       }
@@ -119,6 +123,22 @@ in runBuildTests {
       bar=test
       bar=1.200000
       bar=10
+      baz=false
+      qux=qux
+    '';
+  };
+
+  testIniListToValue = {
+    drv = evalFormat formats.ini { listToValue = concatMapStringsSep ", " (generators.mkValueStringDefault {}); } {
+      foo = {
+        bar = [ null true "test" 1.2 10 ];
+        baz = false;
+        qux = "qux";
+      };
+    };
+    expected = ''
+      [foo]
+      bar=null, true, test, 1.200000, 10
       baz=false
       qux=qux
     '';

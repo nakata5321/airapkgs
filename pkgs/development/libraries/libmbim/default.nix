@@ -1,27 +1,28 @@
 { lib, stdenv
 , fetchurl
 , pkg-config
-, gobject-introspection
 , glib
 , python3
 , systemd
 , libgudev
+, withIntrospection ? stdenv.hostPlatform == stdenv.buildPlatform
+, gobject-introspection
 }:
 
 stdenv.mkDerivation rec {
   pname = "libmbim";
-  version = "1.24.4";
+  version = "1.24.8";
 
   src = fetchurl {
     url = "https://www.freedesktop.org/software/libmbim/${pname}-${version}.tar.xz";
-    sha256 = "11djb1d8w9ms07aklfm3pskjw9rnff4p4n3snanschv22zk8wj6x";
+    sha256 = "sha256-AlkHNhY//xDlcyGR/MwbmSCWlhbdxZYToAMFKhFqPCU=";
   };
 
   outputs = [ "out" "dev" "man" ];
 
   configureFlags = [
     "--with-udev-base-dir=${placeholder "out"}/lib/udev"
-    "--enable-introspection"
+    (lib.enableFeature withIntrospection "introspection")
   ];
 
   nativeBuildInputs = [

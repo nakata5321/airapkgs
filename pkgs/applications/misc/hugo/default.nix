@@ -1,25 +1,36 @@
-{ lib, buildGoModule, fetchFromGitHub }:
+{ lib, buildGoModule, fetchFromGitHub, installShellFiles }:
 
 buildGoModule rec {
   pname = "hugo";
-  version = "0.80.0";
+  version = "0.87.0";
 
   src = fetchFromGitHub {
     owner = "gohugoio";
     repo = pname;
     rev = "v${version}";
-    sha256 = "0xs9y5lj0mya6ag625x8j91mn9l9r13gxaqxyvl1fl40y2yjz1zm";
+    sha256 = "sha256-2I1PDxbqtaOOlVbr7zhuawaFrFWM/PYt5QJm3N74Noc=";
   };
 
-  vendorSha256 = "172mcs8p43bsdkd2hxg9qn6018fh8f36kxx0vgnq5q6fqsb6s1f6";
+  vendorSha256 = "sha256-0pkQ+VcmK2XLaQ2XJHh5/QftSdud6Eo1nlBK+L92xKU=";
 
   doCheck = false;
 
   runVend = true;
 
-  buildFlags = [ "-tags" "extended" ];
+  tags = [ "extended" ];
 
   subPackages = [ "." ];
+
+  nativeBuildInputs = [ installShellFiles ];
+
+  postInstall = ''
+    $out/bin/hugo gen man
+    installManPage man/*
+    installShellCompletion --cmd hugo \
+      --bash <($out/bin/hugo gen autocomplete --type=bash) \
+      --fish <($out/bin/hugo gen autocomplete --type=fish) \
+      --zsh <($out/bin/hugo gen autocomplete --type=zsh)
+  '';
 
   meta = with lib; {
     description = "A fast and modern static website engine";

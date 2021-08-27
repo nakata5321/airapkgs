@@ -4,11 +4,15 @@
 , fixDarwinDylibNames
 , cmake
 , libjpeg
+, uselibtirpc ? stdenv.isLinux
 , libtirpc
 , zlib
 , szip ? null
+, javaSupport ? false
+, jdk
 }:
-let uselibtirpc = stdenv.isLinux;
+let
+  javabase = "${jdk}/jre/lib/${jdk.architecture}";
 in
 stdenv.mkDerivation rec {
   pname = "hdf";
@@ -40,6 +44,7 @@ stdenv.mkDerivation rec {
       url = "https://src.fedoraproject.org/rpms/hdf/raw/edbe5f49646b609f5bc9aeeee5a2be47e9556e8c/f/hdf-aarch64.patch";
       sha256 = "112svcsilk16ybbsi8ywnxfl2p1v44zh3rfn4ijnl8z08vfqrvvs";
     })
+    ./darwin-aarch64.patch
   ];
 
   nativeBuildInputs = [
@@ -52,9 +57,9 @@ stdenv.mkDerivation rec {
     libjpeg
     szip
     zlib
-  ] ++ lib.optionals uselibtirpc [
-    libtirpc
-  ];
+  ]
+  ++ lib.optional javaSupport jdk
+  ++ lib.optional uselibtirpc libtirpc;
 
   preConfigure = lib.optionalString uselibtirpc ''
     # Make tirpc discovery work with CMAKE_PREFIX_PATH
@@ -75,6 +80,11 @@ stdenv.mkDerivation rec {
     "-DHDF4_ENABLE_Z_LIB_SUPPORT=ON"
     "-DHDF4_BUILD_FORTRAN=OFF"
     "-DJPEG_DIR=${libjpeg}"
+  ] ++ lib.optionals javaSupport [
+    "-DHDF4_BUILD_JAVA=ON"
+    "-DJAVA_HOME=${jdk}"
+    "-DJAVA_AWT_LIBRARY=${javabase}/libawt.so"
+    "-DJAVA_JVM_LIBRARY=${javabase}/server/libjvm.so"
   ] ++ lib.optionals (szip != null) [
     "-DHDF4_ENABLE_SZIP_ENCODING=ON"
     "-DHDF4_ENABLE_SZIP_SUPPORT=ON"
