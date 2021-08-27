@@ -4,22 +4,23 @@
 let
 
   inherit (python3Packages)
-    python nose pycrypto pyyaml requests mock python-dateutil setuptools;
+    python pytest nose cryptography pyyaml requests mock python-dateutil setuptools;
 
 in stdenv.mkDerivation rec {
   pname = "svtplay-dl";
-  version = "2.8";
+  version = "4.2";
 
   src = fetchFromGitHub {
     owner = "spaam";
     repo = "svtplay-dl";
     rev = version;
-    sha256 = "1977xyxi9jfj7qra1sz7c9lk885cadpci66jvbzvnwm6d60m05lb";
+    sha256 = "1bsinf2r07g8c03mcw4gprl92wmysyaa81s8wyck0c6wdq3hcsnp";
   };
 
-  pythonPaths = [ pycrypto pyyaml requests ];
-  buildInputs = [ python perl nose mock makeWrapper python-dateutil setuptools ] ++ pythonPaths;
-  nativeBuildInputs = [ gitMinimal zip ];
+  pythonPaths = [ cryptography pyyaml requests ];
+  buildInputs = [ python perl mock python-dateutil setuptools ] ++ pythonPaths;
+  nativeBuildInputs = [ gitMinimal zip makeWrapper ];
+  checkInputs = [ nose pytest ];
 
   postPatch = ''
     substituteInPlace scripts/run-tests.sh \
@@ -42,11 +43,17 @@ in stdenv.mkDerivation rec {
     sh scripts/run-tests.sh -2
   '';
 
+  doInstallCheck = true;
+  installCheckPhase = ''
+    runHook preInstallCheck
+    $out/bin/svtplay-dl --help > /dev/null
+    runHook postInstallCheck
+  '';
+
   meta = with lib; {
     homepage = "https://github.com/spaam/svtplay-dl";
     description = "Command-line tool to download videos from svtplay.se and other sites";
     license = licenses.mit;
     platforms = lib.platforms.unix;
-    maintainers = [ maintainers.rycee ];
   };
 }

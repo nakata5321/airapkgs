@@ -2,13 +2,13 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "mcfly";
-  version = "0.5.3";
+  version = "0.5.8";
 
   src = fetchFromGitHub {
     owner = "cantino";
     repo = "mcfly";
     rev = "v${version}";
-    sha256 = "1p51wdv47cyg6dmb81fm0d92x1kp7bwwpgax6vlh669nkddiwvmm";
+    sha256 = "sha256-D8ScF/3qyT0VuMGmWkkeGRyCu4LdOXt1wvR9whbNURE=";
   };
 
   postInstall = ''
@@ -20,7 +20,7 @@ rustPlatform.buildRustPackage rec {
     install -Dm644 -t $out/share/mcfly mcfly.fish
   '';
 
-  cargoSha256 = "0gcdgca8w8i978b067rwm5zrc81rxb704006k9pbcwizkq2281yy";
+  cargoSha256 = "sha256-VZgxfVmAa5lPfdLNbsotNoRpTLe3HID36sF8T/0mywI=";
 
   meta = with lib; {
     homepage = "https://github.com/cantino/mcfly";

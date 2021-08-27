@@ -6,10 +6,11 @@
 }:
 
 stdenv.mkDerivation rec {
-  name = "monit-5.27.2";
+  pname = "monit";
+  version = "5.27.2";
 
   src = fetchurl {
-    url = "${meta.homepage}dist/${name}.tar.gz";
+    url = "${meta.homepage}dist/monit-${version}.tar.gz";
     sha256 = "sha256-2ICceNXcHtenujKlpVxRFIVRMsxNpIBfjTqvjPRuqkw=";
   };
 
@@ -35,7 +36,7 @@ stdenv.mkDerivation rec {
     homepage = "http://mmonit.com/monit/";
     description = "Monitoring system";
     license = lib.licenses.agpl3;
-    maintainers = with lib.maintainers; [ raskin wmertens ];
+    maintainers = with lib.maintainers; [ raskin wmertens ryantm ];
     platforms = with lib.platforms; linux;
   };
 }

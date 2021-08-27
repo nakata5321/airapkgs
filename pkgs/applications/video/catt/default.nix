@@ -1,32 +1,34 @@
 { lib, python3 }:
 
-let
-  py = python3.override {
-    packageOverrides = self: super: {
-      PyChromecast = super.PyChromecast.overridePythonAttrs (oldAttrs: rec {
-        version = "6.0.0";
-        src = oldAttrs.src.override {
-          inherit version;
-          sha256 = "05f8r3b2pdqbl76hwi5sv2xdi1r7g9lgm69x8ja5g22mn7ysmghm";
-        };
-      });
-    };
-  };
+with python3.pkgs;
 
-in with py.pkgs; buildPythonApplication rec {
+buildPythonApplication rec {
   pname = "catt";
-  version = "0.11.0";
+  version = "0.12.2";
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "1vq1wg79b7855za6v6bsfgypm0v3b4wakap4rash45mhzbgjj0kq";
+    sha256 = "sha256-BOETKTkcbLOu5SubiejswU7D47qWS13QZ7rU9x3jf5Y=";
   };
 
   propagatedBuildInputs = [
-    youtube-dl PyChromecast click ifaddr requests
+    click
+    ifaddr
+    PyChromecast
+    requests
+    youtube-dl
   ];
 
+  # remove click when 0.12.3 is released
+  # upstream doesn't use zeroconf directly but pins it for pychromecast
+  postPatch = ''
+    substituteInPlace setup.py \
+      --replace "zeroconf==0.31.0" "" \
+      --replace "Click>=7.1.2,<8" "click"
+  '';
+
   doCheck = false; # attempts to access various URLs
+  pythonImportsCheck = [ "catt" ];
 
   meta = with lib; {
     description = "Cast All The Things allows you to send videos from many, many online sources to your Chromecast";
@@ -35,4 +37,3 @@ in with py.pkgs; buildPythonApplication rec {
     maintainers = with maintainers; [ dtzWill ];
   };
 }
-

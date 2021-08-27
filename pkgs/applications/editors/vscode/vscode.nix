@@ -7,25 +7,24 @@ let
     x86_64-linux = "linux-x64";
     x86_64-darwin = "darwin";
     aarch64-linux = "linux-arm64";
+    aarch64-darwin = "darwin-arm64";
     armv7l-linux = "linux-armhf";
   }.${system};
 
-  archive_fmt = if system == "x86_64-darwin" then "zip" else "tar.gz";
+  archive_fmt = if stdenv.isDarwin then "zip" else "tar.gz";
 
   sha256 = {
-    x86_64-linux = "07wbh4sfvnmvif1a03z8bbqrjmcwmb4q5nn3l2r738i9wrxdxjja";
-    x86_64-darwin = "0djcx4n17giynckhsqqx8q7j25cxd3xqgjz3jhh8xh54h4fbvmbz";
-    aarch64-linux = "172x6c2pl994ps4xbrgrkzdb02gmpqag61sbxc7796cx0xk8bjpi";
-    armv7l-linux = "008bf7iwfizbn67wl1cxahl6h7pg04ms4q2nmr0dndcpxgc1q5gd";
+    x86_64-linux = "0i2pngrp2pcas99wkay7ahrcn3gl47gdjjaq7ladr879ypldh24v";
+    x86_64-darwin = "1pni2cd5s6m9jxwpja4ma9xlr1q3xl46w8pim3971dw3xi5r29pg";
+    aarch64-linux = "0j71ha2df99583w8r2l1hppn6wx8ll80flwcj5xzj7icv3mq8x7v";
+    aarch64-darwin = "0vhp1z890mvs8hnwf43bfv74a7y0pv5crjn53rbiy0il1ihs1498";
+    armv7l-linux = "07yb0ia1rnbav3gza2y53yd3bcxqmngddd4jz6p4y0m539znl817";
   }.${system};
 in
   callPackage ./generic.nix rec {
-    # The update script doesn't correctly change the hash for darwin, so please:
-    # nixpkgs-update: no auto update
-
     # Please backport all compatible updates to the stable release.
     # This is important for the extension ecosystem.
-    version = "1.53.0";
+    version = "1.59.1";
     pname = "vscode";
 
     executableName = "code" + lib.optionalString isInsiders "-insiders";
@@ -34,17 +33,20 @@ in
 
     src = fetchurl {
       name = "VSCode_${version}_${plat}.${archive_fmt}";
-      url = "https://vscode-update.azurewebsites.net/${version}/${plat}/stable";
+      url = "https://update.code.visualstudio.com/${version}/${plat}/stable";
       inherit sha256;
     };
 
     sourceRoot = "";
+
+    updateScript = ./update-vscode.sh;
 
     meta = with lib; {
       description = ''
         Open source source code editor developed by Microsoft for Windows,
         Linux and macOS
       '';
+      mainProgram = "code";
       longDescription = ''
         Open source source code editor developed by Microsoft for Windows,
         Linux and macOS. It includes support for debugging, embedded Git
@@ -55,7 +57,7 @@ in
       homepage = "https://code.visualstudio.com/";
       downloadPage = "https://code.visualstudio.com/Updates";
       license = licenses.unfree;
-      maintainers = with maintainers; [ eadwu synthetica ];
-      platforms = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" "armv7l-linux" ];
+      maintainers = with maintainers; [ eadwu synthetica maxeaubrey ];
+      platforms = [ "x86_64-linux" "x86_64-darwin" "aarch64-darwin" "aarch64-linux" "armv7l-linux" ];
     };
   }

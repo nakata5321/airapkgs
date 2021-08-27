@@ -3,20 +3,19 @@
 
 stdenv.mkDerivation rec {
   pname = "libqalculate";
-  version = "3.16.0";
+  version = "3.20.1";
 
   src = fetchFromGitHub {
     owner = "qalculate";
     repo = "libqalculate";
     rev = "v${version}";
-    sha256 = "0nrf03q3qrsvxf6kjpv69l49yfal79834a3jv75mzi6y674ach9g";
+    sha256 = "sha256-8SYI8CoeTfZXX0CgLnfl0rHwUZbYM7OGYzFQ41jm5Qs=";
   };
 
   outputs = [ "out" "dev" "doc" ];
 
   nativeBuildInputs = [ intltool pkg-config autoreconfHook doxygen ];
   buildInputs = [ curl gettext libiconv readline ];
-  configureFlags = ["--with-readline=${readline.dev}"];
   propagatedBuildInputs = [ libxml2 mpfr icu ];
   enableParallelBuilding = true;
 

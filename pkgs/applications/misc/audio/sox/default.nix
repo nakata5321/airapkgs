@@ -1,5 +1,5 @@
 { config, lib, stdenv, fetchurl, pkg-config, CoreAudio
-, enableAlsa ? true, alsaLib ? null
+, enableAlsa ? true, alsa-lib ? null
 , enableLibao ? true, libao ? null
 , enableLame ? config.sox.enableLame or false, lame ? null
 , enableLibmad ? true, libmad ? null
@@ -27,8 +27,10 @@ stdenv.mkDerivation rec {
   # configure.ac uses pkg-config only to locate libopusfile
   nativeBuildInputs = optional enableOpusfile pkg-config;
 
+  patches = [ ./0001-musl-rewind-pipe-workaround.patch ];
+
   buildInputs =
-    optional (enableAlsa && stdenv.isLinux) alsaLib ++
+    optional (enableAlsa && stdenv.isLinux) alsa-lib ++
     optional enableLibao libao ++
     optional enableLame lame ++
     optional enableLibmad libmad ++

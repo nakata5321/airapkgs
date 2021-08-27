@@ -4,9 +4,9 @@ stdenv.mkDerivation rec {
   pname = "reckon";
   version = (import ./gemset.nix).reckon.version;
 
-  phases = [ "installPhase" ];
+  dontUnpack = true;
 
-  buildInputs = [ makeWrapper ];
+  nativeBuildInputs = [ makeWrapper ];
 
   installPhase = let
     env = bundlerEnv {

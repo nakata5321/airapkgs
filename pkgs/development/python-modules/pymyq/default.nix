@@ -4,17 +4,19 @@
 , buildPythonPackage
 , fetchFromGitHub
 , pkce
+, pythonOlder
 }:
 
 buildPythonPackage rec {
   pname = "pymyq";
-  version = "3.0.0";
+  version = "3.1.3";
+  disabled = pythonOlder "3.8";
 
   src = fetchFromGitHub {
     owner = "arraylabs";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sha256-uCXgJxMy5gZQBvhHnmfev/rfJXOjhLqZdOrn8SetUT0=";
+    sha256 = "sha256-V2u2wUSPwiF6o6OWhQVKiHtzhn0/rzyM6e2+a+D7UNA=";
   };
 
   propagatedBuildInputs = [
@@ -25,6 +27,7 @@ buildPythonPackage rec {
 
   # Project has no tests
   doCheck = false;
+
   pythonImportsCheck = [ "pymyq" ];
 
   meta = with lib; {

@@ -2,11 +2,11 @@
 
 buildPythonPackage rec {
   pname = "databricks-connect";
-  version = "7.3.8";
+  version = "8.1.6";
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "0c0f036cf30e00fdc47c983875c72d16a3073ae9be9bcf39371514280f00a82d";
+    sha256 = "2d6989491a2a33853eb10500574eb62dbcb98ac691d7e98022c5f18e23ad18b2";
   };
 
   sourceRoot = ".";

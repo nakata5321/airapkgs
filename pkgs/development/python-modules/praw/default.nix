@@ -9,25 +9,25 @@
 , pytestCheckHook
 , requests-toolbelt
 , update_checker
-, websocket_client
+, websocket-client
 }:
 
 buildPythonPackage rec {
   pname = "praw";
-  version = "7.1.4";
+  version = "7.4.0";
 
   src = fetchFromGitHub {
     owner = "praw-dev";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sha256-onxag3kmswqqSycbwW+orofrukry0pCaRSxVRq2u53A=";
+    sha256 = "1wcr59k1bncwfza5k8mllaxz8fwfyqbwgm5xp908w2449i71wl7r";
   };
 
   propagatedBuildInputs = [
     mock
     prawcore
     update_checker
-    websocket_client
+    websocket-client
   ];
 
   checkInputs = [

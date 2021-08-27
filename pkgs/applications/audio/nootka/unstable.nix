@@ -1,5 +1,5 @@
 { lib, stdenv, fetchurl, cmake
-, alsaLib, fftwSinglePrec, libjack2, libpulseaudio, libvorbis, soundtouch
+, alsa-lib, fftwSinglePrec, libjack2, libpulseaudio, libvorbis, soundtouch
 , qtbase, qtdeclarative, qtquickcontrols2
 }:
 
@@ -13,9 +13,11 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [ cmake ];
   buildInputs = [
-    alsaLib fftwSinglePrec libjack2 libpulseaudio libvorbis soundtouch
+    alsa-lib fftwSinglePrec libjack2 libpulseaudio libvorbis soundtouch
     qtbase qtdeclarative qtquickcontrols2
   ];
+
+  dontWrapQtApps = true;
 
   cmakeFlags = [
     "-DCMAKE_INCLUDE_PATH=${libjack2}/include/jack;${libpulseaudio.dev}/include/pulse"

@@ -22,8 +22,6 @@ buildPythonPackage rec {
     sphinx
   ];
 
-  doCheck = false;
-
   __darwinAllowLocalNetworking = true;
 
   disabledTests = [

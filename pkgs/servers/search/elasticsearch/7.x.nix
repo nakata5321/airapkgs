@@ -27,10 +27,10 @@ let
 in
 stdenv.mkDerivation (rec {
   version = elk7Version;
-  name = "elasticsearch-${optionalString (!enableUnfree) "oss-"}${version}";
+  pname = "elasticsearch${optionalString (!enableUnfree) "-oss"}";
 
   src = fetchurl {
-    url = "https://artifacts.elastic.co/downloads/elasticsearch/${name}-${plat}-${arch}.tar.gz";
+    url = "https://artifacts.elastic.co/downloads/elasticsearch/${pname}-${version}-${plat}-${arch}.tar.gz";
     sha256 = shas.${stdenv.hostPlatform.system} or (throw "Unknown architecture");
   };
 
@@ -46,7 +46,8 @@ stdenv.mkDerivation (rec {
       "ES_CLASSPATH=\"\$ES_CLASSPATH:$out/\$additional_classpath_directory/*\""
   '';
 
-  buildInputs = [ makeWrapper jre_headless util-linux ]
+  nativeBuildInputs = [ makeWrapper ];
+  buildInputs = [ jre_headless util-linux ]
              ++ optional enableUnfree zlib;
 
   installPhase = ''
@@ -72,7 +73,7 @@ stdenv.mkDerivation (rec {
   };
 } // optionalAttrs enableUnfree {
   dontPatchELF = true;
-  nativeBuildInputs = [ autoPatchelfHook ];
+  nativeBuildInputs = [ makeWrapper autoPatchelfHook ];
   runtimeDependencies = [ zlib ];
   postFixup = ''
     for exe in $(find $out/modules/x-pack-ml/platform/linux-x86_64/bin -executable -type f); do

@@ -34,6 +34,8 @@
           "/dnsaddr/bootstrap.libp2p.io/ipfs/QmQCU2EcMqAqQPR2i9bChDtGNJchTbq5TbXJJ16u19uLTa"
           "/dnsaddr/bootstrap.libp2p.io/ipfs/QmbLHAnMoJPWSCR5Zhtx6BHJX9KiKNN6tpvbUcqanj75Nb"
           "/dnsaddr/bootstrap.libp2p.io/ipfs/QmcZf59bWwK5XFi76CZX8cbJ4BhTzzA3gU1ZjYZcYW3dwt"
+          "/dnsaddr/ipfs.khassanov.xyz/p2p/12D3KooWRCFmYyb7hYNf6NMpaNgtRjMCfRHPk27AXMkUJY8TG7fd"
+          "/dnsaddr/ipfs.merklebot.com/p2p/12D3KooWMc168GycRtbRSWdbLexVfiraa1jcRrFFLwV8b8f5J6mm"
           "/dns4/1.pubsub.aira.life/tcp/4001/ipfs/QmdfQmbmXt6sqjZyowxPUsmvBsgSGQjm4VXrV7WGy62dv8"
           "/dns4/2.pubsub.aira.life/tcp/4001/ipfs/QmPTFt7GJ2MfDuVYwJJTULr6EnsQtGVp8ahYn9NSyoxmd9"
           "/dns4/3.pubsub.aira.life/tcp/4001/ipfs/QmWZSKTEQQ985mnNzMqhGCrwQ1aTA6sxVsorsycQz9cQrw"
@@ -56,12 +58,17 @@
     # Enable IPv6 yggdrasil mesh network
     yggdrasil = { 
       enable = true;
-      IfName = "ygg0";
-      Peers = [
-        "tcp://1.ams.nl.y.fftlt.net:21285"
-        "tcp://1.msk.ru.y.fftlt.net:21285"
-        "tcp://1.tlt.ru.y.fftlt.net:21285"
-      ];
+      config = {
+        Peers = [
+          "tcp://1.ams.nl.y.fftlt.net:21285"
+          "tcp://1.msk.ru.y.fftlt.net:21285"
+          "tcp://1.tlt.ru.y.fftlt.net:21285"
+        ];
+        Listen = [
+            "tcp://0.0.0.0:21285"
+        ];
+        IfName = "ygg0";
+      };
     };
 
     # Enable IPv6 cjdns mesh network

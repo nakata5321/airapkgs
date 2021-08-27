@@ -1,6 +1,6 @@
 { lib
-
 , mkDerivation
+, nix-update-script
 , fetchFromGitHub
 , substituteAll
 , cmake
@@ -34,25 +34,37 @@ let
   qonlinetranslator = fetchFromGitHub {
     owner = "crow-translate";
     repo = "QOnlineTranslator";
-    rev = "1.4.1";
-    sha256 = "1c6a8mdxms5vh8l7shi2kqdhafbzm50pbz6g1hhgg6qslla0vfn0";
+    rev = "1.4.4";
+    sha256 = "sha256-ogO6ovkQmyvTUPCYAQ4U3AxOju9r3zHB9COnAAfKSKA=";
+  };
+  circleflags = fetchFromGitHub {
+    owner = "HatScripts";
+    repo = "circle-flags";
+    rev = "v2.1.0";
+    sha256 = "sha256-E0iTDjicfdGqK4r+anUZanEII9SBafeEUcMLf7BGdp0=";
+  };
+  we10x = fetchFromGitHub {
+    owner = "yeyushengfan258";
+    repo = "We10X-icon-theme";
+    rev = "bd2c68482a06d38b2641503af1ca127b9e6540db";
+    sha256 = "sha256-T1oPstmjLffnVrIIlmTTpHv38nJHBBGJ070ilRwAjk8=";
   };
 in
 mkDerivation rec {
   pname = "crow-translate";
-  version = "2.6.2";
+  version = "2.8.4";
 
   src = fetchFromGitHub {
     owner = "crow-translate";
-    repo = "crow-translate";
+    repo = pname;
     rev = version;
-    sha256 = "1jgpqynmxmh6mrknpk5fh96lbdg799axp4cyn5rvalg3sdxajmqc";
+    sha256 = "sha256-TPJgKTZqsh18BQGFWgp0wsw1ehtI8ydQ7ZCvYNX6pH8=";
   };
 
   patches = [
     (substituteAll {
       src = ./dont-fetch-external-libs.patch;
-      inherit singleapplication qtaskbarcontrol qhotkey qonlinetranslator;
+      inherit singleapplication qtaskbarcontrol qhotkey qonlinetranslator circleflags we10x;
     })
     (substituteAll {
       # See https://github.com/NixOS/nixpkgs/issues/86054
@@ -61,9 +73,25 @@ mkDerivation rec {
     })
   ];
 
+  postPatch = ''
+    cp -r ${circleflags}/flags/* data/icons
+    cp -r ${we10x}/src/* data/icons
+  '';
+
   nativeBuildInputs = [ cmake extra-cmake-modules qttools ];
 
   buildInputs = [ leptonica tesseract4 qtmultimedia qtx11extras ];
+
+  postInstall = ''
+    substituteInPlace $out/share/applications/io.crow_translate.CrowTranslate.desktop \
+      --replace "Exec=qdbus" "Exec=${lib.getBin qttools}/bin/qdbus"
+  '';
+
+  passthru = {
+    updateScript = nix-update-script {
+      attrPath = pname;
+    };
+  };
 
   meta = with lib; {
     description = "A simple and lightweight translator that allows to translate and speak text using Google, Yandex and Bing";

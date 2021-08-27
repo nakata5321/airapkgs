@@ -1,19 +1,22 @@
 { lib, stdenv, fetchFromGitHub
 , autoreconfHook269, util-linux, nukeReferences, coreutils
-, perl, buildPackages, nixosTests
+, perl, nixosTests
 , configFile ? "all"
 
 # Userspace dependencies
 , zlib, libuuid, python3, attr, openssl
 , libtirpc
-, nfs-utils
+, nfs-utils, samba
 , gawk, gnugrep, gnused, systemd
 , smartmontools, enableMail ? false
-, sysstat, sudo, pkg-config
+, sysstat, pkg-config
 
 # Kernel dependencies
 , kernel ? null
 , enablePython ? true
+
+# for determining the latest compatible linuxPackages
+, linuxPackages_5_13
 }:
 
 with lib;
@@ -28,7 +31,8 @@ let
     , extraPatches ? []
     , rev ? "zfs-${version}"
     , isUnstable ? false
-    , incompatibleKernelVersion ? null }:
+    , latestCompatibleLinuxPackages
+    , kernelCompatible ? null }:
 
     stdenv.mkDerivation {
       name = "zfs-${configFile}-${version}${optionalString buildKernel "-${kernel.version}"}";
@@ -55,6 +59,7 @@ let
           # And if it's enabled by default, only change that if we explicitly disable python to remove python from the closure
           nfs-utils.override (old: { enablePython = old.enablePython or true && enablePython; })
         }/bin/exportfs"
+        substituteInPlace ./lib/libshare/smb.h        --replace "/usr/bin/net"            "${samba}/bin/net"
         substituteInPlace ./config/user-systemd.m4    --replace "/usr/lib/modules-load.d" "$out/etc/modules-load.d"
         substituteInPlace ./config/zfs-build.m4       --replace "\$sysconfdir/init.d"     "$out/etc/init.d" \
                                                       --replace "/etc/default"            "$out/etc/default"
@@ -157,10 +162,10 @@ let
         done
       '';
 
-      outputs = [ "out" ] ++ optionals buildUser [ "lib" "dev" ];
+      outputs = [ "out" ] ++ optionals buildUser [ "dev" ];
 
       passthru = {
-        inherit enableMail;
+        inherit enableMail latestCompatibleLinuxPackages;
 
         tests =
           if isUnstable then [
@@ -179,16 +184,13 @@ let
           snapshotting, cloning, block devices, deduplication, and more.
         '';
         homepage = "https://github.com/openzfs/zfs";
+        changelog = "https://github.com/openzfs/zfs/releases/tag/zfs-${version}";
         license = licenses.cddl;
         platforms = platforms.linux;
         maintainers = with maintainers; [ hmenke jcumming jonringer wizeman fpletz globin mic92 ];
-        broken = if
-          buildKernel && (incompatibleKernelVersion != null) && versionAtLeast kernel.version incompatibleKernelVersion
-          then builtins.trace ''
-            Linux v${kernel.version} is not yet supported by zfsonlinux v${version}.
-            ${lib.optionalString (!isUnstable) "Try zfsUnstable or set the NixOS option boot.zfs.enableUnstable."}
-          '' true
-          else false;
+        # If your Linux kernel version is not yet supported by zfs, try zfsUnstable.
+        # On NixOS set the option boot.zfs.enableUnstable.
+        broken = buildKernel && (kernelCompatible != null) && !kernelCompatible;
       };
     };
 in {
@@ -196,22 +198,26 @@ in {
   # ./nixos/modules/tasks/filesystems/zfs.nix needs
   # to be adapted
   zfsStable = common {
-    # comment/uncomment if breaking kernel versions are known
-    # incompatibleKernelVersion = "4.20";
+    # check the release notes for compatible kernels
+    kernelCompatible = kernel.kernelAtLeast "3.10" && kernel.kernelOlder "5.14";
+    latestCompatibleLinuxPackages = linuxPackages_5_13;
 
     # this package should point to the latest release.
-    version = "2.0.2";
+    version = "2.1.0";
 
-    sha256 = "sha256-KzrRQwfQRvIQkHG5mj6cGBdcv2VEhC5y7bi09DaKqhY=";
+    sha256 = "sha256-YdY4SStXZGBBdAHdM3R/unco7ztxI3s0/buPSNSeh5o=";
   };
 
   zfsUnstable = common {
-    # comment/uncomment if breaking kernel versions are known
-    # incompatibleKernelVersion = "4.19";
+    # check the release notes for compatible kernels
+    kernelCompatible = kernel.kernelAtLeast "3.10" && kernel.kernelOlder "5.14";
+    latestCompatibleLinuxPackages = linuxPackages_5_13;
 
     # this package should point to a version / git revision compatible with the latest kernel release
-    version = "2.0.2";
+    version = "2.1.0";
 
-    sha256 = "sha256-KzrRQwfQRvIQkHG5mj6cGBdcv2VEhC5y7bi09DaKqhY=";
+    sha256 = "sha256-YdY4SStXZGBBdAHdM3R/unco7ztxI3s0/buPSNSeh5o=";
+
+    isUnstable = true;
   };
 }

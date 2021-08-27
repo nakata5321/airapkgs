@@ -8,7 +8,8 @@ stdenv.mkDerivation rec {
     sha256 = "10k44g0qqa37k30pfj8vz95j6zdzz0nmnqjq1lyahfs2h4glzgwb";
   };
 
-  buildInputs = [ perlPackages.perl makeWrapper ];
+  nativeBuildInputs = [ makeWrapper ];
+  buildInputs = [ perlPackages.perl ];
 
   installPhase = ''
     mkdir -p "$out/bin/"
@@ -27,7 +28,7 @@ stdenv.mkDerivation rec {
 
     wrapProgram "$out/bin/docbook2odf" \
       --prefix PATH : "${lib.makeBinPath [ zip libxslt ]}" \
-      --prefix PERL5PATH : "${perlPackages.makePerlPath [ perlPackages.PerlMagick ]}"
+      --prefix PERL5PATH : "${perlPackages.makePerlPath [ perlPackages.ImageMagick ]}"
   '';
 
   meta = with lib; {

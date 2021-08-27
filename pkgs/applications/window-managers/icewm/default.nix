@@ -1,9 +1,8 @@
-{ lib, stdenv
+{ lib
+, stdenv
 , fetchFromGitHub
-, cmake
-, pkg-config
-, perl
 , asciidoc
+, cmake
 , expat
 , fontconfig
 , freetype
@@ -11,6 +10,7 @@
 , gdk-pixbuf
 , gdk-pixbuf-xlib
 , gettext
+, giflib
 , glib
 , imlib2
 , libICE
@@ -30,25 +30,30 @@
 , libpthreadstubs
 , libsndfile
 , libtiff
-, libungif
 , libxcb
 , mkfontdir
 , pcre
+, perl
+, pkg-config
 }:
 
 stdenv.mkDerivation rec {
   pname = "icewm";
-  version = "2.1.1";
+  version = "2.6.0";
 
   src = fetchFromGitHub {
-    owner  = "bbidulock";
+    owner  = "ice-wm";
     repo = pname;
     rev = version;
-    sha256 = "sha256-WVlp8ir7w/wv4CI11dTQZkLcnW8JYLRQ+bbz73KEcWo=";
+    hash = "sha256-R06tiWS9z6K5Nbi+vvk7DyozpcFdrHleMeh7Iq/FfHQ=";
   };
 
-  nativeBuildInputs = [ cmake pkg-config perl asciidoc ];
-
+  nativeBuildInputs = [
+    asciidoc
+    cmake
+    perl
+    pkg-config
+  ];
   buildInputs = [
     expat
     fontconfig
@@ -57,6 +62,7 @@ stdenv.mkDerivation rec {
     gdk-pixbuf
     gdk-pixbuf-xlib
     gettext
+    giflib
     glib
     imlib2
     libICE
@@ -76,13 +82,15 @@ stdenv.mkDerivation rec {
     libpthreadstubs
     libsndfile
     libtiff
-    libungif
     libxcb
     mkfontdir
     pcre
   ];
 
-  cmakeFlags = [ "-DPREFIX=$out" "-DCFGDIR=/etc/icewm" ];
+  cmakeFlags = [
+    "-DPREFIX=$out"
+    "-DCFGDIR=/etc/icewm"
+  ];
 
   # install legacy themes
   postInstall = ''
@@ -90,6 +98,7 @@ stdenv.mkDerivation rec {
   '';
 
   meta = with lib; {
+    homepage = "https://www.ice-wm.org/";
     description = "A simple, lightweight X window manager";
     longDescription = ''
       IceWM is a window manager for the X Window System. The goal of IceWM is
@@ -104,8 +113,7 @@ stdenv.mkDerivation rec {
       includes an optional external background wallpaper manager with
       transparency support, a simple session manager and a system tray.
     '';
-    homepage = "https://www.ice-wm.org/";
-    license = licenses.lgpl2;
+    license = licenses.lgpl2Only;
     maintainers = [ maintainers.AndersonTorres ];
     platforms = platforms.linux;
   };

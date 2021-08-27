@@ -2,10 +2,10 @@
 
 let
   pname = "jitsi-videobridge2";
-  version = "2.1-273-g072dd44b";
+  version = "2.1-508-gb24f756c";
   src = fetchurl {
     url = "https://download.jitsi.org/stable/${pname}_${version}-1_all.deb";
-    sha256 = "12l84wjn5iqnsg0816icgbx8jfcgyfnqclgyx303w4ncbvymlkv9";
+    sha256 = "0kjsm3k7chgrfvvqxkp8xdw6wfrs122j4h8gcvyvpf9lg51p199g";
   };
 in
 stdenv.mkDerivation {
@@ -15,9 +15,10 @@ stdenv.mkDerivation {
 
   unpackCmd = "${dpkg}/bin/dpkg-deb -x $src debcontents";
 
-  buildInputs = [ makeWrapper ];
+  nativeBuildInputs = [ makeWrapper ];
 
   installPhase = ''
+    runHook preInstall
     substituteInPlace usr/share/jitsi-videobridge/jvb.sh \
       --replace "exec java" "exec ${jre_headless}/bin/java"
 
@@ -30,6 +31,7 @@ stdenv.mkDerivation {
     # work around https://github.com/jitsi/jitsi-videobridge/issues/1547
     wrapProgram $out/bin/jitsi-videobridge \
       --set VIDEOBRIDGE_GC_TYPE G1GC
+    runHook postInstall
   '';
 
   passthru.tests = {

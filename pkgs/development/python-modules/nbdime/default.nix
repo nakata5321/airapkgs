@@ -1,11 +1,11 @@
-{ lib, buildPythonPackage, fetchPypi, callPackage, isPy3k
+{ lib, buildPythonPackage, fetchPypi, isPy3k
 , hypothesis
-, setuptools_scm
+, setuptools-scm
 , six
 , attrs
 , py
 , setuptools
-, pytestcov
+, pytest-cov
 , pytest-timeout
 , pytest-tornado
 , mock
@@ -34,7 +34,7 @@ buildPythonPackage rec {
 
   checkInputs = [
     hypothesis
-    pytestcov
+    pytest-cov
     pytest-timeout
     pytest-tornado
     jsonschema
@@ -49,10 +49,10 @@ buildPythonPackage rec {
     "test_filter_cmd_invalid_filter"
     "test_inline_merge"
     "test_interrogate_filter_no_repo"
-    "test_merge_input_strategy_inline_source_conflict"
+    "test_merge"
   ];
 
-  nativeBuildInputs = [ setuptools_scm ];
+  nativeBuildInputs = [ setuptools-scm ];
 
   propagatedBuildInputs = [
     attrs

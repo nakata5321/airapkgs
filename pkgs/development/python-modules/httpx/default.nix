@@ -2,7 +2,7 @@
 , buildPythonPackage
 , pythonOlder
 , fetchFromGitHub
-, brotli
+, brotlicffi
 , certifi
 , h2
 , httpcore
@@ -11,25 +11,25 @@
 , pytestCheckHook
 , pytest-asyncio
 , pytest-trio
-, pytestcov
+, typing-extensions
 , trustme
 , uvicorn
 }:
 
 buildPythonPackage rec {
   pname = "httpx";
-  version = "0.16.1";
+  version = "0.18.2";
   disabled = pythonOlder "3.6";
 
   src = fetchFromGitHub {
     owner = "encode";
     repo = pname;
     rev = version;
-    sha256 = "00gmq45fckcqkj910bvd7pyqz1mvgsdvz4s0k7dzbnc5czzq1f4a";
+    sha256 = "0rr5b6z96yipvp4riqmmbkbcy0sdyzykcdwf5y9ryh27pxr8q8x4";
   };
 
   propagatedBuildInputs = [
-    brotli
+    brotlicffi
     certifi
     h2
     httpcore
@@ -41,8 +41,8 @@ buildPythonPackage rec {
     pytestCheckHook
     pytest-asyncio
     pytest-trio
-    pytestcov
     trustme
+    typing-extensions
     uvicorn
   ];
 
@@ -62,6 +62,6 @@ buildPythonPackage rec {
     description = "The next generation HTTP client";
     homepage = "https://github.com/encode/httpx";
     license = licenses.bsd3;
-    maintainers = [ maintainers.costrouc ];
+    maintainers = with maintainers; [ costrouc fab ];
   };
 }

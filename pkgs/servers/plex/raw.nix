@@ -12,29 +12,28 @@
 # server, and the FHS userenv and corresponding NixOS module should
 # automatically pick up the changes.
 stdenv.mkDerivation rec {
-  version = "1.21.3.4014-58bd20c02";
+  version = "1.24.0.4930-ab6e1a058";
   pname = "plexmediaserver";
 
   # Fetch the source
   src = if stdenv.hostPlatform.system == "aarch64-linux" then fetchurl {
     url = "https://downloads.plex.tv/plex-media-server-new/${version}/debian/plexmediaserver_${version}_arm64.deb";
-    sha256 = "15zfhjvp5yzai5ylhljw221v6qm16fma0x0lay9zpgkxrwqw9iaw";
+    sha256 = "0fhbm2ykk2nx1j619kpzgw32rgbh2snh8g25m7k42cpmg4a3zz4m";
   } else fetchurl {
     url = "https://downloads.plex.tv/plex-media-server-new/${version}/debian/plexmediaserver_${version}_amd64.deb";
-    sha256 = "1gig4n6iijipf2njixgpw00pm3g5rgbq1vvd9ljy8cjpv1kb5z0z";
+    sha256 = "0h1vk8ads1jrb5adcpfrz1qdf60jw4wiss9zzcyamfry1ir94n3r";
   };
 
   outputs = [ "out" "basedb" ];
 
   nativeBuildInputs = [ dpkg ];
 
-  phases = [ "unpackPhase" "installPhase" "fixupPhase" "distPhase" ];
-
   unpackPhase = ''
     dpkg-deb -R $src .
   '';
 
   installPhase = ''
+    runHook preInstall
     mkdir -p "$out/lib"
     cp -dr --no-preserve='ownership' usr/lib/plexmediaserver $out/lib/
 
@@ -48,6 +47,7 @@ stdenv.mkDerivation rec {
     # to the '/db' file; we create this path in the FHS userenv (see the "plex"
     # package).
     ln -fs /db $f
+    runHook postInstall
   '';
 
   # We're running in a FHS userenv; don't patch anything
@@ -83,11 +83,12 @@ stdenv.mkDerivation rec {
     platforms = [ "x86_64-linux" "aarch64-linux" ];
     maintainers = with maintainers; [
       badmutex
-      colemickens
       forkk
       lnl7
       pjones
       thoughtpolice
+      maxeaubrey
+      MayNiklas
     ];
     description = "Media library streaming server";
     longDescription = ''
