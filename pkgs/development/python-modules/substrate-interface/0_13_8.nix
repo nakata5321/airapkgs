@@ -12,19 +12,17 @@
 # , python3Packages
 }:
 
-buildPythonPackage rec {
+let url = "https://files.pythonhosted.org/packages/cb/d4/164c1d653bfd8acf96350adce815fe0052551a04c9601ae66b98993617af/substrate_interface-0.13.8-py3-none-any.whl";
+
+in buildPythonPackage rec {
   pname = "substrate_interface";
   version = "0.13.8";
-  GITHUB_REF="refs/tags/v0.13.8";
+  format = "wheel";
 
-  src = fetchPypi {
-    # substrate_interface-0.12.3-py3-none-any.whl
-    inherit pname version;
+
+  src = builtins.fetchurl {
+    inherit url;
     sha256 = "11q35xi3x827fprplb840a0yh7ihc90n8np2w5pwvp91qpsfq6kk";
-    format = "wheel";
-    python = "py3";
-    abi = "none";
-    platform = "any";
 
   };
 
@@ -34,7 +32,6 @@ buildPythonPackage rec {
     xxhash
   ];
 
-  format = "wheel";
 
   propagatedBuildInputs =  [
     scalecodec_0_11_16
