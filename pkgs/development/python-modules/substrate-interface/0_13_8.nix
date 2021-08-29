@@ -2,7 +2,7 @@
 , buildPythonPackage
 , fetchPypi
 , scalecodec_0_11_16
-, websocket_client
+, websocket-client-0-58-0 
 , py-sr25519-bindings
 , py-ed25519-bindings
 , py-bip39-bindings
@@ -35,7 +35,7 @@ in buildPythonPackage rec {
 
   propagatedBuildInputs =  [
     scalecodec_0_11_16
-    websocket_client
+    websocket-client-0-58-0 
     py-sr25519-bindings
     py-ed25519-bindings
     py-bip39-bindings

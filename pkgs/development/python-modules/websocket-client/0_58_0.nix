@@ -4,6 +4,7 @@
 , pythonOlder
 , pytestCheckHook
 , python-socks
+, six
 }:
 
 let url = "https://files.pythonhosted.org/packages/08/33/80e0d4f60e84a1ddd9a03f340be1065a2a363c47ce65c4bd3bae65ce9631/websocket_client-0.58.0-py2.py3-none-any.whl";
@@ -20,7 +21,7 @@ in buildPythonPackage rec {
   };
 
   propagatedBuildInputs =  [
-    python-socks
+    python-socks six
   ];  # зависимости
 
 
