@@ -9432,6 +9432,8 @@ in {
 
   websocket-client = callPackage ../development/python-modules/websocket-client { };
 
+  websocket-client-0-58-0 = callPackage ../development/python-modules/websocket-client/0_58_0.nix { };
+
   websockets = callPackage ../development/python-modules/websockets { };
 
   websockify = callPackage ../development/python-modules/websockify { };

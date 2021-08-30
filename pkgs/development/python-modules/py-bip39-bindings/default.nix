@@ -5,19 +5,16 @@
 , fetchPypi
 }:
 
-buildPythonPackage rec {
+let url = "https://files.pythonhosted.org/packages/70/e8/77546c1ac722d08aa1f0efe8efe5713c101ec22556f72f21fd176db1a61c/py_bip39_bindings-0.1.6-cp39-cp39-manylinux2010_x86_64.whl";
+
+in buildPythonPackage rec {
   pname = "py_bip39_bindings";
   version = "0.1.6";
-
   format = "wheel";
-  src = fetchPypi {
-    inherit pname version;
-    sha256 = "1xkhhfv5dvpb06ypq98w97i4lmwfiz638c3hihj9wwgjsgzrvdyf";
-    format = "wheel";
-    python = "cp38";
-    abi = "cp38";
-    platform = "manylinux2010_x86_64";
 
+  src = builtins.fetchurl {
+    inherit url;
+    sha256 = "sha256:0lkz1vdm3g2qjz6i5zl7vcvhh1r3rdg1scrwwaj93mmw3hqbxssy";
   };
 
 

@@ -2,7 +2,7 @@
 , buildPythonPackage
 , fetchPypi
 , scalecodec_0_11_16
-, websocket_client
+, websocket-client-0-58-0 
 , py-sr25519-bindings
 , py-ed25519-bindings
 , py-bip39-bindings
@@ -12,19 +12,17 @@
 # , python3Packages
 }:
 
-buildPythonPackage rec {
+let url = "https://files.pythonhosted.org/packages/93/98/b5d7c5d21a0705c026f041dd4d1c73735140e8f9e2582ee661d9c426889a/substrate_interface-0.13.6-py3-none-any.whl";
+
+in buildPythonPackage rec {
   pname = "substrate_interface";
   version = "0.13.6";
-  GITHUB_REF="refs/tags/v0.13.6";
+  format = "wheel";
 
-  src = fetchPypi {
-    # substrate_interface-0.12.3-py3-none-any.whl
-    inherit pname version;
-    sha256 = "102bvgpndk8q6rysxp2af8xj7fv1cww6w0wayw8x7yqvc9n85nfv";
-    format = "wheel";
-    python = "py3";
-    abi = "none";
-    platform = "any";
+
+  src = builtins.fetchurl {
+    inherit url;
+    sha256 = "sha256:102bvgpndk8q6rysxp2af8xj7fv1cww6w0wayw8x7yqvc9n85nfv";
 
   };
 
@@ -34,11 +32,10 @@ buildPythonPackage rec {
     xxhash
   ];
 
-  format = "wheel";
 
   propagatedBuildInputs =  [
     scalecodec_0_11_16
-    websocket_client
+    websocket-client-0-58-0 
     py-sr25519-bindings
     py-ed25519-bindings
     py-bip39-bindings
