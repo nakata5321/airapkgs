@@ -16,7 +16,7 @@ mkRosPackage rec {
     owner = "ros-gbp";
     repo = "ros_comm-release";
     rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "0w9rvv6xw0vqhpqdhwczxnbccg93zqwjz3w8fm87fva6plhvnh6s";
+    sha256 = "1kkm4mhlm5j9x7snd4b53byy6ikrrzpvycbhqqa40bm4b4jwf3yd";
   };
 
   propagatedBuildInputs = [ catkin cpp_common rostime ];
