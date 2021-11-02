@@ -1,17 +1,12 @@
 { lib, buildPythonPackage, fetchPypi, graphql-core2, pytestCheckHook }:
 
 buildPythonPackage rec {
-  pname = "graphql_relay";
+  pname = "graphql-relay";
   version = "2.0.1";
 
-  format = "wheel";
   src = fetchPypi {
     inherit pname version;
-    sha256 = "0gci1phs4g8abym2w6qhy0nc2yhk47ai2dg7swa3195rdnw4qldc";
-    format = "wheel";
-    python = "py3";
-    abi = "none";
-    platform = "any";
+    sha256 = "sha256:1fzsi99bi351kz9hrx3b8rdcxb11w2n9x9qmnah3hfhj0i9nn2w7";
   };
 
   propagatedBuildInputs = [ graphql-core2 ];

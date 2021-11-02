@@ -8224,6 +8224,8 @@ in {
 
   skytemple-dtef = callPackage ../development/python-modules/skytemple-dtef { };
 
+  singledispatch = callPackage ../development/python-modules/singledispatch { };
+
   skytemple-eventserver = callPackage ../development/python-modules/skytemple-eventserver { };
 
   skytemple-files = callPackage ../development/python-modules/skytemple-files { };
