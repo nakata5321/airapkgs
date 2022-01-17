@@ -6011,8 +6011,6 @@ in {
 
   pycryptodome = callPackage ../development/python-modules/pycryptodome { };
 
-  pycryptodome_3_11_0 = callPackage ../development/python-modules/pycryptodome/3_11_0.nix { };
-
   pycryptodomex = callPackage ../development/python-modules/pycryptodomex { };
 
   pyct = callPackage ../development/python-modules/pyct { };

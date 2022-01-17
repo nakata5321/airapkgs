@@ -1,5 +1,5 @@
 { lib, fetchPypi, buildPythonPackage, pythonOlder, pytest, pysha3, pycrypto
-, pycryptodome_3_11_0
+, pycryptodome
 , eth-utils
 }:
 
@@ -17,7 +17,7 @@ buildPythonPackage rec {
   propagatedBuildInputs = [
     pysha3
     pycrypto
-    pycryptodome_3_11_0
+    pycryptodome
 
   ];
 

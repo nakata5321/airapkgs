@@ -10,7 +10,7 @@
 , requests
 , xxhash
 , ecdsa
-, pycryptodome_3_11_0
+, pycryptodome
 , eth-keys_0_3_3
 # , python3Packages
 }:
@@ -33,7 +33,7 @@ in buildPythonPackage rec {
     base58-2_0_1
     requests
     xxhash
-    pycryptodome_3_11_0
+    pycryptodome
     eth-keys_0_3_3
   ];
 
@@ -44,7 +44,7 @@ in buildPythonPackage rec {
     py-ed25519-bindings
     py-bip39-bindings
     ecdsa
-    pycryptodome_3_11_0
+    pycryptodome
   ];  # зависимости
 
   doCheck=false;
