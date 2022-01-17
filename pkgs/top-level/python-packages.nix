@@ -2404,9 +2404,13 @@ in {
 
   eth-hash = callPackage ../development/python-modules/eth-hash { };
 
+  eth-hash_0_3_2 = callPackage ../development/python-modules/eth-hash/0_3_2.nix { };
+
   eth-typing = callPackage ../development/python-modules/eth-typing { };
 
   eth-utils = callPackage ../development/python-modules/eth-utils { };
+
+  eth-utils_2_0_0 = callPackage ../development/python-modules/eth-utils/2_0_0.nix { };
 
   et_xmlfile = callPackage ../development/python-modules/et_xmlfile { };
 
@@ -6007,6 +6011,8 @@ in {
 
   pycryptodome = callPackage ../development/python-modules/pycryptodome { };
 
+  pycryptodome_3_11_0 = callPackage ../development/python-modules/pycryptodome/3_11_0.nix { };
+
   pycryptodomex = callPackage ../development/python-modules/pycryptodomex { };
 
   pyct = callPackage ../development/python-modules/pyct { };
@@ -7993,6 +7999,8 @@ in {
 
   scalecodec_0_11_16 = callPackage ../development/python-modules/scalecodec/0_11_16.nix { };
 
+  scalecodec_1_0_23 = callPackage ../development/python-modules/scalecodec/1_0_23.nix { };
+
   scapy = callPackage ../development/python-modules/scapy { };
 
   schedule = callPackage ../development/python-modules/schedule { };
@@ -8615,6 +8623,8 @@ in {
   substrate-interface_0_13_8 = callPackage ../development/python-modules/substrate-interface/0_13_8.nix { };
   
   substrate-interface_0_13_6 = callPackage ../development/python-modules/substrate-interface/0_13_6.nix { };
+
+  substrate-interface_1_1_2 = callPackage ../development/python-modules/substrate-interface/1_1_2.nix { };
 
   suds = callPackage ../development/python-modules/suds { };
 
@@ -9786,6 +9796,8 @@ in {
   eth-abi = callPackage ../development/python-modules/eth-abi { };
 
   eth-keys = callPackage ../development/python-modules/eth-keys { };
+
+  eth-keys_0_3_3 = callPackage ../development/python-modules/eth-keys/0_3_3.nix { };
 
   eth-keyfile = callPackage ../development/python-modules/eth-keyfile { };
 
