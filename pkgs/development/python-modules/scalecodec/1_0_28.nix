@@ -2,21 +2,21 @@
 , buildPythonPackage
 , fetchPypi
 , more-itertools
-, requests
+, requests_38
 , base58-2_0_1
 }:
 
 buildPythonPackage rec {
   pname = "scalecodec";
-  version = "0.11.16";
-  GITHUB_REF="refs/tags/v0.11.16";
+  version = "1.0.28";
+  GITHUB_REF="refs/tags/v1.0.28";
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "1nmay84fspf04ml1z92g8amczv53skldv1c6jiyiai5fy872qya2";
+    sha256 = "sha256:1ncccx9zxj617qwp23c3p0zczbhxv2qkwp4cyf95825wcqx0ikm3";
   };
 
-  propagatedBuildInputs = [ more-itertools requests base58-2_0_1 ];  # зависимости
+  propagatedBuildInputs = [ more-itertools requests_38 base58-2_0_1 ];  # зависимости
 
   meta = {
     description = "Substrate RPCs output scale decodec";

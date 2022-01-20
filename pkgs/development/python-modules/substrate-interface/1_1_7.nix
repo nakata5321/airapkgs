@@ -1,48 +1,50 @@
 { lib
-, buildPythonPackage
+, python38Packages
 , fetchPypi
-, scalecodec_1_0_23
+, scalecodec_1_0_28
 , websocket-client-0-58-0 
-, py-sr25519-bindings
-, py-ed25519-bindings
-, py-bip39-bindings
-, base58-2_0_1
-, requests
+, py-sr25519-bindings_38
+, py-ed25519-bindings_1_0_1
+, py-bip39-bindings_38
+, base58_38
+, requests_38
 , xxhash
 , ecdsa
 , pycryptodome
 , eth-keys_0_3_3
+, certifi38
 # , python3Packages
 }:
 
-let url = "https://files.pythonhosted.org/packages/d9/29/64ff51209e008784cd66d09952d6a956810c4338f56c4e3de2604da5fd83/substrate_interface-1.1.2-py3-none-any.whl";
+let url = "https://files.pythonhosted.org/packages/b1/ef/0675e507d98bf7ea08cd1dc928b0c0c304bcc15086a2c849743fb1baa77f/substrate_interface-1.1.7-py3-none-any.whl";
 
-in buildPythonPackage rec {
+in python38Packages.buildPythonPackage rec {
   pname = "substrate_interface";
-  version = "1.1.2";
+  version = "1.1.7";
   format = "wheel";
 
 
   src = builtins.fetchurl {
     inherit url;
-    sha256 = "sha256:0wv68qds2z4vyysgcialc893i0zx3sjllfr4qdbmigc8x75vcsdj";
+    sha256 = "sha256:100kxamrcaf2mvlqvbk0pql3bdwm85aim84fdg085hdr6swbl6c7";
 
   };
 
   buildInputs = [
-    base58-2_0_1
-    requests
+    base58_38
+    requests_38
     xxhash
     pycryptodome
     eth-keys_0_3_3
+    certifi38
   ];
 
   propagatedBuildInputs =  [
-    scalecodec_1_0_23
+    scalecodec_1_0_28
     websocket-client-0-58-0 
-    py-sr25519-bindings
-    py-ed25519-bindings
-    py-bip39-bindings
+    py-sr25519-bindings_38
+    py-ed25519-bindings_1_0_1
+    py-bip39-bindings_38
     ecdsa
     pycryptodome
   ];  # зависимости
