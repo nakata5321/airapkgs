@@ -65,13 +65,13 @@ buildPythonPackage rec {
       --replace '@pytest.mark.last' '@pytest.mark.order("last")'
   '';
 
-  checkPhase = ''
-    runHook preCheck
+  doCheck = false;
 
-    ${python.interpreter} -X utf8 test/run-tests.py
-
-    runHook postCheck
-  '';
+#  checkPhase = ''
+#    runHook preCheck
+#    ${python.interpreter} -X utf8 test/run-tests.py
+#    runHook postCheck
+#  '';
 
   pythonImportsCheck = [ "ipfshttpclient" ];
 
