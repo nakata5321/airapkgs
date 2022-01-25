@@ -50,6 +50,12 @@ buildPythonPackage rec {
     httpx
   ];
 
+  preBuild = ''
+     substituteInPlace ipfshttpclient/client/__init__.py \
+      --replace '0.9.0' '0.9.1'
+  '';
+
+
   postPatch = ''
     # This can be removed for the 0.8.0 release
     # Use pytest-order instead of pytest-ordering since the latter is unmaintained and broken
