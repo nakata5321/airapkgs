@@ -164,6 +164,7 @@
 , "less-plugin-clean-css"
 , "libp2p-websocket-star-rendezvous"
 , "libp2p-webrtc-star"
+, "libp2p-webrtc-star-signalling-server"
 , "live-server"
 , "livedown"
 , {"lumo-build-deps": "../interpreters/clojurescript/lumo" }

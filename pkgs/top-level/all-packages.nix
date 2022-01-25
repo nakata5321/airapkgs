@@ -33001,6 +33001,8 @@ with pkgs;
 
   libp2p-webrtc-star = nodePackages.libp2p-webrtc-star;
 
+  libp2p-webrtc-star-signalling-server = nodePackages.libp2p-webrtc-star-signalling-server;
+
   wfuzz = with python3Packages; toPythonApplication wfuzz;
 
   bemenu = callPackage ../applications/misc/bemenu { };
