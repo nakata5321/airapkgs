@@ -6,7 +6,7 @@
 
 let
   pname = "eth-keys";
-  version = "0.2.0-beta.3";
+  version = "0.3.3";
 in buildPythonPackage rec {
   name = "${pname}-${version}";
 
@@ -14,7 +14,7 @@ in buildPythonPackage rec {
     owner = "ethereum";
     repo = "${pname}";
     rev = "v${version}";
-    sha256 = "09xp6x5x4qqa34q1z8r70vk7di3pn9c85myfw81sd2ppqm8hidlg";
+    sha256 = "sha256:05b2h12y3rhjadbnki7rnhpza3f2ihxhx89ciwxhd7yc7asdw6aq";
   };
 
   propagatedBuildInputs = [ eth-utils ];

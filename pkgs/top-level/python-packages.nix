@@ -1011,6 +1011,8 @@ in {
 
   base58 = callPackage ../development/python-modules/base58 { };
 
+  base58_38 = callPackage ../development/python-modules/base58/python38.nix { };
+
   base58-2_0_1 = callPackage ../development/python-modules/base58/2.0.1.nix { };
 
   baseline = callPackage ../development/python-modules/baseline { };
@@ -1380,6 +1382,8 @@ in {
   certbot-dns-route53 = callPackage ../development/python-modules/certbot-dns-route53 { };
 
   certifi = callPackage ../development/python-modules/certifi { };
+
+  certifi38 = callPackage ../development/python-modules/certifi/python38.nix { };
 
   certipy = callPackage ../development/python-modules/certipy { };
 
@@ -2404,9 +2408,13 @@ in {
 
   eth-hash = callPackage ../development/python-modules/eth-hash { };
 
+  eth-hash_0_3_2 = callPackage ../development/python-modules/eth-hash/0_3_2.nix { };
+
   eth-typing = callPackage ../development/python-modules/eth-typing { };
 
   eth-utils = callPackage ../development/python-modules/eth-utils { };
+
+  eth-utils_2_0_0 = callPackage ../development/python-modules/eth-utils/2_0_0.nix { };
 
   et_xmlfile = callPackage ../development/python-modules/et_xmlfile { };
 
@@ -2709,6 +2717,8 @@ in {
   flickrapi = callPackage ../development/python-modules/flickrapi { };
 
   flit = callPackage ../development/python-modules/flit { };
+
+  flit_38 = callPackage ../development/python-modules/flit/38.nix { };
 
   flit-core = callPackage ../development/python-modules/flit-core { };
 
@@ -7501,9 +7511,15 @@ in {
 
   py-ed25519-bindings = callPackage ../development/python-modules/py-ed25519-bindings { };
 
+  py-ed25519-bindings_1_0_1 = callPackage ../development/python-modules/py-ed25519-bindings/1_0_1.nix { };
+
   py-bip39-bindings = callPackage ../development/python-modules/py-bip39-bindings { };
 
+  py-bip39-bindings_38 = callPackage ../development/python-modules/py-bip39-bindings/38.nix { };
+
   py-sr25519-bindings = callPackage ../development/python-modules/py-sr25519-bindings { };
+
+  py-sr25519-bindings_38 = callPackage ../development/python-modules/py-sr25519-bindings/38.nix { };
 
   pywatchman = callPackage ../development/python-modules/pywatchman { };
 
@@ -7736,6 +7752,8 @@ in {
 
   requests = callPackage ../development/python-modules/requests { };
 
+  requests_38 = callPackage ../development/python-modules/requests/38.nix { };
+
   requests_download = callPackage ../development/python-modules/requests_download { };
 
   requestsexceptions = callPackage ../development/python-modules/requestsexceptions { };
@@ -7829,6 +7847,8 @@ in {
   rnc2rng = callPackage ../development/python-modules/rnc2rng { };
 
   robomachine = callPackage ../development/python-modules/robomachine { };
+
+  robonomics-interface = callPackage ../development/python-modules/robonomics-interface { };
 
   roboschool = callPackage ../development/python-modules/roboschool {
     inherit (pkgs.qt5) qtbase;
@@ -7991,7 +8011,9 @@ in {
 
   scalecodec = callPackage ../development/python-modules/scalecodec { };
 
-  scalecodec_0_11_16 = callPackage ../development/python-modules/scalecodec/0_11_16.nix { };
+  scalecodec_1_0_23 = callPackage ../development/python-modules/scalecodec/1_0_23.nix { };
+
+  scalecodec_1_0_28 = callPackage ../development/python-modules/scalecodec/1_0_28.nix { };
 
   scapy = callPackage ../development/python-modules/scapy { };
 
@@ -8612,9 +8634,7 @@ in {
 
   substrate-interface = callPackage ../development/python-modules/substrate-interface { };
 
-  substrate-interface_0_13_8 = callPackage ../development/python-modules/substrate-interface/0_13_8.nix { };
-  
-  substrate-interface_0_13_6 = callPackage ../development/python-modules/substrate-interface/0_13_6.nix { };
+  substrate-interface_1_1_7 = callPackage ../development/python-modules/substrate-interface/1_1_7.nix { };
 
   suds = callPackage ../development/python-modules/suds { };
 
@@ -9786,6 +9806,8 @@ in {
   eth-abi = callPackage ../development/python-modules/eth-abi { };
 
   eth-keys = callPackage ../development/python-modules/eth-keys { };
+
+  eth-keys_0_3_3 = callPackage ../development/python-modules/eth-keys/0_3_3.nix { };
 
   eth-keyfile = callPackage ../development/python-modules/eth-keyfile { };
 

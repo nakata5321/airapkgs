@@ -32787,6 +32787,8 @@ with pkgs;
 
   catkin = callPackage ../development/ros-modules/catkin { };
 
+  catkin_38 = callPackage ../development/ros-modules/catkin/38.nix { };
+
   catkin_simple = callPackage ../development/ros-modules/catkin_simple { };
 
   cmake_modules = callPackage ../development/ros-modules/cmake_modules { };
@@ -32820,6 +32822,8 @@ with pkgs;
   roscpp = callPackage ../development/ros-modules/roscpp { };
 
   rospy = callPackage ../development/ros-modules/rospy { };
+
+  rospy_38 = callPackage ../development/ros-modules/rospy/38.nix { };
 
   rostime = callPackage ../development/ros-modules/rostime { };
 
