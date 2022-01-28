@@ -19,7 +19,7 @@ in mkRosPackage {
     owner = "ros-gbp";
     repo = "ros_comm-release";
     rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "1gd68cm63k95981rfl42cd6q00y85zfkdyvkvr07i0jkjalpg66k";
+    sha256 = "sha256-k8F1uRKFKqf3GxvSVRnwvLGv1j1+pSLXYRNWUTonoUE=";
   };
 
   propagatedBuildInputs = [ catkin rosgraph rostopic ];

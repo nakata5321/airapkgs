@@ -10,14 +10,14 @@ let
 in mkRosPackage rec {
   name = "${pname}-${version}";
   pname = "actionlib_msgs";
-  version = "1.12.5";
+  version = "1.12.8";
   rosdistro = "melodic";
 
   src = fetchFromGitHub {
     owner = "ros-gbp";
     repo = "common_msgs-release";
-    rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "0927xymm16b6dwyp3rpr5ig0ppiljnlmyjwf6nb96lb6ywifdznc";
+    rev = "release/${rosdistro}/${pname}/${version}-1";
+    sha256 = "sha256-oqc/PapJAPLrWxNn+pAiadVHMJW/pFP0BvOuUp+d0Ig=";
   };
 
   propagatedBuildInputs = [ message_generation std_msgs ];
