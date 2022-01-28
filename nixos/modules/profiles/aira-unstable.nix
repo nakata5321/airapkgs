@@ -4,7 +4,7 @@
 
   # Use AIRA channel by default
   # https://github.com/airalab/aira/issues/43
-  system.defaultChannel = "https://aira.life/channels/aira-unstable";
+  system.defaultChannel = "https://github.com/airalab/airapkgs/archive/refs/heads/nixos-unstable.tar.gz";
 
   nix = {
     # Disable sandbox by default
