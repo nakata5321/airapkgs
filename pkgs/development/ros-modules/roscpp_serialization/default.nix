@@ -24,6 +24,8 @@ in mkRosPackage {
 
   propagatedBuildInputs = [ catkin cpp_common rostime roscpp_traits ];
 
+  doCheck = false;
+
   meta = with lib; {
     description = "Contains the code for serialization, is a component of roscpp";
     homepage = http://wiki.ros.org/roscpp_serialization;
